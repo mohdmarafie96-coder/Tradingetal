@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Your own trading records — never commit these
+trading/
+journal.csv
+statements/
+*.xlsx
