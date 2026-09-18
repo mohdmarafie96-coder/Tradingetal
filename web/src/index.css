@@ -37,8 +37,11 @@
   --risk-bg: #fef3e2;
 
   /* Type */
-  --font-prose: "Source Serif 4", "Source Serif Pro", Georgia, serif;
-  --font-ui: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  /* The Latin faces carry no Arabic glyphs. The Arabic faces stay in the
+     fallback chain in both editions so an Arabic label inside an English page
+     — the language switch — still renders. */
+  --font-prose: "Source Serif 4", "Source Serif Pro", "Noto Naskh Arabic", Georgia, serif;
+  --font-ui: "IBM Plex Sans", "IBM Plex Sans Arabic", system-ui, -apple-system, sans-serif;
   --font-num: "IBM Plex Mono", ui-monospace, monospace;
 
   --size-display: 2.25rem;
