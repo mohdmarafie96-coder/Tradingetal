@@ -14,12 +14,23 @@ import { useTheme } from './lib/theme';
 import { useRiskGate } from './lib/gate';
 import { DIR, rememberLang, useStrings, type Lang } from './lib/i18n';
 import { courseFor } from './content/manifest';
+import { QUIZ_BY_PAGE } from './content/quiz';
 
 function App() {
   const route = useRoute();
   const { lang, pageId, anchor, inferred } = route;
   const { t } = useStrings(lang);
-  const { status, signInError, busy, signIn, signOut } = useAuth();
+  const {
+    status,
+    error: authError,
+    busy,
+    awaitingConfirmation,
+    signIn,
+    signUp,
+    signInWithGoogle,
+    signOut,
+    clearError,
+  } = useAuth();
   const signedIn = status === 'signed-in';
   const { ready, completed, quizzes, failed, toggle, submit } = useStore(signedIn);
   const { theme, toggle: toggleTheme } = useTheme();
@@ -31,6 +42,9 @@ function App() {
   const isHome = pageId === '';
   const isCalculator = pageId === 'calculator';
   const meta = course.pageById.get(pageId);
+  // A quiz page is titled by its paper ("Module 00 Quiz"), not by the generic
+  // "Quiz" the course manifest carries for the slot.
+  const pageTitle = QUIZ_BY_PAGE.get(pageId)?.title[lang] ?? meta?.title;
 
   // A URL with no language segment is rewritten to the canonical one, so every
   // page can be shared in the language it was read in.
@@ -65,10 +79,10 @@ function App() {
       ? `${t.heroTitle} · ${brand}`
       : isCalculator
         ? `${t.calculator} · ${brand}`
-        : meta
-          ? `${meta.title} · ${brand}`
+        : pageTitle
+          ? `${pageTitle} · ${brand}`
           : brand;
-  }, [isHome, isCalculator, meta, t]);
+  }, [isHome, isCalculator, pageTitle, t]);
 
   const onSearchNavigate = useCallback((id: string) => navigate(lang, id), [lang]);
 
@@ -82,7 +96,7 @@ function App() {
     ? t.heroTitle
     : isCalculator
       ? t.calculator
-      : (meta?.title ?? t.notFound);
+      : (pageTitle ?? t.notFound);
 
   // The course is behind an account, so the loss statistic sits on the public
   // sign-in screen: a visitor reads it before signing in, not after.
@@ -95,9 +109,13 @@ function App() {
       <SignIn
         lang={lang}
         busy={busy}
-        error={signInError}
+        error={authError}
+        awaitingConfirmation={awaitingConfirmation}
         onSignIn={signIn}
+        onSignUp={signUp}
+        onGoogle={signInWithGoogle}
         onSwitchLang={switchLang}
+        onClearError={clearError}
       />
     );
   }

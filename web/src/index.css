@@ -2134,3 +2134,148 @@ button {
   line-height: 1.6;
   color: var(--ink-secondary);
 }
+
+/* ------------------------------------------------------ sign-in and signup */
+
+.signin-tabs {
+  display: flex;
+  gap: var(--space-1);
+  padding: var(--space-1);
+  background: var(--surface-sunken);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  margin-bottom: var(--space-4);
+}
+
+.signin-tabs button {
+  flex: 1;
+  height: 36px;
+  border-radius: 6px;
+  font-size: var(--size-ui);
+  font-weight: 500;
+  color: var(--ink-secondary);
+  background: transparent;
+  border: 0;
+}
+
+.signin-tabs button.is-active {
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 1px 2px rgba(20, 32, 30, 0.08);
+}
+
+.signin-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.signin-form .field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.signin-form .field-label {
+  font-size: var(--size-small);
+  font-weight: 500;
+  color: var(--ink-secondary);
+}
+
+.signin-form input {
+  height: 44px;
+  padding-inline: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: var(--size-ui);
+  font-family: var(--font-ui);
+  width: 100%;
+  /* An email address and a password are Latin whatever the page language. */
+  direction: ltr;
+  text-align: start;
+}
+
+[dir="rtl"] .signin-form input {
+  text-align: right;
+}
+
+.signin-form input:focus {
+  outline: 2px solid var(--teal-600);
+  outline-offset: -1px;
+  border-color: var(--teal-600);
+}
+
+.btn-wide {
+  width: 100%;
+  justify-content: center;
+}
+
+.signin-switch {
+  display: block;
+  width: 100%;
+  margin-top: var(--space-3);
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: var(--size-small);
+  color: var(--teal-600);
+  text-align: center;
+}
+
+.signin-switch:hover {
+  text-decoration: underline;
+}
+
+.signin-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin: var(--space-5) 0 var(--space-4);
+  color: var(--ink-muted);
+  font-size: var(--size-small);
+}
+
+.signin-divider::before,
+.signin-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.signin-confirm {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid color-mix(in srgb, var(--teal-600) 30%, transparent);
+  background: var(--teal-100);
+  border-radius: var(--radius-card);
+  color: var(--teal-900);
+}
+
+[data-theme="dark"] .signin-confirm {
+  background: color-mix(in srgb, var(--teal-600) 16%, transparent);
+  color: var(--ink);
+}
+
+.signin-confirm p {
+  margin: 4px 0 0;
+  font-size: var(--size-ui);
+  line-height: 1.55;
+}
+
+.signin-lang {
+  margin-top: var(--space-5);
+}
+
+.btn:disabled,
+.signin-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn:disabled:hover {
+  border-color: var(--border);
+}

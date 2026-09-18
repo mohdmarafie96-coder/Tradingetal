@@ -10,7 +10,7 @@ margin behave, how to manage risk, and how to build and test a trading plan.
 > education, not financial advice, and it will not make you money. Read the disclosure
 > in full before Module 1.
 
-**Read it in the browser:** <https://cfd-trading-fundamentals-hnvntf.v2.appdeploy.ai/>
+**Read it in the browser:** see `web/README.md` for the deployed app.
 
 The web version renders these same files with sidebar navigation, progress tracking,
 full-text search and an interactive calculator. Source in [`web/`](web/).

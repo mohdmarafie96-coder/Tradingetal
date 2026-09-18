@@ -114,7 +114,10 @@ function PageView({
       : undefined;
   const isDone = completed.has(pageId);
   const trackable = meta.moduleId !== null;
-  const headings = page?.headings ?? [];
+  // A quiz or the answer key is rendered rather than parsed from markdown, so
+  // it has no headings of its own; without this the contents panel would keep
+  // showing the last lesson's.
+  const headings = rendered ? [] : (page?.headings ?? []);
 
   return (
     <>

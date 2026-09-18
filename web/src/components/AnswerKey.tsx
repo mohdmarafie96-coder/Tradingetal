@@ -1,10 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 import { ChevronDown, Lock, Unlock } from 'lucide-react';
-import { api } from '@appdeploy/client';
 import { QUIZZES, loadPaper, loadWhy, type Paper, type Why } from '../content/quiz';
 import { hrefFor } from '../lib/router';
 import { useStrings, type Lang } from '../lib/i18n';
-import type { QuizState } from '../lib/store';
+import { fetchAnswers, type QuizState } from '../lib/store';
 
 interface Props {
   lang: Lang;
@@ -42,13 +41,12 @@ function AnswerKey({ lang, quizzes }: Props) {
     setBusy(true);
     setPaper(null);
     setKey(null);
-    Promise.all([loadPaper(open), loadWhy(open), api.get(`/api/answers/${open}`)]).then(
-      ([loaded, prose, res]) => {
+    Promise.all([loadPaper(open), loadWhy(open), fetchAnswers(open)]).then(
+      ([loaded, prose, body]) => {
         if (cancelled) return;
-        const body = res.data as { unlocked: boolean; answers: KeyEntry[] | null };
         setPaper(loaded);
         setWhy(prose);
-        setKey(body.unlocked ? body.answers : null);
+        setKey(body.unlocked ? (body.answers as KeyEntry[] | null) : null);
         setBusy(false);
       },
       () => {

@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Check, RotateCcw, X } from 'lucide-react';
-import { api } from '@appdeploy/client';
 import { loadPaper, loadWhy, type Paper, type Question, type Why } from '../content/quiz';
 import { useStrings, type Lang } from '../lib/i18n';
-import type { Mark, Marked, QuizState } from '../lib/store';
+import { fetchAnswers, type Mark, type Marked, type QuizState } from '../lib/store';
 
 interface Props {
   lang: Lang;
@@ -107,14 +106,7 @@ function Quiz({ lang, quizId, state, onSubmit }: Props) {
     setBusy(true);
     setSaveError(false);
     try {
-      const [{ data }, prose] = await Promise.all([
-        api.get(`/api/answers/${quizId}`),
-        loadWhy(quizId),
-      ]);
-      const key = data as {
-        unlocked: boolean;
-        answers: Array<{ id: string; part: string | null; correct: string[] }> | null;
-      };
+      const [key, prose] = await Promise.all([fetchAnswers(quizId), loadWhy(quizId)]);
       if (!key.unlocked || !key.answers || !latest) {
         setSaveError(true);
         return;

@@ -89,15 +89,32 @@ interface Strings {
   signInWhy1: string;
   signInWhy2: string;
   signInWhy3: string;
-  signInButton: string;
   signInBusy: string;
-  signInProviders: string;
-  signInBlocked: string;
-  signInClosed: string;
-  signInFailed: string;
-  signInRetry: string;
   signOut: string;
   account: string;
+
+  authTabSignIn: string;
+  authTabSignUp: string;
+  authEmail: string;
+  authPassword: string;
+  authPasswordHint: string;
+  authSubmitSignIn: string;
+  authSubmitSignUp: string;
+  authSwitchToSignUp: string;
+  authSwitchToSignIn: string;
+  authOr: string;
+  authGoogle: string;
+  authGoogleSoon: string;
+  authConfirmTitle: string;
+  authConfirmBody: string;
+  errBadCredentials: string;
+  errAlreadyRegistered: string;
+  errWeakPassword: string;
+  errInvalidEmail: string;
+  errRateLimited: string;
+  errProviderDisabled: string;
+  errNetwork: string;
+  errFailed: string;
 
   quizClosedBook: string;
   quizCalculatorNote: string;
@@ -308,15 +325,33 @@ const en: Strings = {
   signInWhy1: 'Your place in the course, saved as you read.',
   signInWhy2: 'Every quiz attempt, marked and kept, with the answers unlocked once you have sat the paper.',
   signInWhy3: 'Nothing else. No payment, no trading account, and nothing is sold to a broker.',
-  signInButton: 'Sign in',
-  signInBusy: 'Opening sign-in\u2026',
-  signInProviders: 'Continue with Google, Apple or X.',
-  signInBlocked: 'Your browser blocked the sign-in window. Allow pop-ups for this site and try again.',
-  signInClosed: 'The sign-in window closed before it finished.',
-  signInFailed: 'Sign-in did not complete. Please try again.',
-  signInRetry: 'Try again',
+  signInBusy: 'One moment\u2026',
   signOut: 'Sign out',
   account: 'Account',
+
+  authTabSignIn: 'Sign in',
+  authTabSignUp: 'Create account',
+  authEmail: 'Email',
+  authPassword: 'Password',
+  authPasswordHint: 'At least 8 characters.',
+  authSubmitSignIn: 'Sign in',
+  authSubmitSignUp: 'Create account',
+  authSwitchToSignUp: 'New here? Create an account.',
+  authSwitchToSignIn: 'Already have an account? Sign in.',
+  authOr: 'or',
+  authGoogle: 'Continue with Google',
+  authGoogleSoon: 'Google sign-in is not switched on yet. Use an email address for now.',
+  authConfirmTitle: 'Confirm your email',
+  authConfirmBody:
+    'We have sent a confirmation link to that address. Open it, then come back and sign in.',
+  errBadCredentials: 'That email and password do not match an account.',
+  errAlreadyRegistered: 'There is already an account with that email. Sign in instead.',
+  errWeakPassword: 'That password is too short. Use at least 8 characters.',
+  errInvalidEmail: 'That does not look like an email address.',
+  errRateLimited: 'Too many attempts. Wait a minute and try again.',
+  errProviderDisabled: 'That sign-in method is not switched on yet.',
+  errNetwork: 'Could not reach the server. Check your connection and try again.',
+  errFailed: 'That did not work. Please try again.',
 
   quizClosedBook: 'Closed book. Your answers are marked when you submit, not before.',
   quizCalculatorNote: 'Calculator permitted.',
@@ -532,15 +567,33 @@ const ar: Strings = {
   signInWhy1: 'موضعك في الدورة، محفوظًا أولًا بأول.',
   signInWhy2: 'كل محاولة اختبار، مصحَّحة ومحفوظة، مع فتح الإجابات بعد أن تؤدّي الاختبار.',
   signInWhy3: 'ولا شيء غير ذلك. لا دفع، ولا حساب تداول، ولا بيع لبياناتك لأي وسيط.',
-  signInButton: 'تسجيل الدخول',
-  signInBusy: 'جارٍ فتح نافذة الدخول\u2026',
-  signInProviders: 'تابع بحساب Google أو Apple أو X.',
-  signInBlocked: 'حجب متصفّحك نافذة الدخول. اسمح بالنوافذ المنبثقة لهذا الموقع ثم أعد المحاولة.',
-  signInClosed: 'أُغلقت نافذة الدخول قبل اكتمالها.',
-  signInFailed: 'لم يكتمل تسجيل الدخول. أعد المحاولة من فضلك.',
-  signInRetry: 'أعد المحاولة',
+  signInBusy: 'لحظة من فضلك\u2026',
   signOut: 'تسجيل الخروج',
   account: 'الحساب',
+
+  authTabSignIn: 'تسجيل الدخول',
+  authTabSignUp: 'إنشاء حساب',
+  authEmail: 'البريد الإلكتروني',
+  authPassword: 'كلمة المرور',
+  authPasswordHint: 'ثمانية أحرف على الأقل.',
+  authSubmitSignIn: 'تسجيل الدخول',
+  authSubmitSignUp: 'أنشئ الحساب',
+  authSwitchToSignUp: 'جديد هنا؟ أنشئ حسابًا.',
+  authSwitchToSignIn: 'لديك حساب بالفعل؟ سجّل الدخول.',
+  authOr: 'أو',
+  authGoogle: 'تابع بحساب Google',
+  authGoogleSoon: 'الدخول عبر Google غير مفعَّل بعد. استخدم بريدًا إلكترونيًّا في الوقت الحالي.',
+  authConfirmTitle: 'أكّد بريدك الإلكتروني',
+  authConfirmBody:
+    'أرسلنا رابط تأكيد إلى ذلك العنوان. افتحه ثم عد وسجّل الدخول.',
+  errBadCredentials: 'لا يطابق هذا البريد وكلمة المرور أي حساب.',
+  errAlreadyRegistered: 'يوجد حساب بهذا البريد بالفعل. سجّل الدخول بدلًا من ذلك.',
+  errWeakPassword: 'كلمة المرور قصيرة جدًّا. استخدم ثمانية أحرف على الأقل.',
+  errInvalidEmail: 'هذا لا يبدو عنوان بريد إلكتروني.',
+  errRateLimited: 'محاولات كثيرة جدًّا. انتظر دقيقة ثم أعد المحاولة.',
+  errProviderDisabled: 'طريقة الدخول هذه غير مفعَّلة بعد.',
+  errNetwork: 'تعذّر الوصول إلى الخادم. تحقّق من اتصالك ثم أعد المحاولة.',
+  errFailed: 'لم ينجح ذلك. أعد المحاولة من فضلك.',
 
   quizClosedBook: 'كتاب مغلق. تُصحَّح إجاباتك عند التسليم لا قبله.',
   quizCalculatorNote: 'والآلة الحاسبة مسموحة.',

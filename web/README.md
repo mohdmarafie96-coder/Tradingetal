@@ -1,12 +1,11 @@
 # Course web app
 
-The deployed version of the course.
+The deployed version of the course: a React single-page app that renders the
+markdown in this repository as a browsable course, with accounts, saved
+progress, marked quizzes, full-text search and an interactive calculator.
 
-**Live:** https://cfd-trading-fundamentals-hnvntf.v2.appdeploy.ai/
-
-A React single-page app that renders the markdown in this repository as a
-browsable course, with progress tracking, full-text search and an interactive
-calculator.
+Hosted on Vercel. Accounts and data are Supabase; there is no server of our
+own, because there is nothing for one to do — see below.
 
 ## How the content gets in
 
@@ -39,10 +38,15 @@ npm run preview    # serve the production build
 |---|---|
 | `src/App.tsx` | Shell, hash routing, layout |
 | `src/lib/router.ts` | Hash-based routing (no router dependency) |
-| `src/lib/progress.ts` | Lesson completion, persisted to localStorage |
+| `src/lib/supabase.ts` | Supabase client, and the Google sign-in switch |
+| `src/lib/auth.ts` | Sign up, sign in, sign out, and readable failures |
+| `src/lib/store.ts` | Saved progress and quiz attempts, via database functions |
 | `src/lib/gate.ts` | Risk-disclosure acknowledgement |
 | `src/lib/theme.ts` | Light and dark theme |
+| `src/components/SignIn.tsx` | The public screen: risk statistic, then sign-in |
 | `src/components/RiskGate.tsx` | The mandatory opening disclosure |
+| `src/components/Quiz.tsx` | Closed-book tick-box papers and the marked review |
+| `src/components/AnswerKey.tsx` | The answer key, released module by module |
 | `src/components/Sidebar.tsx` | Module tree and progress |
 | `src/components/PageView.tsx` | Lesson rendering, prev/next, completion |
 | `src/components/SearchPanel.tsx` | Full-text search over the course |
@@ -65,3 +69,37 @@ match the worked examples in the course:
 | Margin | 21.8:1 effective leverage | Module 04.3 |
 | Expectancy | +0.33R net | Module 06.2 |
 | Drawdown | 42.9% to recover 30% | Module 06.3 |
+
+## Accounts, progress and marking
+
+Readers sign in with an email address and password, or with Google once that
+provider has been given credentials in the Supabase dashboard (flip
+`GOOGLE_ENABLED` in `src/lib/supabase.ts` when it is on). Everything past the
+sign-in screen needs an account, so the loss statistic regulators require
+brokers to publish is stated on the sign-in screen itself, where a visitor
+reads it before deciding to sign up.
+
+There is no backend of our own. Postgres does the work:
+
+| Function | What it does |
+|---|---|
+| `user_state()` | Pages read, and every quiz's attempts, best and latest |
+| `set_progress()` / `merge_progress()` | Mark a page read; carry over a signed-out visit |
+| `submit_attempt()` | Marks a paper, records the attempt, returns the marked paper |
+| `quiz_answers()` | The answer key for one quiz, once that quiz has been sat |
+
+Which options are correct lives in `public.quiz_key`, a table with row level
+security on and **no read policy**: no client can select from it, and nothing
+but the marking function can see it. `public.attempts` has no insert policy
+either, so a reader cannot award themselves a pass — only `submit_attempt()`
+writes there. That is what makes "closed book" and the per-module answer unlock
+real rather than cosmetic.
+
+The schema is in `../supabase/migrations`, and the marking key is generated
+from the question bank by `../scripts/build-quiz-seed.mjs`.
+
+## Deploying
+
+Vercel builds this directory. `npm run build` fetches the course content from
+the pinned commit and produces `dist/`; `vercel.json` rewrites every path to
+`index.html` so a deep link survives a reload.
