@@ -1,0 +1,484 @@
+{
+  "id": "m07",
+  "kind": "quiz",
+  "title": {
+    "en": "Module 07 Quiz",
+    "ar": "اختبار الوحدة 07"
+  },
+  "passMark": 0.8,
+  "meta": {
+    "dir": "07-market-analysis",
+    "calculator": false,
+    "anchor": {
+      "en": "module-07",
+      "ar": "الوحدة-07"
+    },
+    "scoring": {
+      "en": "Below 8/10, reread before Module 08.",
+      "ar": "أقلّ من 8 من 10: أعد القراءة قبل الوحدة 08."
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": {
+        "en": "What four values does a candlestick display?",
+        "ar": "ما القيم الأربع التي تعرضها الشمعة؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Open, high, low, close",
+            "ar": "الافتتاح، والقمّة، والقاع، والإغلاق"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Bid, ask, mid, volume",
+            "ar": "سعر العرض، وسعر الطلب، والوسطي، والحجم"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "High, low, average, range",
+            "ar": "القمّة، والقاع، والمتوسط، والمدى"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Open, close, volume, spread",
+            "ar": "الافتتاح، والإغلاق، والحجم، والفارق السعري"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "The body is the net movement over the period; the wicks are the extremes reached but not held.",
+        "ar": "الجسم هو صافي الحركة خلال الفترة، والفتائل هي الأطراف التي بُلغت ولم تُحتفَظ."
+      }
+    },
+    {
+      "id": "q2",
+      "type": "multi",
+      "prompt": {
+        "en": "Why are H4 and D1 recommended for beginners over M5? Select all that apply.",
+        "ar": "لماذا يُنصَح المبتدئون بالإطارين H4 وD1 بدلًا من M5؟ اختر كل ما ينطبق."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "A fixed spread is a much smaller fraction of a wide stop",
+            "ar": "الفارق الثابت كسرٌ أصغر بكثير من وقف واسع"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Higher timeframes generate far fewer trades, so total cost is lower",
+            "ar": "الأطر الأعلى تولّد صفقات أقلّ بكثير، فتقلّ التكلفة الإجمالية"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Lower timeframes are technically more advanced and require more skill to read",
+            "ar": "الأطر الأدنى أكثر تقدّمًا تقنيًّا وتتطلّب مهارة أعلى في القراءة"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Fewer decisions means fewer opportunities for emotional error",
+            "ar": "قرارات أقلّ تعني فرصًا أقلّ للخطأ العاطفي"
+          }
+        }
+      ],
+      "correct": [
+        "a",
+        "b",
+        "d"
+      ],
+      "explanation": {
+        "en": "A 1.5-pip spread is 1.5% of a 100-pip stop but 15% of a 10-pip stop. The misconception is that lower timeframes are technically more advanced: they are not, they are harder, more expensive and more punishing of small errors.",
+        "ar": "فارق 1.5 نقطة يمثّل 1.5% من وقف 100 نقطة و15% من وقف 10 نقاط. والمفهوم الخاطئ هو أن الأطر الأدنى أكثر تقدّمًا تقنيًّا: فهي ليست كذلك، بل أصعب وأغلى وأشدّ معاقبةً للأخطاء الصغيرة."
+      }
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": {
+        "en": "Define an uptrend in terms of swing highs and lows. What specific event ends it by definition?",
+        "ar": "عرّف الاتجاه الصاعد بدلالة القمم والقيعان. وما الحدث المحدّد الذي ينهيه بحكم التعريف؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Rising price over 20 periods; it ends when price falls for 3 periods",
+            "ar": "سعر صاعد على مدى 20 فترة، وينتهي حين يهبط السعر 3 فترات"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Higher highs and higher lows; it ends when a lower low is made",
+            "ar": "قمم أعلى وقيعان أعلى، وينتهي حين يُصنَع قاع أدنى"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Higher highs and higher lows; it ends when a moving average crosses down",
+            "ar": "قمم أعلى وقيعان أعلى، وينتهي حين يتقاطع متوسّط متحرّك نزولًا"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Higher closes; it ends at a doji",
+            "ar": "إغلاقات أعلى، وينتهي عند شمعة دوجي"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "That is a change in description, not a forecast — it does not mean price will fall, only that any rule conditioned on \"uptrend\" no longer applies.",
+        "ar": "وذلك تغيّر في الوصف لا تنبّؤ — فهو لا يعني أن السعر سيهبط، بل أن أي قاعدة مشروطة بـ«اتجاه صاعد» لم تعد تنطبق."
+      }
+    },
+    {
+      "id": "q4",
+      "type": "multi",
+      "prompt": {
+        "en": "Select the rules for drawing a defensible support or resistance level.",
+        "ar": "اختر قواعد رسم مستوى دعم أو مقاومة قابل للدفاع."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Redraw a level after price passes it, to keep it accurate",
+            "ar": "أعد رسم المستوى بعد تجاوز السعر له، للحفاظ على دقّته"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Treat levels as zones, not lines",
+            "ar": "عامل المستويات مناطقَ لا خطوطًا"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Use at least two touches",
+            "ar": "استخدم لمستين على الأقل"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Draw as many as possible so price is always near one",
+            "ar": "ارسم أكبر عدد ممكن حتى يكون السعر دائمًا قريبًا من أحدها"
+          }
+        },
+        {
+          "id": "e",
+          "text": {
+            "en": "Prefer levels visible on a higher timeframe",
+            "ar": "فضّل المستويات المرئية على إطار أعلى"
+          }
+        }
+      ],
+      "correct": [
+        "b",
+        "c",
+        "e"
+      ],
+      "explanation": {
+        "en": "Fewer is better — three to five on a chart. Drawing as many as possible makes levels unfalsifiable and useless; redrawing a level after price passes it is curve-fitting your own chart in real time.",
+        "ar": "والأقلّ أفضل — من ثلاثة إلى خمسة على الرسم. فرسم أكبر عدد ممكن يجعل المستويات غير قابلة للتكذيب وعديمة النفع، وإعادة رسم مستوى بعد تجاوز السعر له هي مواءمة منحنى رسمك أنت في الزمن الحقيقي."
+      }
+    },
+    {
+      "id": "q5",
+      "type": "single",
+      "prompt": {
+        "en": "An indicator can reveal information not present in the price series. True or false?",
+        "ar": "يمكن للمؤشّر أن يكشف معلومة غير موجودة في سلسلة الأسعار. صواب أم خطأ؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "True for leading indicators and false for lagging ones",
+            "ar": "صواب في المؤشّرات الاستباقية وخطأ في المتأخّرة"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "True, but only for indicators that incorporate traded volume",
+            "ar": "صواب، لكن في المؤشّرات التي تُدخل حجم التداول فقط"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "False — an indicator is a formula applied to the price series itself",
+            "ar": "خطأ، فالمؤشّر صيغة تُطبَّق على سلسلة الأسعار نفسها"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "True — that is exactly what makes indicators useful additions",
+            "ar": "صواب، وهذا بالضبط ما يجعل المؤشّرات إضافة نافعة"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "What indicators provide is objectivity, quantification and consistency — not information and not prediction.",
+        "ar": "وما توفّره المؤشّرات هو الموضوعية والتكميم والاتّساق — لا المعلومة ولا التنبّؤ."
+      }
+    },
+    {
+      "id": "q6",
+      "type": "single",
+      "prompt": {
+        "en": "RSI on your instrument reads 78. A trader takes this as a sell signal. What is wrong with that reasoning?",
+        "ar": "يقرأ مؤشّر القوة النسبية على أداتك 78. ويعتبر متداولٌ ذلك إشارة بيع. ما الخطأ في هذا التعليل؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "78 is not high enough; the threshold for selling is 85",
+            "ar": "78 ليست مرتفعة بما يكفي، فعتبة البيع 85"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "RSI should be read on a higher timeframe before acting",
+            "ar": "ينبغي قراءة المؤشّر على إطار أعلى قبل التصرّف"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Nothing — a reading above 70 is the standard sell trigger",
+            "ar": "لا شيء، فالقراءة فوق 70 هي محفّز البيع القياسي"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "In a trend RSI can hold above 70 for weeks while price keeps rising",
+            "ar": "في الاتجاه قد يبقى المؤشّر فوق 70 أسابيع بينما يواصل السعر الصعود"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "RSI is better used as a filter within a direction established elsewhere — for example, buying pullbacks to RSI 40–50 in an established uptrend.",
+        "ar": "ويُستخدَم المؤشّر استخدامًا أفضل مصفاةً ضمن اتجاه حُدِّد في مكان آخر — كشراء الارتدادات عند 40–50 في اتجاه صاعد راسخ."
+      }
+    },
+    {
+      "id": "q7",
+      "type": "single",
+      "prompt": {
+        "en": "ATR(14) on your instrument is 60 pips. Your account is $8,000 and you risk 1%. Using a 2 ATR stop, calculate the position size in lots.",
+        "ar": "متوسط المدى الحقيقي ATR(14) على أداتك 60 نقطة. وحسابك 8,000 دولار وتخاطر بـ 1%. وباستخدام وقف عند 2 ATR، احسب حجم المركز باللوتات."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "0.06 lots",
+            "ar": "0.06 لوت"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "1.33 lots",
+            "ar": "1.33 لوت"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "0.13 lots",
+            "ar": "0.13 لوت"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "0.60 lots",
+            "ar": "0.60 لوت"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "2 ATR = 120 pips. Risk = $80. Units = 80 / (120 × 0.0001) = 6,667 → 0.06 lots. Actual risk = 120 × $0.60 = $72. Answering 0.13 lots uses 1 ATR instead of 2.",
+        "ar": "2 ATR = 120 نقطة. والمخاطرة = 80 دولارًا. والوحدات = 80 ÷ (120 × 0.0001) = 6,667 ← 0.06 لوت. والمخاطرة الفعلية = 120 × 0.60 = 72 دولارًا. والإجابة بـ 0.13 لوت تستخدم ATR واحدًا بدلًا من اثنين."
+      }
+    },
+    {
+      "id": "q8",
+      "type": "single",
+      "prompt": {
+        "en": "Why do moving average crossover systems perform poorly in ranging markets?",
+        "ar": "لماذا تؤدّي أنظمة تقاطع المتوسّطات المتحرّكة أداءً ضعيفًا في الأسواق العرضية؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "They perform well in ranges; it is trends where they fail",
+            "ar": "بل تؤدّي جيدًا في النطاقات، وفي الاتجاهات تفشل"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Because the two averages cross back and forth, generating false signals",
+            "ar": "لأن المتوسّطين يتقاطعان ذهابًا وإيابًا، فيولّدان إشارات كاذبة"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Because spreads widen materially while the market is ranging",
+            "ar": "لأن الفوارق السعرية تتّسع اتّساعًا ملموسًا في النطاق"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Because moving averages cannot be computed inside a range",
+            "ar": "لأن المتوسّطات المتحرّكة لا يمكن حسابها داخل النطاق"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "Since markets range most of the time, that is the dominant experience of a crossover system.",
+        "ar": "وبما أن الأسواق في نطاق معظم الوقت، فتلك هي التجربة المهيمنة لنظام التقاطع."
+      }
+    },
+    {
+      "id": "q9",
+      "type": "single",
+      "prompt": {
+        "en": "A central bank raises rates by 0.25% and the currency falls. What is the most likely explanation?",
+        "ar": "يرفع بنك مركزي الفائدة 0.25% فتهبط العملة. ما التفسير الأرجح؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "The market simply reacted irrationally to the announcement",
+            "ar": "تفاعلت السوق مع الإعلان تفاعلًا غير عقلاني فحسب"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "There was a data error in the release that traders spotted",
+            "ar": "كان في الإصدار خطأ في البيانات التقطه المتداولون"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "The rise was smaller than expected, or already fully priced in",
+            "ar": "كان الرفع أصغر من المتوقَّع، أو كان مسعَّرًا بالكامل أصلًا"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Rate rises always weaken a currency over the following days",
+            "ar": "رفع الفائدة يُضعف العملة دائمًا في الأيام التالية"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "Markets price expectations and react to surprises — actual versus forecast, not actual versus previous.",
+        "ar": "فالأسواق تسعّر التوقّعات وتتفاعل مع المفاجآت — الفعلي مقابل المتوقَّع، لا الفعلي مقابل السابق."
+      }
+    },
+    {
+      "id": "q10",
+      "type": "single",
+      "prompt": {
+        "en": "You are long a share CFD. Earnings are announced tomorrow after the close. What is the specific risk?",
+        "ar": "أنت مشترٍ لعقد فروقات على سهم. وستُعلَن الأرباح غدًا بعد الإغلاق. ما المخاطرة المحدّدة؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "The spread will widen, which raises your cost of exit slightly",
+            "ar": "سيتّسع الفارق السعري، فترتفع تكلفة خروجك قليلًا"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Overnight financing is charged at triple rate on earnings night",
+            "ar": "يُحتسب التمويل الليلي بثلاثة أمثاله ليلة الأرباح"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "The broker will force-close the position before the announcement",
+            "ar": "سيغلق الوسيط المركز قسرًا قبل موعد الإعلان"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "The release lands outside the session, so price can gap past your stop",
+            "ar": "يقع الإعلان خارج الجلسة، فقد يقفز السعر متجاوزًا وقفك بفجوة"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "Two actions address it: close or substantially reduce before the announcement, or use a guaranteed stop loss.",
+        "ar": "وإجراءان يعالجانها: الإغلاق أو التقليص الكبير قبل الإعلان، أو استخدام وقف خسارة مضمون."
+      }
+    }
+  ]
+}

@@ -1,0 +1,403 @@
+{
+  "id": "m09",
+  "kind": "quiz",
+  "title": {
+    "en": "Module 09 Quiz",
+    "ar": "اختبار الوحدة 09"
+  },
+  "passMark": 0.75,
+  "meta": {
+    "dir": "09-trading-psychology",
+    "calculator": false,
+    "anchor": {
+      "en": "module-09",
+      "ar": "الوحدة-09"
+    },
+    "scoring": {
+      "en": "Below 6/8, reread. This module is the one people skip and then need.",
+      "ar": "أقلّ من 6 من 8: أعد القراءة. فهذه هي الوحدة التي يتخطّاها الناس ثم يحتاجون إليها."
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": {
+        "en": "Define the disposition effect and explain why it is fatal to expectancy.",
+        "ar": "عرّف أثر التصرّف واشرح لماذا هو قاتل للتوقّع."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Trading too often; it is fatal because costs accumulate quickly",
+            "ar": "التداول كثيرًا، وهو قاتل لأن التكاليف تتراكم سريعًا"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Sizing up after a win; it is fatal because variance rises sharply",
+            "ar": "تكبير الحجم بعد الربح، وهو قاتل لأن التباين يرتفع بحدّة"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Preferring familiar instruments; it is fatal because it concentrates",
+            "ar": "تفضيل الأدوات المألوفة، وهو قاتل لأنه يركّز الانكشاف"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Selling winners early and holding losers; it inverts your expectancy",
+            "ar": "بيع الرابحة مبكرًا والاحتفاظ بالخاسرة، وهو يقلب توقّعك"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "Driven by loss aversion: closing a winner feels good, closing a loser is the moment of pain, so it is deferred. It is quantitatively the most damaging bias in retail trading.",
+        "ar": "مدفوع بالنفور من الخسارة: فإغلاق الرابحة يُشعر بالرضا، وإغلاق الخاسرة لحظة الألم، فيُؤجَّل. وهو كمّيًّا أشدّ التحيّزات ضررًا في تداول الأفراد."
+      }
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": {
+        "en": "Why is outcome bias particularly dangerous in trading, given that markets are noisy?",
+        "ar": "لماذا يكون تحيّز النتيجة خطرًا بوجه خاص في التداول، بالنظر إلى أن الأسواق مليئة بالضجيج؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Because noise lets bad process produce good short-term outcomes",
+            "ar": "لأن الضجيج يتيح للعملية السيئة أن تُنتج نتائج جيدة قصيرة الأجل"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Because it causes traders to over-journal and lose focus",
+            "ar": "لأنه يدفع المتداولين إلى الإفراط في التدوين وفقد التركيز"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Because outcomes in markets are unknowable in principle",
+            "ar": "لأن النتائج في الأسواق غير قابلة للمعرفة من حيث المبدأ"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Because it makes traders far too cautious after a run of losses",
+            "ar": "لأنه يجعل المتداولين شديدي الحذر بعد سلسلة خسائر"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "The reckless trade that happened to win gets recorded as validation. The countermeasure is the process-compliance flag and grading on the four-cell grid rather than on P&L.",
+        "ar": "فالصفقة المتهوّرة التي صادف أن ربحت تُسجَّل تبريرًا. والتدبير المضادّ هو علامة الالتزام بالعملية والتقييم على الشبكة ذات الخانات الأربع لا على الربح والخسارة."
+      }
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": {
+        "en": "In the tilt spiral, at which step is intervention realistically possible, and why not later?",
+        "ar": "في دوّامة الانفلات، عند أي خطوة يكون التدخّل ممكنًا واقعيًّا، ولماذا لا يكون بعدها؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "At the first loss, because that is when the discomfort begins",
+            "ar": "عند الخسارة الأولى، لأنها حين يبدأ الانزعاج"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "At the recovery urge, before size and emotion make stopping unlikely",
+            "ar": "عند الدافع إلى الاسترداد، قبل أن يجعل الحجم والانفعال التوقّف مستبعدًا"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "At the escalation step, because the damage becomes visible there",
+            "ar": "عند خطوة التصعيد، لأن الضرر يصبح مرئيًّا عندها"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "After the large loss, during the post-mortem that follows it",
+            "ar": "بعد الخسارة الكبيرة، أثناء التشريح اللاحق لها"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "Steps 1 and 2 are normal and unavoidable. The whole spiral typically completes within a single session — most accounts that are destroyed are destroyed in one sitting, not by gradual attrition.",
+        "ar": "فالخطوتان 1 و2 طبيعيتان ولا مفرّ منهما. والدوّامة كلها تكتمل عادةً خلال جلسة واحدة — فمعظم الحسابات التي تُدمَّر تُدمَّر في جلسة واحدة لا بتآكل تدريجي."
+      }
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": {
+        "en": "You feel reluctant to take a setup that meets all your criteria. How do you distinguish fear from prudence, and what does fear usually indicate?",
+        "ar": "تشعر بالتردّد في أخذ إعداد يستوفي كل معاييرك. كيف تميّز الخوف من الحصافة، وعلام يدلّ الخوف عادةً؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "They cannot be told apart; treat all hesitation as a reason to skip",
+            "ar": "لا يمكن التمييز بينهما، فعامل كل تردّد سببًا للتجاوز"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Fear indicates that the market is about to reverse against you",
+            "ar": "الخوف يدلّ على أن السوق على وشك الانعكاس ضدّك"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Prudence names a rule; diffuse fear usually means the size is too large",
+            "ar": "الحصافة تسمّي قاعدة، والخوف المنتشر يعني عادةً أن الحجم كبير"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Fear is specific and prudence vague; fear means the setup is invalid",
+            "ar": "الخوف محدّد والحصافة غامضة، والخوف يعني بطلان الإعداد"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "The test: can you name the specific rule or condition causing hesitation? If yes, it is analysis. If no, it is fear — reduce your size until the hesitation disappears.",
+        "ar": "الاختبار: أتستطيع تسمية القاعدة أو الشرط المحدّد المسبّب للتردّد؟ فإن استطعت فهو تحليل، وإن لم تستطع فهو خوف — فقلّل حجمك حتى يزول التردّد."
+      }
+    },
+    {
+      "id": "q5",
+      "type": "single",
+      "prompt": {
+        "en": "Why is boredom a significant risk factor, and what is the structural response?",
+        "ar": "لماذا يُعدّ الملل عامل خطر معتبرًا، وما الاستجابة البنيوية له؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "It reduces concentration; the response is caffeine and shorter sessions",
+            "ar": "يقلّل التركيز، والاستجابة منبّهات وجلسات أقصر"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Boredom is not a risk factor; it has no bearing on trade selection",
+            "ar": "الملل ليس عامل خطر، ولا أثر له في اختيار الصفقات"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "It causes traders to miss valid setups; the response is more screen time",
+            "ar": "يدفع إلى تفويت إعدادات صحيحة، والاستجابة وقت شاشة أطول"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Empty screen time generates unplanned trades; do not sit at the platform",
+            "ar": "وقت الشاشة الفارغ يولّد صفقات خارج الخطة، فلا تجلس أمام المنصّة"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "A strategy producing four signals a month leaves a great deal of empty time. A large share of rule violations happen in tedium rather than distress, so the response is structural rather than motivational: use price alerts and fixed review times, and do not sit in front of the platform between them.",
+        "ar": "الاستراتيجية التي تُنتج أربع إشارات شهريًّا تترك وقتًا فارغًا كبيرًا. وحصة كبيرة من مخالفات القواعد تقع في الضجر لا في الضيق، فالاستجابة بنيوية لا تحفيزية: استخدم تنبيهات الأسعار وأوقات مراجعة ثابتة، ولا تجلس أمام المنصّة بينها."
+      }
+    },
+    {
+      "id": "q6",
+      "type": "single",
+      "prompt": {
+        "en": "\"I need to make that money back.\" What is precisely wrong with this as a goal?",
+        "ar": "«عليّ أن أسترد ذلك المال.» ما الخطأ بدقّة في هذا بوصفه هدفًا؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "The market has no memory of your loss and owes you no recovery",
+            "ar": "السوق لا تحتفظ بذاكرة لخسارتك ولا تدين لك بتعويض"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Nothing; it is a reasonable short-term objective to hold",
+            "ar": "لا شيء، فهو هدف قصير الأجل معقول"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "It ignores the tax implications of realising the loss",
+            "ar": "إنه يتجاهل الآثار الضريبية لتحقيق الخسارة"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "It is far too vague a goal to act on in any specific way",
+            "ar": "إنه هدف أغمض من أن يُتصرّف بناءً عليه بأي نحو محدّد"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "It is dangerous because it is a coherent-sounding goal that has nothing to do with the market. Each trade is independent; the previous loss is a sunk cost.",
+        "ar": "وهو خطر لأنه هدف يبدو متماسكًا ولا علاقة له بالسوق. فكل صفقة مستقلّة، والخسارة السابقة تكلفة غارقة."
+      }
+    },
+    {
+      "id": "q7",
+      "type": "multi",
+      "prompt": {
+        "en": "Select the examples that correctly replace a willpower-based control with a structural one.",
+        "ar": "اختر الأمثلة التي تستبدل صحيحًا ضابطًا بنيويًّا بضابط قائم على الإرادة."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Bracket orders placed at entry, instead of \"I won't move my stop\"",
+            "ar": "أوامر مركّبة توضع عند الدخول، بدلًا من «لن أحرّك وقفي»"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "A broker-level daily loss limit with a cooling-off period, instead of \"I'll stop after losses\"",
+            "ar": "حدّ خسارة يومي على مستوى الوسيط مع فترة تهدئة، بدلًا من «سأتوقّف بعد الخسائر»"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "A printed sizing table calculated before the session, instead of \"I'll stick to my size\"",
+            "ar": "جدول أحجام مطبوع محسوب قبل الجلسة، بدلًا من «سألتزم بحجمي»"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Reminding yourself each morning to be disciplined",
+            "ar": "تذكير نفسك كل صباح بأن تكون منضبطًا"
+          }
+        },
+        {
+          "id": "e",
+          "text": {
+            "en": "Platform closed outside defined review times, instead of \"I won't overtrade\"",
+            "ar": "إغلاق المنصّة خارج أوقات المراجعة المحدّدة، بدلًا من «لن أفرط في التداول»"
+          }
+        }
+      ],
+      "correct": [
+        "a",
+        "b",
+        "c",
+        "e"
+      ],
+      "explanation": {
+        "en": "Reminding yourself each morning to be disciplined is a willpower control wearing the costume of a system. A structure changes the situation; an intention does not.",
+        "ar": "وتذكير نفسك كل صباح بأن تكون منضبطًا ضابطُ إرادة يرتدي زيّ نظام. فالبنية تغيّر الموقف، أما النيّة فلا."
+      }
+    },
+    {
+      "id": "q8",
+      "type": "multi",
+      "prompt": {
+        "en": "Select the conditions under which you should stop trading entirely.",
+        "ar": "اختر الظروف التي ينبغي عندها أن تتوقّف عن التداول تمامًا."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "You are trading to change how you feel",
+            "ar": "التداول لتغيير ما تشعر به"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "You hit your maximum drawdown limit",
+            "ar": "بلوغ حدّ تراجعك الأقصى"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Plan compliance stays below 80% despite structural countermeasures",
+            "ar": "بقاء الالتزام بالخطة دون 80% رغم التدابير المضادّة البنيوية"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "It is affecting your sleep, work, relationships or health",
+            "ar": "التأثير في نومك أو عملك أو علاقاتك أو صحّتك"
+          }
+        },
+        {
+          "id": "e",
+          "text": {
+            "en": "You have had three losing trades in a row",
+            "ar": "تعرّضك لثلاث صفقات خاسرة متتالية"
+          }
+        }
+      ],
+      "correct": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "explanation": {
+        "en": "Three losing trades in a row is ordinary variance, not a stop condition — at a 45% win rate it is close to certain within any hundred trades. Also stop if you are trading money you cannot afford to lose, or hiding your trading from people close to you.",
+        "ar": "وثلاث صفقات خاسرة متتالية تباينٌ عادي لا شرط توقّف — فعند نسبة ربح 45% تكون شبه مؤكّدة ضمن أي مئة صفقة. وتوقّف كذلك إن كنت تتداول بمال لا تستطيع تحمّل خسارته، أو تخفي تداولك عمّن هم قريبون منك."
+      }
+    }
+  ]
+}

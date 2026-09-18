@@ -1,0 +1,510 @@
+{
+  "id": "m08",
+  "kind": "quiz",
+  "title": {
+    "en": "Module 08 Quiz",
+    "ar": "اختبار الوحدة 08"
+  },
+  "passMark": 0.8,
+  "meta": {
+    "dir": "08-trading-plan",
+    "calculator": false,
+    "anchor": {
+      "en": "module-08",
+      "ar": "الوحدة-08"
+    },
+    "scoring": {
+      "en": "Below 8/10, reread. Module 11 depends on having a real plan.",
+      "ar": "أقلّ من 8 من 10: أعد القراءة. فالوحدة 11 تعتمد على وجود خطة حقيقية."
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": {
+        "en": "Which definition of an edge is correct, and which part of it eliminates most candidate strategies?",
+        "ar": "أي تعريف للأفضلية صحيح، وأي جزء منه يستبعد معظم الاستراتيجيات المرشَّحة؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "A repeatable reason to expect positive expectancy after costs; \"after costs\" eliminates most candidates",
+            "ar": "سبب قابل للتكرار لتوقّع توقّعٍ موجب بعد التكاليف، و«بعد التكاليف» تستبعد معظم المرشَّحات"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "An indicator setting others do not use; \"others do not use\" is the hard part",
+            "ar": "إعداد مؤشّر لا يستخدمه غيرك، و«لا يستخدمه غيرك» هي الجزء الصعب"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "A signal that predicts direction more often than not; \"predicts\" is the hard part",
+            "ar": "إشارة تتنبّأ بالاتجاه أكثر ممّا تخطئ، و«تتنبّأ» هي الجزء الصعب"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "A win rate above 50%; \"above 50%\" is the hard part",
+            "ar": "نسبة ربح تتجاوز 50%، و«تتجاوز 50%» هي الجزء الصعب"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "\"After costs\" eliminates them quietly, because they look profitable right up until the spread, commission and financing are subtracted.",
+        "ar": "و«بعد التكاليف» تستبعدها في صمت، لأنها تبدو رابحة إلى أن يُطرَح الفارق السعري والعمولة والتمويل."
+      }
+    },
+    {
+      "id": "q2",
+      "type": "multi",
+      "prompt": {
+        "en": "Select the realistic sources of edge available to a retail trader.",
+        "ar": "اختر المصادر الواقعية للأفضلية المتاحة لمتداول أفراد."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Patience and selectivity",
+            "ar": "الصبر والانتقائية"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Risk management",
+            "ar": "إدارة المخاطر"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Faster access to market information than institutions",
+            "ar": "وصول إلى معلومات السوق أسرع من المؤسّسات"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Timeframe flexibility — no benchmark, no clients, no obligation to be invested",
+            "ar": "مرونة الإطار الزمني — بلا مؤشّر مرجعي ولا عملاء ولا التزام بأن تكون مستثمرًا"
+          }
+        },
+        {
+          "id": "e",
+          "text": {
+            "en": "Better indicator settings than other traders",
+            "ar": "إعدادات مؤشّرات أفضل من غيرك من المتداولين"
+          }
+        }
+      ],
+      "correct": [
+        "a",
+        "b",
+        "d"
+      ],
+      "explanation": {
+        "en": "None of the real sources involves better analysis, because a retail trader has no advantage in speed, information, capital or cost. Indicator settings are available to everyone with the same defaults. The remaining advantages are behavioural.",
+        "ar": "ولا يتضمّن أيٌّ من المصادر الحقيقية تحليلًا أفضل، لأن متداول الأفراد لا أفضلية له في السرعة ولا المعلومات ولا رأس المال ولا التكلفة. وإعدادات المؤشّرات متاحة للجميع بالإعدادات الافتراضية نفسها. فالأفضليات المتبقّية سلوكية."
+      }
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": {
+        "en": "Why is \"buy when the trend is up and price pulls back to support\" not a strategy?",
+        "ar": "لماذا لا تُعدّ عبارة «اشترِ حين يكون الاتجاه صاعدًا ويرتدّ السعر إلى الدعم» استراتيجيةً؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Because it only works on daily charts, not intraday ones",
+            "ar": "لأنها لا تنجح إلا على الرسوم اليومية دون اليومية الداخلية"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Because its terms are undefined, so two people place different trades",
+            "ar": "لأن مصطلحاتها غير معرَّفة، فيدخل شخصان صفقتين مختلفتين"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Because it omits a profit target and an exit rule entirely",
+            "ar": "لأنها تُغفل هدف الربح وقاعدة الخروج تمامًا"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Because trading pullbacks does not work in any reliable way",
+            "ar": "لأن تداول الارتدادات لا ينجح على أي نحو موثوق"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "It is a style, not a strategy. A style cannot be tested.",
+        "ar": "فهي أسلوب لا استراتيجية. والأسلوب لا يمكن اختباره."
+      }
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": {
+        "en": "What test determines whether your strategy is specified precisely enough?",
+        "ar": "ما الاختبار الذي يحدّد هل استراتيجيتك محدَّدة تحديدًا دقيقًا بما يكفي؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Whether the rules can be coded in under a hundred lines",
+            "ar": "هل يمكن برمجة القواعد في أقلّ من مئة سطر"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Whether it produces at least ten trades in an average month",
+            "ar": "هل تُنتج عشر صفقات على الأقل في شهر متوسّط"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Whether another person following your rules places the same trades",
+            "ar": "هل يدخل شخص آخر يتّبع قواعدك الصفقات نفسها"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Whether the whole plan fits onto a single printed page",
+            "ar": "هل تتّسع الخطة كلّها في صفحة مطبوعة واحدة"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "If not, the rules are not specified.",
+        "ar": "فإن لم يستطع، فالقواعد غير محدّدة."
+      }
+    },
+    {
+      "id": "q5",
+      "type": "multi",
+      "prompt": {
+        "en": "Select the components that must appear in a written trading plan.",
+        "ar": "اختر المكوّنات التي يجب أن تظهر في خطة تداول مكتوبة."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Risk limits with physical enforcement mechanisms",
+            "ar": "حدود مخاطرة بآليات تطبيق مادّية"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Amendment rules governing when the plan may be changed",
+            "ar": "قواعد تعديل تحكم متى يجوز تغيير الخطة"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Stop loss rules, including the rule for moving them",
+            "ar": "قواعد وقف الخسارة، بما فيها قاعدة تحريكه"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "A monthly profit target in currency",
+            "ar": "هدف ربح شهري بالعملة"
+          }
+        },
+        {
+          "id": "e",
+          "text": {
+            "en": "Position sizing rule",
+            "ar": "قاعدة تحديد حجم المركز"
+          }
+        },
+        {
+          "id": "f",
+          "text": {
+            "en": "Setup definitions precise enough to replicate",
+            "ar": "تعريفات إعدادات دقيقة بما يكفي للتكرار"
+          }
+        }
+      ],
+      "correct": [
+        "a",
+        "b",
+        "c",
+        "e",
+        "f"
+      ],
+      "explanation": {
+        "en": "A monthly profit target in currency is not a plan component — it is the pressure that causes rules to be abandoned. Objectives should be process-based, not outcome-based.",
+        "ar": "وهدف ربح شهري بالعملة ليس مكوّنًا في الخطة — بل هو الضغط الذي يدفع إلى هجر القواعد. والأهداف ينبغي أن تكون قائمة على العملية لا على النتيجة."
+      }
+    },
+    {
+      "id": "q6",
+      "type": "single",
+      "prompt": {
+        "en": "Why should a trading plan include rules about when it may be amended?",
+        "ar": "لماذا ينبغي أن تتضمّن خطة التداول قواعد بشأن متى يجوز تعديلها؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "To make the plan longer and more thorough for later review",
+            "ar": "لجعل الخطة أطول وأشمل عند المراجعة لاحقًا"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "To satisfy the record-keeping requirements of the regulator",
+            "ar": "لاستيفاء متطلّبات حفظ السجلّات لدى الجهة التنظيمية"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Because brokers require a versioned plan before funding",
+            "ar": "لأن الوسطاء يشترطون خطة ذات إصدارات قبل التمويل"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Because destructive changes are made within a day of a painful loss",
+            "ar": "لأن التغييرات المدمّرة تقع خلال يوم من خسارة موجعة"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "They prevent the plan becoming a record of your emotional history rather than a strategy.",
+        "ar": "وهي تمنع الخطة من أن تصبح سجلًّا لتاريخك العاطفي لا استراتيجية."
+      }
+    },
+    {
+      "id": "q7",
+      "type": "single",
+      "prompt": {
+        "en": "Why must the reasoning field in a trade journal be completed before the outcome is known?",
+        "ar": "لماذا يجب إكمال حقل التعليل في سجلّ الصفقات قبل معرفة النتيجة؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Because reasoning written afterwards is contaminated by the result",
+            "ar": "لأن التعليل المكتوب بعد ظهور النتيجة ملوَّث بها"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "To save time when the trade is reviewed at the end of the week",
+            "ar": "لتوفير الوقت عند مراجعة الصفقة في نهاية الأسبوع"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Because platforms overwrite the entry note once the trade closes",
+            "ar": "لأن المنصّات تستبدل مذكّرة الدخول بعد إغلاق الصفقة"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "It does not matter when it is written, only that it is written",
+            "ar": "لا يهمّ متى يُكتَب، المهمّ أن يُكتَب أصلًا"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "Only reasoning recorded in advance is evidence about your decision-making.",
+        "ar": "والتعليل المسجَّل مسبقًا وحده دليلٌ على طريقة اتّخاذك للقرار."
+      }
+    },
+    {
+      "id": "q8",
+      "type": "multi",
+      "prompt": {
+        "en": "Your journal shows an average loss of −1.3R. Select the possible explanations.",
+        "ar": "يُظهر سجلّك متوسط خسارة قدره −1.3R. اختر التفسيرات الممكنة."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Gaps taking you past the stop",
+            "ar": "فجوات تتجاوز بك الوقف"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Exiting worse than the planned level",
+            "ar": "خروج أسوأ من المستوى المخطَّط"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Stops being widened or not honoured",
+            "ar": "توسيع الوقوف أو عدم احترامها"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Slippage on stops",
+            "ar": "انزلاق على الوقوف"
+          }
+        },
+        {
+          "id": "e",
+          "text": {
+            "en": "Your win rate is too low",
+            "ar": "نسبة ربحك منخفضة جدًّا"
+          }
+        }
+      ],
+      "correct": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "explanation": {
+        "en": "A low win rate does not affect the size of the average loss — those are independent statistics. The diagnosis is only available because you recorded R-multiples, which is the argument for doing so.",
+        "ar": "ونسبة الربح المنخفضة لا تؤثّر في حجم متوسط الخسارة — فهما إحصاءان مستقلّان. والتشخيص لا يتاح إلا لأنك سجّلت مضاعفات R، وتلك هي الحجّة لفعل ذلك."
+      }
+    },
+    {
+      "id": "q9",
+      "type": "single",
+      "prompt": {
+        "en": "Which is a concrete example of look-ahead bias?",
+        "ar": "أيٌّ مثال ملموس على تحيّز النظر إلى الأمام؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Testing only the instruments that still exist in the market today",
+            "ar": "اختبار الأدوات التي ما تزال قائمة في السوق اليوم فقط"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Entering on a candle's close but recording the fill at its open",
+            "ar": "الدخول عند إغلاق الشمعة وتسجيل التنفيذ عند افتتاحها"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Omitting commission and financing from the backtest results",
+            "ar": "إغفال العمولة والتمويل من نتائج الاختبار الخلفي"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Adjusting a parameter repeatedly until performance improves",
+            "ar": "ضبط معامِل مرارًا وتكرارًا حتى يتحسّن الأداء"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "Look-ahead bias is using information that was not available at the time of the decision. Testing only the instruments that still exist is survivorship bias, tuning a parameter until performance improves is over-fitting, and omitting commission is ignoring costs — all real errors, but different ones.",
+        "ar": "تحيّز النظر إلى الأمام هو استخدام معلومة لم تكن متاحة وقت القرار. واختبار الأدوات الباقية وحدها تحيّز بقاء، وضبط معامِل حتى يتحسّن الأداء إفراط في المواءمة، وإغفال العمولة تجاهل للتكاليف — وكلها أخطاء حقيقية لكنها مختلفة."
+      }
+    },
+    {
+      "id": "q10",
+      "type": "single",
+      "prompt": {
+        "en": "Your backtest shows positive expectancy but your forward test is negative. What is the most likely explanation, and what should you do?",
+        "ar": "يُظهر اختبارك الخلفي توقّعًا موجبًا لكن اختبارك الأمامي سالب. ما التفسير الأرجح، وما الذي ينبغي أن تفعله؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Market conditions changed; re-optimise the parameters and retest",
+            "ar": "تغيّرت ظروف السوق، فأعد تحسين المعاملات واختبر ثانيةً"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Live markets are simply harder; fund it at a reduced size",
+            "ar": "الأسواق الحقيقية أصعب فحسب، فموّلها بحجم مخفَّض"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "The backtest was flawed; find the specific error and do not fund it",
+            "ar": "الاختبار الخلفي كان معيبًا، فاعثر على الخطأ ولا تموّلها"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "The forward sample is too small to matter; continue as planned",
+            "ar": "عيّنة الاختبار الأمامي أصغر من أن تهمّ، فواصل كما خُطِّط"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "The divergence has a cause and it is usually locatable. Re-optimising the parameters is over-fitting with extra steps.",
+        "ar": "فللتباعد سبب وهو قابل للتحديد عادةً. وإعادة تحسين المعاملات إفراط في المواءمة بخطوات إضافية."
+      }
+    }
+  ]
+}

@@ -1,0 +1,473 @@
+{
+  "id": "m01",
+  "kind": "quiz",
+  "title": {
+    "en": "Module 01 Quiz",
+    "ar": "اختبار الوحدة 01"
+  },
+  "passMark": 0.8,
+  "meta": {
+    "dir": "01-market-foundations",
+    "calculator": false,
+    "anchor": {
+      "en": "module-01",
+      "ar": "الوحدة-01"
+    },
+    "scoring": {
+      "en": "Below 8/10, reread before continuing. Modules 03 and 04 assume all of this.",
+      "ar": "أقلّ من 8 من 10: أعد القراءة قبل المتابعة. فالوحدتان 03 و04 تفترضان هذا كلّه."
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": {
+        "en": "EUR/USD is quoted 1.09140 / 1.09155. You open a long position. What price do you get, and what is the spread in pips?",
+        "ar": "EUR/USD مسعَّر 1.09140 / 1.09155. وتفتح مركز شراء. ما السعر الذي تحصل عليه، وكم الفارق السعري بالنقاط؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "1.091475, spread 1.5 pips",
+            "ar": "1.091475، والفارق 1.5 نقطة"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "1.09155, spread 1.5 pips",
+            "ar": "1.09155، والفارق 1.5 نقطة"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "1.09140, spread 1.5 pips",
+            "ar": "1.09140، والفارق 1.5 نقطة"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "1.09155, spread 15 pips",
+            "ar": "1.09155، والفارق 15 نقطة"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "You buy at the ask, 1.09155. Spread = 1.09155 − 1.09140 = 0.00015 = 1.5 pips. Being filled at the bid, 1.09140, is the classic error; reading 15 pips misreads the fifth decimal as a pip; and you never transact at the mid, 1.091475.",
+        "ar": "تشتري عند سعر الطلب، 1.09155. والفارق = 1.09155 − 1.09140 = 0.00015 = 1.5 نقطة. والتنفيذ عند سعر العرض، 1.09140، هو الخطأ الكلاسيكي؛ وقراءة 15 نقطة تقرأ الخانة الخامسة على أنها نقطة؛ ولا تُنفَّذ صفقة عند السعر الوسطي، 1.091475، أبدًا."
+      }
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": {
+        "en": "A market order differs from a limit order in that it:",
+        "ar": "يختلف أمر السوق عن الأمر الحدّي في أنه:"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Controls price but not execution",
+            "ar": "يتحكّم في السعر لا في التنفيذ"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Adds liquidity to the order book",
+            "ar": "يضيف سيولة إلى دفتر الأوامر"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Controls execution but not price",
+            "ar": "يتحكّم في التنفيذ لا في السعر"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Controls both",
+            "ar": "يتحكّم في الاثنين"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "A market order consumes resting liquidity at whatever price is available.",
+        "ar": "أمر السوق يستهلك السيولة الساكنة بأي سعر متاح."
+      }
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": {
+        "en": "Can price move with no transactions occurring at all?",
+        "ar": "هل يمكن أن يتحرّك السعر دون وقوع أي صفقات إطلاقًا؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "No — price only changes when a trade executes",
+            "ar": "لا، فالسعر لا يتغيّر إلا عند تنفيذ صفقة"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Only when the broker manually adjusts its quote",
+            "ar": "فقط حين يعدّل الوسيط تسعيره يدويًّا"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Yes, but only on exchange-traded instruments, never in FX",
+            "ar": "نعم، لكن في الأدوات المتداولة في البورصات فقط، لا في العملات أبدًا"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Yes — if every seller below a level cancels, the best ask jumps on zero volume",
+            "ar": "نعم، فإن ألغى كل البائعين دون مستوى معيّن أوامرهم، قفز أفضل سعر طلب بحجم صفر"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "Price moves when the book changes, and orders can be added, cancelled or withdrawn with no transaction occurring. This is why prices move violently in thin conditions and why \"there was no news\" has a real answer.",
+        "ar": "السعر يتحرّك حين يتغيّر دفتر الأوامر، ويمكن إضافة الأوامر أو إلغاؤها أو سحبها دون وقوع أي صفقة. ولهذا تتحرّك الأسعار بعنف في الظروف الضحلة، ولهذا فلعبارة «لم يكن هناك خبر» جوابٌ حقيقي."
+      }
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": {
+        "en": "You are long 1 standard lot of EUR/USD at a 1.2 pip spread. Immediately after your fill, before any market movement, what is your unrealised P&L?",
+        "ar": "أنت مشترٍ لوتًا قياسيًّا واحدًا من EUR/USD بفارق 1.2 نقطة. مباشرةً بعد التنفيذ، وقبل أي حركة في السوق، كم ربحك أو خسارتك غير المحقّقة؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "−$12.00",
+            "ar": "−12.00 دولارًا"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "−$1.20",
+            "ar": "−1.20 دولار"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "$0.00",
+            "ar": "0.00 دولار"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "−$120.00",
+            "ar": "−120.00 دولارًا"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "1 standard lot is 100,000 units; 1.2 pips = 0.00012; 100,000 × 0.00012 = $12. You buy at the ask and are marked at the bid, so the position opens at an unrealised loss of exactly the spread.",
+        "ar": "اللوت القياسي 100,000 وحدة، و1.2 نقطة = 0.00012، و100,000 × 0.00012 = 12 دولارًا. فأنت تشتري عند سعر الطلب وتُقوَّم عند سعر العرض، فيُفتح المركز على خسارة غير محقّقة تساوي الفارق بالضبط."
+      }
+    },
+    {
+      "id": "q5",
+      "type": "single",
+      "prompt": {
+        "en": "Which period normally offers the tightest FX spreads?",
+        "ar": "أي فترة تقدّم عادةً أضيق الفوارق السعرية في العملات؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "The hour after the New York close",
+            "ar": "الساعة التي تلي إغلاق نيويورك"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "London/New York overlap",
+            "ar": "تداخل لندن ونيويورك"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Sydney session only",
+            "ar": "جلسة سيدني فقط"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Tokyo session only",
+            "ar": "جلسة طوكيو فقط"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "Roughly 13:00–17:00 UTC. Deepest liquidity, tightest spreads.",
+        "ar": "نحو 13:00–17:00 بتوقيت غرينتش. أعمق سيولة، وأضيق فوارق."
+      }
+    },
+    {
+      "id": "q6",
+      "type": "single",
+      "prompt": {
+        "en": "Are liquidity and volatility the same thing?",
+        "ar": "هل السيولة والتقلّب شيء واحد؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Yes — both measure how much price moves",
+            "ar": "نعم، فكلاهما يقيس مقدار حركة السعر"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "They are different names for the spread",
+            "ar": "هما اسمان مختلفان للفارق السعري"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "No — an exotic pair in a political crisis has high volatility and low liquidity",
+            "ar": "لا، فالعملة النادرة في أزمة سياسية لديها تقلّب مرتفع وسيولة منخفضة"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "No — but high liquidity always implies high volatility",
+            "ar": "لا، لكن السيولة المرتفعة تستلزم دائمًا تقلّبًا مرتفعًا"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "Liquidity is the ability to transact size without moving price; volatility is how much price moves. An exotic currency during a political crisis has high volatility and low liquidity — large moves and terrible fills. A quiet EUR/USD afternoon has low volatility and high liquidity.",
+        "ar": "السيولة هي القدرة على تنفيذ حجم دون تحريك السعر، والتقلّب هو مقدار حركة السعر. فعملة نادرة أثناء أزمة سياسية لديها تقلّب مرتفع وسيولة منخفضة — حركات كبيرة وتنفيذ رديء. وظهيرة هادئة في EUR/USD فيها تقلّب منخفض وسيولة مرتفعة."
+      }
+    },
+    {
+      "id": "q7",
+      "type": "single",
+      "prompt": {
+        "en": "You hold a share CFD overnight. The company reports bad earnings and the stock opens 12% below your stop loss level. What price are you filled at?",
+        "ar": "تحتفظ بعقد فروقات على سهم ليلًا. وتعلن الشركة أرباحًا سيئة فيفتح السهم أدنى بنسبة 12% من مستوى وقف خسارتك. بأي سعر تُنفَّذ؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "The order is cancelled and the position stays open",
+            "ar": "يُلغى الأمر ويبقى المركز مفتوحًا"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "At the previous close, since the gap is ignored",
+            "ar": "عند إغلاق اليوم السابق، لأن الفجوة تُتجاهَل"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "At your stop price — that is what a stop guarantees",
+            "ar": "عند سعر وقفك، فهذا ما يضمنه الوقف"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "At the first available price after the gap, roughly 12% below the previous close",
+            "ar": "عند أول سعر متاح بعد الفجوة، أي نحو 12% دون إغلاق اليوم السابق"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "A stop cannot be filled at a price that did not exist. Your loss is far larger than the stop implied.",
+        "ar": "الوقف لا يمكن تنفيذه بسعر لم يوجد. وخسارتك أكبر بكثير ممّا أوحى به الوقف."
+      }
+    },
+    {
+      "id": "q8",
+      "type": "single",
+      "prompt": {
+        "en": "Why do most index CFDs sometimes diverge from the cash index quoted on the news?",
+        "ar": "لماذا تتباعد معظم عقود الفروقات على المؤشرات أحيانًا عن المؤشّر النقدي المذكور في الأخبار؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "They are priced off the index future, which carries cost of carry and no dividends",
+            "ar": "لأنها تُسعَّر من العقد الآجل، الذي يحمل تكلفة الحمل ولا توزيعات فيه"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "A currency conversion is applied to the quoted index level",
+            "ar": "لأن تحويل العملة يُطبَّق على مستوى المؤشّر المعلَن"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "The broker adds a random markup to the cash index level",
+            "ar": "الوسيط يضيف هامشًا عشوائيًّا إلى مستوى المؤشّر النقدي"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "News outlets report the previous day's close rather than the live level",
+            "ar": "لأن وسائل الإعلام تنشر إغلاق اليوم السابق لا المستوى الحيّ"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "Most index CFDs are priced off the index future, not the cash index, particularly outside the home session. The future carries cost of carry and no dividend entitlement, so it can sit above or below the cash index.",
+        "ar": "معظم عقود الفروقات على المؤشرات تُسعَّر من العقد الآجل للمؤشّر لا من المؤشّر النقدي، خصوصًا خارج جلسة السوق الأمّ. فالعقد الآجل يحمل تكلفة الحمل ولا يستحقّ توزيعات، فيمكن أن يقع فوق المؤشّر النقدي أو تحته."
+      }
+    },
+    {
+      "id": "q9",
+      "type": "single",
+      "prompt": {
+        "en": "A broker operating a B-book:",
+        "ar": "الوسيط الذي يشغّل نموذج B-book:"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Charges no spread",
+            "ar": "لا يفرض فارقًا سعريًّا"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Internalises your position, so your loss is its gain",
+            "ar": "يستوعب مركزك داخليًّا، فتكون خسارتك ربحه"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Is acting illegally",
+            "ar": "يتصرّف تصرّفًا غير قانوني"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Always hedges your position in the underlying market",
+            "ar": "يتحوّط دائمًا لمركزك في السوق الأساس"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "Legal, disclosed in the terms, and standard practice, but a conflict of interest worth knowing about.",
+        "ar": "قانوني، ومُفصَح عنه في الشروط، وممارسة معتادة، لكنه تضارب مصالح يستحقّ العلم به."
+      }
+    },
+    {
+      "id": "q10",
+      "type": "single",
+      "prompt": {
+        "en": "EUR/USD is quoted 1.08472. It reaches 1.08477 and you think price has moved 5 pips. What have you actually measured?",
+        "ar": "EUR/USD مسعَّر 1.08472. ويبلغ 1.08477 فتظنّ أن السعر تحرّك 5 نقاط. ما الذي قِسته فعلًا؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "5 pips — the measurement is correct",
+            "ar": "5 نقاط، فالقياس صحيح"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "0.05 pips",
+            "ar": "0.05 نقطة"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "5 pipettes, which is 0.5 pips",
+            "ar": "5 نقاط جزئية، وهي 0.5 نقطة"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "50 pips",
+            "ar": "50 نقطة"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "The fifth decimal place is a tenth of a pip. The risk is a 10x error in either direction: a stop intended at 20 pips set at 20 pipettes is a 2-pip stop, and a position sized for a 2-pip stop when you meant 20 is ten times too large.",
+        "ar": "الخانة العشرية الخامسة عُشر نقطة. والمخاطرة خطأ بمقدار عشرة أضعاف في أي اتجاه: فوقفٌ قُصِد عند 20 نقطة ووُضِع عند 20 نقطة جزئية هو وقف عند نقطتين، ومركزٌ حُدِّد حجمه لوقف عند نقطتين بينما قصدت 20 هو أكبر بعشرة أضعاف."
+      }
+    }
+  ]
+}

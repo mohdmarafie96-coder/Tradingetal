@@ -1,0 +1,563 @@
+{
+  "id": "m06",
+  "kind": "quiz",
+  "title": {
+    "en": "Module 06 Quiz",
+    "ar": "اختبار الوحدة 06"
+  },
+  "passMark": 0.8,
+  "meta": {
+    "dir": "06-risk-management",
+    "calculator": true,
+    "anchor": {
+      "en": "module-06",
+      "ar": "الوحدة-06"
+    },
+    "scoring": {
+      "en": "Below 10/12, reread. This is the module that determines whether you survive.",
+      "ar": "أقلّ من 10 من 12: أعد القراءة. فهذه هي الوحدة التي تحدّد بقاءك."
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": {
+        "en": "Why must position size be calculated last rather than chosen first?",
+        "ar": "لماذا يجب حساب حجم المركز أخيرًا لا اختياره أولًا؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "It does not matter; the order of the calculation is arbitrary",
+            "ar": "لا يهمّ، فترتيب الحساب اعتباطي"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "So the maximum loss is fixed first and the size falls out of it",
+            "ar": "لتُثبَّت الخسارة القصوى أولًا ويخرج الحجم نتيجةً لها"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Because the spread is only known once the position is open",
+            "ar": "لأن الفارق السعري لا يُعرَف إلا بعد فتح المركز"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Because brokers recalculate the margin requirement after the fill",
+            "ar": "لأن الوسطاء يعيدون حساب الهامش المطلوب بعد التنفيذ"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "That reversal is how risk rules get abandoned without ever being consciously broken. Size = risk budget / (stop distance × value per point per unit).",
+        "ar": "وهذا الانعكاس هو كيف تُهجَر قواعد المخاطرة دون أن تُخرَق عن وعي قطّ. والحجم = ميزانية المخاطرة ÷ (مسافة الوقف × القيمة لكل نقطة لكل وحدة)."
+      }
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": {
+        "en": "$6,000 account, 1% risk, EUR/USD entry 1.0930, stop 1.0888. Calculate the position size in lots, rounded down, and the actual risk.",
+        "ar": "حساب 6,000 دولار، ومخاطرة 1%، ودخول EUR/USD عند 1.0930 ووقف عند 1.0888. احسب حجم المركز باللوتات مقرَّبًا إلى الأسفل، والمخاطرة الفعلية."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "0.42 lots, risk $176.40",
+            "ar": "0.42 لوت، والمخاطرة 176.40 دولارًا"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "1.43 lots, risk $600.60",
+            "ar": "1.43 لوت، والمخاطرة 600.60 دولارًا"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "0.14 lots, risk $58.80",
+            "ar": "0.14 لوت، والمخاطرة 58.80 دولارًا"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "0.15 lots, risk $63.00",
+            "ar": "0.15 لوت، والمخاطرة 63.00 دولارًا"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "Risk = $60. Stop = 42 pips. Units = 60 / (42 × 0.0001) = 14,286 → 0.14 lots rounded down. Actual risk = 42 × $1.40 = $58.80 (0.98%). Rounding up to 0.15 lots gives $63.00, which breaches the limit.",
+        "ar": "المخاطرة = 60 دولارًا. والوقف = 42 نقطة. والوحدات = 60 ÷ (42 × 0.0001) = 14,286 ← 0.14 لوت مقرَّبًا إلى الأسفل. والمخاطرة الفعلية = 42 × 1.40 = 58.80 دولارًا (0.98%). والتقريب إلى الأعلى إلى 0.15 لوت يعطي 63.00 دولارًا، وهو ما يخرق الحدّ."
+      }
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": {
+        "en": "What is R, and why is journaling in R more useful than journaling in currency?",
+        "ar": "ما وحدة R، ولماذا يكون تدوين السجلّ بها أنفع من تدوينه بالعملة؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "R is the reward-to-risk ratio you targeted when entering the trade",
+            "ar": "R نسبة العائد إلى المخاطرة التي استهدفتها عند الدخول"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "R is your return percentage, which normalises for account growth",
+            "ar": "R نسبة عائدك، وهي تطبّع أثر نموّ الحساب"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "R is the round-trip cost of the trade expressed as a multiple",
+            "ar": "R تكلفة الصفقة الكاملة معبَّرًا عنها بمضاعف"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "R is one unit of risk, so trades compare across sizes and instruments",
+            "ar": "R وحدة مخاطرة واحدة، فتصبح الصفقات مقارَنةً عبر الأحجام والأدوات"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "You can then see whether the strategy works independently of how much money you happened to have at the time.",
+        "ar": "فترى بعدها هل تعمل الاستراتيجية بمعزل عن مقدار المال الذي صادف أن يكون لديك حينها."
+      }
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": {
+        "en": "Calculate the break-even win rate for a 2.5:1 reward-to-risk ratio.",
+        "ar": "احسب نسبة الربح عند التعادل لنسبة عائد إلى مخاطرة قدرها 2.5:1."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "25.0%",
+            "ar": "25.0%"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "28.6%",
+            "ar": "28.6%"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "40.0%",
+            "ar": "40.0%"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "50.0%",
+            "ar": "50.0%"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "1 / (1 + 2.5) = 28.6%. Answering 40.0% is 1 / 2.5, the common slip.",
+        "ar": "1 ÷ (1 + 2.5) = 28.6%. والإجابة بـ 40.0% هي 1 ÷ 2.5، وهو الزلل الشائع."
+      }
+    },
+    {
+      "id": "q5",
+      "type": "single",
+      "prompt": {
+        "en": "A strategy wins 72% of the time with an average win of 0.35R. Calculate expectancy, then recompute with costs of 0.06R per trade.",
+        "ar": "استراتيجية تربح في 72% من الصفقات بمتوسط ربح 0.35R. احسب التوقّع، ثم أعد الحساب بتكاليف قدرها 0.06R لكل صفقة."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "−0.028R gross, −0.088R net — not viable",
+            "ar": "−0.028R إجماليًّا، و−0.088R صافيًا — غير صالحة"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "+0.252R gross, +0.192R net — viable",
+            "ar": "+0.252R إجماليًّا، و+0.192R صافيًا — صالحة"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "+0.35R gross, +0.29R net — viable",
+            "ar": "+0.35R إجماليًّا، و+0.29R صافيًا — صالحة"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "+0.072R gross, +0.012R net — marginal but viable",
+            "ar": "+0.072R إجماليًّا، و+0.012R صافيًا — هامشية لكنها صالحة"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "E = (0.72 × 0.35) − (0.28 × 1) = 0.252 − 0.28 = −0.028R. Not viable, despite winning 72% of the time. With costs: −0.088R, worse. This is the classic shape of a losing system that feels excellent.",
+        "ar": "ت = (0.72 × 0.35) − (0.28 × 1) = 0.252 − 0.28 = −0.028R. غير صالحة، رغم الربح في 72% من الصفقات. وبالتكاليف: −0.088R، أسوأ. وهذا هو الشكل الكلاسيكي لنظام خاسر يبدو ممتازًا."
+      }
+    },
+    {
+      "id": "q6",
+      "type": "single",
+      "prompt": {
+        "en": "Why does a 90% win rate tell you nothing about whether a strategy is profitable?",
+        "ar": "لماذا لا تخبرك نسبة ربح قدرها 90% بشيء عن ربحية الاستراتيجية؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Because costs always consume more than 10% of gross trading profit",
+            "ar": "لأن التكاليف تلتهم دائمًا أكثر من 10% من الربح الإجمالي"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Because expectancy weighs the size of wins and losses, not just frequency",
+            "ar": "لأن التوقّع يزن حجم الأرباح والخسائر لا تواترها وحده"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Because a 90% win rate is not statistically achievable in any market",
+            "ar": "لأن نسبة ربح 90% غير قابلة للتحقّق إحصائيًّا في أي سوق"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Because brokers systematically overstate the win rates they publish",
+            "ar": "لأن الوسطاء يبالغون منهجيًّا في نسب الربح التي ينشرونها"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "Expectancy is (0.9 × 1) − (0.1 × 10) = −0.1 per trade: a 90% win rate with losses ten times the size of wins loses money. Only the combination matters, and the combination is expectancy.",
+        "ar": "التوقّع = (0.9 × 1) − (0.1 × 10) = −0.1 لكل صفقة: فنسبة ربح 90% مع خسائر تعادل عشرة أمثال الأرباح تخسر المال. والتركيبة وحدها هي ما يهمّ، والتركيبة هي التوقّع."
+      }
+    },
+    {
+      "id": "q7",
+      "type": "single",
+      "prompt": {
+        "en": "Your account falls from a peak of $14,000 to $9,800. Calculate the drawdown and the gain required to recover.",
+        "ar": "يهبط حسابك من قمّة قدرها 14,000 دولار إلى 9,800 دولار. احسب التراجع والربح اللازم للتعافي."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "70% drawdown, 143% gain to recover",
+            "ar": "تراجع 70%، وربح 143% للتعافي"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "42.9% drawdown, 30% gain to recover",
+            "ar": "تراجع 42.9%، وربح 30% للتعافي"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "30% drawdown, 42.9% gain to recover",
+            "ar": "تراجع 30%، وربح 42.9% للتعافي"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "30% drawdown, 30% gain to recover",
+            "ar": "تراجع 30%، وربح 30% للتعافي"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "Drawdown = (14,000 − 9,800) / 14,000 = 30%. Recovery = 1 / 0.70 − 1 = 42.9%. Answering 30% for both is the symmetry error.",
+        "ar": "التراجع = (14,000 − 9,800) ÷ 14,000 = 30%. والتعافي = 1 ÷ 0.70 − 1 = 42.9%. والإجابة بـ 30% للاثنين هي خطأ التماثل."
+      }
+    },
+    {
+      "id": "q8",
+      "type": "single",
+      "prompt": {
+        "en": "At a 45% win rate, roughly what is the probability of at least five consecutive losses in any 100 trades, and what should you conclude from such a streak?",
+        "ar": "عند نسبة ربح 45%، ما احتمال وقوع خمس خسائر متتالية على الأقل في أي مئة صفقة تقريبًا، وما الذي ينبغي أن تستنتجه من سلسلة كهذه؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "About 12% — the strategy is probably broken",
+            "ar": "نحو 12% — الأرجح أن الاستراتيجية معطّلة"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "About 50% — reduce risk by half",
+            "ar": "نحو 50% — قلّل المخاطرة إلى النصف"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "About 30% — pause and revise the plan",
+            "ar": "نحو 30% — توقّف ونقّح الخطة"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "About 89% — conclude nothing; it carries essentially no evidence",
+            "ar": "نحو 89% — لا تستنتج شيئًا، فهي لا تحمل دليلًا يُذكر"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "At a 45% win rate a five-loss streak is close to certain within any hundred trades. A trader who abandons a plan after five losses will abandon every plan they ever adopt.",
+        "ar": "عند نسبة ربح 45% تكون سلسلة من خمس خسائر شبه مؤكّدة ضمن أي مئة صفقة. والمتداول الذي يهجر خطة بعد خمس خسائر سيهجر كل خطة يتبنّاها."
+      }
+    },
+    {
+      "id": "q9",
+      "type": "single",
+      "prompt": {
+        "en": "You risk 5% per trade and lose ten in a row. What percentage of your account remains, and what gain is needed to recover?",
+        "ar": "تخاطر بـ 5% لكل صفقة وتخسر عشر صفقات متتالية. ما النسبة المتبقّية من حسابك، وما الربح اللازم للتعافي؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "59.9% remains, 67.0% gain needed",
+            "ar": "يبقى 59.9%، والربح اللازم 67.0%"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "50% remains, 100% gain needed",
+            "ar": "يبقى 50%، والربح اللازم 100%"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "90% remains, 11.1% gain needed",
+            "ar": "يبقى 90%، والربح اللازم 11.1%"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "40.1% remains, 149% gain needed",
+            "ar": "يبقى 40.1%، والربح اللازم 149%"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "0.95^10 = 0.5987, so 59.9% remains, a 40.1% drawdown. Recovery = 1 / 0.5987 − 1 = 67.0%. Answering that 50% remains is the error of multiplying 5% × 10 linearly.",
+        "ar": "0.95^10 = 0.5987، أي أن 59.9% يبقى، بتراجع قدره 40.1%. والتعافي = 1 ÷ 0.5987 − 1 = 67.0%. والإجابة ببقاء 50% هي خطأ ضرب 5% × 10 ضربًا خطّيًّا."
+      }
+    },
+    {
+      "id": "q10",
+      "type": "single",
+      "prompt": {
+        "en": "Why should position size be reduced, not increased, during a drawdown?",
+        "ar": "لماذا ينبغي تقليل حجم المركز، لا زيادته، أثناء التراجع؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Because brokers raise the margin requirement during a drawdown",
+            "ar": "لأن الوسطاء يرفعون الهامش المطلوب أثناء التراجع"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Because increasing raises the recovery needed and the variance at once",
+            "ar": "لأن الزيادة ترفع التعافي المطلوب والتباين في آن واحد"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Because win rates statistically decline while a drawdown is running",
+            "ar": "لأن نسب الربح تهبط إحصائيًّا ما دام التراجع جاريًا"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "It should be increased, so the account recovers in fewer trades",
+            "ar": "بل ينبغي زيادته، ليتعافى الحساب في صفقات أقلّ"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "Fixed fractional sizing on falling equity does this automatically, which is what makes ruin asymptotically unreachable. The instinct to size up in a drawdown is exactly inverted.",
+        "ar": "والتحديد الكسري الثابت على حقوق ملكية هابطة يفعل ذلك تلقائيًّا، وهو ما يجعل الإفلاس غير قابل للبلوغ مقاربيًّا. والغريزة إلى تكبير الحجم في التراجع مقلوبة تمامًا."
+      }
+    },
+    {
+      "id": "q11",
+      "type": "single",
+      "prompt": {
+        "en": "You hold long EUR/USD, long GBP/USD and short USD/CHF, each at 1% risk. What is your true exposure to a dollar rally?",
+        "ar": "تحتفظ بشراء EUR/USD، وشراء GBP/USD، وبيع USD/CHF، كلٌّ بمخاطرة 1%. ما انكشافك الحقيقي لارتفاع الدولار؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "2%, because the short USD/CHF hedges one of the longs",
+            "ar": "2%، لأن بيع USD/CHF يتحوّط لأحد مركزي الشراء"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "1%, because each position is independently sized",
+            "ar": "1%، لأن حجم كل مركز حُدِّد على حدة"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "3%, because all three are short the US dollar — one position in three costumes",
+            "ar": "3%، لأن الثلاثة كلها بيعٌ للدولار الأمريكي — مركز واحد في ثلاثة أزياء"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "0%, because the positions offset",
+            "ar": "0%، لأن المراكز تتقاصّ"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "Long EUR/USD, long GBP/USD and short USD/CHF all profit from dollar weakness. Being long EUR/USD and long USD/CHF would be the same bet twice, not a hedge — the pairs are inverse.",
+        "ar": "شراء EUR/USD وشراء GBP/USD وبيع USD/CHF كلها تربح من ضعف الدولار. وأن تكون مشتريًا لـ EUR/USD ومشتريًا لـ USD/CHF هو الرهان نفسه مرّتين لا تحوّطًا — فالزوجان متعاكسان."
+      }
+    },
+    {
+      "id": "q12",
+      "type": "single",
+      "prompt": {
+        "en": "Why is correlations rising during a crisis the opposite of what a diversified portfolio needs, and what is the practical response?",
+        "ar": "لماذا يكون ارتفاع الارتباطات أثناء الأزمات عكس ما تحتاج إليه المحفظة المنوَّعة، وما الاستجابة العملية؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "It affects institutional portfolios only; retail needs no response at all",
+            "ar": "تؤثّر في محافظ المؤسّسات وحدها، ولا استجابة يحتاجها الأفراد"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Higher correlation means clearer signals; the response is to trade larger",
+            "ar": "الترابط الأعلى يعني إشارات أوضح، والاستجابة التداول بحجم أكبر"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Correlations actually fall in a crisis; the response is more instruments",
+            "ar": "بل تنخفض الارتباطات في الأزمة، والاستجابة إضافة أدوات أكثر"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "One factor drives everything at once; group by factor and cap each group",
+            "ar": "عاملٌ واحد يقود كل شيء دفعةً، فجمّع بحسب العامل وضع سقفًا لكل مجموعة"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "The diversification you measured in calm markets is not the diversification you have when you need it.",
+        "ar": "فالتنويع الذي قِسته في أسواق هادئة ليس التنويع الذي تملكه حين تحتاج إليه."
+      }
+    }
+  ]
+}

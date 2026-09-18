@@ -1,0 +1,293 @@
+{
+  "id": "m00",
+  "kind": "quiz",
+  "title": {
+    "en": "Module 00 Quiz",
+    "ar": "اختبار الوحدة 00"
+  },
+  "passMark": 0.8,
+  "meta": {
+    "dir": "00-before-you-start",
+    "calculator": false,
+    "anchor": {
+      "en": "module-00",
+      "ar": "الوحدة-00"
+    },
+    "scoring": {
+      "en": "Below 5/6, reread the module before continuing.",
+      "ar": "أقلّ من 5 من 6: أعد قراءة الوحدة قبل المتابعة."
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": {
+        "en": "Approximately what percentage of retail CFD accounts lose money, according to regulator-mandated broker disclosures?",
+        "ar": "ما النسبة التقريبية لحسابات الأفراد في عقود الفروقات التي تخسر المال، بحسب إفصاحات الوسطاء التي تفرضها الجهات التنظيمية؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "20–30%",
+            "ar": "20–30%"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "40–50%",
+            "ar": "40–50%"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "70–85%",
+            "ar": "70–85%"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "95–99%",
+            "ar": "95–99%"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "This is a regulator-mandated disclosure, audited and published by every CFD broker in the UK, EU and Australia. It is stable across market conditions because the losses are driven by the product's structure, not by market direction.",
+        "ar": "هذا إفصاح تفرضه الجهات التنظيمية، مدقَّق ومنشور من كل وسيط عقود فروقات في المملكة المتحدة والاتحاد الأوروبي وأستراليا. وهو ثابت عبر ظروف السوق لأن الخسائر مدفوعة ببنية المنتج لا باتجاه السوق."
+      }
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": {
+        "en": "Which of these is charged on a position regardless of whether it is profitable?",
+        "ar": "أيٌّ من هذه يُفرَض على المركز بصرف النظر عن كونه رابحًا؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Spread, commission and overnight financing",
+            "ar": "الفارق السعري والعمولة والتمويل الليلي"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "None; costs are netted against profit at withdrawal",
+            "ar": "لا شيء منها، فالتكاليف تُقاصّ من الربح عند السحب"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "The spread only",
+            "ar": "الفارق السعري فقط"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Overnight financing only",
+            "ar": "التمويل الليلي فقط"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "All three are charged regardless of whether the trade wins. A strategy that is break-even on raw price movement is a losing strategy after costs.",
+        "ar": "الثلاثة تُفرَض بصرف النظر عن ربح الصفقة. والاستراتيجية المتعادلة على حركة السعر الخام استراتيجيةٌ خاسرة بعد التكاليف."
+      }
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": {
+        "en": "Can a US retail client open a CFD account with a regulated broker?",
+        "ar": "هل يستطيع عميل أفراد أمريكي فتح حساب عقود فروقات لدى وسيط منظَّم؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Yes, but only with US-regulated brokers",
+            "ar": "نعم، لكن لدى الوسطاء المنظَّمين أمريكيًّا فقط"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "No; CFDs are not permitted for US retail clients",
+            "ar": "لا، فعقود الفروقات غير مسموحة لعملاء الأفراد الأمريكيين"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Only with an account balance above $25,000",
+            "ar": "فقط برصيد حساب يتجاوز 25,000 دولار"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Yes, with any broker",
+            "ar": "نعم، لدى أي وسيط"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "The CFTC and SEC do not permit CFDs for US retail clients. A firm offering them to a US resident is operating outside US law.",
+        "ar": "لجنتا CFTC وSEC لا تسمحان بعقود الفروقات لعملاء الأفراد الأمريكيين. والشركة التي تعرضها على مقيم في الولايات المتحدة تعمل خارج القانون الأمريكي."
+      }
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": {
+        "en": "Why should you set your demo account balance to a realistic figure rather than accepting the $100,000 default?",
+        "ar": "لماذا ينبغي ضبط رصيد حسابك التجريبي على مبلغ واقعي بدلًا من قبول الافتراضي البالغ 100,000 دولار؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "It affects the spread you are quoted",
+            "ar": "لأنه يؤثّر في الفارق السعري المعروض عليك"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Large demo balances are charged higher simulated commission",
+            "ar": "الأرصدة التجريبية الكبيرة تُفرَض عليها عمولة محاكاة أعلى"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Position sizes that feel reasonable on a large balance are ruinous on a small one",
+            "ar": "أحجام المراكز التي تبدو معقولة على رصيد كبير مدمِّرةٌ على رصيد صغير"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Brokers restrict features on high-balance demos",
+            "ar": "الوسطاء يقيّدون الميزات في الحسابات التجريبية عالية الرصيد"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "Learning to size on $100,000 teaches nothing transferable to the $2,000 you would actually fund.",
+        "ar": "التعلّم بتحديد الحجم على 100,000 دولار لا يعلّم شيئًا قابلًا للنقل إلى الـ 2,000 دولار التي ستموّل بها فعلًا."
+      }
+    },
+    {
+      "id": "q5",
+      "type": "single",
+      "prompt": {
+        "en": "Which of the following does a demo account simulate *poorly*?",
+        "ar": "أيٌّ ممّا يلي يحاكيه الحساب التجريبي محاكاةً *رديئة*؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Order types and order management",
+            "ar": "أنواع الأوامر وإدارتها"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Contract specifications",
+            "ar": "مواصفات العقود"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Margin and P&L arithmetic",
+            "ar": "حسابات الهامش والأرباح والخسائر"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Execution quality and emotional pressure",
+            "ar": "جودة التنفيذ والضغط النفسي"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "Demo fills are often better than live, and nothing about a demo replicates the feeling of real money moving against you.",
+        "ar": "تنفيذات التجريبي كثيرًا ما تكون أفضل من الحقيقي، ولا شيء في التجريبي يحاكي شعور المال الحقيقي وهو يتحرّك ضدّك."
+      }
+    },
+    {
+      "id": "q6",
+      "type": "single",
+      "prompt": {
+        "en": "Your stated reason for trading is \"to replace my salary within six months\". This is a warning sign primarily because:",
+        "ar": "سببك المعلَن للتداول هو «أن أستبدل راتبي خلال ستّة أشهر». وهذه علامة تحذير أساسًا لأن:"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Capital under pressure to perform produces worse decisions, and the base rates do not support it",
+            "ar": "رأس المال الواقع تحت ضغط الأداء يُنتج قرارات أسوأ، والمعدّلات الأساسية لا تدعم ذلك"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Full-time traders are taxed differently, which changes the return needed",
+            "ar": "المتداولون المتفرّغون يُعاملون ضريبيًّا بنحو يغيّر العائد المطلوب"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Brokers do not permit retail clients to trade as their sole occupation",
+            "ar": "الوسطاء لا يسمحون لعملاء الأفراد بالتداول مهنةً وحيدة"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Six months is not long enough to learn the platform and the instruments",
+            "ar": "ستّة أشهر مدة أقصر من أن تكفي لتعلّم المنصّة والأدوات"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "Needing a specific result by a specific date is the condition under which every risk rule gets abandoned.",
+        "ar": "الحاجة إلى نتيجة محدّدة بحلول تاريخ محدّد هي الظرف الذي تُهجَر فيه كل قاعدة مخاطرة."
+      }
+    }
+  ]
+}

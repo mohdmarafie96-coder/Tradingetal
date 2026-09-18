@@ -1,0 +1,1624 @@
+{
+  "id": "final",
+  "kind": "assessment",
+  "title": {
+    "en": "Final Assessment",
+    "ar": "التقييم النهائي"
+  },
+  "passMark": 0.8,
+  "meta": {
+    "dir": "11-capstone",
+    "file": "02-assessment.md",
+    "calculator": true,
+    "anchor": {
+      "en": "final-assessment",
+      "ar": "التقييم-النهائي"
+    }
+  },
+  "parts": [
+    {
+      "id": "A",
+      "title": {
+        "en": "Contract mechanics",
+        "ar": "آليات العقد"
+      },
+      "weight": 0.2,
+      "modules": {
+        "en": "Module 03",
+        "ar": "الوحدة 03"
+      },
+      "short": {
+        "en": "Contract mechanics",
+        "ar": "آليات العقد"
+      }
+    },
+    {
+      "id": "B",
+      "title": {
+        "en": "Leverage and margin",
+        "ar": "الرافعة المالية والهامش"
+      },
+      "weight": 0.2,
+      "modules": {
+        "en": "Module 04",
+        "ar": "الوحدة 04"
+      },
+      "short": {
+        "en": "Leverage and margin",
+        "ar": "الرافعة والهامش"
+      }
+    },
+    {
+      "id": "C",
+      "title": {
+        "en": "Risk management",
+        "ar": "إدارة المخاطر"
+      },
+      "weight": 0.3,
+      "minScore": 0.7,
+      "modules": {
+        "en": "Module 06",
+        "ar": "الوحدة 06"
+      },
+      "short": {
+        "en": "Risk management",
+        "ar": "إدارة المخاطر"
+      }
+    },
+    {
+      "id": "D",
+      "title": {
+        "en": "Execution and analysis",
+        "ar": "التنفيذ والتحليل"
+      },
+      "weight": 0.15,
+      "modules": {
+        "en": "Modules 05, 07",
+        "ar": "الوحدتان 05 و07"
+      },
+      "short": {
+        "en": "Execution and analysis",
+        "ar": "التنفيذ والتحليل"
+      }
+    },
+    {
+      "id": "E",
+      "title": {
+        "en": "Judgement",
+        "ar": "الحُكم"
+      },
+      "weight": 0.15,
+      "modules": {
+        "en": "Modules 02, 08, 09, 10",
+        "ar": "الوحدات 02 و08 و09 و10"
+      },
+      "short": {
+        "en": "Judgement",
+        "ar": "الحُكم"
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "A1",
+      "part": "A",
+      "type": "single",
+      "prompt": {
+        "en": "You buy 0.45 lots of GBP/USD at 1.2680. Calculate units and notional value.",
+        "ar": "تشتري 0.45 لوت من GBP/USD عند 1.2680. احسب الوحدات والقيمة الاسمية."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "45,000 units, $57,060",
+            "ar": "45,000 وحدة، و57,060 دولارًا"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "45,000 units, $45,000",
+            "ar": "45,000 وحدة، و45,000 دولار"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "4,500 units, $5,706",
+            "ar": "4,500 وحدة، و5,706 دولارات"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "45,000 units, $35,489",
+            "ar": "45,000 وحدة، و35,489 دولارًا"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "0.45 × 100,000 = 45,000 units. Notional = 45,000 × 1.2680 = $57,060.",
+        "ar": "0.45 × 100,000 = 45,000 وحدة. والقيمة الاسمية = 45,000 × 1.2680 = 57,060 دولارًا."
+      }
+    },
+    {
+      "id": "A2",
+      "part": "A",
+      "type": "single",
+      "prompt": {
+        "en": "Calculate the pip value in USD of 0.7 lots of USD/JPY at 151.40.",
+        "ar": "احسب قيمة النقطة بالدولار لـ 0.7 لوت من USD/JPY عند 151.40."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "$10.60",
+            "ar": "10.60 دولارات"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "$4.62",
+            "ar": "4.62 دولارات"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "$700.00",
+            "ar": "700.00 دولار"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "$7.00",
+            "ar": "7.00 دولارات"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "USD is the base currency, so divide by the price. 0.7 lots = 70,000 units. 0.01 × 70,000 = ¥700. ¥700 / 151.40 = $4.62.",
+        "ar": "الدولار هو العملة الأساس، فاقسم على السعر. 0.7 لوت = 70,000 وحدة. و0.01 × 70,000 = 700 ين. و700 ÷ 151.40 = 4.62 دولارات."
+      }
+    },
+    {
+      "id": "A3",
+      "part": "A",
+      "type": "single",
+      "prompt": {
+        "en": "Calculate the pip value in USD of 0.3 lots of EUR/GBP, with GBP/USD at 1.2650.",
+        "ar": "احسب قيمة النقطة بالدولار لـ 0.3 لوت من EUR/GBP، وGBP/USD عند 1.2650."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "$2.37",
+            "ar": "2.37 دولار"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "$3.00",
+            "ar": "3.00 دولارات"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "$3.80",
+            "ar": "3.80 دولارات"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "$30.00",
+            "ar": "30.00 دولارًا"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "Neither currency is the account currency, so convert via GBP/USD. 0.3 lots = 30,000 units. 0.0001 × 30,000 = £3.00. £3.00 × 1.2650 = $3.80. Dividing by GBP/USD instead of multiplying gives $2.37.",
+        "ar": "لا العملة الأساس ولا عملة التسعير هي عملة الحساب، فحوّل عبر GBP/USD. 0.3 لوت = 30,000 وحدة. و0.0001 × 30,000 = 3.00 جنيهات. و3.00 × 1.2650 = 3.80 دولارات. والقسمة على GBP/USD بدلًا من الضرب تعطي 2.37 دولار."
+      }
+    },
+    {
+      "id": "A4",
+      "part": "A",
+      "type": "single",
+      "prompt": {
+        "en": "You go short 0.6 lots of EUR/USD at a bid of 1.09240 and close at an ask of 1.08810. Commission is $3.50 per lot per side. Swap is +$1.10 per 0.1 lot per night, held 4 nights. Calculate net P&L.",
+        "ar": "تبيع على المكشوف 0.6 لوت من EUR/USD عند سعر عرض 1.09240 وتغلق عند سعر طلب 1.08810. والعمولة 3.50 دولارات لكل لوت في كل اتجاه. والسواب +1.10 دولار لكل 0.1 لوت لكل ليلة، والاحتفاظ 4 ليالٍ. احسب صافي الربح."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "$258.00",
+            "ar": "258.00 دولارًا"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "−$280.20",
+            "ar": "−280.20 دولارًا"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "$253.80",
+            "ar": "253.80 دولارًا"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "$280.20",
+            "ar": "280.20 دولارًا"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "Short, and price fell, so this is a profit. Gross = (1.09240 − 1.08810) × 60,000 = $258.00. Commission = 0.6 × $3.50 × 2 = −$4.20. Swap = +$1.10 × 6 × 4 = +$26.40. Net = $280.20. The positive swap materially improved the trade — check your own instrument rather than assuming financing is always a cost.",
+        "ar": "مركز بيع، والسعر هبط، فهذا ربح. الإجمالي = (1.09240 − 1.08810) × 60,000 = 258.00 دولارًا. والعمولة = 0.6 × 3.50 × 2 = −4.20 دولار. والسواب = +1.10 × 6 × 4 = +26.40 دولارًا. والصافي = 280.20 دولارًا. وقد حسّن السواب الموجب الصفقة تحسينًا معتبرًا — فافحص أداتك بدلًا من افتراض أن التمويل تكلفة دائمًا."
+      }
+    },
+    {
+      "id": "A5",
+      "part": "A",
+      "type": "single",
+      "prompt": {
+        "en": "Long 5 CFDs of US 500 at 5,240. Benchmark rate 4.5%, broker markup 2.5%, 365-day count. Calculate one night's financing and the cost of holding for 30 nights.",
+        "ar": "شراء 5 عقود فروقات US 500 عند 5,240. سعر المرجع 4.5%، وهامش الوسيط 2.5%، وعدد أيام السنة 365. احسب تمويل ليلة واحدة وتكلفة الاحتفاظ 30 ليلة."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "$5.02 per night, $150.74 over 30 nights",
+            "ar": "5.02 دولارات لكل ليلة، و150.74 دولارًا على 30 ليلة"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "$50.23 per night, $1,507 over 30 nights",
+            "ar": "50.23 دولارًا لكل ليلة، و1,507 دولارات على 30 ليلة"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "$3.23 per night, $96.90 over 30 nights",
+            "ar": "3.23 دولارات لكل ليلة، و96.90 دولارًا على 30 ليلة"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "$1.79 per night, $53.84 over 30 nights",
+            "ar": "1.79 دولار لكل ليلة، و53.84 دولارًا على 30 ليلة"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "Notional = 5 × 5,240 = $26,200. Rate = 4.5% + 2.5% = 7.0%. Per night = 26,200 × 0.07 / 365 = $5.02. Over 30 nights = $150.74. Using the benchmark alone gives $3.23 a night and the markup alone $1.79; $50.23 is a factor-of-ten slip.",
+        "ar": "القيمة الاسمية = 5 × 5,240 = 26,200 دولار. والسعر = 4.5% + 2.5% = 7.0%. ولكل ليلة = 26,200 × 0.07 ÷ 365 = 5.02 دولارات. وعلى مدى 30 ليلة = 150.74 دولارًا. واستخدام سعر المرجع وحده يعطي 3.23 دولارات لليلة، والهامش وحده 1.79، و50.23 زللٌ بمقدار عشرة أمثال."
+      }
+    },
+    {
+      "id": "A6",
+      "part": "A",
+      "type": "single",
+      "prompt": {
+        "en": "You open a position on Tuesday and close it the following Tuesday. Your broker applies triple swap on Wednesday. How many days of financing are charged?",
+        "ar": "تفتح مركزًا يوم الثلاثاء وتغلقه يوم الثلاثاء التالي. ويطبّق وسيطك التبييت الثلاثي يوم الأربعاء. كم يومًا من التمويل يُفرَض عليك؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "9 days",
+            "ar": "9 أيام"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "7 days",
+            "ar": "7 أيام"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "5 days",
+            "ar": "5 أيام"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "10 days",
+            "ar": "10 أيام"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "The position survives five rollovers — Tuesday, Wednesday, Thursday, Friday and Monday — and the Wednesday rollover counts as three. 4 + 3 = 7. There is no weekend rollover, because the market is closed and the weekend is what the Wednesday triple covers.",
+        "ar": "المركز يمرّ بخمسة تدويرات — الثلاثاء والأربعاء والخميس والجمعة والاثنين — ويُحتسَب تدوير الأربعاء ثلاثة. 4 + 3 = 7. ولا تدوير في نهاية الأسبوع، لأن السوق مغلقة ولأن نهاية الأسبوع هي ما يغطّيه تبييت الأربعاء الثلاثي."
+      }
+    },
+    {
+      "id": "B1",
+      "part": "B",
+      "type": "single",
+      "prompt": {
+        "en": "State the margin requirement, in dollars, for 0.9 lots of EUR/USD at 1.0920 at 30:1 leverage.",
+        "ar": "اذكر الهامش المطلوب، بالدولار، لـ 0.9 لوت من EUR/USD عند 1.0920 برافعة 30:1."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "$2,948",
+            "ar": "2,948 دولارًا"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "$32,760",
+            "ar": "32,760 دولارًا"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "$3,276",
+            "ar": "3,276 دولارًا"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "$3,000",
+            "ar": "3,000 دولار"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "0.9 lots = 90,000 units. Notional = 90,000 × 1.0920 = $98,280. Margin = 98,280 / 30 = $3,276.",
+        "ar": "0.9 لوت = 90,000 وحدة. والقيمة الاسمية = 90,000 × 1.0920 = 98,280 دولارًا. والهامش = 98,280 ÷ 30 = 3,276 دولارًا."
+      }
+    },
+    {
+      "id": "B2",
+      "part": "B",
+      "type": "single",
+      "prompt": {
+        "en": "Your account equity is $9,000 and you hold positions with total notional of $78,000. State your effective leverage and classify it.",
+        "ar": "حقوق ملكية حسابك 9,000 دولار وتحتفظ بمراكز قيمتها الاسمية الإجمالية 78,000 دولار. اذكر رافعتك الفعلية وصنّفها."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "11.5 : 1 — a single ordinary day can do severe damage",
+            "ar": "11.5 : 1 — يوم عادي واحد قد يُحدث ضررًا بالغًا"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "8.7 : 1 — moderate",
+            "ar": "8.7 : 1 — معتدلة"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "0.12 : 1 — conservative",
+            "ar": "0.12 : 1 — متحفّظة"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "8.7 : 1 — aggressive",
+            "ar": "8.7 : 1 — عالية المخاطرة"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "78,000 / 9,000 = 8.7 : 1, which is aggressive — a single ordinary session can do real damage, and it is well above the 5:1 ceiling recommended while learning.",
+        "ar": "78,000 ÷ 9,000 = 8.7 : 1، وهي عالية المخاطرة — فجلسة عادية واحدة قد تُحدث ضررًا حقيقيًّا، وهي أعلى بكثير من سقف 5:1 الموصى به أثناء التعلّم."
+      }
+    },
+    {
+      "id": "B3",
+      "part": "B",
+      "type": "single",
+      "prompt": {
+        "en": "$7,000 account, long 1.4 lots of EUR/USD at 1.0900 at 30:1. Calculate used margin and margin level.",
+        "ar": "حساب 7,000 دولار، وشراء 1.4 لوت من EUR/USD عند 1.0900 برافعة 30:1. احسب الهامش المستخدَم ومستوى الهامش."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "$5,086.67 and 137.6%",
+            "ar": "5,086.67 دولارًا و137.6%"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "$5,086.67 and 72.7%",
+            "ar": "5,086.67 دولارًا و72.7%"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "$152,600 and 4.6%",
+            "ar": "152,600 دولارًا و4.6%"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "$4,360 and 160.6%",
+            "ar": "4,360 دولارًا و160.6%"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "1.4 lots = 140,000 units. Notional = 140,000 × 1.0900 = $152,600. Used margin = 152,600 / 30 = $5,086.67. Margin level = 7,000 / 5,086.67 = 137.6%.",
+        "ar": "1.4 لوت = 140,000 وحدة. والقيمة الاسمية = 140,000 × 1.0900 = 152,600 دولارًا. والهامش المستخدَم = 152,600 ÷ 30 = 5,086.67 دولارًا. ومستوى الهامش = 7,000 ÷ 5,086.67 = 137.6%."
+      }
+    },
+    {
+      "id": "B4",
+      "part": "B",
+      "type": "single",
+      "prompt": {
+        "en": "For the position in B3, calculate the approximate pip move that triggers a 50% close-out, and the loss at that point as a percentage of the account.",
+        "ar": "بالنسبة للمركز في ب3، احسب حركة النقاط التقريبية التي تستدعي الإغلاق القسري عند 50%، والخسارة عند تلك النقطة كنسبة من الحساب."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "141 pips, 28.2% of the account",
+            "ar": "141 نقطة، و28.2% من الحساب"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "323.7 pips, 64.7% of the account",
+            "ar": "323.7 نقطة، و64.7% من الحساب"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "250 pips, 50.0% of the account",
+            "ar": "250 نقطة، و50.0% من الحساب"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "500 pips, 100% of the account",
+            "ar": "500 نقطة، و100% من الحساب"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "323.7 pips, a loss of $4,532, which is 64.7% of the account. That is a 2.97% move in EUR/USD.",
+        "ar": "323.7 نقطة، وخسارة قدرها 4,532 دولارًا، أي 64.7% من الحساب. وتلك حركة قدرها 2.97% في EUR/USD."
+      }
+    },
+    {
+      "id": "B5",
+      "part": "B",
+      "type": "single",
+      "prompt": {
+        "en": "Why does the trader in B3 lose substantially more than 50% of the account despite the close-out being described as a \"50%\" rule?",
+        "ar": "لماذا يخسر المتداول في ب3 أكثر بكثير من 50% من الحساب رغم وصف الإغلاق بأنه قاعدة «50%»؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Because financing continues to accrue throughout the decline",
+            "ar": "لأن التمويل يواصل التراكم طوال الانحدار"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Because the broker closes the position at the worst price of the day",
+            "ar": "لأن الوسيط يغلق المركز بأسوأ سعر في اليوم"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Because the threshold measures equity against margin, not the account",
+            "ar": "لأن العتبة تقيس حقوق الملكية على الهامش لا على الحساب"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Because slippage adds roughly another 15% at the close-out level",
+            "ar": "لأن الانزلاق يضيف نحو 15% أخرى عند مستوى الإغلاق القسري"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "The \"50% rule\" describes the margin ratio, not your losses. Equity starts at 137.6% of required margin and must fall to 50% of it, and on this over-leveraged account margin is a large fraction of the balance — so that decline amounts to 64.7% of the balance.",
+        "ar": "«قاعدة 50%» تصف نسبة الهامش لا خسائرك. فحقوق الملكية تبدأ عند 137.6% من الهامش المطلوب ويجب أن تهبط إلى 50% منه، والهامش في هذا الحساب مفرط الرافعة كسر كبير من الرصيد — فذلك الانحدار يعادل 64.7% من الرصيد."
+      }
+    },
+    {
+      "id": "B6",
+      "part": "B",
+      "type": "single",
+      "prompt": {
+        "en": "You are long 0.5 lots of GBP/USD at 1.2700 with a stop at 1.2640. The market reopens on Sunday at 1.2490. Calculate intended loss, actual loss, and the multiple of intended risk.",
+        "ar": "أنت مشترٍ لـ 0.5 لوت من GBP/USD عند 1.2700 بوقف عند 1.2640. وتُفتح السوق يوم الأحد عند 1.2490. احسب الخسارة المقصودة، والخسارة الفعلية، ومضاعف المخاطرة المقصودة."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "$300 intended, $600 actual, 2.0×",
+            "ar": "300 دولار مقصودة، و600 دولار فعلية، وضعفان"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "$600 intended, $2,100 actual, 3.5×",
+            "ar": "600 دولار مقصودة، و2,100 دولار فعلية، و3.5 أضعاف"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "$300 intended, $300 actual, 1.0×",
+            "ar": "300 دولار مقصودة، و300 دولار فعلية، ومرة واحدة"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "$300 intended, $1,050 actual, 3.5×",
+            "ar": "300 دولار مقصودة، و1,050 دولارًا فعلية، و3.5 أضعاف"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "0.5 lots = 50,000 units, pip value $5. Intended: 60 pips × $5 = $300. Actual: 210 pips × $5 = $1,050 — 3.5 times the intended risk. The stop worked exactly as designed; the design does not cover discontinuities.",
+        "ar": "0.5 لوت = 50,000 وحدة، وقيمة النقطة 5 دولارات. المقصودة: 60 نقطة × 5 = 300 دولار. والفعلية: 210 نقاط × 5 = 1,050 دولارًا — أي 3.5 أضعاف المخاطرة المقصودة. وقد عمل الوقف تمامًا كما صُمِّم، لكن التصميم لا يغطّي الانقطاعات."
+      }
+    },
+    {
+      "id": "C1",
+      "part": "C",
+      "type": "single",
+      "prompt": {
+        "en": "$8,500 account, 0.75% risk. EUR/USD entry 1.0910, stop 1.0862. Calculate the position size in lots, rounded down, and the actual risk in dollars.",
+        "ar": "حساب 8,500 دولار، ومخاطرة 0.75%. دخول EUR/USD عند 1.0910، ووقف 1.0862. احسب حجم المركز باللوتات مقرَّبًا إلى الأسفل، والمخاطرة الفعلية بالدولار."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "0.13 lots, $62.40",
+            "ar": "0.13 لوت، و62.40 دولارًا"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "0.06 lots, $28.80",
+            "ar": "0.06 لوت، و28.80 دولارًا"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "0.14 lots, $67.20",
+            "ar": "0.14 لوت، و67.20 دولارًا"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "1.33 lots, $638.40",
+            "ar": "1.33 لوت، و638.40 دولارًا"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "Risk = $63.75. Stop = 48 pips. Units = 63.75 / (48 × 0.0001) = 13,281 → 0.13 lots. Actual risk = 48 × $1.30 = $62.40 (0.73%). Rounding up to 0.14 lots gives $67.20 and breaches the limit.",
+        "ar": "المخاطرة = 63.75 دولارًا. والوقف = 48 نقطة. والوحدات = 63.75 ÷ (48 × 0.0001) = 13,281 ← 0.13 لوت. والمخاطرة الفعلية = 48 × 1.30 = 62.40 دولارًا (0.73%). والتقريب إلى الأعلى إلى 0.14 لوت يعطي 67.20 دولارًا ويخرق الحدّ."
+      }
+    },
+    {
+      "id": "C2",
+      "part": "C",
+      "type": "single",
+      "prompt": {
+        "en": "$15,000 account, 1% risk. Share CFD entry $73.40, stop $70.10. Calculate the number of CFDs and the margin required at 20%.",
+        "ar": "حساب 15,000 دولار، ومخاطرة 1%. دخول عقد فروقات على سهم عند 73.40 دولارًا، ووقف 70.10. احسب عدد العقود والهامش المطلوب عند 20%."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "204 CFDs, $2,995 margin",
+            "ar": "204 عقود، وهامش 2,995 دولارًا"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "45 CFDs, $660.60 margin",
+            "ar": "45 عقدًا، وهامش 660.60 دولارًا"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "46 CFDs, $675.28 margin",
+            "ar": "46 عقدًا، وهامش 675.28 دولارًا"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "45 CFDs, $3,303 margin",
+            "ar": "45 عقدًا، وهامش 3,303 دولارات"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "Risk = $150. Stop = $3.30. CFDs = 150 / 3.30 = 45.45 → 45. Actual risk = $148.50. Notional = 45 × 73.40 = $3,303. Margin at 20% = $660.60. Quoting $3,303 as the margin states the notional as if it were the margin.",
+        "ar": "المخاطرة = 150 دولارًا. والوقف = 3.30 دولارات. والعقود = 150 ÷ 3.30 = 45.45 ← 45. والمخاطرة الفعلية = 148.50 دولارًا. والقيمة الاسمية = 45 × 73.40 = 3,303 دولارات. والهامش عند 20% = 660.60 دولارًا. وذكر 3,303 هامشًا يجعل القيمة الاسمية كأنها الهامش."
+      }
+    },
+    {
+      "id": "C3",
+      "part": "C",
+      "type": "single",
+      "prompt": {
+        "en": "A strategy wins 38% of the time with an average win of 2.8R. Calculate expectancy, then recompute with costs of 0.09R per trade.",
+        "ar": "استراتيجية تربح في 38% من الصفقات بمتوسط ربح 2.8R. احسب التوقّع، ثم أعد الحساب بتكاليف قدرها 0.09R لكل صفقة."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "+0.062R gross, −0.028R net",
+            "ar": "+0.062R إجماليًّا، و−0.028R صافيًا"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "+1.064R gross, +0.974R net",
+            "ar": "+1.064R إجماليًّا، و+0.974R صافيًا"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "+0.444R gross, +0.354R net",
+            "ar": "+0.444R إجماليًّا، و+0.354R صافيًا"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "−0.062R gross, −0.152R net",
+            "ar": "−0.062R إجماليًّا، و−0.152R صافيًا"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "E = (0.38 × 2.8) − (0.62 × 1) = 1.064 − 0.62 = +0.444R. With costs: +0.354R. Viable, and note it wins fewer than four trades in ten. Answering +1.064R omits the loss term entirely.",
+        "ar": "ت = (0.38 × 2.8) − (0.62 × 1) = 1.064 − 0.62 = +0.444R. وبالتكاليف: +0.354R. صالحة، ولاحظ أنها تربح أقلّ من أربع صفقات من عشر. والإجابة بـ +1.064R تُغفل حدّ الخسارة تمامًا."
+      }
+    },
+    {
+      "id": "C4",
+      "part": "C",
+      "type": "single",
+      "prompt": {
+        "en": "Calculate the break-even win rate for a reward-to-risk ratio of 1.8.",
+        "ar": "احسب نسبة الربح عند التعادل لنسبة عائد إلى مخاطرة قدرها 1.8."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "44.4%",
+            "ar": "44.4%"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "55.6%",
+            "ar": "55.6%"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "18.0%",
+            "ar": "18.0%"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "35.7%",
+            "ar": "35.7%"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "1 / (1 + 1.8) = 35.7%. Answering 55.6% is 1 / 1.8, the common slip.",
+        "ar": "1 ÷ (1 + 1.8) = 35.7%. والإجابة بـ 55.6% هي 1 ÷ 1.8، وهو الزلل الشائع."
+      }
+    },
+    {
+      "id": "C5",
+      "part": "C",
+      "type": "single",
+      "prompt": {
+        "en": "Your account falls from a peak of $22,000 to $15,400. Calculate the drawdown and the gain required to recover.",
+        "ar": "يهبط حسابك من قمّة قدرها 22,000 دولار إلى 15,400 دولار. احسب التراجع والربح اللازم للتعافي."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "30% drawdown, 42.9% gain",
+            "ar": "تراجع 30%، وربح 42.9%"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "70% drawdown, 233% gain",
+            "ar": "تراجع 70%، وربح 233%"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "43% drawdown, 30% gain",
+            "ar": "تراجع 43%، وربح 30%"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "30% drawdown, 30% gain",
+            "ar": "تراجع 30%، وربح 30%"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "Drawdown = (22,000 − 15,400) / 22,000 = 30%. Recovery = 1 / 0.70 − 1 = 42.9%.",
+        "ar": "التراجع = (22,000 − 15,400) ÷ 22,000 = 30%. والتعافي = 1 ÷ 0.70 − 1 = 42.9%."
+      }
+    },
+    {
+      "id": "C6",
+      "part": "C",
+      "type": "single",
+      "prompt": {
+        "en": "You risk 3% per trade and lose nine consecutive trades. What percentage of your account remains, and what gain returns you to break-even?",
+        "ar": "تخاطر بـ 3% لكل صفقة وتخسر تسع صفقات متتالية. ما النسبة المتبقّية من حسابك، وما الربح الذي يعيدك إلى التعادل؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "97.0% remains, 3.1% gain",
+            "ar": "يبقى 97.0%، وربح 3.1%"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "76.0% remains, 31.5% gain",
+            "ar": "يبقى 76.0%، وربح 31.5%"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "73.0% remains, 37.0% gain",
+            "ar": "يبقى 73.0%، وربح 37.0%"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "24.0% remains, 317% gain",
+            "ar": "يبقى 24.0%، وربح 317%"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "0.97^9 = 0.7602, so 76.0% remains, a 24.0% drawdown. Recovery = 31.5%. Answering 73.0% subtracts 3% × 9 = 27% linearly.",
+        "ar": "0.97^9 = 0.7602، أي أن 76.0% يبقى، بتراجع قدره 24.0%. والتعافي = 31.5%. والإجابة بـ 73.0% تطرح 3% × 9 = 27% طرحًا خطّيًّا."
+      }
+    },
+    {
+      "id": "C7",
+      "part": "C",
+      "type": "single",
+      "prompt": {
+        "en": "You hold long EUR/USD, short USD/CHF, long AUD/USD and long US 500, each sized at 1% risk. What is your realistic bad-day exposure to a strong-dollar risk-off move?",
+        "ar": "تحتفظ بشراء EUR/USD، وبيع USD/CHF، وشراء AUD/USD، وشراء US 500، وحجم كلٍّ منها بمخاطرة 1%. ما انكشافك الواقعي في يوم سيئ لحركة قوّة دولار مع نفور من المخاطرة؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "1% — each position was independently sized at one percent of risk",
+            "ar": "1% — فقد حُدِّد حجم كل مركز على حدة بواحد في المئة مخاطرة"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "3% — only the three USD-factor positions move together on the day",
+            "ar": "3% — فالمراكز الثلاثة ذات عامل الدولار وحدها تتحرّك معًا"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "4% — all four lose together, with AUD/USD in both risk groups",
+            "ar": "4% — فالأربعة تخسر معًا، وAUD/USD في مجموعتَي المخاطرة"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "2% — the short USD/CHF hedges two of the long positions out",
+            "ar": "2% — فبيع USD/CHF يتحوّط لمركزَي شراء فيخرجهما"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "Long EUR/USD, short USD/CHF and long AUD/USD are all short USD (3%). Long AUD/USD and long US 500 are both long risk (2%). AUD/USD appears in both, which makes it the most exposed of the four. In a strong-dollar risk-off move all four lose together, so the realistic figure is the full 4%, not the 1% each position was sized to.",
+        "ar": "شراء EUR/USD وبيع USD/CHF وشراء AUD/USD كلها بيعٌ للدولار (3%). وشراء AUD/USD وشراء US 500 كلاهما شراءٌ للمخاطرة (2%). ويظهر AUD/USD في المجموعتين، ولهذا فهو أشدّ الأربعة انكشافًا. وفي حركة قوّة دولار مع نفور من المخاطرة تخسر الأربعة معًا، فيكون الرقم الواقعي هو الـ 4% كاملة، لا الـ 1% التي حُدِّد حجم كل مركز عليها."
+      }
+    },
+    {
+      "id": "D1",
+      "part": "D",
+      "type": "single",
+      "prompt": {
+        "en": "EUR/USD is at 1.0890. State the order type and price for: entering long only if price falls to 1.0855; and entering short only if price falls below 1.0840.",
+        "ar": "EUR/USD عند 1.0890. اذكر نوع الأمر وسعره لـ: الدخول شراءً فقط إن هبط السعر إلى 1.0855؛ والدخول بيعًا فقط إن هبط دون 1.0840."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Buy limit at 1.0855; sell limit at 1.0840",
+            "ar": "شراء حدّي عند 1.0855، وبيع حدّي عند 1.0840"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Buy stop at 1.0855; sell limit at 1.0840",
+            "ar": "شراء إيقافي عند 1.0855، وبيع حدّي عند 1.0840"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Buy stop at 1.0855; sell stop at 1.0840",
+            "ar": "شراء إيقافي عند 1.0855، وبيع إيقافي عند 1.0840"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Buy limit at 1.0855; sell stop at 1.0840",
+            "ar": "شراء حدّي عند 1.0855، وبيع إيقافي عند 1.0840"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "Buying on a fall to a level is a limit (below the market, mean reversion). Selling on a break below a level is a stop (below the market, momentum).",
+        "ar": "الشراء عند هبوط إلى مستوى أمر حدّي (تحت السوق، ارتداد إلى المتوسط). والبيع عند كسر دون مستوى أمر إيقافي (تحت السوق، زخم)."
+      }
+    },
+    {
+      "id": "D2",
+      "part": "D",
+      "type": "single",
+      "prompt": {
+        "en": "You are long with a stop at 1.0800. The mid price is 1.08055 and the spread widens from 1.2 pips to 12 pips. Is your stop triggered?",
+        "ar": "أنت مشترٍ بوقف عند 1.0800. السعر الوسطي 1.08055 ويتّسع الفارق من 1.2 نقطة إلى 12 نقطة. هل فُعِّل وقفك؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Yes — the bid is 1.07995, below the stop; the spread widening alone triggered it",
+            "ar": "نعم — سعر العرض 1.07995، وهو دون الوقف، واتّساع الفارق وحده هو ما فعّله"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "No — the bid is 1.08049, still above the stop",
+            "ar": "لا — سعر العرض 1.08049، وما يزال فوق الوقف"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "No — the mid is still above the stop",
+            "ar": "لا — فالوسطي ما يزال فوق الوقف"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Yes — stops trigger off the ask for a long position",
+            "ar": "نعم — فوقوف مراكز الشراء تُفعَّل على سعر الطلب"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "The bid is 1.08055 − 0.00060 = 1.07995, below the 1.08000 stop. At the normal 1.2-pip spread the bid would have been 1.08049 and the stop would not have triggered. The spread widening alone triggered it, with no move in the mid price.",
+        "ar": "سعر العرض = 1.08055 − 0.00060 = 1.07995، وهو دون الوقف عند 1.08000. وبالفارق الطبيعي البالغ 1.2 نقطة كان سعر العرض ليكون 1.08049 ولما فُعِّل الوقف. فاتّساع الفارق وحده هو الذي فعّله، دون أي حركة في السعر الوسطي."
+      }
+    },
+    {
+      "id": "D3",
+      "part": "D",
+      "type": "single",
+      "prompt": {
+        "en": "Why do stop losses experience more slippage than take profit orders?",
+        "ar": "لماذا تتعرّض وقوف الخسارة لانزلاق أكثر من أوامر جني الأرباح؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Stop orders are queued behind limit orders at the same level",
+            "ar": "الأوامر الإيقافية تُصفّ خلف الحدّية عند المستوى نفسه"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "A stop becomes a market order into a thin book as stops trigger",
+            "ar": "الوقف يصبح أمر سوق في دفتر ضحل بينما تُفعَّل الوقوف"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "They do not; slippage is symmetric between the two order types",
+            "ar": "بل لا تتعرّض، فالانزلاق متماثل بين نوعَي الأمر"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Brokers fill take profit orders from their own internal book",
+            "ar": "الوسطاء ينفّذون أوامر جني الأرباح من دفترهم الداخلي"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "Your losses therefore run larger than planned while your wins do not.",
+        "ar": "فخسائرك إذن تكون أكبر من المخطَّط بينما أرباحك لا تكون."
+      }
+    },
+    {
+      "id": "D4",
+      "part": "D",
+      "type": "single",
+      "prompt": {
+        "en": "ATR(14) on your instrument is 85 pips. Using a 2 ATR stop and 1% risk on a $6,000 account, calculate the position size in lots.",
+        "ar": "ATR(14) على أداتك 85 نقطة. وباستخدام وقف عند 2 ATR ومخاطرة 1% على حساب قيمته 6,000 دولار، احسب حجم المركز باللوتات."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "0.07 lots",
+            "ar": "0.07 لوت"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "0.35 lots",
+            "ar": "0.35 لوت"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "0.03 lots",
+            "ar": "0.03 لوت"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "0.14 lots",
+            "ar": "0.14 لوت"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "2 ATR = 170 pips. Risk = $60. Units = 60 / (170 × 0.0001) = 3,529 → 0.03 lots. Actual risk = 170 × $0.30 = $51. Answering 0.07 lots uses 1 ATR instead of 2.",
+        "ar": "2 ATR = 170 نقطة. والمخاطرة = 60 دولارًا. والوحدات = 60 ÷ (170 × 0.0001) = 3,529 ← 0.03 لوت. والمخاطرة الفعلية = 170 × 0.30 = 51 دولارًا. والإجابة بـ 0.07 لوت تستخدم ATR واحدًا بدلًا من اثنين."
+      }
+    },
+    {
+      "id": "D5",
+      "part": "D",
+      "type": "single",
+      "prompt": {
+        "en": "Define an uptrend in terms of swing structure, and state what event ends it by definition.",
+        "ar": "عرّف الاتجاه الصاعد بدلالة بنية القمم والقيعان، واذكر الحدث الذي ينهيه بحكم التعريف."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Successive higher closes; ends when two consecutive candles close lower",
+            "ar": "إغلاقات أعلى متتالية، وينتهي حين تغلق شمعتان متتاليتان أدنى"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Price above the 200-period average; ends when price crosses below it",
+            "ar": "السعر فوق متوسّط 200 فترة، وينتهي حين يعبر السعر تحته"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Successive higher highs; ends when a lower high is made",
+            "ar": "قمم أعلى متتالية، وينتهي حين تُصنَع قمّة أدنى"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Successive higher highs and higher lows; ends when a lower low is made",
+            "ar": "قمم أعلى وقيعان أعلى متتالية، وينتهي حين يُصنَع قاع أدنى"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "It is a definition, not a forecast. The moving-average version and the higher-highs-only version are useful filters, but neither is the structural definition.",
+        "ar": "وهو تعريف لا تنبّؤ. أما صيغة المتوسّط المتحرّك وصيغة القمم الأعلى وحدها فمصفاتان نافعتان، لكن أيًّا منهما ليس التعريف البنيوي."
+      }
+    },
+    {
+      "id": "D6",
+      "part": "D",
+      "type": "single",
+      "prompt": {
+        "en": "A central bank cuts rates by 0.5% and the currency rises. Give the most likely explanation.",
+        "ar": "يخفض بنك مركزي الفائدة 0.5% فترتفع العملة. اذكر التفسير الأرجح."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "The cut was smaller than expected, or already fully priced in",
+            "ar": "كان الخفض أصغر من المتوقَّع، أو مسعَّرًا بالكامل أصلًا"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "The market misread the announcement and will correct shortly",
+            "ar": "أساءت السوق قراءة الإعلان وستصحّح قريبًا"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Currency moves are unrelated to central bank rate decisions",
+            "ar": "حركات العملة لا علاقة لها بقرارات البنك المركزي"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Rate cuts always strengthen a currency over the following week",
+            "ar": "خفض الفائدة يقوّي العملة دائمًا في الأسبوع التالي"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "Markets react to the surprise relative to expectations, not to the direction of the change itself.",
+        "ar": "فالأسواق تتفاعل مع المفاجأة نسبةً إلى التوقّعات، لا مع اتجاه التغيّر نفسه."
+      }
+    },
+    {
+      "id": "E1",
+      "part": "E",
+      "type": "single",
+      "prompt": {
+        "en": "Which sentence defines a CFD correctly, naming the counterparty and stating what you own?",
+        "ar": "أي جملة تعرّف عقد الفروقات تعريفًا صحيحًا، مسمّيةً الطرف المقابل وذاكرةً ما الذي تملكه؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "A margin loan against shares held for you; you own the shares outright",
+            "ar": "قرض بهامش مقابل أسهم محفوظة لك، وتملك الأسهم كاملة"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "A cash-settled agreement with your broker; you own nothing underlying",
+            "ar": "اتفاق يُسوَّى نقدًا مع وسيطك، ولا تملك شيئًا من الأصل"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "An exchange-cleared derivative; you hold a claim on the clearing house",
+            "ar": "مشتقّ مقاصّ في البورصة، وتملك مطالبة على غرفة المقاصّة"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "A bilateral contract with another retail client; you own half of it",
+            "ar": "عقد ثنائي مع عميل أفراد آخر، وتملك نصفه"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "The counterparty is the broker, and you own nothing.",
+        "ar": "الطرف المقابل هو الوسيط، وأنت لا تملك شيئًا."
+      }
+    },
+    {
+      "id": "E2",
+      "part": "E",
+      "type": "single",
+      "prompt": {
+        "en": "A broker offers you professional client status with 100:1 leverage. What is your answer, and what would you lose?",
+        "ar": "يعرض عليك وسيط صفة العميل المحترف برافعة 100:1. ما جوابك، وما الذي ستفقده؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Yes — the higher leverage lets you commit less margin per position",
+            "ar": "نعم — فالرافعة الأعلى تتيح التزام هامش أقلّ لكل مركز"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Yes, provided you keep your effective leverage under five to one",
+            "ar": "نعم، بشرط إبقاء رافعتك الفعلية دون خمسة إلى واحد"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "No — you would lose negative balance protection and leverage caps",
+            "ar": "لا — فستفقد الحماية من الرصيد السالب وسقوف الرافعة"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "No — but only because the paperwork involved is onerous",
+            "ar": "لا — لكن فقط لأن الإجراءات الورقية مرهقة"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "You also lose ombudsman access and standardised risk warnings. There is no version of a beginner's situation in which removing negative balance protection on a leveraged product is correct.",
+        "ar": "وتفقد كذلك الوصول إلى أمين المظالم وتحذيرات المخاطر الموحَّدة. ولا توجد صيغة لوضع مبتدئ يكون فيها إزالة الحماية من الرصيد السالب على منتج برافعة أمرًا صحيحًا."
+      }
+    },
+    {
+      "id": "E3",
+      "part": "E",
+      "type": "single",
+      "prompt": {
+        "en": "Your backtest shows +1.8R expectancy with an 85% win rate over 120 trades. What is the most likely explanation, and what do you do?",
+        "ar": "يُظهر اختبارك الخلفي توقّعًا قدره +1.8R بنسبة ربح 85% على مدى 120 صفقة. ما التفسير الأرجح، وماذا تفعل؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Reduce the profit target so the result looks more realistic",
+            "ar": "خفّض هدف الربح لتبدو النتيجة أكثر واقعية"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "You have found a strong edge; fund it at your full intended size",
+            "ar": "لقد وجدت أفضلية قوية، فموّلها بالحجم الكامل المقصود"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "The sample is too small; extend it to 300 trades and then fund",
+            "ar": "العيّنة صغيرة جدًّا، فمدّدها إلى 300 صفقة ثم موّل"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "You have made an error; find it before funding anything at all",
+            "ar": "لقد ارتكبت خطأً، فاعثر عليه قبل تمويل أي شيء"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "A genuine retail edge produces expectancy in the region of +0.1R to +0.3R, not +1.8R, and an 85% win rate alongside it is not a plausible combination.",
+        "ar": "فالأفضلية الحقيقية لمتداول أفراد تُنتج توقّعًا في حدود +0.1R إلى +0.3R، لا +1.8R، ونسبة ربح 85% إلى جانبها ليست تركيبة معقولة."
+      }
+    },
+    {
+      "id": "E4",
+      "part": "E",
+      "type": "single",
+      "prompt": {
+        "en": "Your forward test shows positive expectancy but 74% plan compliance. What do you conclude, and what is the correct next step?",
+        "ar": "يُظهر اختبارك الأمامي توقّعًا موجبًا لكن التزامًا بالخطة قدره 74%. بم تستنتج، وما الخطوة التالية الصحيحة؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "The result is uninterpretable; fix the execution, then retest",
+            "ar": "النتيجة غير قابلة للتفسير، فأصلح التنفيذ ثم أعد الاختبار"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Loosen the rules until compliance rises to an acceptable level",
+            "ar": "أرخِ القواعد حتى يرتفع الالتزام إلى مستوى مقبول"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Compliance does not matter while expectancy stays positive",
+            "ar": "الالتزام لا يهمّ ما دام التوقّع موجبًا"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "The strategy works; go live at the minimum position size",
+            "ar": "الاستراتيجية تعمل، فانتقل إلى الحقيقي بأدنى حجم"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "You did not trade the strategy, so the data cannot be attributed to it. Do not adjust the strategy on data produced by not following it.",
+        "ar": "فأنت لم تتداول الاستراتيجية، فلا يمكن نسب البيانات إليها. ولا تعدّل الاستراتيجية بناءً على بيانات أنتجها عدم اتّباعها."
+      }
+    },
+    {
+      "id": "E5",
+      "part": "E",
+      "type": "single",
+      "prompt": {
+        "en": "You have taken four losses today, all within your rules. You notice a fifth setup. Your plan's daily limit is three losses. What do you do?",
+        "ar": "تلقّيت أربع خسائر اليوم، كلها ضمن قواعدك. وتلاحظ إعدادًا خامسًا. وحدّ خطّتك اليومي ثلاث خسائر. ماذا تفعل؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Take it only if the reward-to-risk on the setup exceeds three",
+            "ar": "خذه فقط إن تجاوز العائد إلى المخاطرة ثلاثة"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Stop. The plan says three and asking is itself the warning sign",
+            "ar": "توقّف. فالخطة تقول ثلاثًا، وسؤالك ذاته هو علامة التحذير"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Take it at half size, since the setup itself is entirely valid",
+            "ar": "خذه بنصف الحجم، ما دام الإعداد نفسه صحيحًا تمامًا"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Take it — the limit is a guideline and the losses followed rules",
+            "ar": "خذه — فالحدّ إرشادي، والخسائر التزمت بالقواعد"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "The daily limit exists precisely to intervene at that point. A limit you can override is not a limit.",
+        "ar": "فالحدّ اليومي موجود بالضبط للتدخّل عند تلك النقطة. والحدّ الذي تستطيع تجاوزه ليس حدًّا."
+      }
+    },
+    {
+      "id": "E6",
+      "part": "E",
+      "type": "multi",
+      "prompt": {
+        "en": "A firm regulated in St Vincent and the Grenadines offers 400:1 leverage, a 100% deposit bonus, and an account manager who will suggest trades. Select every red flag.",
+        "ar": "شركة منظَّمة في سانت فنسنت وجزر غرينادين تعرض رافعة 400:1، ومكافأة إيداع 100%، ومدير حساب يقترح صفقات. اختر كل علامة حمراء."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "A deposit bonus — prohibited under every major retail regime and usually carrying a volume requirement that locks your balance",
+            "ar": "مكافأة إيداع — محظورة تحت كل نظام أفراد كبير وتحمل عادةً شرط حجم يقفل رصيدك"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "400:1 leverage — a 0.25% move eliminates your margin",
+            "ar": "رافعة 400:1 — فحركة قدرها 0.25% تمحو هامشك"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Offshore-only regulation — no leverage caps, no negative balance protection, no compensation scheme, no effective recourse",
+            "ar": "تنظيم خارجي فقط — بلا سقوف رافعة، وبلا حماية من الرصيد السالب، وبلا نظام تعويض، وبلا حقّ رجوع فعّال"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "An account manager suggesting trades — a salesperson compensated on your activity, not an adviser acting for you",
+            "ar": "مدير حساب يقترح صفقات — بائع يُعوَّض على نشاطك، لا مستشار يعمل لصالحك"
+          }
+        }
+      ],
+      "correct": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "explanation": {
+        "en": "Every element is a red flag, and any one of them is sufficient reason to decline.",
+        "ar": "كل عنصر علامة حمراء، وأيٌّ منها سبب كافٍ للرفض."
+      }
+    },
+    {
+      "id": "E7",
+      "part": "E",
+      "type": "single",
+      "prompt": {
+        "en": "Why is a guaranteed 8% monthly return not credible?",
+        "ar": "لماذا لا يمكن تصديق عائد شهري مضمون قدره 8%؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Because tax on the returns reduces the net figure below 8%",
+            "ar": "لأن الضريبة على العوائد تخفض الصافي دون 8%"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Because no regulator permits advertising a monthly return figure",
+            "ar": "لأن لا جهة تنظيمية تسمح بالإعلان عن رقم شهري"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Because it compounds to about 152% a year, which nobody sustains",
+            "ar": "لأنها تتراكم إلى نحو 152% سنويًّا، ولا أحد يديم ذلك"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Because 8% a month is only reachable with leverage above 100:1",
+            "ar": "لأن 8% شهريًّا لا تُبلَغ إلا برافعة تتجاوز 100:1"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "8% a month compounds to roughly 152% a year; sustained for ten years, £10,000 becomes over £60 million, and over twenty it exceeds the value of most large companies. Nobody has achieved this, so the claim is either a lie or a scheme paying early investors with later investors' money. The claim is not that someone is a skilled trader.",
+        "ar": "8% شهريًّا تتراكم إلى نحو 152% سنويًّا، وباستمرارها عشر سنوات يصبح مبلغ 10,000 أكثر من 60 مليونًا، وفي عشرين سنة يتجاوز قيمة معظم الشركات الكبرى. ولم يحقّق أحد ذلك، فالادّعاء إمّا كذب وإمّا مخطّط يدفع للمستثمرين الأوائل من أموال اللاحقين. وليس الادّعاء أن أحدًا متداول ماهر."
+      }
+    },
+    {
+      "id": "E8",
+      "part": "E",
+      "type": "single",
+      "prompt": {
+        "en": "What is the single most important number in this course, and what is its significance?",
+        "ar": "ما أهمّ رقم مفرد في هذه الدورة، وما دلالته؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "The 1% risk-per-trade limit, which determines every position size",
+            "ar": "حدّ المخاطرة 1% لكل صفقة، فهو يحدّد كل حجم مركز"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "The 50% margin close-out level, which defines when you are forced out",
+            "ar": "مستوى الإغلاق القسري 50%، فهو يحدّد متى تُخرَج قسرًا"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "The 30:1 retail leverage cap, which constrains every position taken",
+            "ar": "سقف الرافعة 30:1 للأفراد، فهو يقيّد كل مركز يُؤخذ"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "That 70–85% of retail CFD accounts lose money: losing is the default",
+            "ar": "أن 70–85% من حسابات الأفراد تخسر: فالخسارة هي الافتراضي"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "It is the only unfiltered sample you have access to in an information environment otherwise dominated by self-selected success. Every decision in the course — position sizing, cost analysis, testing before funding — follows from taking that number seriously.",
+        "ar": "فهو العيّنة غير المصفّاة الوحيدة المتاحة لك في بيئة معلوماتية تهيمن عليها قصص نجاح ذاتية الانتقاء. وكل قرار في الدورة — تحديد حجم المركز، وتحليل التكاليف، والاختبار قبل التمويل — ينبع من أخذ ذلك الرقم على محمل الجد."
+      }
+    }
+  ]
+}

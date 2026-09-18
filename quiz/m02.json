@@ -1,0 +1,482 @@
+{
+  "id": "m02",
+  "kind": "quiz",
+  "title": {
+    "en": "Module 02 Quiz",
+    "ar": "اختبار الوحدة 02"
+  },
+  "passMark": 0.8,
+  "meta": {
+    "dir": "02-what-is-a-cfd",
+    "calculator": false,
+    "anchor": {
+      "en": "module-02",
+      "ar": "الوحدة-02"
+    },
+    "scoring": {
+      "en": "Below 8/10, reread before continuing.",
+      "ar": "أقلّ من 8 من 10: أعد القراءة قبل المتابعة."
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": {
+        "en": "Which sentence defines a CFD correctly, including the counterparty?",
+        "ar": "أي جملة تعرّف عقد الفروقات تعريفًا صحيحًا، بما في ذلك الطرف المقابل؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "A leveraged purchase of the underlying shares, held in custody by your broker",
+            "ar": "شراء أسهم الأصل الأساس برافعة، يحتفظ بها الوسيط في حساب حفظ"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "An exchange-traded contract to buy the underlying asset at a fixed future date",
+            "ar": "عقد متداوَل في البورصة لشراء الأصل الأساس في تاريخ مستقبلي محدَّد"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "A peer-to-peer contract matched against another retail trader's position",
+            "ar": "عقد بين طرفين يُطابَق مع مركز متداول أفراد آخر"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "A cash-settled agreement with your broker to exchange the price difference between open and close",
+            "ar": "اتفاق يُسوَّى نقدًا مع وسيطك على تبادل فرق السعر بين الفتح والإغلاق"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "Your counterparty is your broker, not an exchange and not another trader.",
+        "ar": "الطرف المقابل لك هو وسيطك، لا بورصة ولا متداول آخر."
+      }
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": {
+        "en": "You hold 1,000 share CFDs in a company that goes into administration. What is your claim on the company's assets?",
+        "ar": "تحتفظ بـ 1,000 عقد فروقات على أسهم شركة دخلت في الحراسة القضائية. ما مطالبتك في أصول الشركة؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "None — you own no shares; your contract is with the broker",
+            "ar": "لا شيء — فأنت لا تملك أسهمًا، وعقدك مع الوسيط"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "A claim limited to the margin you posted",
+            "ar": "مطالبة محدودة بالهامش الذي أودعته"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "A preferential claim, because CFDs are collateralised",
+            "ar": "مطالبة تفضيلية، لأن عقود الفروقات مضمونة برهن"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "The same claim as any other shareholder",
+            "ar": "المطالبة نفسها التي لأي مساهم آخر"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "You own no shares and have no claim on the company. If the broker also fails, you are an unsecured creditor of the broker, mitigated by client money segregation and any compensation scheme.",
+        "ar": "أنت لا تملك أسهمًا ولا حقّ لك في الشركة. وإن أفلس الوسيط أيضًا، كنت دائنًا غير مضمون له، ويخفّف ذلك فصلُ أموال العملاء وأي نظام تعويض."
+      }
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": {
+        "en": "Why do CFDs incur overnight financing when outright shares do not?",
+        "ar": "لماذا تتحمّل عقود الفروقات تمويلًا ليليًّا بينما لا تتحمّله الأسهم المشتراة مباشرةً؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Because dividends on the underlying must be replicated synthetically each night",
+            "ar": "لأن توزيعات الأصل الأساس يجب محاكاتها اصطناعيًّا كل ليلة"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Because the broker funds exposure far larger than your margin, and charges nightly",
+            "ar": "لأن الوسيط يموّل انكشافًا أكبر بكثير من هامشك، ويفرض رسمًا عليه ليلةً بليلة"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Because regulators require brokers to levy a nightly charge on leveraged risk",
+            "ar": "لأن الجهات التنظيمية تفرض رسمًا ليليًّا على المخاطرة برافعة"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Because CFDs expire monthly and the position must be rolled to the next contract",
+            "ar": "لأن عقود الفروقات تنتهي شهريًّا ويجب تدوير المركز إلى العقد التالي"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "A CFD has no expiry and is leveraged. A share bought outright is fully paid, so there is nothing to fund.",
+        "ar": "عقد الفروقات بلا انتهاء وبرافعة. أما السهم المشترى مباشرةً فمدفوع بالكامل، فلا شيء لتمويله."
+      }
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": {
+        "en": "Under UK/EU retail rules, what leverage is available on a major FX pair, and what margin percentage does that imply?",
+        "ar": "بموجب قواعد الأفراد في المملكة المتحدة والاتحاد الأوروبي، ما الرافعة المتاحة على زوج عملات رئيسي، وما نسبة الهامش التي يستلزمها ذلك؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "20:1, implying 5% margin",
+            "ar": "20:1، أي هامش 5%"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "10:1, implying 10% margin",
+            "ar": "10:1، أي هامش 10%"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "30:1, implying 3.33% margin",
+            "ar": "30:1، أي هامش 3.33%"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "50:1, implying 2% margin",
+            "ar": "50:1، أي هامش 2%"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "Margin % = 1 / leverage. 20:1 and 5% is the cap for non-major FX, major indices and gold, not for major pairs.",
+        "ar": "نسبة الهامش = 1 ÷ الرافعة. و20:1 بهامش 5% هو السقف للعملات غير الرئيسية والمؤشرات الرئيسية والذهب، لا للأزواج الرئيسية."
+      }
+    },
+    {
+      "id": "q5",
+      "type": "single",
+      "prompt": {
+        "en": "At what level of equity relative to required margin must a broker begin closing your positions?",
+        "ar": "عند أي مستوى من حقوق الملكية نسبةً إلى الهامش المطلوب يجب على الوسيط أن يبدأ إغلاق مراكزك؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "100%",
+            "ar": "100%"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "75%",
+            "ar": "75%"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "50%",
+            "ar": "50%"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "25%",
+            "ar": "25%"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "50% of required initial margin — not 50% of your account. The two are very different numbers.",
+        "ar": "50% من الهامش الابتدائي المطلوب — لا 50% من حسابك. والرقمان مختلفان جدًّا."
+      }
+    },
+    {
+      "id": "q6",
+      "type": "single",
+      "prompt": {
+        "en": "Which historical event most clearly demonstrated why negative balance protection is needed?",
+        "ar": "أي حدث تاريخي أظهر بأوضح صورة سبب الحاجة إلى الحماية من الرصيد السالب؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "The collapse of Lehman Brothers in September 2008",
+            "ar": "انهيار ليمان براذرز في سبتمبر 2008"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "The flash crash in US equities in May 2010",
+            "ar": "الانهيار الخاطف في الأسهم الأمريكية في مايو 2010"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "The negative WTI crude oil settlement in April 2020",
+            "ar": "تسوية خام غرب تكساس السالبة في أبريل 2020"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "The Swiss National Bank removing the EUR/CHF 1.20 floor in January 2015",
+            "ar": "إلغاء البنك الوطني السويسري أرضية 1.20 لزوج EUR/CHF في يناير 2015"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "Negative balance protection means you cannot lose more than the money in your account; any deficit must be written off. On 15 January 2015 EUR/CHF fell about 30% in minutes with no transactable liquidity. Retail clients ended owing brokers sums far exceeding their deposits, and Alpari UK entered insolvency.",
+        "ar": "الحماية من الرصيد السالب تعني أنك لا تستطيع خسارة أكثر من المال الذي في حسابك، وأي عجز يجب أن يُشطَب. وفي 15 يناير 2015 هبط EUR/CHF نحو 30% خلال دقائق بلا سيولة قابلة للتنفيذ. وانتهى الأمر بعملاء أفراد مدينين لوسطائهم بمبالغ تفوق ودائعهم بكثير، ودخلت Alpari UK في الإعسار."
+      }
+    },
+    {
+      "id": "q7",
+      "type": "multi",
+      "prompt": {
+        "en": "A broker offers you professional client status with higher leverage. Select every protection you would lose.",
+        "ar": "يعرض عليك وسيط صفة العميل المحترف برافعة أعلى. اختر كل حماية ستفقدها."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "The ability to place stop loss orders",
+            "ar": "القدرة على وضع أوامر وقف الخسارة"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Negative balance protection",
+            "ar": "الحماية من الرصيد السالب"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Segregation of client money",
+            "ar": "فصل أموال العملاء"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Retail leverage caps",
+            "ar": "سقوف الرافعة للأفراد"
+          }
+        },
+        {
+          "id": "e",
+          "text": {
+            "en": "Compensation scheme eligibility",
+            "ar": "أهلية نظام التعويض"
+          }
+        }
+      ],
+      "correct": [
+        "b",
+        "d",
+        "e"
+      ],
+      "explanation": {
+        "en": "You lose negative balance protection, leverage caps, compensation scheme eligibility, ombudsman access, standardised risk warnings and the appropriateness assessment. The ability to place stop loss orders and the segregation of client money are unaffected. The correct answer to the offer is no.",
+        "ar": "تفقد الحماية من الرصيد السالب وسقوف الرافعة وأهلية نظام التعويض والوصول إلى أمين المظالم وتحذيرات المخاطر الموحَّدة وتقييم الملاءمة. أما القدرة على وضع أوامر وقف الخسارة وفصل أموال العملاء فلا يتأثّران. والجواب الصحيح للعرض هو لا."
+      }
+    },
+    {
+      "id": "q8",
+      "type": "single",
+      "prompt": {
+        "en": "You are short 200 share CFDs over an ex-dividend date. The gross dividend is $0.80 and the net is $0.68. What is the adjustment to your account?",
+        "ar": "أنت بائع لـ 200 عقد فروقات على سهم عبر تاريخ استحقاق التوزيعات. والتوزيع الإجمالي 0.80 دولار والصافي 0.68. ما التسوية على حسابك؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "$160 debited",
+            "ar": "160 دولارًا تُخصَم منك"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "$136 debited",
+            "ar": "136 دولارًا تُخصَم منك"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "$136 credited",
+            "ar": "136 دولارًا تُقيَّد لك"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "$160 credited",
+            "ar": "160 دولارًا تُقيَّد لك"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "Short positions are debited the gross dividend: 200 × $0.80 = $160 debited. Longs are credited the net, $0.68, so the short pays more than the long receives.",
+        "ar": "تُخصَم من مراكز البيع التوزيعات الإجمالية: 200 × 0.80 = 160 دولارًا مخصومة. وتُقيَّد لمراكز الشراء القيمة الصافية، 0.68، فيدفع البائع أكثر ممّا يقبض المشتري."
+      }
+    },
+    {
+      "id": "q9",
+      "type": "single",
+      "prompt": {
+        "en": "Long positions have bounded maximum loss and short positions do not. What practically limits the short loss in a regulated retail account?",
+        "ar": "لمراكز الشراء خسارة قصوى محدودة، ولمراكز البيع ليست كذلك. ما الذي يحدّ خسارة البيع عمليًّا في حساب أفراد منظَّم؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "A regulatory cap of twice the margin posted",
+            "ar": "سقف تنظيمي يعادل ضعف الهامش المودَع على المركز المفتوح"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "The 50% margin close-out and negative balance protection, which cap the loss at your account balance",
+            "ar": "الإغلاق القسري عند 50% والحماية من الرصيد السالب، فيحدّان الخسارة عند رصيدك"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "The broker's obligation to buy back the position at your entry price",
+            "ar": "التزام الوسيط بإعادة شراء المركز عند سعر دخولك الأصلي"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Nothing — the loss really is unlimited in practice",
+            "ar": "لا شيء يحدّها، فالخسارة غير محدودة فعلًا في حساب الأفراد"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "A long's worst case is the asset going to zero, bounding the loss at entry price × units. A short has no upper bound on price, so the loss is unbounded in principle. The close-out and negative balance protection cap the actual loss at zero — which is a cap, not a small number.",
+        "ar": "أسوأ حالة لمركز الشراء هي وصول الأصل إلى الصفر، فتُحدّ الخسارة عند سعر الدخول × الوحدات. أما مركز البيع فلا حدّ أعلى لسعره، فالخسارة غير محدودة من حيث المبدأ. والإغلاق القسري والحماية من الرصيد السالب يحدّان الخسارة الفعلية عند الصفر — وهو سقف، لا رقم صغير."
+      }
+    },
+    {
+      "id": "q10",
+      "type": "single",
+      "prompt": {
+        "en": "A firm advertises a 100% deposit bonus and 400:1 leverage. What does this tell you, and how do clients usually discover the problem?",
+        "ar": "تعلن شركة عن مكافأة إيداع 100% ورافعة 400:1. بم يخبرك ذلك، وكيف يكتشف العملاء المشكلة عادةً؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "The firm is newly licensed; the problem is usually slow support",
+            "ar": "الشركة حديثة الترخيص، والمشكلة عادةً بطء الدعم وخدمة العملاء"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "It is a competitive regulated offer; the problem is usually high spreads",
+            "ar": "إنه عرض تنافسي من شركة منظَّمة، والمشكلة عادةً فوارق سعرية مرتفعة"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "The firm is outside UK/EU/AU regimes; clients discover a trading-volume requirement blocking withdrawal",
+            "ar": "الشركة خارج أنظمة المملكة المتحدة والاتحاد الأوروبي وأستراليا، والمأزق شرط حجم تداول يمنع السحب"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Nothing unusual; bonuses are standard across the industry",
+            "ar": "لا شيء غير معتاد، فالمكافآت قياسية في هذه الصناعة كلّها"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "Bonuses to retail clients are prohibited under UK, EU and Australian rules, and 400:1 is far above every retail cap. The usual discovery is at withdrawal: the bonus carries a trading-volume requirement, often hundreds of times its value, and costs alone will consume the account first.",
+        "ar": "المكافآت لعملاء الأفراد محظورة بموجب قواعد المملكة المتحدة والاتحاد الأوروبي وأستراليا، ورافعة 400:1 تفوق كل سقوف الأفراد بكثير. والاكتشاف المعتاد يقع عند السحب: فالمكافأة تحمل شرط حجم تداول، غالبًا مئات أضعاف قيمتها، والتكاليف وحدها ستستهلك الحساب أولًا."
+      }
+    }
+  ]
+}

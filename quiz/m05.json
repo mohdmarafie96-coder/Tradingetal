@@ -1,0 +1,491 @@
+{
+  "id": "m05",
+  "kind": "quiz",
+  "title": {
+    "en": "Module 05 Quiz",
+    "ar": "اختبار الوحدة 05"
+  },
+  "passMark": 0.8,
+  "meta": {
+    "dir": "05-orders-and-execution",
+    "calculator": false,
+    "anchor": {
+      "en": "module-05",
+      "ar": "الوحدة-05"
+    },
+    "scoring": {
+      "en": "Below 8/10, reread. Module 06 assumes this material.",
+      "ar": "أقلّ من 8 من 10: أعد القراءة. فالوحدة 06 تفترض هذه المادة."
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": {
+        "en": "What does a market order guarantee, and what does a limit order guarantee?",
+        "ar": "ما الذي يضمنه أمر السوق، وما الذي يضمنه الأمر الحدّي؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "A market order guarantees price; a limit order guarantees execution",
+            "ar": "أمر السوق يضمن السعر، والأمر الحدّي يضمن التنفيذ"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "A market order guarantees execution, not price; a limit the price, not a fill",
+            "ar": "أمر السوق يضمن التنفيذ لا السعر، والحدّي يضمن السعر لا التنفيذ"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Neither guarantees anything; both are best-efforts instructions",
+            "ar": "لا يضمن أيٌّ منهما شيئًا، فكلاهما تعليمة بأفضل جهد"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Both guarantee execution; only the limit order guarantees a price",
+            "ar": "كلاهما يضمن التنفيذ، والحدّي وحده يضمن السعر"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "Every order type is a variation on that trade-off; choosing one is choosing which of the two you give up.",
+        "ar": "وكل نوع من الأوامر تنويع على تلك المقايضة، واختيار أحدها هو اختيار أيّ الأمرين تتخلّى عنه."
+      }
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": {
+        "en": "EUR/USD is at 1.0880. You want to enter long only if price breaks above 1.0920. What order type and price?",
+        "ar": "EUR/USD عند 1.0880. وتريد الدخول شراءً فقط إن اخترق السعر 1.0920 صعودًا. ما نوع الأمر وما سعره؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Sell stop at 1.0920",
+            "ar": "أمر بيع إيقافي عند 1.0920"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Market order once it reaches 1.0920",
+            "ar": "أمر سوق متى بلغ 1.0920"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Buy stop at 1.0920",
+            "ar": "أمر شراء إيقافي عند 1.0920"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Buy limit at 1.0920",
+            "ar": "أمر شراء حدّي عند 1.0920"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "Stop orders to buy are placed above the current price. A buy limit at 1.0920 would fill immediately and worse, since it sits above the market.",
+        "ar": "أوامر الشراء الإيقافية توضع فوق السعر الحالي. وأمر شراء حدّي عند 1.0920 كان سيُنفَّذ فورًا وبسعر أسوأ، لأنه فوق السوق."
+      }
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": {
+        "en": "What is the difference between a buy limit and a buy stop, including where each sits relative to the current price?",
+        "ar": "ما الفرق بين أمر الشراء الحدّي وأمر الشراء الإيقافي، بما في ذلك موضع كلٍّ منهما نسبةً إلى السعر الحالي؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "They are the same order with different names",
+            "ar": "هما الأمر نفسه باسمين مختلفين"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Both sit below the market; only the fill logic differs",
+            "ar": "كلاهما تحت السوق، ويختلف منطق التنفيذ فقط"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Buy limit sits above the market and expresses momentum; buy stop sits below and expresses mean reversion",
+            "ar": "الشراء الحدّي فوق السوق ويعبّر عن الزخم، والشراء الإيقافي تحته ويعبّر عن الارتداد إلى المتوسط"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Buy limit sits below the market and expresses mean reversion; buy stop sits above and expresses momentum",
+            "ar": "الشراء الحدّي تحت السوق ويعبّر عن الارتداد إلى المتوسط، والشراء الإيقافي فوقه ويعبّر عن الزخم"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "Confusing them produces immediate and expensive errors.",
+        "ar": "والخلط بينهما يُنتج أخطاءً فورية ومكلفة."
+      }
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": {
+        "en": "Why is a stop-limit order a poor choice for a stop loss?",
+        "ar": "لماذا يُعدّ الأمر الإيقافي المحدَّد خيارًا سيئًا لوقف الخسارة؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "It fills only at your limit or better, so a fast market leaves you unprotected",
+            "ar": "لأنه لا يُنفَّذ إلا بحدّك أو أفضل، فتتركك السوق السريعة بلا حماية"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "It triggers too early in volatile conditions and exits good trades",
+            "ar": "لأنه يُفعَّل مبكرًا جدًّا في التقلّب فيُخرجك من صفقات جيدة"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "It costs more in commission than a plain stop loss order does",
+            "ar": "لأنه يكلّف عمولة أعلى من أمر وقف الخسارة العادي"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Brokers do not support stop-limit orders on FX instruments",
+            "ar": "لأن الوسطاء لا يدعمون الوقف الحدّي على أدوات العملات"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "The scenario it protects against is exactly the scenario in which it fails. Its legitimate use is entries where a bad fill makes the trade not worth taking.",
+        "ar": "فالسيناريو الذي يحميك منه هو بالضبط السيناريو الذي يفشل فيه. واستخدامه المشروع في أوامر الدخول التي يجعل فيها التنفيذ السيئ الصفقةَ غير جديرة بالدخول."
+      }
+    },
+    {
+      "id": "q5",
+      "type": "single",
+      "prompt": {
+        "en": "You are long EUR/USD with a stop at 1.0850. The mid price is 1.08560 and the spread widens from 1.2 pips to 9 pips. Is your stop triggered?",
+        "ar": "أنت مشترٍ لـ EUR/USD بوقف عند 1.0850. السعر الوسطي 1.08560، ويتّسع الفارق السعري من 1.2 نقطة إلى 9 نقاط. هل يُفعَّل وقفك؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Yes — stops trigger off the ask for a long position",
+            "ar": "نعم — فوقوف مراكز الشراء تُفعَّل على سعر الطلب"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "No — the bid is 1.08515, still 1.5 pips above the stop",
+            "ar": "لا — سعر العرض 1.08515، وما يزال أعلى من الوقف بـ 1.5 نقطة"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "No — stops trigger off the mid price, which is unchanged",
+            "ar": "لا — فالوقوف تُفعَّل على السعر الوسطي، وهو لم يتغيّر"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Yes — the bid is 1.08515, below the stop",
+            "ar": "نعم — سعر العرض 1.08515، وهو دون الوقف"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "A long's stop triggers off the bid. At a 9-pip spread with a mid of 1.08560, the bid is 1.08560 − 0.00045 = 1.08515. The stop at 1.08500 is not triggered — but only by 1.5 pips. A slightly wider spread would trigger it with no change in the mid at all. That mechanism is the point, not the specific answer.",
+        "ar": "وقف الشراء يُفعَّل على سعر العرض. وبفارق 9 نقاط ووسطي 1.08560، يكون سعر العرض 1.08560 − 0.00045 = 1.08515. فالوقف عند 1.08500 غير مفعَّل — لكن بفارق 1.5 نقطة فقط. وفارقٌ أوسع قليلًا كان سيفعّله دون أي تغيّر في الوسطي إطلاقًا. وتلك الآلية هي المقصد، لا الإجابة بعينها."
+      }
+    },
+    {
+      "id": "q6",
+      "type": "single",
+      "prompt": {
+        "en": "Why do stop losses experience more slippage than take profit orders?",
+        "ar": "لماذا تتعرّض أوامر وقف الخسارة لانزلاق سعري أكثر من أوامر جني الأرباح؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Take profits are filled internally from the broker's own book",
+            "ar": "لأن أوامر جني الأرباح تُنفَّذ داخليًّا من دفتر الوسيط"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "They do not; slippage is symmetric between stops and take profits",
+            "ar": "بل لا تتعرّض، فالانزلاق متماثل بين الوقف وجني الأرباح"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "A stop becomes a market order into a thin book as everyone's stops trigger",
+            "ar": "لأن الوقف يصبح أمر سوق في دفتر ضحل بينما تُفعَّل وقوف الجميع"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Brokers prioritise the orders that are profitable for the client",
+            "ar": "لأن الوسطاء يقدّمون الأوامر الرابحة للعميل"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "Your losses therefore run larger than planned while your wins do not run larger than planned. Build that asymmetry into your expectations.",
+        "ar": "فخسائرك إذن تكون أكبر من المخطَّط بينما أرباحك لا تكون أكبر من المخطَّط. فاجعل ذلك اللاتماثل جزءًا من توقّعاتك."
+      }
+    },
+    {
+      "id": "q7",
+      "type": "single",
+      "prompt": {
+        "en": "Your measured average stop slippage is 3 pips and your stop distance is 25 pips. By what percentage does this increase your actual risk per trade?",
+        "ar": "متوسط الانزلاق المقيس على وقفك 3 نقاط، ومسافة وقفك 25 نقطة. بكم نسبة يزيد هذا مخاطرتك الفعلية لكل صفقة؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "3%",
+            "ar": "3%"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "12%",
+            "ar": "12%"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "25%",
+            "ar": "25%"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "33%",
+            "ar": "33%"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "3 / 25 = 12% more risk than planned. A 25-pip stop is a 28-pip stop in expectation, so a \"1% risk\" trade is really 1.12%.",
+        "ar": "3 ÷ 25 = مخاطرة أكبر بـ 12% ممّا خُطِّط. فوقف 25 نقطة هو وقف 28 نقطة في التوقّع، فصفقة «مخاطرتها 1%» هي في الحقيقة 1.12%."
+      }
+    },
+    {
+      "id": "q8",
+      "type": "single",
+      "prompt": {
+        "en": "Under what circumstance is moving a stop loss acceptable, and in which direction?",
+        "ar": "في أي ظرف يكون تحريك وقف الخسارة مقبولًا، وفي أي اتجاه؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Either direction, provided total risk stays under 2%",
+            "ar": "في أي اتجاه، ما دامت المخاطرة الإجمالية دون 2%"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Away from price, once before news",
+            "ar": "بعيدًا عن السعر، مرة واحدة قبل الأخبار"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Away from price, when volatility rises",
+            "ar": "بعيدًا عن السعر، حين يرتفع التقلّب"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Toward profit only, in line with your written rules — never widened",
+            "ar": "نحو الربح فقط، وفق قواعدك المكتوبة — ولا يُوسَّع أبدًا"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "Moving a stop further away converts a defined, planned, survivable loss into an undefined one. Every account destroyed by a single trade involved a stop that was moved.",
+        "ar": "نقل الوقف بعيدًا يحوّل خسارةً محدّدةً ومخطَّطة وقابلة للنجاة إلى خسارة غير محدّدة. وكل حساب دمّرته صفقة واحدة كان فيه وقف قد نُقل."
+      }
+    },
+    {
+      "id": "q9",
+      "type": "single",
+      "prompt": {
+        "en": "A trade lost money while following your plan exactly. Another made money after you widened the stop. Which is the better trade?",
+        "ar": "صفقة خسرت مالًا مع التزامك بخطّتك تمامًا. وأخرى ربحت مالًا بعد أن وسّعت الوقف. أيّهما الصفقة الأفضل؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "The loss that followed the plan; one outcome says little about the decision",
+            "ar": "الخاسرة التي التزمت بالخطة، فنتيجة واحدة تقول القليل عن القرار"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "The winner, provided the stop was widened by less than 1R",
+            "ar": "الرابحة، بشرط أن يكون الوقف وُسِّع بأقلّ من 1R"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "The winner, because profit is the only measure that ultimately matters",
+            "ar": "الرابحة، فالربح هو المقياس الوحيد الذي يهمّ في النهاية"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Neither; over a single trade the two are exactly equivalent",
+            "ar": "لا هذه ولا تلك، فهما متكافئتان على صفقة واحدة"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "A win that came from violating the plan is the most dangerous outcome available, because it reinforces the habit that will eventually be very expensive.",
+        "ar": "والربح الآتي من مخالفة الخطة أخطر نتيجة ممكنة، لأنه يرسّخ العادة التي ستصبح مكلفة جدًّا في النهاية."
+      }
+    },
+    {
+      "id": "q10",
+      "type": "multi",
+      "prompt": {
+        "en": "Select the questions that must be answered before placing any trade.",
+        "ar": "اختر الأسئلة التي يجب الإجابة عنها قبل وضع أي صفقة."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Position size calculated from the risk budget",
+            "ar": "حجم المركز محسوبًا من ميزانية المخاطرة"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Round-trip cost and the cost ratio",
+            "ar": "تكلفة الصفقة الكاملة ونسبة التكلفة"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "How confident you feel about the direction",
+            "ar": "مدى ثقتك بشعورك تجاه الاتجاه"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Where the stop goes and why, structurally",
+            "ar": "أين يقع الوقف ولماذا، بنيويًّا"
+          }
+        },
+        {
+          "id": "e",
+          "text": {
+            "en": "Scheduled events before the expected exit",
+            "ar": "الأحداث المجدوَلة قبل الخروج المتوقَّع"
+          }
+        },
+        {
+          "id": "f",
+          "text": {
+            "en": "Which defined setup is present",
+            "ar": "أي إعداد محدَّد موجود"
+          }
+        }
+      ],
+      "correct": [
+        "a",
+        "b",
+        "d",
+        "e",
+        "f"
+      ],
+      "explanation": {
+        "en": "How confident you feel is not a pre-trade check — confidence is uncorrelated with accuracy, and sizing by conviction is explicitly warned against. The others all appear on the pre-trade checklist.",
+        "ar": "شعورك بالثقة ليس فحصًا قبل الصفقة — فالثقة غير مرتبطة بالدقّة، وتحديد الحجم بالقناعة محذَّر منه صراحةً. أما البقية فكلها ترد في قائمة ما قبل الصفقة."
+      }
+    }
+  ]
+}

@@ -1,0 +1,501 @@
+{
+  "id": "m10",
+  "kind": "quiz",
+  "title": {
+    "en": "Module 10 Quiz",
+    "ar": "اختبار الوحدة 10"
+  },
+  "passMark": 0.8,
+  "meta": {
+    "dir": "10-operations",
+    "calculator": false,
+    "anchor": {
+      "en": "module-10",
+      "ar": "الوحدة-10"
+    },
+    "scoring": {
+      "en": "Below 8/10, reread.",
+      "ar": "أقلّ من 8 من 10: أعد القراءة."
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": {
+        "en": "Rank these in order of importance when choosing a broker: platform features, total cost, regulation, spread.",
+        "ar": "رتّب هذه بحسب الأهمية عند اختيار وسيط: ميزات المنصّة، والتكلفة الإجمالية، والتنظيم، والفارق السعري."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Spread, total cost, regulation, platform features",
+            "ar": "الفارق السعري، ثم التكلفة الإجمالية، ثم التنظيم، ثم ميزات المنصّة"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Regulation, total cost, spread, platform features",
+            "ar": "التنظيم، ثم التكلفة الإجمالية، ثم الفارق السعري، ثم ميزات المنصّة"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Total cost, spread, platform features, regulation",
+            "ar": "التكلفة الإجمالية، ثم الفارق السعري، ثم ميزات المنصّة، ثم التنظيم"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Platform features, spread, total cost, regulation",
+            "ar": "ميزات المنصّة، ثم الفارق السعري، ثم التكلفة الإجمالية، ثم التنظيم"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "Regulation comes first because it determines whether you can get your money back at all, and whether you can lose more than you deposited. A broker with the tightest spreads and no meaningful regulation is not cheap; it is a risk of total loss with a small discount attached.",
+        "ar": "يأتي التنظيم أولًا لأنه يحدّد هل تستطيع استرداد مالك أصلًا، وهل يمكن أن تخسر أكثر ممّا أودعت. فالوسيط ذو أضيق الفوارق وبلا تنظيم ذي معنى ليس رخيصًا، بل هو مخاطرة خسارة كاملة مع خصم صغير مرفق."
+      }
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": {
+        "en": "What is entity switching, and why does it matter for the protections you receive?",
+        "ar": "ما هو تبديل الكيانات، ولماذا يهمّ بالنسبة للحمايات التي تحصل عليها؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Migrating clients between two versions of the trading platform",
+            "ar": "ترحيل العملاء بين إصدارين مختلفين من منصّة التداول"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "A broker transferring your open positions to a liquidity provider",
+            "ar": "نقل الوسيط مراكزك المفتوحة إلى مزوّد سيولة خارجي"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "A brand running an onshore and an offshore entity, onboarding to either",
+            "ar": "علامة تجارية تشغّل كيانًا داخليًّا وآخر خارجيًّا وتضمّ العملاء إلى أيّهما"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Changing your own account type between retail and professional",
+            "ar": "تغيير نوع حسابك بين الأفراد والمحترفين لدى الوسيط نفسه"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "The website, platform and staff are identical. The entity name is stated in plain text in your client agreement — read it before depositing.",
+        "ar": "فالموقع والمنصّة والموظّفون متطابقون. واسم الكيان مذكور بنصّ صريح في اتفاقية عميلك — فاقرأها قبل الإيداع."
+      }
+    },
+    {
+      "id": "q3",
+      "type": "multi",
+      "prompt": {
+        "en": "Comparing brokers by advertised spread is misleading. Select the other costs that must be included.",
+        "ar": "مقارنة الوسطاء بالفارق السعري المعلَن مضلّلة. اختر التكاليف الأخرى التي يجب تضمينها."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Inactivity and withdrawal fees",
+            "ar": "رسوم الخمول والسحب"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Overnight financing",
+            "ar": "التمويل الليلي"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Commission",
+            "ar": "العمولة"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "The broker's own profit margin, which must be disclosed separately",
+            "ar": "هامش ربح الوسيط نفسه، الذي يجب الإفصاح عنه على حدة"
+          }
+        },
+        {
+          "id": "e",
+          "text": {
+            "en": "Currency conversion markup",
+            "ar": "هامش تحويل العملة"
+          }
+        }
+      ],
+      "correct": [
+        "a",
+        "b",
+        "c",
+        "e"
+      ],
+      "explanation": {
+        "en": "Advertised spreads are best-case averages measured in the most liquid hours, often quoted as \"from\" figures. There is no separately disclosed profit margin — the broker's margin is inside the spread and commission.",
+        "ar": "فالفوارق المعلَنة متوسّطات لأفضل الحالات مقيسة في أكثر الساعات سيولةً، وكثيرًا ما تُقتبَس أرقامًا «ابتداءً من». ولا يوجد هامش ربح مُفصَح عنه على حدة — فهامش الوسيط داخل الفارق والعمولة."
+      }
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": {
+        "en": "What is the best practical test of a broker, and how do you perform it cheaply?",
+        "ar": "ما أفضل اختبار عملي لوسيط، وكيف تجريه بتكلفة زهيدة؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Platform uptime — monitor the platform for a full month",
+            "ar": "زمن تشغيل المنصّة — راقب المنصّة شهرًا كاملًا"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Support response time — send a test query and time the reply",
+            "ar": "زمن استجابة الدعم — أرسل استفسارًا تجريبيًّا وقِس الردّ"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Spread measurement — record the quoted spread on a demo for a week",
+            "ar": "قياس الفارق السعري — سجّل الفارق المعلَن على تجريبي أسبوعًا"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Withdrawal — deposit a small amount, trade a little, then withdraw it",
+            "ar": "السحب — أودع مبلغًا صغيرًا، وتداول قليلًا، ثم اسحبه"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "A firm that makes deposits instant and withdrawals difficult is telling you something important, cheaply. It is also the most common complaint pattern for problematic firms.",
+        "ar": "فالشركة التي تجعل الإيداع فوريًّا والسحب صعبًا تخبرك بشيء مهمّ بتكلفة زهيدة. وهو كذلك نمط الشكوى الأشيع بشأن الشركات الإشكالية."
+      }
+    },
+    {
+      "id": "q5",
+      "type": "multi",
+      "prompt": {
+        "en": "Select the items you should extract from a contract specification before trading a new instrument.",
+        "ar": "اختر البنود التي ينبغي استخراجها من مواصفات العقد قبل تداول أداة جديدة."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Minimum and step size",
+            "ar": "الحدّ الأدنى وحجم الخطوة"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Margin requirement",
+            "ar": "متطلّب الهامش"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Contract size",
+            "ar": "حجم العقد"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Trading hours and minimum stop distance",
+            "ar": "ساعات التداول والمسافة الدنيا للوقف"
+          }
+        },
+        {
+          "id": "e",
+          "text": {
+            "en": "The instrument's historical win rate",
+            "ar": "نسبة الربح التاريخية للأداة"
+          }
+        },
+        {
+          "id": "f",
+          "text": {
+            "en": "Swap long and short, and the triple swap day",
+            "ar": "السواب شراءً وبيعًا، ويوم التبييت الثلاثي"
+          }
+        }
+      ],
+      "correct": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "f"
+      ],
+      "explanation": {
+        "en": "Also expiry or rollover behaviour and denomination currency. There is no such thing as an instrument's historical win rate — that is a property of a strategy, not an instrument.",
+        "ar": "وكذلك سلوك الانتهاء أو التدوير وعملة التقويم. ولا وجود لشيء اسمه نسبة ربح تاريخية للأداة — فتلك خاصّية استراتيجية لا أداة."
+      }
+    },
+    {
+      "id": "q6",
+      "type": "single",
+      "prompt": {
+        "en": "Why should one-click trading be disabled?",
+        "ar": "لماذا ينبغي تعطيل التداول بنقرة واحدة؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "It removes the confirmation step that catches order-entry errors",
+            "ar": "لأنه يزيل خطوة التأكيد التي تلتقط أخطاء إدخال الأوامر"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "It is not supported on any of the mobile trading platforms",
+            "ar": "لأنه غير مدعوم على أي من منصّات التداول للهواتف"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "It voids your negative balance protection with the broker",
+            "ar": "لأنه يُبطل حمايتك من الرصيد السالب لدى الوسيط"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "It executes at worse prices than the confirmation dialog does",
+            "ar": "لأنه ينفّذ بأسعار أسوأ ممّا تفعل نافذة التأكيد"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "Reducing friction on the decision to trade reliably increases the number of trades that are not in your plan.",
+        "ar": "فتقليل الاحتكاك على قرار التداول يزيد بانتظام عدد الصفقات التي ليست في خطّتك."
+      }
+    },
+    {
+      "id": "q7",
+      "type": "single",
+      "prompt": {
+        "en": "When reconciling your journal against your platform statement, what is the most common source of discrepancy?",
+        "ar": "عند مطابقة سجلّك مع كشف حساب منصّتك، ما المصدر الأشيع للاختلاف؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Timezone differences between the platform and your journal",
+            "ar": "فروق المناطق الزمنية بين المنصّة ودفترك"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Overnight financing — it posts as separate account entries",
+            "ar": "التمويل الليلي — فهو يُقيَّد مُدخَلاتِ حسابٍ منفصلة"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Slippage on entries that you recorded at the intended price",
+            "ar": "الانزلاق عند الدخول الذي سجّلته بالسعر المقصود"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Rounding differences on the position sizes you recorded",
+            "ar": "فروق التقريب في أحجام المراكز التي سجّلتها"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "A journal built from entry and exit prices omits it entirely. Traders who do not reconcile routinely overstate their performance by the amount of financing they forgot about.",
+        "ar": "فالسجلّ المبني على أسعار الدخول والخروج يُغفله تمامًا. والمتداولون الذين لا يطابقون يبالغون بانتظام في أدائهم بمقدار التمويل الذي نسوه."
+      }
+    },
+    {
+      "id": "q8",
+      "type": "single",
+      "prompt": {
+        "en": "A firm offers a 50% deposit bonus. What does this tell you about its regulatory status, and what is the usual catch?",
+        "ar": "تعرض شركة مكافأة إيداع بنسبة 50%. بم يخبرك ذلك عن وضعها التنظيمي، وما المأزق المعتاد؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "A promotion from a well-capitalised regulated firm; the catch is the spread",
+            "ar": "ترويج من شركة منظَّمة جيدة الرسملة، والمأزق هو الفارق السعري"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Nothing in particular; the catch is usually a 30-day lock-in on funds",
+            "ar": "لا شيء بعينه، والمأزق عادةً حجز الأموال 30 يومًا"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Bonuses are banned in the UK, EU and Australia, so the firm is outside them",
+            "ar": "المكافآت محظورة في المملكة المتحدة والاتحاد الأوروبي وأستراليا، فالشركة خارجها"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "It signals a newly issued licence; the catch is a limited instrument range",
+            "ar": "يدلّ على ترخيص صادر حديثًا، والمأزق نطاق أدوات محدود"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "The volume requirement is often hundreds of times the bonus amount, and costs alone will consume the account before it can be reached.",
+        "ar": "وشرط الحجم غالبًا مئات أضعاف مبلغ المكافأة، والتكاليف وحدها ستستهلك الحساب قبل بلوغه."
+      }
+    },
+    {
+      "id": "q9",
+      "type": "single",
+      "prompt": {
+        "en": "What is the economic argument against buying trading signals?",
+        "ar": "ما الحجّة الاقتصادية ضدّ شراء إشارات التداول؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Selling trading signals is illegal in most major jurisdictions",
+            "ar": "بيع إشارات التداول غير قانوني في معظم الولايات الكبرى"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Subscription costs exceed the size of a typical retail account",
+            "ar": "تكاليف الاشتراك تتجاوز حجم حساب أفراد معتاد"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "The signals arrive too late for a retail trader to act on them",
+            "ar": "الإشارات تصل متأخّرة عن أن يتصرّف بها متداول أفراد"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "If they worked, trading them would pay far more than selling them",
+            "ar": "لو كانت تعمل، لكان تداولها أربح بكثير من بيعها"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "The economics of selling signals only work when the signals do not. Published results are typically selectively reported, include only closed winners, or come from an account that does not exist.",
+        "ar": "فاقتصاديات بيع الإشارات لا تعمل إلا حين لا تعمل الإشارات. والنتائج المنشورة عادةً منتقاة، أو لا تتضمّن إلا الصفقات الرابحة المغلقة، أو تأتي من حساب غير موجود."
+      }
+    },
+    {
+      "id": "q10",
+      "type": "single",
+      "prompt": {
+        "en": "Someone you met online introduces you to a trading platform showing strong returns, and a small withdrawal succeeds. What is happening, and what should you do?",
+        "ar": "يعرّفك شخص التقيته عبر الإنترنت على منصّة تداول تُظهر عوائد قوية، وينجح سحب صغير. ما الذي يحدث، وما الذي ينبغي أن تفعله؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "This is the standard pattern of investment fraud; stop sending money",
+            "ar": "هذا هو النمط القياسي لاحتيال الاستثمار، فتوقّف عن إرسال المال"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "The platform is legitimate; the successful withdrawal proves it",
+            "ar": "المنصّة مشروعة، والسحب الناجح يثبت ذلك"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Probably an unregulated but honest offshore broker; ask for a licence",
+            "ar": "الأرجح وسيط خارجي غير منظَّم لكنه أمين، فاطلب ترخيصه"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Wait and test with a second, larger withdrawal before deciding",
+            "ar": "انتظر واختبر بسحب ثانٍ أكبر قبل أن تقرّر"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "A contact you have never met in person, an unregistered platform, and a small successful early withdrawal are the signature. This category takes more money from individuals than all the others combined. Stop sending money, document everything, contact your bank at once and report it: chargebacks are sometimes possible if you act quickly, and any later recovery offer is the second phase of the same fraud.",
+        "ar": "جهةُ اتصال لم تلتقِ بها شخصيًّا قط، ومنصّة غير مسجّلة، وسحب صغير مبكّر ناجح: هذه هي البصمة. وهذه الفئة تأخذ من الأفراد مالًا أكثر من كل الفئات الأخرى مجتمعة. توقّف عن إرسال المال، ووثّق كل شيء، واتّصل بمصرفك في الحال، وأبلغ: فاسترداد المدفوعات ممكن أحيانًا إن تصرّفت سريعًا، وأي عرض استرداد لاحق هو الطور الثاني من الاحتيال نفسه."
+      }
+    }
+  ]
+}

@@ -1,0 +1,563 @@
+{
+  "id": "m03",
+  "kind": "quiz",
+  "title": {
+    "en": "Module 03 Quiz",
+    "ar": "اختبار الوحدة 03"
+  },
+  "passMark": 0.8,
+  "meta": {
+    "dir": "03-contract-mechanics",
+    "calculator": true,
+    "anchor": {
+      "en": "module-03",
+      "ar": "الوحدة-03"
+    },
+    "scoring": {
+      "en": "Below 10/12, redo the exercises before Module 04. Module 04 assumes fluency with all of this.",
+      "ar": "أقلّ من 10 من 12: أعد التمارين قبل الوحدة 04. فالوحدة 04 تفترض إتقانك لهذا كلّه."
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": {
+        "en": "How many units is 0.35 lots of a standard FX pair?",
+        "ar": "كم وحدة في 0.35 لوت من زوج عملات رئيسي قياسي؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "3,500",
+            "ar": "3,500"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "35,000",
+            "ar": "35,000"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "350,000",
+            "ar": "350,000"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "3,500,000",
+            "ar": "3,500,000"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "0.35 × 100,000 = 35,000 units.",
+        "ar": "0.35 × 100,000 = 35,000 وحدة."
+      }
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": {
+        "en": "Calculate the notional value of 0.8 lots of GBP/USD at 1.2740.",
+        "ar": "احسب القيمة الاسمية لـ 0.8 لوت من GBP/USD عند 1.2740."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "$62,794",
+            "ar": "62,794 دولارًا"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "$127,400",
+            "ar": "127,400 دولارًا"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "$80,000",
+            "ar": "80,000 دولار"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "$101,920",
+            "ar": "101,920 دولارًا"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "0.8 lots = 80,000 units. Notional = 80,000 × 1.2740 = $101,920. Answering $127,400 uses a full lot; $62,794 divides by the price instead of multiplying.",
+        "ar": "0.8 لوت = 80,000 وحدة. والقيمة الاسمية = 80,000 × 1.2740 = 101,920 دولارًا. والإجابة بـ 127,400 تستخدم لوتًا كاملًا، و62,794 تقسم على السعر بدلًا من الضرب."
+      }
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": {
+        "en": "What is the pip value, in USD, of 0.45 lots of EUR/USD?",
+        "ar": "ما قيمة النقطة، بالدولار الأمريكي، لـ 0.45 لوت من EUR/USD؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "$0.45",
+            "ar": "0.45 دولار"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "$4.50",
+            "ar": "4.50 دولارات"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "$10.00",
+            "ar": "10.00 دولارات"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "$45.00",
+            "ar": "45.00 دولارًا"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "0.45 lots = 45,000 units. Pip value = 0.0001 × 45,000 = $4.50.",
+        "ar": "0.45 لوت = 45,000 وحدة. وقيمة النقطة = 0.0001 × 45,000 = 4.50 دولارات."
+      }
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": {
+        "en": "What is the pip value, in USD, of 1.00 lot of USD/JPY at 152.00?",
+        "ar": "ما قيمة النقطة، بالدولار الأمريكي، لـ 1.00 لوت من USD/JPY عند 152.00؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "$6.58",
+            "ar": "6.58 دولارات"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "$10.00",
+            "ar": "10.00 دولارات"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "$0.66",
+            "ar": "0.66 دولار"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "$1,000.00",
+            "ar": "1,000.00 دولار"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "USD is the base, so the pip value arrives in JPY and must be divided by the price. 0.01 × 100,000 = ¥1,000. ¥1,000 / 152.00 = $6.58. Answering $10.00 is the error of assuming every standard lot is $10 per pip; $1,000.00 leaves the answer in yen.",
+        "ar": "الدولار هو العملة الأساس، فتأتي قيمة النقطة بالين ويجب قسمتها على السعر. 0.01 × 100,000 = 1,000 ين. و1,000 ÷ 152.00 = 6.58 دولارات. والإجابة بـ 10.00 دولارات هي خطأ افتراض أن كل لوت قياسي يساوي 10 دولارات للنقطة، و1,000.00 تترك الإجابة بالين."
+      }
+    },
+    {
+      "id": "q5",
+      "type": "single",
+      "prompt": {
+        "en": "Gold has a contract size of 100 ounces. What is the value of a $1.00 move on 0.12 lots?",
+        "ar": "حجم عقد الذهب 100 أونصة. ما قيمة حركة مقدارها 1.00 دولار على 0.12 لوت؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "$0.12",
+            "ar": "0.12 دولار"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "$12.00",
+            "ar": "12.00 دولارًا"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "$120.00",
+            "ar": "120.00 دولارًا"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "$1.20",
+            "ar": "1.20 دولار"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "0.12 lots × 100 oz = 12 ounces. A $1.00 move = $12.00.",
+        "ar": "0.12 لوت × 100 أونصة = 12 أونصة. وحركة 1.00 دولار = 12.00 دولارًا."
+      }
+    },
+    {
+      "id": "q6",
+      "type": "single",
+      "prompt": {
+        "en": "Long 0.6 lots EUR/USD at 1.08450, closed at 1.08790. Calculate gross P&L.",
+        "ar": "شراء 0.6 لوت EUR/USD عند 1.08450، وأُغلق عند 1.08790. احسب الربح أو الخسارة الإجمالية."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "+$340.00",
+            "ar": "+340.00 دولارًا"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "+$20.40",
+            "ar": "+20.40 دولارًا"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "+$204.00",
+            "ar": "+204.00 دولارًا"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "−$204.00",
+            "ar": "−204.00 دولارًا"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "0.6 lots = 60,000 units. (1.08790 − 1.08450) = 0.00340 × 60,000 = +$204.00.",
+        "ar": "0.6 لوت = 60,000 وحدة. و(1.08790 − 1.08450) = 0.00340 × 60,000 = +204.00 دولارًا."
+      }
+    },
+    {
+      "id": "q7",
+      "type": "single",
+      "prompt": {
+        "en": "Short 0.25 lots GBP/USD at 1.26900, closed at 1.27310. Calculate gross P&L and state whether it is a profit or a loss.",
+        "ar": "بيع 0.25 لوت GBP/USD عند 1.26900، وأُغلق عند 1.27310. احسب الربح أو الخسارة الإجمالية، وبيّن أهي ربح أم خسارة."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "+$102.50, a profit",
+            "ar": "+102.50 دولارًا، ربح"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "−$41.00, a loss",
+            "ar": "−41.00 دولارًا، خسارة"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "+$41.00, a profit",
+            "ar": "+41.00 دولارًا، ربح"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "−$102.50, a loss",
+            "ar": "−102.50 دولارًا، خسارة"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "Short, and price rose, so this is a loss. (1.26900 − 1.27310) = −0.00410 × 25,000 = −$102.50.",
+        "ar": "مركز بيع، والسعر ارتفع، فهذه خسارة. (1.26900 − 1.27310) = −0.00410 × 25,000 = −102.50 دولارًا."
+      }
+    },
+    {
+      "id": "q8",
+      "type": "single",
+      "prompt": {
+        "en": "You lose 35% of your account. What percentage gain is required to return to break-even?",
+        "ar": "تخسر 35% من حسابك. ما نسبة الربح المطلوبة للعودة إلى نقطة التعادل؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "35%",
+            "ar": "35%"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "46.15%",
+            "ar": "46.15%"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "53.85%",
+            "ar": "53.85%"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "65%",
+            "ar": "65%"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "1 / (1 − 0.35) − 1 = 1 / 0.65 − 1 = 53.85%. Answering 35% is the symmetry error the whole lesson exists to correct.",
+        "ar": "1 ÷ (1 − 0.35) − 1 = 1 ÷ 0.65 − 1 = 53.85%. والإجابة بـ 35% هي خطأ التماثل الذي وُجد الدرس كلّه لتصحيحه."
+      }
+    },
+    {
+      "id": "q9",
+      "type": "single",
+      "prompt": {
+        "en": "Long 4 CFDs of US 500 at 5,150, benchmark rate 5.0%, markup 2.5%, 365-day count. What is one night's financing?",
+        "ar": "شراء 4 عقود فروقات على مؤشر US 500 عند 5,150، سعر المرجع 5.0%، وهامش الوسيط 2.5%، وعدد أيام السنة 365. كم تبلغ تكلفة التمويل لليلة واحدة؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "$1.41",
+            "ar": "1.41 دولار"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "$2.82",
+            "ar": "2.82 دولار"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "$4.23",
+            "ar": "4.23 دولارات"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "$14.11",
+            "ar": "14.11 دولارًا"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "Notional = 4 × 5,150 = $20,600. Annual rate = 5.0% + 2.5% = 7.5%. 20,600 × 0.075 / 365 = $4.23 per night. Answering $2.82 uses the benchmark alone; $1.41 uses the markup alone.",
+        "ar": "القيمة الاسمية = 4 × 5,150 = 20,600 دولار. والسعر السنوي = 5.0% + 2.5% = 7.5%. و20,600 × 0.075 ÷ 365 = 4.23 دولارات لكل ليلة. والإجابة بـ 2.82 تستخدم سعر المرجع وحده، و1.41 تستخدم هامش الوسيط وحده."
+      }
+    },
+    {
+      "id": "q10",
+      "type": "single",
+      "prompt": {
+        "en": "Triple swap: which night does it usually fall on for FX, and why?",
+        "ar": "التبييت الثلاثي: في أي ليلة يقع عادةً في العملات الأجنبية، ولماذا؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Wednesday, because spot settles two days forward, so the roll spans the weekend",
+            "ar": "الأربعاء، لأن الفوري يُسوَّى بعد يومَي عمل، فيمتدّ التدوير عبر نهاية الأسبوع"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Friday, because the market closes for the weekend and two days accrue",
+            "ar": "الجمعة، لأن السوق تغلق لنهاية الأسبوع فيتراكم يومان"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Monday, because it covers the financing for the preceding weekend",
+            "ar": "الاثنين، لأنه يغطّي تمويل نهاية الأسبوع السابقة"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Sunday, because that is when the trading week reopens after the break",
+            "ar": "الأحد، لأنه موعد إعادة فتح أسبوع التداول بعد التوقّف"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "Three days of financing are charged on that one night. Every other weekday rollover is one day, and there is no rollover at the weekend because the market is closed.",
+        "ar": "تُفرَض ثلاثة أيام من التمويل في تلك الليلة وحدها. وكل تدوير في سائر أيام الأسبوع يوم واحد، ولا تدوير في نهاية الأسبوع لأن السوق مغلقة."
+      }
+    },
+    {
+      "id": "q11",
+      "type": "single",
+      "prompt": {
+        "en": "Account A: 1.2 pip spread, no commission. Account B: 0.2 pip spread, $3.50 per lot per side. At 0.5 lots, which is cheaper per round trip, and by how much?",
+        "ar": "الحساب أ: فارق سعري 1.2 نقطة، بلا عمولة. الحساب ب: فارق سعري 0.2 نقطة، مع 3.50 دولارات لكل لوت في كل اتجاه. عند 0.5 لوت، أيّهما أرخص للصفقة الكاملة، وبكم؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Account B, by $5.00",
+            "ar": "الحساب ب، بـ 5.00 دولارات"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Account B, by $1.50",
+            "ar": "الحساب ب، بـ 1.50 دولار"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Account A, by $1.50",
+            "ar": "الحساب أ، بـ 1.50 دولار"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "They cost the same",
+            "ar": "تكلفتهما واحدة"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "At 0.5 lots (50,000 units): A = spread 1.2 pips × 50,000 = $6.00, commission $0, total $6.00. B = spread 0.2 pips × 50,000 = $1.00, commission 0.5 × $3.50 × 2 = $3.50, total $4.50. B is cheaper by $1.50. The answer would flip at a small enough size, so run it at your own typical size.",
+        "ar": "عند 0.5 لوت (50,000 وحدة): أ = الفارق 1.2 نقطة × 50,000 = 6.00 دولارات، والعمولة 0، والإجمالي 6.00 دولارات. وب = الفارق 0.2 نقطة × 50,000 = 1.00 دولار، والعمولة 0.5 × 3.50 × 2 = 3.50 دولارات، والإجمالي 4.50 دولارات. فـ ب أرخص بـ 1.50 دولار. والجواب ينقلب عند حجم صغير بما يكفي، فأجرِ الحساب بحجمك المعتاد."
+      }
+    },
+    {
+      "id": "q12",
+      "type": "single",
+      "prompt": {
+        "en": "Your risk per trade is $25. A proposed trade has a round-trip cost of $9.50. State the cost ratio and what it implies.",
+        "ar": "مخاطرتك لكل صفقة 25 دولارًا. وتبلغ التكلفة الكاملة لصفقة مقترحة 9.50 دولار. اذكر نسبة التكلفة وما الذي تعنيه."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "2.6% — negligible",
+            "ar": "2.6% — تافهة"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "9.5% — sustainable",
+            "ar": "9.5% — مستدامة"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "38% — you are fighting the cost structure",
+            "ar": "38% — أنت تصارع هيكل التكاليف"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "38% — acceptable if the reward-to-risk is above 1:1",
+            "ar": "38% — مقبولة إن كان العائد إلى المخاطرة فوق 1:1"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "Cost ratio = 9.50 / 25 = 38%, which sits in the \"fighting the cost structure\" band. The trade would need an unusually good reward-to-risk to be worth taking, and the underlying problem is that the position is too small relative to its fixed costs, the account is too small for this instrument, or the holding period is too short.",
+        "ar": "نسبة التكلفة = 9.50 ÷ 25 = 38%، وهذا يقع في نطاق «مصارعة هيكل التكاليف». وستحتاج الصفقة إلى عائد إلى مخاطرة جيد على نحو غير معتاد لتستحقّ الدخول، والمشكلة الكامنة أن المركز صغير جدًّا نسبةً إلى تكاليفه الثابتة، أو أن الحساب أصغر من أن يناسب هذه الأداة، أو أن مدة الاحتفاظ قصيرة جدًّا."
+      }
+    }
+  ]
+}

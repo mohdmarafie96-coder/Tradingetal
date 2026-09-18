@@ -1,0 +1,564 @@
+{
+  "id": "m04",
+  "kind": "quiz",
+  "title": {
+    "en": "Module 04 Quiz",
+    "ar": "اختبار الوحدة 04"
+  },
+  "passMark": 0.8,
+  "meta": {
+    "dir": "04-leverage-and-margin",
+    "calculator": true,
+    "anchor": {
+      "en": "module-04",
+      "ar": "الوحدة-04"
+    },
+    "scoring": {
+      "en": "Below 10/12, reread. Module 06 builds directly on this.",
+      "ar": "أقلّ من 10 من 12: أعد القراءة. فالوحدة 06 تُبنى على هذه مباشرةً."
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": {
+        "en": "Leverage and margin percentage are related how, and what margin percentage corresponds to 20:1?",
+        "ar": "كيف ترتبط الرافعة بنسبة الهامش، وما نسبة الهامش المقابلة لرافعة 20:1؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Margin % = leverage × 2, so 20:1 is 40%",
+            "ar": "نسبة الهامش = الرافعة × 2، فـ 20:1 تعني 40%"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "They are unrelated",
+            "ar": "لا علاقة بينهما"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Margin % = leverage / 100, so 20:1 is 20%",
+            "ar": "نسبة الهامش = الرافعة ÷ 100، فـ 20:1 تعني 20%"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Margin % = 1 / leverage, so 20:1 is 5%",
+            "ar": "نسبة الهامش = 1 ÷ الرافعة، فـ 20:1 تعني 5%"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "Margin % = 1 / leverage. 20:1 → 5%.",
+        "ar": "نسبة الهامش = 1 ÷ الرافعة. و20:1 ← 5%."
+      }
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": {
+        "en": "At 30:1, what percentage adverse move eliminates the margin posted on a fully leveraged position?",
+        "ar": "عند رافعة 30:1، ما النسبة المئوية للحركة المعاكسة التي تمحو الهامش المودَع على مركز مستخدِم للرافعة بالكامل؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "30%",
+            "ar": "30%"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "10%",
+            "ar": "10%"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "3.33%",
+            "ar": "3.33%"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "0.33%",
+            "ar": "0.33%"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "1 / 30 = 3.33%. Put that against real behaviour: an index can move 3% on an ordinary bad day.",
+        "ar": "1 ÷ 30 = 3.33%. وضع ذلك في مواجهة السلوك الحقيقي: يمكن للمؤشّر أن يتحرّك 3% في يوم سيئ عادي."
+      }
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": {
+        "en": "Two traders hold identical 0.2-lot positions with identical 30-pip stops. One has a 30:1 account, the other 10:1. Who loses more if stopped out?",
+        "ar": "متداولان يحتفظان بمركزين متطابقين بحجم 0.2 لوت ووقفَي خسارة متطابقين عند 30 نقطة. أحدهما في حساب برافعة 30:1 والآخر 10:1. أيّهما يخسر أكثر إن أُغلق المركزان بالوقف؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Neither — the loss is identical",
+            "ar": "لا هذا ولا ذاك — الخسارة متطابقة"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "The 30:1 trader, because higher leverage means higher risk",
+            "ar": "صاحب 30:1، لأن الرافعة الأعلى تعني مخاطرة أعلى"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "It depends on the instrument",
+            "ar": "يتوقّف ذلك على الأداة"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "The 10:1 trader, because more capital is tied up",
+            "ar": "صاحب 10:1، لأن رأس مال أكبر محجوز"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "Both lose 30 pips × the pip value of a 0.2-lot position. Leverage determines how much capital is reserved as margin, not how much you lose. This surprises beginners because the platform presents leverage as a risk setting; it is a permission setting.",
+        "ar": "كلاهما يخسر 30 نقطة × قيمة النقطة لمركز قدره 0.2 لوت. والرافعة تحدّد مقدار رأس المال المحجوز هامشًا، لا مقدار ما تخسره. وهذا يفاجئ المبتدئين لأن المنصّة تقدّم الرافعة على أنها إعداد مخاطرة، وهي إعداد إذن."
+      }
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": {
+        "en": "Which set of definitions is correct?",
+        "ar": "أي مجموعة من التعريفات صحيحة؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Equity = balance − used margin; margin level = free margin × 100%",
+            "ar": "حقوق الملكية = الرصيد − الهامش المستخدَم؛ ومستوى الهامش = الهامش الحر × 100%"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Equity = balance + unrealised P&L; free margin = equity − used margin; margin level = (equity / used margin) × 100%",
+            "ar": "حقوق الملكية = الرصيد + الربح/الخسارة غير المحقّقة؛ والهامش الحر = حقوق الملكية − الهامش المستخدَم؛ ومستوى الهامش = (حقوق الملكية ÷ الهامش المستخدَم) × 100%"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Equity = balance; free margin = balance − used margin; margin level = balance / equity",
+            "ar": "حقوق الملكية = الرصيد؛ والهامش الحر = الرصيد − الهامش المستخدَم؛ ومستوى الهامش = الرصيد ÷ حقوق الملكية"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Equity = used margin + free margin; margin level = (used margin / equity) × 100%",
+            "ar": "حقوق الملكية = الهامش المستخدَم + الهامش الحر؛ ومستوى الهامش = (الهامش المستخدَم ÷ حقوق الملكية) × 100%"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "Used margin is capital reserved against open positions — reserved, not spent. Note that the version dividing used margin by equity inverts the margin level ratio.",
+        "ar": "الهامش المستخدَم رأس مال محجوز مقابل المراكز المفتوحة — محجوز لا منفَق. ولاحظ أن الصيغة التي تقسم الهامش المستخدَم على حقوق الملكية تقلب نسبة مستوى الهامش."
+      }
+    },
+    {
+      "id": "q5",
+      "type": "single",
+      "prompt": {
+        "en": "Why is balance a misleading number to watch while positions are open?",
+        "ar": "لماذا يُعدّ الرصيد رقمًا مضلّلًا للمراقبة ما دامت المراكز مفتوحة؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "It is quoted in the instrument's currency rather than your account's",
+            "ar": "لأنه مقوَّم بعملة الأداة لا بعملة حسابك"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "It includes used margin, which double-counts the capital at work",
+            "ar": "لأنه يتضمّن الهامش المستخدَم، فيزدوج عدّ رأس المال العامل"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "It is realised cash, so it does not move while equity falls on open positions",
+            "ar": "لأنه نقد محقّق، فلا يتحرّك بينما تهبط حقوق الملكية على المراكز المفتوحة"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "It updates only once a day, at the platform's rollover time",
+            "ar": "لأنه لا يُحدَّث إلا مرة يوميًّا، عند وقت التدوير في المنصّة"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "A trader watching balance during a losing position sees nothing happening. Equity is the truth.",
+        "ar": "المتداول الذي يراقب الرصيد أثناء مركز خاسر لا يرى شيئًا يحدث. وحقوق الملكية هي الحقيقة."
+      }
+    },
+    {
+      "id": "q6",
+      "type": "single",
+      "prompt": {
+        "en": "At what margin level must a regulated broker begin closing retail positions, and what is that level measured against?",
+        "ar": "عند أي مستوى هامش يجب على وسيط منظَّم أن يبدأ إغلاق مراكز الأفراد، وعلى أي أساس يُقاس ذلك المستوى؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "25%, measured against notional exposure",
+            "ar": "25%، مقيسة على الانكشاف الاسمي"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "50%, measured against your account balance",
+            "ar": "50%، مقيسة على رصيد حسابك"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "100%, measured against required initial margin",
+            "ar": "100%، مقيسة على الهامش الابتدائي المطلوب"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "50%, measured against required initial margin",
+            "ar": "50%، مقيسة على الهامش الابتدائي المطلوب"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "Not 50% of the account. The two are very different numbers, and confusing them is the most common error in this module.",
+        "ar": "لا 50% من الحساب. والرقمان مختلفان جدًّا، والخلط بينهما أشيع خطأ في هذه الوحدة."
+      }
+    },
+    {
+      "id": "q7",
+      "type": "single",
+      "prompt": {
+        "en": "$6,000 account, long 1.2 lots EUR/USD at 1.0900 at 30:1. Calculate used margin and margin level.",
+        "ar": "حساب 6,000 دولار، وشراء 1.2 لوت EUR/USD عند 1.0900 برافعة 30:1. احسب الهامش المستخدَم ومستوى الهامش."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "$4,360 and 137.6%",
+            "ar": "4,360 دولارًا و137.6%"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "$13,080 and 45.9%",
+            "ar": "13,080 دولارًا و45.9%"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "$4,360 and 72.7%",
+            "ar": "4,360 دولارًا و72.7%"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "$3,633 and 165.2%",
+            "ar": "3,633 دولارًا و165.2%"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "1.2 lots = 120,000 units. Notional = 120,000 × 1.0900 = $130,800. Used margin = 130,800 / 30 = $4,360. Margin level = 6,000 / 4,360 = 137.6%. Answering 45.9% inverts the ratio.",
+        "ar": "1.2 لوت = 120,000 وحدة. والقيمة الاسمية = 120,000 × 1.0900 = 130,800 دولارًا. والهامش المستخدَم = 130,800 ÷ 30 = 4,360 دولارًا. ومستوى الهامش = 6,000 ÷ 4,360 = 137.6%. والإجابة بـ 45.9% تقلب النسبة."
+      }
+    },
+    {
+      "id": "q8",
+      "type": "single",
+      "prompt": {
+        "en": "For the position in the previous question, approximately how many pips of adverse movement trigger the 50% close-out, and what is the loss as a percentage of the account?",
+        "ar": "بالنسبة للمركز في السؤال السابق، كم نقطة تقريبًا من الحركة المعاكسة تستدعي الإغلاق القسري عند 50%، وكم تبلغ الخسارة كنسبة من الحساب؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "About 500 pips, a 100% loss",
+            "ar": "نحو 500 نقطة، بخسارة 100%"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "About 324 pips, a 64.7% loss",
+            "ar": "نحو 324 نقطة، بخسارة 64.7%"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "About 250 pips, a 50% loss",
+            "ar": "نحو 250 نقطة، بخسارة 50%"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "About 141 pips, a 28% loss",
+            "ar": "نحو 141 نقطة، بخسارة 28%"
+          }
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "Solving with margin recalculated as price falls gives 323.7 pips, a loss of $3,885, which is 64.7% of the account. Note that this is a 2.97% move in EUR/USD — uncommon in a day, entirely routine over a week. Answering about 250 pips and a 50% loss is the 100% margin call level, not the close-out.",
+        "ar": "بالحلّ مع إعادة حساب الهامش مع هبوط السعر تكون النتيجة 323.7 نقطة، وخسارة قدرها 3,885 دولارًا، أي 64.7% من الحساب. ولاحظ أن هذه حركة قدرها 2.97% في EUR/USD — غير شائعة في يوم واحد، وروتينية تمامًا على مدى أسبوع. والإجابة بنحو 250 نقطة وخسارة 50% هي مستوى نداء الهامش عند 100% لا الإغلاق القسري."
+      }
+    },
+    {
+      "id": "q9",
+      "type": "single",
+      "prompt": {
+        "en": "What is effective leverage, and what is a reasonable maximum for a learning trader?",
+        "ar": "ما الرافعة الفعلية، وما الحدّ الأقصى المعقول لمتداول في طور التعلّم؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Used margin / equity; keep it under 50%",
+            "ar": "الهامش المستخدَم ÷ حقوق الملكية، وأبقِها دون 50%"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "The leverage setting on the account; keep it under 30:1",
+            "ar": "إعداد الرافعة على الحساب، وأبقِه دون 30:1"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Total notional of open positions / equity; keep it under 5:1",
+            "ar": "إجمالي القيمة الاسمية للمراكز المفتوحة ÷ حقوق الملكية، وأبقِها دون 5:1"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Equity / notional; keep it above 2:1",
+            "ar": "حقوق الملكية ÷ القيمة الاسمية، وأبقِها فوق 2:1"
+          }
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "Under 5:1 while learning; under 2:1 is better. It is the single best one-glance summary of account risk because it accounts for five positions at 2:1 each adding up to 10:1.",
+        "ar": "دون 5:1 أثناء التعلّم، ودون 2:1 أفضل. وهي أفضل ملخّص يُدرَك بنظرة واحدة لمخاطرة الحساب لأنها تأخذ في الحسبان أن خمسة مراكز برافعة 2:1 لكلٍّ منها تجتمع لتصبح 10:1."
+      }
+    },
+    {
+      "id": "q10",
+      "type": "single",
+      "prompt": {
+        "en": "Why does a stop loss not guarantee your exit price?",
+        "ar": "لماذا لا يضمن وقف الخسارة سعر خروجك؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "It does guarantee the price; that is the whole purpose of the order",
+            "ar": "بل إنه يضمن السعر، فذلك هو غرض الأمر كلّه"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Stops are checked only once a minute, so fast moves are missed entirely",
+            "ar": "لأن الوقوف لا تُفحَص إلا مرة كل دقيقة، فتفوت الحركات السريعة"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Brokers deliberately fill stops at prices worse than the level you set",
+            "ar": "لأن الوسطاء ينفّذون الوقوف عمدًا بأسعار أسوأ من المستوى الذي وضعته"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "It triggers at your level and becomes a market order, so a gap fills you lower",
+            "ar": "لأنه يُفعَّل عند مستواك ثم يصبح أمر سوق، فتنفّذك الفجوة عند سعر أدنى"
+          }
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "explanation": {
+        "en": "No price existed at your level to fill against. A stop gives you an exit instruction, not an exit price.",
+        "ar": "لم يوجد سعر عند مستواك لتُنفَّذ مقابله. فالوقف يعطيك تعليمة خروج، لا سعر خروج."
+      }
+    },
+    {
+      "id": "q11",
+      "type": "single",
+      "prompt": {
+        "en": "What is negative balance protection, and what is the one thing it does NOT protect you from?",
+        "ar": "ما الحماية من الرصيد السالب، وما الشيء الوحيد الذي لا تحميك منه؟"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "You cannot lose more than your account balance; it does not cap loss at your stop",
+            "ar": "لا تستطيع خسارة أكثر من رصيد حسابك، وهي لا تحدّ الخسارة عند وقفك"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Your loss is capped at your stop level; it does not cover commission",
+            "ar": "خسارتك محدودة عند مستوى وقفك، وهي لا تغطّي العمولة"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Your deposit is guaranteed; it does not cover overnight financing",
+            "ar": "وديعتك مضمونة، وهي لا تغطّي التمويل الليلي"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Losses beyond 50% are refunded; it does not apply to FX positions",
+            "ar": "الخسائر فوق 50% تُعاد، وهي لا تنطبق على مراكز العملات"
+          }
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "The deficit is written off. The worst case is zero, not small. It also does not apply per position, offshore, or to professional clients.",
+        "ar": "العجز يُشطَب. وأسوأ الحالات هو الصفر، لا مبلغ صغير. وهي كذلك لا تنطبق على كل مركز على حدة، ولا خارج تلك الولايات، ولا على العملاء المحترفين."
+      }
+    },
+    {
+      "id": "q12",
+      "type": "multi",
+      "prompt": {
+        "en": "You are long a share CFD with a stop 5% below entry. The company reports earnings tonight. Select the two actions that address the risk.",
+        "ar": "أنت مشترٍ لعقد فروقات على سهم بوقف يبعد 5% تحت سعر الدخول. وستعلن الشركة أرباحها الليلة. اختر الإجراءين اللذين يعالجان المخاطرة."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "en": "Close or substantially reduce the position before the announcement",
+            "ar": "إغلاق المركز أو تقليصه تقليصًا كبيرًا قبل الإعلان"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "en": "Use a guaranteed stop loss, honoured at your price regardless of the gap",
+            "ar": "استخدام وقف خسارة مضمون، يُنفَّذ بسعرك مهما كانت الفجوة"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "en": "Tighten the stop to 2% so less is at risk",
+            "ar": "تضييق الوقف إلى 2% حتى تقلّ المخاطرة"
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "en": "Add to the position to average down if it gaps",
+            "ar": "الإضافة إلى المركز لتخفيض متوسط السعر إن فتح بفجوة"
+          }
+        }
+      ],
+      "correct": [
+        "a",
+        "b"
+      ],
+      "explanation": {
+        "en": "The stop cannot protect you across a gap, and earnings are deliberately released outside the trading session, so the share can open well below your stop and you are filled at the open. Tightening the stop does nothing about a gap, and averaging down increases the loss.",
+        "ar": "الوقف لا يستطيع حمايتك عبر فجوة، وإعلانات الأرباح تُنشَر عمدًا خارج جلسة التداول، فيمكن أن يفتح السهم أدنى بكثير من وقفك وتُنفَّذ عند الافتتاح. وتضييق الوقف لا يفعل شيئًا حيال الفجوة، وتخفيض المتوسط يزيد الخسارة."
+      }
+    }
+  ]
+}
