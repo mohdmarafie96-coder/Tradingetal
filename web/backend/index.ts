@@ -3,9 +3,9 @@
  *
  * Two things live here rather than in the browser. Progress is per user, so it
  * follows the reader between devices instead of sitting in one browser's local
- * storage. And marking is server-side: the answers are in quiz-key.ts, which is
- * never sent to the client, so a paper has to be submitted before its answers
- * can be seen — for that quiz only.
+ * storage. And marking is server-side: which options are correct is in
+ * quiz-key.ts and is never shipped to the browser, so a paper has to be
+ * submitted before its answers come back — for that quiz only.
  */
 
 import { router, json, error, requireAuth, db } from '@appdeploy/sdk';
@@ -99,7 +99,6 @@ function markPaper(key: KeyQuiz, answers: Record<string, string[]>) {
       chosen,
       answer: q.correct,
       correct: chosen.length > 0 && sameSet(chosen, q.correct),
-      explanation: q.explanation,
     };
   });
 
@@ -248,7 +247,6 @@ export const handler = router({
           id: q.id,
           part: q.part,
           correct: q.correct,
-          explanation: q.explanation,
         })),
       });
     },

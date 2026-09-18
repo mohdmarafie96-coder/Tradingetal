@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Check, RotateCcw, X } from 'lucide-react';
 import { api } from '@appdeploy/client';
-import { loadPaper, type Paper, type Question } from '../content/quiz';
+import { loadPaper, loadWhy, type Paper, type Question, type Why } from '../content/quiz';
 import { useStrings, type Lang } from '../lib/i18n';
 import type { Mark, Marked, QuizState } from '../lib/store';
 
@@ -37,6 +37,8 @@ function Quiz({ lang, quizId, state, onSubmit }: Props) {
   const [phase, setPhase] = useState<Phase>('loading');
   const [answers, setAnswers] = useState<Record<string, string[]>>({});
   const [marks, setMarks] = useState<Mark[] | null>(null);
+  // Explanations are a separate chunk, fetched only once a paper is marked.
+  const [why, setWhy] = useState<Why>({});
   const [busy, setBusy] = useState(false);
   const [saveError, setSaveError] = useState(false);
 
@@ -47,6 +49,7 @@ function Quiz({ lang, quizId, state, onSubmit }: Props) {
     let cancelled = false;
     setPhase('loading');
     setMarks(null);
+    setWhy({});
     setAnswers({});
     loadPaper(quizId).then(
       (loaded) => {
@@ -87,7 +90,8 @@ function Quiz({ lang, quizId, state, onSubmit }: Props) {
     setBusy(true);
     setSaveError(false);
     try {
-      const marked = await onSubmit(quizId, answers);
+      const [marked, prose] = await Promise.all([onSubmit(quizId, answers), loadWhy(quizId)]);
+      setWhy(prose);
       setMarks(marked.marks);
       setPhase('review');
       window.scrollTo(0, 0);
@@ -103,29 +107,26 @@ function Quiz({ lang, quizId, state, onSubmit }: Props) {
     setBusy(true);
     setSaveError(false);
     try {
-      const { data } = await api.get(`/api/answers/${quizId}`);
+      const [{ data }, prose] = await Promise.all([
+        api.get(`/api/answers/${quizId}`),
+        loadWhy(quizId),
+      ]);
       const key = data as {
         unlocked: boolean;
-        answers: Array<{ id: string; part: string | null; correct: string[]; explanation: Record<Lang, string> }> | null;
+        answers: Array<{ id: string; part: string | null; correct: string[] }> | null;
       };
       if (!key.unlocked || !key.answers || !latest) {
         setSaveError(true);
         return;
       }
+      setWhy(prose);
       const given = latest.answers ?? {};
       setMarks(
         key.answers.map((a) => {
           const chosen = given[a.id] ?? [];
           const same =
             chosen.length === a.correct.length && chosen.every((c) => a.correct.includes(c));
-          return {
-            id: a.id,
-            part: a.part,
-            chosen,
-            answer: a.correct,
-            correct: same,
-            explanation: a.explanation,
-          };
+          return { id: a.id, part: a.part, chosen, answer: a.correct, correct: same };
         })
       );
       setAnswers(given);
@@ -310,7 +311,7 @@ function Quiz({ lang, quizId, state, onSubmit }: Props) {
               {mark && (
                 <div className="quiz-explain">
                   <div className="quiz-explain-head">{t.quizWhy}</div>
-                  <p>{mark.explanation[lang]}</p>
+                  <p>{why[q.id]?.[lang] ?? ''}</p>
                   {mark.chosen.length === 0 && <p className="quiz-explain-note">{t.quizNoAnswer}</p>}
                 </div>
               )}

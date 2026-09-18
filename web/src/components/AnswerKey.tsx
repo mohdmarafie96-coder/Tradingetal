@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { ChevronDown, Lock, Unlock } from 'lucide-react';
 import { api } from '@appdeploy/client';
-import { QUIZZES, loadPaper, type Paper } from '../content/quiz';
+import { QUIZZES, loadPaper, loadWhy, type Paper, type Why } from '../content/quiz';
 import { hrefFor } from '../lib/router';
 import { useStrings, type Lang } from '../lib/i18n';
 import type { QuizState } from '../lib/store';
@@ -14,7 +14,6 @@ interface Props {
 interface KeyEntry {
   id: string;
   correct: string[];
-  explanation: Record<Lang, string>;
 }
 
 const LETTERS: Record<Lang, string[]> = {
@@ -34,6 +33,7 @@ function AnswerKey({ lang, quizzes }: Props) {
   const [open, setOpen] = useState<string | null>(null);
   const [paper, setPaper] = useState<Paper | null>(null);
   const [key, setKey] = useState<KeyEntry[] | null>(null);
+  const [why, setWhy] = useState<Why>({});
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
@@ -42,11 +42,12 @@ function AnswerKey({ lang, quizzes }: Props) {
     setBusy(true);
     setPaper(null);
     setKey(null);
-    Promise.all([loadPaper(open), api.get(`/api/answers/${open}`)]).then(
-      ([loaded, res]) => {
+    Promise.all([loadPaper(open), loadWhy(open), api.get(`/api/answers/${open}`)]).then(
+      ([loaded, prose, res]) => {
         if (cancelled) return;
         const body = res.data as { unlocked: boolean; answers: KeyEntry[] | null };
         setPaper(loaded);
+        setWhy(prose);
         setKey(body.unlocked ? body.answers : null);
         setBusy(false);
       },
@@ -127,7 +128,7 @@ function AnswerKey({ lang, quizzes }: Props) {
                           </div>
                         ))}
                       </div>
-                      <p className="keyanswer-why">{entry.explanation[lang]}</p>
+                      <p className="keyanswer-why">{why[q.id]?.[lang] ?? ''}</p>
                     </li>
                   );
                 })}

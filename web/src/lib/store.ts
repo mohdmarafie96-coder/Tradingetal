@@ -40,7 +40,6 @@ export interface Mark {
   chosen: string[];
   answer: string[];
   correct: boolean;
-  explanation: Record<'en' | 'ar', string>;
 }
 
 export interface Marked {

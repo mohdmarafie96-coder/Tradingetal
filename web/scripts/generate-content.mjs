@@ -352,10 +352,12 @@ for (const { lang, prefix } of LOCALES) {
 // -------------------------------------------------------------- quiz bank
 
 /**
- * The question bank, split. Only the prompts and the options are sent to the
- * browser; the answers and explanations are compiled into the backend by
- * scripts/build-quiz-key.mjs, so a submission has to be marked server-side and
- * the answer key cannot be read out of the bundle.
+ * The question bank, split three ways. The paper — prompts and options — is a
+ * chunk the browser loads to sit the quiz. Which options are correct goes only
+ * to the backend (scripts/build-quiz-key.mjs), so a paper has to be marked
+ * server-side. The explanations are a separate chunk, loaded only once a paper
+ * has been marked, so nothing that discusses an answer is fetched by a reader
+ * who is still answering.
  */
 {
   const ids = ['m00', 'm01', 'm02', 'm03', 'm04', 'm05', 'm06', 'm07', 'm08', 'm09', 'm10', 'final'];
@@ -390,6 +392,14 @@ for (const { lang, prefix } of LOCALES) {
         `import type { Paper } from './index';\n\n` +
         `const paper: Paper = ${JSON.stringify(paper)};\n\nexport default paper;\n`
     );
+
+    const why = Object.fromEntries(bank.questions.map((q) => [q.id, q.explanation]));
+    fs.writeFileSync(
+      path.join(QUIZ_DIR, `why-${id}.ts`),
+      `// Generated at build time from quiz/${id}.json. Do not edit by hand.\n` +
+        `import type { Why } from './index';\n\n` +
+        `const why: Why = ${JSON.stringify(why)};\n\nexport default why;\n`
+    );
     meta.push({
       id: bank.id,
       pageId: bank.kind === 'assessment' ? 'm11/02-assessment' : `${bank.id}/quiz`,
@@ -401,6 +411,9 @@ for (const { lang, prefix } of LOCALES) {
   }
 
   const loaders = ids.map((id) => `  ${JSON.stringify(id)}: () => import('./${id}'),`).join('\n');
+  const whyLoaders = ids
+    .map((id) => `  ${JSON.stringify(id)}: () => import('./why-${id}'),`)
+    .join('\n');
 
   fs.writeFileSync(
     path.join(QUIZ_DIR, 'index.ts'),
@@ -446,6 +459,9 @@ export interface QuizMeta {
   count: number;
 }
 
+/** Explanations, by question id. Loaded only after a paper has been marked. */
+export type Why = Record<string, Record<Lang, string>>;
+
 export const QUIZZES: QuizMeta[] = ${JSON.stringify(meta)};
 
 export const QUIZ_BY_PAGE = new Map(QUIZZES.map((q) => [q.pageId, q]));
@@ -469,6 +485,26 @@ export async function loadPaper(id: string): Promise<Paper> {
 
 export function cachedPaper(id: string): Paper | null {
   return cache.get(id) ?? null;
+}
+
+const whyLoaders: Record<string, () => Promise<{ default: Why }>> = {
+${whyLoaders}
+};
+
+const whyCache = new Map<string, Why>();
+
+/**
+ * The explanations for a paper. Deliberately a separate chunk from the paper
+ * itself: it is only requested once the answers have been submitted and marked.
+ */
+export async function loadWhy(id: string): Promise<Why> {
+  const cached = whyCache.get(id);
+  if (cached) return cached;
+  const load = whyLoaders[id];
+  if (!load) throw new Error('No such quiz: ' + id);
+  const why = (await load()).default;
+  whyCache.set(id, why);
+  return why;
 }
 `
   );

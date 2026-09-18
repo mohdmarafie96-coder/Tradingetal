@@ -1,11 +1,15 @@
 #!/usr/bin/env node
-// Splits the question bank in two.
+// Compiles the marking key for the backend.
 //
-// The browser is sent prompts and options only; the correct answers and the
-// explanations are compiled into the backend, which marks a submission and
-// returns the key with the result. That is what makes the closed-book rule and
-// the per-module answer-key unlock real rather than cosmetic — the answers are
-// not in the bundle for a reader to open the console and read.
+// Which options are correct is the one thing the browser is never sent. The
+// backend marks a submission and reports what was right, so the score is not
+// something the page can decide for itself, and the answer key is released one
+// module at a time — only once that module's paper has been submitted.
+//
+// The explanatory prose is not here. It is shipped with the app in a deferred
+// chunk that is only loaded once a paper has been marked (see
+// web/scripts/generate-content.mjs), which keeps this file small enough to
+// deploy inline.
 //
 // This file is committed because the backend is deployed from the source
 // snapshot, not built from the repository. Run it after editing quiz/*.json:
@@ -37,7 +41,6 @@ for (const bank of banks) {
       part: q.part ?? null,
       type: q.type,
       correct: q.correct,
-      explanation: q.explanation,
     })),
   };
   pageToQuiz[
@@ -52,7 +55,6 @@ export interface KeyQuestion {
   part: string | null;
   type: 'single' | 'multi';
   correct: string[];
-  explanation: { en: string; ar: string };
 }
 
 export interface KeyPart {
@@ -69,7 +71,19 @@ export interface KeyQuiz {
 }
 
 /** Answers and explanations, by quiz id. */
-export const QUIZ_KEY: Record<string, KeyQuiz> = ${JSON.stringify(key, null, 2)};
+export const QUIZ_KEY: Record<string, KeyQuiz> = {
+${Object.entries(key)
+  .map(
+    ([id, quiz]) =>
+      `  ${JSON.stringify(id)}: {\n` +
+      `    passMark: ${quiz.passMark},\n` +
+      `    parts: ${JSON.stringify(quiz.parts)},\n` +
+      `    questions: [\n` +
+      quiz.questions.map((q) => `      ${JSON.stringify(q)},`).join('\n') +
+      `\n    ],\n  },`
+  )
+  .join('\n')}
+};
 
 /** Course page id to quiz id, so a route can be marked without a second table. */
 export const PAGE_TO_QUIZ: Record<string, string> = ${JSON.stringify(pageToQuiz, null, 2)};
