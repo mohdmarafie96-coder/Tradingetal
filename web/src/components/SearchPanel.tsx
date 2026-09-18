@@ -1,9 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Search } from 'lucide-react';
-import { modules, pageById } from '../content/manifest';
+import { courseFor } from '../content/manifest';
+import { useStrings, type Lang } from '../lib/i18n';
 import type { SearchDoc } from '../content/search-index';
 
 interface Props {
+  lang: Lang;
   onClose: () => void;
   onNavigate: (id: string) => void;
 }
@@ -14,16 +16,6 @@ interface Hit {
   crumb: string;
   snippet: { text: string; hit: boolean }[];
   score: number;
-}
-
-function crumbFor(id: string): string {
-  const meta = pageById.get(id);
-  if (!meta) return '';
-  const mod = modules.find((m) => m.id === meta.moduleId);
-  if (mod) return `Module ${mod.number} · ${mod.title}`;
-  if (meta.kind === 'reference') return 'Reference';
-  if (meta.kind === 'template') return 'Templates';
-  return 'Course';
 }
 
 function buildSnippet(text: string, term: string): { text: string; hit: boolean }[] {
@@ -41,7 +33,9 @@ function buildSnippet(text: string, term: string): { text: string; hit: boolean 
   return parts;
 }
 
-function SearchPanel({ onClose, onNavigate }: Props) {
+function SearchPanel({ lang, onClose, onNavigate }: Props) {
+  const { t } = useStrings(lang);
+  const course = courseFor(lang);
   const [query, setQuery] = useState('');
   const [docs, setDocs] = useState<SearchDoc[] | null>(null);
   const [cursor, setCursor] = useState(0);
@@ -51,12 +45,22 @@ function SearchPanel({ onClose, onNavigate }: Props) {
     inputRef.current?.focus();
     let cancelled = false;
     import('../content/search-index').then((mod) => {
-      if (!cancelled) setDocs(mod.default());
+      if (!cancelled) setDocs(mod.default(lang));
     });
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [lang]);
+
+  const crumbFor = (id: string): string => {
+    const meta = course.pageById.get(id);
+    if (!meta) return '';
+    const mod = course.modules.find((m) => m.id === meta.moduleId);
+    if (mod) return `${t.module} ${mod.number} · ${mod.title}`;
+    if (meta.kind === 'reference') return t.reference;
+    if (meta.kind === 'template') return t.templates;
+    return t.course;
+  };
 
   const hits = useMemo<Hit[]>(() => {
     const term = query.trim().toLowerCase();
@@ -79,7 +83,8 @@ function SearchPanel({ onClose, onNavigate }: Props) {
       });
     }
     return results.sort((a, b) => b.score - a.score).slice(0, 25);
-  }, [docs, query]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [docs, query, lang]);
 
   useEffect(() => setCursor(0), [query]);
 
@@ -112,30 +117,28 @@ function SearchPanel({ onClose, onNavigate }: Props) {
         if (event.target === event.currentTarget) onClose();
       }}
     >
-      <div className="search-panel" role="dialog" aria-modal="true" aria-label="Search the course">
+      <div className="search-panel" role="dialog" aria-modal="true" aria-label={t.search}>
         <div className="search-input-row">
           <Search size={17} />
           <input
             ref={inputRef}
             className="search-input"
-            placeholder="Search the course…"
+            placeholder={t.searchPlaceholder}
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             onKeyDown={onKeyDown}
-            aria-label="Search the course"
+            aria-label={t.search}
           />
           <kbd className="kbd">Esc</kbd>
         </div>
 
         <div className="search-results">
-          {term.length < 2 && (
-            <div className="search-empty">
-              Type at least two characters. Try “margin”, “pip value” or “expectancy”.
-            </div>
-          )}
-          {term.length >= 2 && !docs && <div className="search-empty">Loading the index…</div>}
+          {term.length < 2 && <div className="search-empty">{t.searchHint}</div>}
+          {term.length >= 2 && !docs && <div className="search-empty">{t.searchLoading}</div>}
           {term.length >= 2 && docs && hits.length === 0 && (
-            <div className="search-empty">No results for “{term}”.</div>
+            <div className="search-empty">
+              {t.searchNoResults} &ldquo;{term}&rdquo;.
+            </div>
           )}
           {hits.map((hit, i) => (
             <button

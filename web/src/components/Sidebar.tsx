@@ -1,52 +1,50 @@
 import { useEffect, useState } from 'react';
 import { BookOpen, Calculator, ChevronRight, FileText, ShieldAlert } from 'lucide-react';
-import {
-  modules,
-  pageById,
-  referencePages,
-  templatePages,
-  totalLessons,
-} from '../content/manifest';
+import Logo from './Logo';
+import { hrefFor } from '../lib/router';
+import { useStrings, type Lang } from '../lib/i18n';
+import { courseFor } from '../content/manifest';
 
 interface Props {
+  lang: Lang;
   activeId: string;
   completed: Set<string>;
   open: boolean;
   onNavigate: () => void;
 }
 
-const KIND_BADGE: Record<string, string> = {
-  quiz: 'Quiz',
-  overview: 'Start',
-};
-
-function Sidebar({ activeId, completed, open, onNavigate }: Props) {
-  const activeModule = modules.find((m) => m.pages.includes(activeId))?.id ?? null;
+function Sidebar({ lang, activeId, completed, open, onNavigate }: Props) {
+  const { t } = useStrings(lang);
+  const course = courseFor(lang);
+  const activeModule = course.modules.find((m) => m.pages.includes(activeId))?.id ?? null;
   const [expanded, setExpanded] = useState<string | null>(activeModule ?? 'm00');
 
   useEffect(() => {
     if (activeModule) setExpanded(activeModule);
   }, [activeModule]);
 
-  const doneCount = modules.reduce(
+  const doneCount = course.modules.reduce(
     (total, m) => total + m.pages.filter((p) => completed.has(p)).length,
     0
   );
-  const pct = totalLessons ? Math.round((doneCount / totalLessons) * 100) : 0;
+  const pct = course.totalLessons ? Math.round((doneCount / course.totalLessons) * 100) : 0;
+
+  const badgeFor = (kind: string) =>
+    kind === 'quiz' ? t.quiz : kind === 'overview' ? t.start : null;
 
   return (
-    <aside className={`sidebar${open ? ' is-open' : ''}`} aria-label="Course navigation">
+    <aside className={`sidebar${open ? ' is-open' : ''}`} aria-label={t.modules}>
       <div className="sidebar-head">
-        <a href="#/" className="brand" onClick={onNavigate}>
-          CFD Trading Fundamentals
+        <a href={hrefFor(lang, '')} className="brand" onClick={onNavigate}>
+          <Logo variant="primary" size={168} />
         </a>
-        <div className="brand-sub">12 modules &middot; 72,000 words</div>
+        <div className="brand-sub">{t.brandSub}</div>
 
         <div className="progress-wrap">
           <div className="progress-row">
-            <span>Progress</span>
-            <span>
-              {doneCount}/{totalLessons}
+            <span>{t.progress}</span>
+            <span className="num">
+              {doneCount}/{course.totalLessons}
             </span>
           </div>
           <div
@@ -55,7 +53,7 @@ function Sidebar({ activeId, completed, open, onNavigate }: Props) {
             aria-valuenow={pct}
             aria-valuemin={0}
             aria-valuemax={100}
-            aria-label="Course progress"
+            aria-label={t.progress}
           >
             <div className="progress-fill" style={{ width: `${pct}%` }} />
           </div>
@@ -64,27 +62,27 @@ function Sidebar({ activeId, completed, open, onNavigate }: Props) {
 
       <nav className="nav">
         <a
-          href="#/risk"
+          href={hrefFor(lang, 'risk')}
           className={`nav-link${activeId === 'risk' ? ' is-active' : ''}`}
           onClick={onNavigate}
         >
           <ShieldAlert size={14} />
-          <span className="nav-link-text">Risk disclosure</span>
+          <span className="nav-link-text">{t.riskDisclosure}</span>
         </a>
         <a
-          href="#/calculator"
+          href={hrefFor(lang, 'calculator')}
           className={`nav-link${activeId === 'calculator' ? ' is-active' : ''}`}
           onClick={onNavigate}
         >
           <Calculator size={14} />
-          <span className="nav-link-text">Calculator</span>
+          <span className="nav-link-text">{t.calculator}</span>
         </a>
 
-        <div className="nav-section">Modules</div>
-        {modules.map((mod) => {
+        <div className="nav-section">{t.modules}</div>
+        {course.modules.map((mod) => {
           const isOpen = expanded === mod.id;
           const done = mod.pages.filter((p) => completed.has(p)).length;
-          const allDone = done === mod.pages.length;
+          const allDone = done === mod.pages.length && mod.pages.length > 0;
           return (
             <div className="mod" key={mod.id}>
               <button
@@ -103,13 +101,13 @@ function Sidebar({ activeId, completed, open, onNavigate }: Props) {
               {isOpen && (
                 <div className="mod-pages">
                   {mod.pages.map((pageId) => {
-                    const page = pageById.get(pageId);
+                    const page = course.pageById.get(pageId);
                     if (!page) return null;
-                    const badge = KIND_BADGE[page.kind];
+                    const badge = badgeFor(page.kind);
                     return (
                       <a
                         key={pageId}
-                        href={`#/${pageId}`}
+                        href={hrefFor(lang, pageId)}
                         className={`nav-link${activeId === pageId ? ' is-active' : ''}`}
                         onClick={onNavigate}
                       >
@@ -128,11 +126,11 @@ function Sidebar({ activeId, completed, open, onNavigate }: Props) {
           );
         })}
 
-        <div className="nav-section">Reference</div>
-        {referencePages.map((page) => (
+        <div className="nav-section">{t.reference}</div>
+        {course.referencePages.map((page) => (
           <a
             key={page.id}
-            href={`#/${page.id}`}
+            href={hrefFor(lang, page.id)}
             className={`nav-link${activeId === page.id ? ' is-active' : ''}`}
             onClick={onNavigate}
           >
@@ -141,11 +139,11 @@ function Sidebar({ activeId, completed, open, onNavigate }: Props) {
           </a>
         ))}
 
-        <div className="nav-section">Templates</div>
-        {templatePages.map((page) => (
+        <div className="nav-section">{t.templates}</div>
+        {course.templatePages.map((page) => (
           <a
             key={page.id}
-            href={`#/${page.id}`}
+            href={hrefFor(lang, page.id)}
             className={`nav-link${activeId === page.id ? ' is-active' : ''}`}
             onClick={onNavigate}
           >

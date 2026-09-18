@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 252 64" width="252" height="64" role="img" aria-label="Trading et al.">
+  <g transform="translate(0 10) scale(0.6875)">
+    <rect width="64" height="64" rx="14" fill="#0F766E"/>
+    <g stroke="#F7F5EF" stroke-width="3" stroke-linecap="round">
+      <line x1="16" y1="16" x2="48" y2="16"/>
+      <line x1="16" y1="23" x2="43" y2="23"/>
+      <line x1="16" y1="30" x2="36" y2="30"/>
+    </g>
+    <polyline points="16,50 24,45 32,47 40,40 48,36"
+              fill="none" stroke="#E0A458" stroke-width="3"
+              stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="60" y="42" font-family="'Source Serif 4','Source Serif Pro',Georgia,serif" font-size="29" fill="#14201E">
+    <tspan font-weight="600">Trading</tspan><tspan font-weight="400" font-style="italic" dx="8">et al.</tspan>
+  </text>
+</svg>
