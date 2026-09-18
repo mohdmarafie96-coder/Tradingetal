@@ -1,0 +1,15 @@
+{
+  "methods": ["google", "apple", "x"],
+  "headline": "Trading et al.",
+  "subtitle": "Sign in to save your progress and your quiz results.",
+  "icon": "graduation-cap",
+  "style": {
+    "mode": "light",
+    "accentColor": "#0f766e",
+    "backgroundColor": "#f7f5ef",
+    "panelColor": "#ffffff",
+    "textColor": "#14201e",
+    "fontFamily": "IBM Plex Sans, system-ui, sans-serif",
+    "borderRadius": 12
+  }
+}

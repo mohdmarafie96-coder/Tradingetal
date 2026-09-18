@@ -1,13 +1,15 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Languages, Menu, Moon, Search as SearchIcon, Sun } from 'lucide-react';
+import { Languages, LogOut, Menu, Moon, Search as SearchIcon, Sun } from 'lucide-react';
 import Sidebar from './components/Sidebar';
 import Home from './components/Home';
 import PageView from './components/PageView';
 import Calculator from './components/Calculator';
 import SearchPanel from './components/SearchPanel';
 import RiskGate from './components/RiskGate';
+import SignIn from './components/SignIn';
 import { hrefFor, navigate, replaceRoute, useRoute } from './lib/router';
-import { useProgress } from './lib/progress';
+import { useAuth } from './lib/auth';
+import { useStore } from './lib/store';
 import { useTheme } from './lib/theme';
 import { useRiskGate } from './lib/gate';
 import { DIR, rememberLang, useStrings, type Lang } from './lib/i18n';
@@ -17,7 +19,9 @@ function App() {
   const route = useRoute();
   const { lang, pageId, anchor, inferred } = route;
   const { t } = useStrings(lang);
-  const { completed, toggle } = useProgress();
+  const { status, signInError, busy, signIn, signOut } = useAuth();
+  const signedIn = status === 'signed-in';
+  const { ready, completed, quizzes, failed, toggle, submit } = useStore(signedIn);
   const { theme, toggle: toggleTheme } = useTheme();
   const { acknowledged, acknowledge } = useRiskGate();
   const [searchOpen, setSearchOpen] = useState(false);
@@ -80,8 +84,30 @@ function App() {
       ? t.calculator
       : (meta?.title ?? t.notFound);
 
+  // The course is behind an account, so the loss statistic sits on the public
+  // sign-in screen: a visitor reads it before signing in, not after.
+  if (status === 'checking') {
+    return <div className="boot" aria-busy="true" />;
+  }
+
+  if (!signedIn) {
+    return (
+      <SignIn
+        lang={lang}
+        busy={busy}
+        error={signInError}
+        onSignIn={signIn}
+        onSwitchLang={switchLang}
+      />
+    );
+  }
+
   if (!acknowledged) {
     return <RiskGate lang={lang} onAcknowledge={acknowledge} onSwitchLang={switchLang} />;
+  }
+
+  if (!ready) {
+    return <div className="boot" aria-busy="true" />;
   }
 
   return (
@@ -132,7 +158,17 @@ function App() {
           >
             {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
           </button>
+
+          <button className="icon-btn" onClick={signOut} aria-label={t.signOut}>
+            <LogOut size={16} />
+          </button>
         </header>
+
+        {failed && (
+          <div className="sync-warn" role="status">
+            {t.syncFailed}
+          </div>
+        )}
 
         <div className="content">
           {isHome ? (
@@ -146,6 +182,8 @@ function App() {
               anchor={anchor}
               completed={completed}
               onToggleComplete={toggle}
+              quizzes={quizzes}
+              onSubmitQuiz={submit}
             />
           )}
         </div>

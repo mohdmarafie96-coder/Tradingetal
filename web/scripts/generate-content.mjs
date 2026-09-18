@@ -16,7 +16,7 @@ import { marked } from 'marked';
 
 const OWNER = 'mohdmarafie96-coder';
 const REPO = 'Tradingetal';
-const REF = 'a942614f5b88763640df85fccdce3d9012774f7f';
+const REF = '55114c1f424546b7e2656a7a21de376123dc958a';
 
 const SOURCES = [
   (p) => `https://raw.githubusercontent.com/${OWNER}/${REPO}/${REF}/${p}`,
@@ -32,6 +32,7 @@ const LOCALES = [
 const ROOT = path.resolve(fileURLToPath(import.meta.url), '../..');
 const CONTENT_DIR = path.join(ROOT, 'src/content');
 const CHUNK_DIR = path.join(CONTENT_DIR, 'chunks');
+const QUIZ_DIR = path.join(CONTENT_DIR, 'quiz');
 
 const MODULES = [
   { id: 'm00', dir: 'modules/00-before-you-start', time: { en: '1h', ar: 'ساعة' }, title: { en: 'Before You Start', ar: 'قبل أن تبدأ' }, lessons: ['01-is-this-for-you.md', '02-how-this-course-works.md', '03-demo-account-setup.md'], quiz: true },
@@ -346,6 +347,134 @@ for (const { lang, prefix } of LOCALES) {
   };
 
   process.stdout.write(`[${lang}] ${pages.length} pages, ${chunks.size} chunks, ${totalWords} words\n`);
+}
+
+// -------------------------------------------------------------- quiz bank
+
+/**
+ * The question bank, split. Only the prompts and the options are sent to the
+ * browser; the answers and explanations are compiled into the backend by
+ * scripts/build-quiz-key.mjs, so a submission has to be marked server-side and
+ * the answer key cannot be read out of the bundle.
+ */
+{
+  const ids = ['m00', 'm01', 'm02', 'm03', 'm04', 'm05', 'm06', 'm07', 'm08', 'm09', 'm10', 'final'];
+  process.stdout.write(`[quiz] fetching ${ids.length} question papers\n`);
+  const raw = await fetchAll(ids.map((id) => `quiz/${id}.json`));
+
+  fs.mkdirSync(QUIZ_DIR, { recursive: true });
+  const meta = [];
+
+  for (const id of ids) {
+    const bank = JSON.parse(raw.get(`quiz/${id}.json`));
+    const paper = {
+      id: bank.id,
+      kind: bank.kind,
+      title: bank.title,
+      passMark: bank.passMark,
+      calculator: bank.meta.calculator,
+      parts: bank.parts
+        ? bank.parts.map((p) => ({ id: p.id, title: p.title, weight: p.weight, minScore: p.minScore ?? null }))
+        : null,
+      questions: bank.questions.map((q) => ({
+        id: q.id,
+        part: q.part ?? null,
+        type: q.type,
+        prompt: q.prompt,
+        options: q.options.map((o) => ({ id: o.id, text: o.text })),
+      })),
+    };
+    fs.writeFileSync(
+      path.join(QUIZ_DIR, `${id}.ts`),
+      `// Generated at build time from quiz/${id}.json. Do not edit by hand.\n` +
+        `import type { Paper } from './index';\n\n` +
+        `const paper: Paper = ${JSON.stringify(paper)};\n\nexport default paper;\n`
+    );
+    meta.push({
+      id: bank.id,
+      pageId: bank.kind === 'assessment' ? 'm11/02-assessment' : `${bank.id}/quiz`,
+      moduleId: bank.kind === 'assessment' ? 'm11' : bank.id,
+      title: bank.title,
+      passMark: bank.passMark,
+      count: bank.questions.length,
+    });
+  }
+
+  const loaders = ids.map((id) => `  ${JSON.stringify(id)}: () => import('./${id}'),`).join('\n');
+
+  fs.writeFileSync(
+    path.join(QUIZ_DIR, 'index.ts'),
+    `// Generated at build time from quiz/*.json. Do not edit by hand.
+import type { Lang } from '../../lib/i18n';
+
+export interface Option {
+  id: string;
+  text: Record<Lang, string>;
+}
+
+export interface Question {
+  id: string;
+  part: string | null;
+  type: 'single' | 'multi';
+  prompt: Record<Lang, string>;
+  options: Option[];
+}
+
+export interface Part {
+  id: string;
+  title: Record<Lang, string>;
+  weight: number;
+  minScore: number | null;
+}
+
+export interface Paper {
+  id: string;
+  kind: 'quiz' | 'assessment';
+  title: Record<Lang, string>;
+  passMark: number;
+  calculator: boolean;
+  parts: Part[] | null;
+  questions: Question[];
+}
+
+export interface QuizMeta {
+  id: string;
+  pageId: string;
+  moduleId: string;
+  title: Record<Lang, string>;
+  passMark: number;
+  count: number;
+}
+
+export const QUIZZES: QuizMeta[] = ${JSON.stringify(meta)};
+
+export const QUIZ_BY_PAGE = new Map(QUIZZES.map((q) => [q.pageId, q]));
+
+const loaders: Record<string, () => Promise<{ default: Paper }>> = {
+${loaders}
+};
+
+const cache = new Map<string, Paper>();
+
+/** Papers are code-split: a quiz is only downloaded when it is opened. */
+export async function loadPaper(id: string): Promise<Paper> {
+  const cached = cache.get(id);
+  if (cached) return cached;
+  const load = loaders[id];
+  if (!load) throw new Error('No such quiz: ' + id);
+  const paper = (await load()).default;
+  cache.set(id, paper);
+  return paper;
+}
+
+export function cachedPaper(id: string): Paper | null {
+  return cache.get(id) ?? null;
+}
+`
+  );
+
+  const total = meta.reduce((n, m) => n + m.count, 0);
+  process.stdout.write(`[quiz] ${meta.length} papers, ${total} questions\n`);
 }
 
 // ------------------------------------------------------------------- emit

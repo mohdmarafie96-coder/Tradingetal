@@ -1,16 +1,18 @@
 [
   {
-    "name": "Acknowledge the risk warning and read a lesson",
+    "name": "Sign in, acknowledge the risk warning, and read a lesson",
     "sanity": true,
     "viewport": "desktop",
     "covers": [
+      "public risk disclosure before sign-in",
+      "sign-in gate",
       "risk acknowledgement gate",
-      "module navigation in the sidebar",
       "lesson content rendering with tables"
     ],
-    "description": "Verifies the mandatory risk disclosure appears first and that a real lesson loads with its formatted content after it is acknowledged.",
+    "description": "Verifies the loss statistic is stated publicly before any account is required, and that the course opens after signing in and acknowledging.",
     "steps": [
-      "Confirm the opening screen states that 70-85% of retail CFD accounts lose money",
+      "Confirm the opening screen states that 70-85% of retail CFD accounts lose money, before any sign-in",
+      "Sign in with the account provider offered on the opening screen",
       "Click the button that says \"I understand\" to acknowledge the risk warning",
       "In the left sidebar, click the module named \"Contract Mechanics\"",
       "Click the lesson named \"Pip Value and Tick Value\""
@@ -18,15 +20,74 @@
     "expected": "The lesson page shows the heading \"Pip Value and Tick Value\", body text, and at least one data table."
   },
   {
+    "name": "Answers stay hidden until the quiz is submitted",
+    "viewport": "desktop",
+    "covers": [
+      "closed-book quiz",
+      "tick-box questions",
+      "marking on submit",
+      "explanations after submit"
+    ],
+    "description": "Verifies the quiz gives nothing away before submission and returns a marked paper with explanations after it.",
+    "steps": [
+      "Sign in with the account provider offered on the opening screen",
+      "Click the button that says \"I understand\" to acknowledge the risk warning",
+      "In the left sidebar, open the module named \"Before You Start\" and click \"Quiz\"",
+      "Confirm no option is marked correct or incorrect and no explanation is visible",
+      "Confirm the submit button is disabled while questions remain unanswered",
+      "Select one option for every question on the page",
+      "Click the button that submits the answers"
+    ],
+    "expected": "A score is shown as a percentage against the pass mark, every question is marked right or wrong, the correct option is highlighted on each question, and an explanation appears under each question."
+  },
+  {
+    "name": "A module answer key unlocks only after its own quiz",
+    "viewport": "desktop",
+    "covers": [
+      "per-module answer key gating",
+      "answer key unlock after an attempt"
+    ],
+    "description": "Verifies the answer key is released module by module rather than all at once.",
+    "steps": [
+      "Sign in with the account provider offered on the opening screen",
+      "Click the button that says \"I understand\" to acknowledge the risk warning",
+      "In the sidebar, under Reference, click \"Quiz Answers\"",
+      "Confirm every module is listed as locked with no answers shown",
+      "In the sidebar, open the module named \"Before You Start\", click \"Quiz\", answer every question and submit",
+      "Go back to \"Quiz Answers\" under Reference",
+      "Expand the answers for the \"Before You Start\" quiz"
+    ],
+    "expected": "The \"Before You Start\" quiz is now unlocked and shows its correct answers with explanations, while the other modules are still locked and offer a link to their quiz instead."
+  },
+  {
+    "name": "Quiz results survive a reload",
+    "viewport": "desktop",
+    "covers": [
+      "saved progress on the account",
+      "quiz attempt history",
+      "retake"
+    ],
+    "description": "Verifies attempts are kept against the signed-in account rather than held in the page.",
+    "steps": [
+      "Sign in with the account provider offered on the opening screen",
+      "Click the button that says \"I understand\" to acknowledge the risk warning",
+      "In the left sidebar, open the module named \"Before You Start\" and click \"Quiz\"",
+      "Answer every question and submit",
+      "Refresh the page"
+    ],
+    "expected": "The quiz page opens on the saved result showing the score from the attempt, with buttons to review the marked paper and to take the quiz again."
+  },
+  {
     "name": "Mark a lesson complete and keep it after reload",
     "viewport": "desktop",
     "covers": [
       "mark lesson complete",
-      "progress persistence across reloads",
+      "progress saved to the account",
       "sidebar progress counter"
     ],
-    "description": "Verifies lesson completion is durable state rather than a transient UI toggle.",
+    "description": "Verifies lesson completion is stored against the account rather than being a transient UI toggle.",
     "steps": [
+      "Sign in with the account provider offered on the opening screen",
       "Click the button that says \"I understand\" to acknowledge the risk warning",
       "In the left sidebar, open the module named \"Before You Start\" and click the lesson \"Is This For You?\"",
       "Click the \"Mark complete\" button",
@@ -38,11 +99,12 @@
     "name": "Search the course and open a result",
     "viewport": "desktop",
     "covers": [
-      "full-text course search",
-      "search result navigation"
+      "full-text search",
+      "search navigation"
     ],
-    "description": "Verifies search finds course material by phrase and navigates to the matching lesson.",
+    "description": "Verifies search finds lesson content and opens the page it points to.",
     "steps": [
+      "Sign in with the account provider offered on the opening screen",
       "Click the button that says \"I understand\" to acknowledge the risk warning",
       "Click the \"Search\" button in the top bar",
       "Type \"margin close-out\" into the search box",
@@ -54,11 +116,12 @@
     "name": "Position size calculator blocks an untradeable size",
     "viewport": "desktop",
     "covers": [
-      "position size calculation",
-      "below-minimum trade size guardrail"
+      "position size calculator",
+      "minimum trade size warning"
     ],
-    "description": "Verifies the calculator warns instead of silently returning a size smaller than any broker will accept.",
+    "description": "Verifies the calculator refuses to suggest raising risk to make a trade fit.",
     "steps": [
+      "Sign in with the account provider offered on the opening screen",
       "Click the button that says \"I understand\" to acknowledge the risk warning",
       "Click \"Calculator\" in the left sidebar",
       "Set \"Account equity\" to 100",
@@ -71,11 +134,12 @@
     "name": "Navigate and read on a phone",
     "viewport": "mobile",
     "covers": [
-      "mobile drawer navigation",
-      "responsive lesson layout"
+      "mobile navigation",
+      "responsive reading"
     ],
-    "description": "Verifies the course is navigable and readable at phone width, where the sidebar becomes a drawer.",
+    "description": "Verifies the course is usable at phone width.",
     "steps": [
+      "Sign in with the account provider offered on the opening screen",
       "Click the button that says \"I understand\" to acknowledge the risk warning",
       "Open the navigation menu using the menu button in the top bar",
       "Click the module named \"Risk Management\"",
@@ -84,32 +148,34 @@
     "expected": "The \"Position Sizing\" lesson is readable at phone width with no horizontal page scrolling."
   },
   {
-    "name": "Switch to Arabic and read a translated lesson",
+    "name": "Take the Arabic quiz right-to-left",
     "viewport": "desktop",
     "covers": [
-      "language switch to Arabic",
-      "right-to-left page direction",
-      "translated module and lesson content"
+      "Arabic edition",
+      "right-to-left quiz",
+      "Arabic option letters",
+      "Arabic explanations"
     ],
-    "description": "Verifies the Arabic edition renders right-to-left with translated navigation and lesson body, not just a translated shell.",
+    "description": "Verifies the quiz is a first-class Arabic surface, not an English component with translated labels.",
     "steps": [
+      "Sign in with the account provider offered on the opening screen",
       "Click the button that says \"I understand\" to acknowledge the risk warning",
       "Click the language button in the top bar and choose \"العربية\"",
-      "In the sidebar, click the module named \"ما هو عقد الفروقات حقًّا\"",
-      "Click the first lesson inside that module"
+      "In the sidebar, open the module named \"قبل أن تبدأ\" and click \"اختبار\"",
+      "Select an option for every question and submit"
     ],
-    "expected": "The page text direction is right-to-left, the sidebar and top bar labels are in Arabic, and the lesson body is Arabic prose rather than English."
+    "expected": "The page reads right-to-left, the options are lettered with Arabic letters, the score and explanations are in Arabic, and the numbers are shown in Western digits."
   },
   {
     "name": "Arabic calculator computes and warns right-to-left",
     "viewport": "desktop",
     "covers": [
-      "Arabic calculator labels and results",
-      "below-minimum guardrail in Arabic",
-      "Western digits inside right-to-left layout"
+      "Arabic calculator",
+      "right-to-left numeric layout"
     ],
-    "description": "Verifies the calculator is fully usable in Arabic, with the figures still shown in Western digits as broker platforms show them, and the guardrail warning translated rather than left in English.",
+    "description": "Verifies the calculator works in the Arabic edition, including its warnings.",
     "steps": [
+      "Sign in with the account provider offered on the opening screen",
       "Click the button that says \"I understand\" to acknowledge the risk warning",
       "Click the language button in the top bar and choose \"العربية\"",
       "In the sidebar, click \"الحاسبة\"",

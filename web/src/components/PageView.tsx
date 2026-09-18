@@ -3,8 +3,15 @@ import { Check, Circle, Clock } from 'lucide-react';
 import { Info } from './icons';
 import { getCached, loadChunk, type Page } from '../content/loader';
 import { courseFor } from '../content/manifest';
+import { QUIZ_BY_PAGE } from '../content/quiz';
 import { hrefFor } from '../lib/router';
 import { useStrings, type Lang } from '../lib/i18n';
+import type { Marked, QuizState } from '../lib/store';
+import Quiz from './Quiz';
+import AnswerKey from './AnswerKey';
+
+/** The reference page whose answers are released module by module. */
+const ANSWER_KEY_PAGE = 'reference/quiz-answers';
 
 interface Props {
   lang: Lang;
@@ -12,6 +19,8 @@ interface Props {
   anchor: string | null;
   completed: Set<string>;
   onToggleComplete: (id: string) => void;
+  quizzes: Record<string, QuizState>;
+  onSubmitQuiz: (quizId: string, answers: Record<string, string[]>) => Promise<Marked>;
 }
 
 function Skeleton() {
@@ -27,7 +36,15 @@ function Skeleton() {
   );
 }
 
-function PageView({ lang, pageId, anchor, completed, onToggleComplete }: Props) {
+function PageView({
+  lang,
+  pageId,
+  anchor,
+  completed,
+  onToggleComplete,
+  quizzes,
+  onSubmitQuiz,
+}: Props) {
   const { t } = useStrings(lang);
   const course = courseFor(lang);
   const meta = course.pageById.get(pageId);
@@ -36,8 +53,14 @@ function PageView({ lang, pageId, anchor, completed, onToggleComplete }: Props) 
   );
   const articleRef = useRef<HTMLDivElement>(null);
 
+  const quizMeta = QUIZ_BY_PAGE.get(pageId);
+  const isAnswerKey = pageId === ANSWER_KEY_PAGE;
+  // Quiz papers and the answer key are rendered from the question bank, not
+  // from the markdown, so their chunks are never fetched.
+  const rendered = Boolean(quizMeta) || isAnswerKey;
+
   useEffect(() => {
-    if (!meta) return;
+    if (!meta || rendered) return;
     let cancelled = false;
     const cached = getCached(lang, meta.chunk)?.[pageId];
     if (cached) {
@@ -53,9 +76,13 @@ function PageView({ lang, pageId, anchor, completed, onToggleComplete }: Props) 
     return () => {
       cancelled = true;
     };
-  }, [lang, meta, pageId, t]);
+  }, [lang, meta, pageId, rendered, t]);
 
   useEffect(() => {
+    if (rendered) {
+      window.scrollTo(0, 0);
+      return;
+    }
     if (!page) return;
     if (anchor) {
       const target = articleRef.current?.querySelector(`#${CSS.escape(anchor)}`);
@@ -65,7 +92,7 @@ function PageView({ lang, pageId, anchor, completed, onToggleComplete }: Props) 
       }
     }
     window.scrollTo(0, 0);
-  }, [page, anchor, pageId]);
+  }, [page, anchor, pageId, rendered]);
 
   if (!meta) {
     return (
@@ -116,12 +143,20 @@ function PageView({ lang, pageId, anchor, completed, onToggleComplete }: Props) 
           )}
         </div>
 
-        <h1 className="page-title">{meta.title}</h1>
+        <h1 className="page-title">{quizMeta ? quizMeta.title[lang] : meta.title}</h1>
 
         <div className="page-meta">
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5 }}>
             <Clock size={13} />
-            <span className="num">{meta.minutes}</span> {t.minRead}
+            {quizMeta ? (
+              <>
+                <span className="num">{quizMeta.count}</span> {t.quizQuestions}
+              </>
+            ) : (
+              <>
+                <span className="num">{meta.minutes}</span> {t.minRead}
+              </>
+            )}
           </span>
           {trackable && (
             <button
@@ -145,7 +180,16 @@ function PageView({ lang, pageId, anchor, completed, onToggleComplete }: Props) 
           </div>
         )}
 
-        {!page ? (
+        {quizMeta ? (
+          <Quiz
+            lang={lang}
+            quizId={quizMeta.id}
+            state={quizzes[quizMeta.id]}
+            onSubmit={onSubmitQuiz}
+          />
+        ) : isAnswerKey ? (
+          <AnswerKey lang={lang} quizzes={quizzes} />
+        ) : !page ? (
           <Skeleton />
         ) : (
           <div

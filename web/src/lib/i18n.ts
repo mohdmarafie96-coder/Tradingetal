@@ -83,6 +83,68 @@ interface Strings {
   gateButton: string;
   gateFoot: string;
 
+  signInKicker: string;
+  signInLede: string;
+  signInWhyTitle: string;
+  signInWhy1: string;
+  signInWhy2: string;
+  signInWhy3: string;
+  signInButton: string;
+  signInBusy: string;
+  signInProviders: string;
+  signInBlocked: string;
+  signInClosed: string;
+  signInFailed: string;
+  signInRetry: string;
+  signOut: string;
+  account: string;
+
+  quizClosedBook: string;
+  quizCalculatorNote: string;
+  quizSelectOne: string;
+  quizSelectAll: string;
+  quizQuestions: string;
+  quizPassMark: string;
+  quizSubmit: string;
+  quizSubmitting: string;
+  quizAnswerAll: string;
+  quizUnanswered: string;
+  quizScore: string;
+  quizPassed: string;
+  quizNotPassed: string;
+  quizRetake: string;
+  quizReview: string;
+  quizYourAnswer: string;
+  quizCorrectAnswer: string;
+  quizNoAnswer: string;
+  quizWhy: string;
+  quizCorrectLabel: string;
+  quizIncorrectLabel: string;
+  quizAttempts: string;
+  quizBest: string;
+  quizLatest: string;
+  quizAttemptsNote: string;
+  quizPartTable: string;
+  quizPartFloor: string;
+  quizPartFloorMissed: string;
+  quizSaveFailed: string;
+  quizLoadFailed: string;
+  quizRetry: string;
+  quizLoading: string;
+  quizShowPaper: string;
+
+  keyIntro: string;
+  keyLocked: string;
+  keyLockedBody: string;
+  keyOpenQuiz: string;
+  keyUnlocked: string;
+  keyShow: string;
+  keyHide: string;
+  keyQuestion: string;
+  keyLoading: string;
+
+  syncFailed: string;
+
   calcIntro: string;
   tabSize: string;
   tabMargin: string;
@@ -238,6 +300,70 @@ const en: Strings = {
   gateButton: 'I understand — start the course',
   gateFoot:
     'If trading ever stops feeling like a decision — chasing losses, hiding it from people close to you, or trading money you said you would not — support is listed in the full risk disclosure, which is the first page of the course.',
+
+  signInKicker: 'Sign in to continue',
+  signInLede:
+    'The course is free and self-paced. An account is what keeps your progress and your quiz results, so you can stop on one device and carry on from another.',
+  signInWhyTitle: 'What the account is for',
+  signInWhy1: 'Your place in the course, saved as you read.',
+  signInWhy2: 'Every quiz attempt, marked and kept, with the answers unlocked once you have sat the paper.',
+  signInWhy3: 'Nothing else. No payment, no trading account, and nothing is sold to a broker.',
+  signInButton: 'Sign in',
+  signInBusy: 'Opening sign-in\u2026',
+  signInProviders: 'Continue with Google, Apple or X.',
+  signInBlocked: 'Your browser blocked the sign-in window. Allow pop-ups for this site and try again.',
+  signInClosed: 'The sign-in window closed before it finished.',
+  signInFailed: 'Sign-in did not complete. Please try again.',
+  signInRetry: 'Try again',
+  signOut: 'Sign out',
+  account: 'Account',
+
+  quizClosedBook: 'Closed book. Your answers are marked when you submit, not before.',
+  quizCalculatorNote: 'Calculator permitted.',
+  quizSelectOne: 'Select one',
+  quizSelectAll: 'Select all that apply',
+  quizQuestions: 'questions',
+  quizPassMark: 'Pass mark',
+  quizSubmit: 'Submit answers',
+  quizSubmitting: 'Marking\u2026',
+  quizAnswerAll: 'Answer every question before submitting.',
+  quizUnanswered: '{} still unanswered',
+  quizScore: 'Score',
+  quizPassed: 'Passed',
+  quizNotPassed: 'Below the pass mark',
+  quizRetake: 'Take it again',
+  quizReview: 'Your marked paper',
+  quizYourAnswer: 'You answered',
+  quizCorrectAnswer: 'Correct answer',
+  quizNoAnswer: 'No answer given',
+  quizWhy: 'Why',
+  quizCorrectLabel: 'Correct',
+  quizIncorrectLabel: 'Incorrect',
+  quizAttempts: 'Attempts',
+  quizBest: 'Best',
+  quizLatest: 'Latest',
+  quizAttemptsNote: 'Attempts are unlimited and every one is kept. The best and the most recent are both shown, because a score you cannot repeat is not a score.',
+  quizPartTable: 'By part',
+  quizPartFloor: 'needs {}%',
+  quizPartFloorMissed: 'This part is below its own floor, so the paper is not passed whatever the total.',
+  quizSaveFailed: 'Your answers could not be marked. Check your connection and submit again.',
+  quizLoadFailed: 'This paper could not be loaded.',
+  quizRetry: 'Try again',
+  quizLoading: 'Loading the paper\u2026',
+  quizShowPaper: 'Review my answers',
+
+  keyIntro:
+    'Each module\u2019s answers open once you have submitted that module\u2019s quiz. Work the questions first: the reasoning is the point, and reading the answer key beforehand tells you nothing about what you actually know.',
+  keyLocked: 'Locked',
+  keyLockedBody: 'Sit this quiz to open its answers.',
+  keyOpenQuiz: 'Open the quiz',
+  keyUnlocked: 'Open',
+  keyShow: 'Show answers',
+  keyHide: 'Hide answers',
+  keyQuestion: 'Question',
+  keyLoading: 'Loading answers\u2026',
+
+  syncFailed: 'Your progress could not be saved to your account.',
 
   calcIntro:
     'The arithmetic from Modules 3, 4 and 6. Work it by hand first — this is for checking, not for replacing.',
@@ -398,6 +524,70 @@ const ar: Strings = {
   gateButton: 'أفهم ذلك — ابدأ الدورة',
   gateFoot:
     'إذا توقّف التداول يومًا عن كونه قرارًا — مطاردةً للخسائر، أو إخفاءً له عمّن حولك، أو تداولًا بمال قلتَ إنك لن تخاطر به — فستجد جهات الدعم مذكورة في إفصاح المخاطر الكامل، وهو أول صفحة في الدورة.',
+
+  signInKicker: 'سجّل الدخول للمتابعة',
+  signInLede:
+    'الدورة مجانية وبوتيرتك أنت. والحساب هو ما يحفظ تقدّمك ونتائج اختباراتك، فتتوقّف على جهاز وتكمل من آخر.',
+  signInWhyTitle: 'ما فائدة الحساب',
+  signInWhy1: 'موضعك في الدورة، محفوظًا أولًا بأول.',
+  signInWhy2: 'كل محاولة اختبار، مصحَّحة ومحفوظة، مع فتح الإجابات بعد أن تؤدّي الاختبار.',
+  signInWhy3: 'ولا شيء غير ذلك. لا دفع، ولا حساب تداول، ولا بيع لبياناتك لأي وسيط.',
+  signInButton: 'تسجيل الدخول',
+  signInBusy: 'جارٍ فتح نافذة الدخول\u2026',
+  signInProviders: 'تابع بحساب Google أو Apple أو X.',
+  signInBlocked: 'حجب متصفّحك نافذة الدخول. اسمح بالنوافذ المنبثقة لهذا الموقع ثم أعد المحاولة.',
+  signInClosed: 'أُغلقت نافذة الدخول قبل اكتمالها.',
+  signInFailed: 'لم يكتمل تسجيل الدخول. أعد المحاولة من فضلك.',
+  signInRetry: 'أعد المحاولة',
+  signOut: 'تسجيل الخروج',
+  account: 'الحساب',
+
+  quizClosedBook: 'كتاب مغلق. تُصحَّح إجاباتك عند التسليم لا قبله.',
+  quizCalculatorNote: 'والآلة الحاسبة مسموحة.',
+  quizSelectOne: 'اختر إجابة واحدة',
+  quizSelectAll: 'اختر كل ما ينطبق',
+  quizQuestions: 'سؤالًا',
+  quizPassMark: 'درجة النجاح',
+  quizSubmit: 'سلّم الإجابات',
+  quizSubmitting: 'جارٍ التصحيح\u2026',
+  quizAnswerAll: 'أجب عن كل سؤال قبل التسليم.',
+  quizUnanswered: 'بقي {} بلا إجابة',
+  quizScore: 'الدرجة',
+  quizPassed: 'ناجح',
+  quizNotPassed: 'دون درجة النجاح',
+  quizRetake: 'أعد الاختبار',
+  quizReview: 'ورقتك المصحَّحة',
+  quizYourAnswer: 'إجابتك',
+  quizCorrectAnswer: 'الإجابة الصحيحة',
+  quizNoAnswer: 'لم تُعطَ إجابة',
+  quizWhy: 'التعليل',
+  quizCorrectLabel: 'صحيحة',
+  quizIncorrectLabel: 'خاطئة',
+  quizAttempts: 'المحاولات',
+  quizBest: 'الأفضل',
+  quizLatest: 'الأخيرة',
+  quizAttemptsNote: 'المحاولات غير محدودة وكلها محفوظة. وتُعرَض الأفضل والأحدث معًا، لأن درجةً لا تستطيع تكرارها ليست درجة.',
+  quizPartTable: 'بحسب الأجزاء',
+  quizPartFloor: 'تتطلّب {}%',
+  quizPartFloorMissed: 'هذا الجزء دون الحدّ الأدنى الخاص به، فلا تُعدّ الورقة ناجحة مهما بلغ المجموع.',
+  quizSaveFailed: 'تعذّر تصحيح إجاباتك. تحقّق من اتصالك وسلّم مرة أخرى.',
+  quizLoadFailed: 'تعذّر تحميل هذه الورقة.',
+  quizRetry: 'أعد المحاولة',
+  quizLoading: 'جارٍ تحميل الورقة\u2026',
+  quizShowPaper: 'راجع إجاباتي',
+
+  keyIntro:
+    'تُفتح إجابات كل وحدة بعد تسليمك اختبار تلك الوحدة. اعمل على الأسئلة أولًا: فالتعليل هو المقصود، وقراءة الإجابات مسبقًا لا تخبرك بشيء عمّا تعرفه فعلًا.',
+  keyLocked: 'مقفلة',
+  keyLockedBody: 'أدِّ هذا الاختبار لفتح إجاباته.',
+  keyOpenQuiz: 'افتح الاختبار',
+  keyUnlocked: 'مفتوحة',
+  keyShow: 'اعرض الإجابات',
+  keyHide: 'أخفِ الإجابات',
+  keyQuestion: 'سؤال',
+  keyLoading: 'جارٍ تحميل الإجابات\u2026',
+
+  syncFailed: 'تعذّر حفظ تقدّمك في حسابك.',
 
   calcIntro:
     'حسابات الوحدات الثالثة والرابعة والسادسة. احسبها بيدك أولًا — هذه الأداة للتحقّق لا للاستعاضة.',
