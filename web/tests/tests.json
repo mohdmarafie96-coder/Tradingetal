@@ -82,5 +82,40 @@
       "Click the lesson named \"Position Sizing\""
     ],
     "expected": "The \"Position Sizing\" lesson is readable at phone width with no horizontal page scrolling."
+  },
+  {
+    "name": "Switch to Arabic and read a translated lesson",
+    "viewport": "desktop",
+    "covers": [
+      "language switch to Arabic",
+      "right-to-left page direction",
+      "translated module and lesson content"
+    ],
+    "description": "Verifies the Arabic edition renders right-to-left with translated navigation and lesson body, not just a translated shell.",
+    "steps": [
+      "Click the button that says \"I understand\" to acknowledge the risk warning",
+      "Click the language button in the top bar and choose \"العربية\"",
+      "In the sidebar, click the module named \"ما هو عقد الفروقات حقًّا\"",
+      "Click the first lesson inside that module"
+    ],
+    "expected": "The page text direction is right-to-left, the sidebar and top bar labels are in Arabic, and the lesson body is Arabic prose rather than English."
+  },
+  {
+    "name": "Arabic calculator computes and warns right-to-left",
+    "viewport": "desktop",
+    "covers": [
+      "Arabic calculator labels and results",
+      "below-minimum guardrail in Arabic",
+      "Western digits inside right-to-left layout"
+    ],
+    "description": "Verifies the calculator is fully usable in Arabic, with the figures still shown in Western digits as broker platforms show them, and the guardrail warning translated rather than left in English.",
+    "steps": [
+      "Click the button that says \"I understand\" to acknowledge the risk warning",
+      "Click the language button in the top bar and choose \"العربية\"",
+      "In the sidebar, click \"الحاسبة\"",
+      "Set the account equity field to 100 and the risk percentage field to 0.5",
+      "Set the entry price to 1.0900 and the stop price to 1.0500"
+    ],
+    "expected": "The calculator labels and the warning text are in Arabic, the page reads right-to-left, the numeric results are shown in Western digits, and a visible Arabic warning says the calculated size is below the minimum trade size."
   }
 ]

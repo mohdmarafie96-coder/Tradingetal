@@ -16,7 +16,7 @@ import { marked } from 'marked';
 
 const OWNER = 'mohdmarafie96-coder';
 const REPO = 'Tradingetal';
-const REF = '642a289b42e47ecbd16711931e0418382a025b91';
+const REF = 'a942614f5b88763640df85fccdce3d9012774f7f';
 
 const SOURCES = [
   (p) => `https://raw.githubusercontent.com/${OWNER}/${REPO}/${REF}/${p}`,
