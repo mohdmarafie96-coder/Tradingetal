@@ -1,0 +1,4 @@
+trade_id,date_entry,time_entry,instrument,direction,setup,entry_intended,entry_actual,entry_slippage,stop_price,target_price,stop_distance,position_size,risk_currency,risk_pct,planned_rr,equity_at_entry,notional,effective_leverage,reason_at_entry,confidence_1_5,date_exit,time_exit,exit_price,exit_slippage,exit_reason,gross_pnl,cost_spread,cost_commission,cost_financing,cost_conversion,net_pnl,r_multiple,followed_plan,violation_detail,notes
+1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
