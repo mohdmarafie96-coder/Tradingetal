@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Acknowledge the risk warning and read a lesson",
+    "sanity": true,
+    "viewport": "desktop",
+    "covers": [
+      "risk acknowledgement gate",
+      "module navigation in the sidebar",
+      "lesson content rendering with tables"
+    ],
+    "description": "Verifies the mandatory risk disclosure appears first and that a real lesson loads with its formatted content after it is acknowledged.",
+    "steps": [
+      "Confirm the opening screen states that 70-85% of retail CFD accounts lose money",
+      "Click the button that says \"I understand\" to acknowledge the risk warning",
+      "In the left sidebar, click the module named \"Contract Mechanics\"",
+      "Click the lesson named \"Pip Value and Tick Value\""
+    ],
+    "expected": "The lesson page shows the heading \"Pip Value and Tick Value\", body text, and at least one data table."
+  },
+  {
+    "name": "Mark a lesson complete and keep it after reload",
+    "viewport": "desktop",
+    "covers": [
+      "mark lesson complete",
+      "progress persistence across reloads",
+      "sidebar progress counter"
+    ],
+    "description": "Verifies lesson completion is durable state rather than a transient UI toggle.",
+    "steps": [
+      "Click the button that says \"I understand\" to acknowledge the risk warning",
+      "In the left sidebar, open the module named \"Before You Start\" and click the lesson \"Is This For You?\"",
+      "Click the \"Mark complete\" button",
+      "Refresh the page"
+    ],
+    "expected": "The button now reads \"Completed\" and the sidebar progress counter shows 1 completed item."
+  },
+  {
+    "name": "Search the course and open a result",
+    "viewport": "desktop",
+    "covers": [
+      "full-text course search",
+      "search result navigation"
+    ],
+    "description": "Verifies search finds course material by phrase and navigates to the matching lesson.",
+    "steps": [
+      "Click the button that says \"I understand\" to acknowledge the risk warning",
+      "Click the \"Search\" button in the top bar",
+      "Type \"margin close-out\" into the search box",
+      "Click the first search result"
+    ],
+    "expected": "A lesson page opens whose content discusses margin close-out, and the search overlay is no longer visible."
+  },
+  {
+    "name": "Position size calculator blocks an untradeable size",
+    "viewport": "desktop",
+    "covers": [
+      "position size calculation",
+      "below-minimum trade size guardrail"
+    ],
+    "description": "Verifies the calculator warns instead of silently returning a size smaller than any broker will accept.",
+    "steps": [
+      "Click the button that says \"I understand\" to acknowledge the risk warning",
+      "Click \"Calculator\" in the left sidebar",
+      "Set \"Account equity\" to 100",
+      "Set \"Risk %\" to 0.5",
+      "Set \"Entry price\" to 1.0900 and \"Stop price\" to 1.0500"
+    ],
+    "expected": "A visible warning states the calculated size is below the minimum trade size and says not to raise the risk percentage to make the trade fit."
+  },
+  {
+    "name": "Navigate and read on a phone",
+    "viewport": "mobile",
+    "covers": [
+      "mobile drawer navigation",
+      "responsive lesson layout"
+    ],
+    "description": "Verifies the course is navigable and readable at phone width, where the sidebar becomes a drawer.",
+    "steps": [
+      "Click the button that says \"I understand\" to acknowledge the risk warning",
+      "Open the navigation menu using the menu button in the top bar",
+      "Click the module named \"Risk Management\"",
+      "Click the lesson named \"Position Sizing\""
+    ],
+    "expected": "The \"Position Sizing\" lesson is readable at phone width with no horizontal page scrolling."
+  }
+]
