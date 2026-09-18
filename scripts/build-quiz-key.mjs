@@ -70,7 +70,7 @@ export interface KeyQuiz {
   questions: KeyQuestion[];
 }
 
-/** Answers and explanations, by quiz id. */
+/** Which options are correct, by quiz id. */
 export const QUIZ_KEY: Record<string, KeyQuiz> = {
 ${Object.entries(key)
   .map(
@@ -87,11 +87,6 @@ ${Object.entries(key)
 
 /** Course page id to quiz id, so a route can be marked without a second table. */
 export const PAGE_TO_QUIZ: Record<string, string> = ${JSON.stringify(pageToQuiz, null, 2)};
-
-/** Quiz id to the module whose answer key it unlocks. */
-export function quizIds(): string[] {
-  return Object.keys(QUIZ_KEY);
-}
 `;
 
 writeFileSync(OUT, src);

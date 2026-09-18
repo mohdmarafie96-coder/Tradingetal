@@ -20,7 +20,7 @@ export interface KeyQuiz {
   questions: KeyQuestion[];
 }
 
-/** Answers and explanations, by quiz id. */
+/** Which options are correct, by quiz id. */
 export const QUIZ_KEY: Record<string, KeyQuiz> = {
   "final": {
     passMark: 0.8,
@@ -254,8 +254,3 @@ export const PAGE_TO_QUIZ: Record<string, string> = {
   "m09/quiz": "m09",
   "m10/quiz": "m10"
 };
-
-/** Quiz id to the module whose answer key it unlocks. */
-export function quizIds(): string[] {
-  return Object.keys(QUIZ_KEY);
-}
