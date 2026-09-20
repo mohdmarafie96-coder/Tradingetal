@@ -2279,3 +2279,282 @@ button {
 .btn:disabled:hover {
   border-color: var(--border);
 }
+
+/* --------------------------------------------------------- public home page */
+
+.land {
+  min-height: 100vh;
+  background: var(--page-bg);
+  display: flex;
+  flex-direction: column;
+}
+
+.land-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.land-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.land-bar-actions .btn {
+  white-space: nowrap;
+}
+
+.land-main {
+  flex: 1;
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-5) var(--space-7);
+}
+
+.land-hero {
+  margin-bottom: var(--space-8);
+}
+
+.land-kicker {
+  font-size: var(--size-small);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--teal-600);
+  margin: 0 0 var(--space-3);
+}
+
+.land-hero h1 {
+  font-family: var(--font-prose);
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.1;
+  font-weight: 600;
+  margin: 0 0 var(--space-4);
+  letter-spacing: -0.01em;
+}
+
+.land-lede {
+  font-family: var(--font-prose);
+  font-size: var(--size-prose);
+  line-height: var(--leading-prose);
+  color: var(--ink-secondary);
+  max-width: 62ch;
+  margin: 0 0 var(--space-5);
+}
+
+.land-cta {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+/* The loss statistic, given the weight it deserves: before the first decision,
+   not in a footnote after it. */
+.land-risk {
+  display: flex;
+  gap: var(--space-5);
+  align-items: flex-start;
+  padding: var(--space-5) var(--space-6);
+  background: var(--risk-bg);
+  border: 1px solid color-mix(in srgb, var(--risk) 28%, transparent);
+  border-radius: var(--radius-card);
+  margin-bottom: var(--space-8);
+}
+
+.land-risk-fig {
+  flex: none;
+}
+
+.land-risk-fig .gate-stat-num {
+  display: block;
+  white-space: nowrap;
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  font-family: var(--font-num);
+  font-weight: 500;
+  color: var(--risk);
+  line-height: 1;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.land-risk-body p {
+  margin: var(--space-2) 0 0;
+  font-size: var(--size-ui);
+  line-height: 1.65;
+}
+
+.land-risk-note {
+  color: var(--ink-secondary);
+}
+
+.land-section {
+  margin-bottom: var(--space-8);
+}
+
+.land-note {
+  font-size: var(--size-ui);
+  color: var(--ink-secondary);
+  line-height: 1.6;
+  margin: 0 0 var(--space-4);
+  max-width: 62ch;
+}
+
+.land-outcomes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-4);
+}
+
+.land-outcomes li {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  padding: var(--space-4) var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  font-size: var(--size-ui);
+  line-height: 1.6;
+}
+
+.land-outcomes svg {
+  flex: none;
+  margin-top: 3px;
+  color: var(--teal-600);
+}
+
+.land-modules {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.land-modules li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-5);
+  border-bottom: 1px solid var(--border);
+  font-size: var(--size-ui);
+}
+
+.land-modules li:last-child {
+  border-bottom: 0;
+}
+
+.land-mod-num {
+  flex: none;
+  width: 2.25em;
+  color: var(--ink-muted);
+  font-size: var(--size-small);
+}
+
+.land-mod-title {
+  flex: 1;
+  font-weight: 500;
+}
+
+.land-mod-time {
+  flex: none;
+  color: var(--ink-muted);
+  font-size: var(--size-small);
+}
+
+.land-nots {
+  margin: 0;
+  padding-inline-start: var(--space-5);
+  list-style-type: disc;
+  font-size: var(--size-ui);
+  line-height: 1.7;
+  color: var(--ink-secondary);
+  max-width: 62ch;
+}
+
+.land-close {
+  padding: var(--space-6);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  background: var(--surface-sunken);
+}
+
+.land-close p {
+  margin: 0 0 var(--space-4);
+  font-family: var(--font-prose);
+  font-size: var(--size-prose);
+  line-height: 1.6;
+  max-width: 62ch;
+}
+
+.land-foot {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-5) var(--space-8);
+  border-top: 1px solid var(--border);
+  width: 100%;
+}
+
+.land-foot p {
+  margin: 0;
+  font-size: var(--size-small);
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
+.land-foot svg {
+  flex: none;
+}
+
+.signin-prompt {
+  margin: 0 0 var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-control);
+  background: var(--teal-100);
+  color: var(--teal-900);
+  font-size: var(--size-ui);
+}
+
+[data-theme="dark"] .signin-prompt {
+  background: color-mix(in srgb, var(--teal-600) 16%, transparent);
+  color: var(--ink);
+}
+
+[dir="rtl"] .land-outcomes svg,
+[dir="rtl"] .land-cta svg,
+[dir="rtl"] .land-bar-actions svg {
+  transform: scaleX(-1);
+}
+
+@media (max-width: 640px) {
+  .land-bar {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .land-main {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .land-risk {
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-4);
+  }
+}

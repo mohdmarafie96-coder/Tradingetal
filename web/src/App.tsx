@@ -7,6 +7,7 @@ import Calculator from './components/Calculator';
 import SearchPanel from './components/SearchPanel';
 import RiskGate from './components/RiskGate';
 import SignIn from './components/SignIn';
+import Landing from './components/Landing';
 import { hrefFor, navigate, replaceRoute, useRoute } from './lib/router';
 import { useAuth } from './lib/auth';
 import { useStore } from './lib/store';
@@ -40,6 +41,8 @@ function App() {
 
   const course = courseFor(lang);
   const isHome = pageId === '';
+  // The two public routes. Everything else is the course, which needs an account.
+  const isSignIn = pageId === 'signin' || pageId === 'signup';
   const isCalculator = pageId === 'calculator';
   const meta = course.pageById.get(pageId);
   // A quiz page is titled by its paper ("Module 00 Quiz"), not by the generic
@@ -61,6 +64,10 @@ function App() {
   useEffect(() => {
     setMenuOpen(false);
   }, [pageId, lang]);
+
+  useEffect(() => {
+    if (signedIn && isSignIn) replaceRoute(lang, '');
+  }, [signedIn, isSignIn, lang]);
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -86,6 +93,13 @@ function App() {
 
   const onSearchNavigate = useCallback((id: string) => navigate(lang, id), [lang]);
 
+  // Signing out is leaving, not an interrupted attempt to reach a page, so it
+  // returns to the public home page rather than the sign-in form.
+  const leave = useCallback(async () => {
+    await signOut();
+    navigate(lang, '');
+  }, [signOut, lang]);
+
   const other: Lang = lang === 'en' ? 'ar' : 'en';
   const switchLang = () => {
     rememberLang(other);
@@ -105,17 +119,34 @@ function App() {
   }
 
   if (!signedIn) {
+    // The home page is public; the course is not. A deep link into the course
+    // shows the sign-in screen without changing the route, so signing in lands
+    // the reader on the page they asked for.
+    if (isHome) {
+      return (
+        <Landing
+          lang={lang}
+          onSignIn={() => navigate(lang, 'signin')}
+          onCreate={() => navigate(lang, 'signup')}
+          onSwitchLang={switchLang}
+        />
+      );
+    }
+
     return (
       <SignIn
         lang={lang}
         busy={busy}
         error={authError}
         awaitingConfirmation={awaitingConfirmation}
+        initialMode={pageId === 'signup' ? 'up' : 'in'}
+        prompt={isSignIn ? null : t.landSignInPrompt}
         onSignIn={signIn}
         onSignUp={signUp}
         onGoogle={signInWithGoogle}
         onSwitchLang={switchLang}
         onClearError={clearError}
+        onHome={() => navigate(lang, '')}
       />
     );
   }
@@ -177,7 +208,7 @@ function App() {
             {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
           </button>
 
-          <button className="icon-btn" onClick={signOut} aria-label={t.signOut}>
+          <button className="icon-btn" onClick={leave} aria-label={t.signOut}>
             <LogOut size={16} />
           </button>
         </header>

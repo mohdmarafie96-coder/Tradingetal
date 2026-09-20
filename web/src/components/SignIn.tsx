@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react';
-import { AlertTriangle, Languages, Mail } from 'lucide-react';
+import { AlertTriangle, ArrowLeft, Languages, Mail } from 'lucide-react';
 import Logo from './Logo';
 import { GOOGLE_ENABLED } from '../lib/supabase';
 import { useStrings, type Lang } from '../lib/i18n';
@@ -10,11 +10,16 @@ interface Props {
   busy: boolean;
   error: AuthError;
   awaitingConfirmation: boolean;
+  /** Which tab opens first: the sign-up link on the home page opens "up". */
+  initialMode: 'in' | 'up';
+  /** Why the reader is here, when they arrived by following a course link. */
+  prompt: string | null;
   onSignIn: (email: string, password: string) => void;
   onSignUp: (email: string, password: string) => void;
   onGoogle: () => void;
   onSwitchLang: () => void;
   onClearError: () => void;
+  onHome: () => void;
 }
 
 /**
@@ -28,14 +33,17 @@ function SignIn({
   busy,
   error,
   awaitingConfirmation,
+  initialMode,
+  prompt,
   onSignIn,
   onSignUp,
   onGoogle,
   onSwitchLang,
   onClearError,
+  onHome,
 }: Props) {
   const { t } = useStrings(lang);
-  const [mode, setMode] = useState<'in' | 'up'>('in');
+  const [mode, setMode] = useState<'in' | 'up'>(initialMode);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -75,6 +83,8 @@ function SignIn({
         </div>
 
         <h1>{t.heroTitle}</h1>
+
+        {prompt && <p className="signin-prompt">{prompt}</p>}
 
         <div className="gate-stat">
           <div className="gate-stat-num">{t.gateStatNum}</div>
@@ -179,6 +189,10 @@ function SignIn({
         )}
 
         <div className="gate-actions signin-lang">
+          <button className="btn" onClick={onHome}>
+            <ArrowLeft size={16} />
+            {t.landBackHome}
+          </button>
           <button className="btn" onClick={onSwitchLang}>
             <Languages size={16} />
             {lang === 'en' ? 'العربية' : 'English'}

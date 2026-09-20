@@ -162,6 +162,25 @@ interface Strings {
 
   syncFailed: string;
 
+  landKicker: string;
+  landCtaCreate: string;
+  landOutcomesTitle: string;
+  landOutcome1: string;
+  landOutcome2: string;
+  landOutcome3: string;
+  landOutcome4: string;
+  landCurriculumLede: string;
+  landInsideTitle: string;
+  landStatQuestions: string;
+  landStatLanguages: string;
+  landNotTitle: string;
+  landNot1: string;
+  landNot2: string;
+  landNot3: string;
+  landClosing: string;
+  landSignInPrompt: string;
+  landBackHome: string;
+
   calcIntro: string;
   tabSize: string;
   tabMargin: string;
@@ -399,6 +418,31 @@ const en: Strings = {
   keyLoading: 'Loading answers\u2026',
 
   syncFailed: 'Your progress could not be saved to your account.',
+
+  landKicker: 'Free · Self-paced · English and Arabic',
+  landCtaCreate: 'Create a free account',
+  landOutcomesTitle: 'What you will be able to do',
+  landOutcome1:
+    'Work out what a position costs before you open it — spread, commission and overnight financing, not just the price.',
+  landOutcome2:
+    'Size a position from a stop loss and a risk budget, rather than picking a lot size that feels about right.',
+  landOutcome3:
+    'Read a margin close-out and a weekend gap, and say what each would do to a real account.',
+  landOutcome4:
+    'Judge a broker by its regulator and its withdrawal process rather than by its spreads page.',
+  landCurriculumLede:
+    'Twelve modules, in the order they need to be read, ending in a capstone that decides whether to continue. Each one closes with a closed-book paper that is marked for you.',
+  landInsideTitle: 'What is inside',
+  landStatQuestions: 'Marked questions',
+  landStatLanguages: 'Languages, in full',
+  landNotTitle: 'What it is not',
+  landNot1: 'No signals, no tips, and no strategy for sale.',
+  landNot2: 'No suggestion that you will make money. The honest number is the one above.',
+  landNot3: 'No broker affiliation. Nothing here earns a commission if you open an account.',
+  landClosing:
+    'Every exercise runs on a demo account. You need no money to take this course, and deciding not to trade is a successful outcome of it.',
+  landSignInPrompt: 'Sign in to read that page.',
+  landBackHome: 'Back to the home page',
 
   calcIntro:
     'The arithmetic from Modules 3, 4 and 6. Work it by hand first — this is for checking, not for replacing.',
@@ -641,6 +685,31 @@ const ar: Strings = {
   keyLoading: 'جارٍ تحميل الإجابات\u2026',
 
   syncFailed: 'تعذّر حفظ تقدّمك في حسابك.',
+
+  landKicker: 'مجانية · بوتيرتك أنت · بالعربية والإنجليزية',
+  landCtaCreate: 'أنشئ حسابًا مجانيًّا',
+  landOutcomesTitle: 'ما ستصبح قادرًا عليه',
+  landOutcome1:
+    'أن تحسب تكلفة المركز قبل فتحه — الفارق السعري والعمولة والتمويل الليلي، لا السعر وحده.',
+  landOutcome2:
+    'أن تحدّد حجم المركز انطلاقًا من وقف الخسارة وميزانية المخاطرة، لا باختيار حجم يبدو معقولًا.',
+  landOutcome3:
+    'أن تقرأ الإغلاق القسري للهامش وفجوة نهاية الأسبوع، وتقول ما يفعله كلٌّ منهما بحساب حقيقي.',
+  landOutcome4:
+    'أن تحكم على الوسيط بجهته التنظيمية وإجراءات السحب لديه، لا بصفحة الفوارق السعرية.',
+  landCurriculumLede:
+    'اثنتا عشرة وحدة، بالترتيب الذي ينبغي أن تُقرأ به، تنتهي بمشروع ختامي يقرّر هل تواصل أم لا. وتُختَم كل وحدة بورقة مغلقة الكتاب تُصحَّح لك.',
+  landInsideTitle: 'ما في الداخل',
+  landStatQuestions: 'سؤالًا مصحَّحًا',
+  landStatLanguages: 'لغتان كاملتان',
+  landNotTitle: 'وما ليست هي',
+  landNot1: 'لا إشارات ولا توصيات ولا استراتيجية للبيع.',
+  landNot2: 'ولا إيحاء بأنك ستربح المال. فالرقم الصادق هو الرقم أعلاه.',
+  landNot3: 'ولا ارتباط بأي وسيط. ولا شيء هنا يكسب عمولة إن فتحت حسابًا.',
+  landClosing:
+    'كل تمرين هنا يُنفَّذ على حساب تجريبي. لا تحتاج إلى أي مال لدراسة هذه الدورة، وقرارك بعدم التداول نتيجة ناجحة لها.',
+  landSignInPrompt: 'سجّل الدخول لقراءة تلك الصفحة.',
+  landBackHome: 'العودة إلى الصفحة الرئيسية',
 
   calcIntro:
     'حسابات الوحدات الثالثة والرابعة والسادسة. احسبها بيدك أولًا — هذه الأداة للتحقّق لا للاستعاضة.',
