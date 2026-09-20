@@ -2280,7 +2280,11 @@ button {
   border-color: var(--border);
 }
 
-/* --------------------------------------------------------- public home page */
+/* ---------------------------------------------------------- public home page
+
+   Set like a manual rather than a landing page: a margin rail carrying section
+   marks, hairline rules instead of boxes, and figures that carry a caption and
+   a source. Type does the work; the colour budget stays with risk and data. */
 
 .land {
   min-height: 100vh;
@@ -2289,17 +2293,29 @@ button {
   flex-direction: column;
 }
 
+/* --- masthead --- */
+
 .land-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-4);
-  padding: var(--space-4) var(--space-6);
+  padding: var(--space-4) clamp(var(--space-4), 4vw, var(--space-8));
+  background: color-mix(in srgb, var(--page-bg) 88%, transparent);
+  backdrop-filter: saturate(1.4) blur(10px);
   border-bottom: 1px solid var(--border);
-  background: var(--surface);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+}
+
+.land-brand {
+  display: inline-flex;
+  text-decoration: none;
+}
+
+.land-brand:hover {
+  text-decoration: none;
 }
 
 .land-bar-actions {
@@ -2312,216 +2328,505 @@ button {
   white-space: nowrap;
 }
 
-.land-main {
-  flex: 1;
-  width: 100%;
-  max-width: 880px;
+/* --- the band grid: rail + body, asymmetric by design --- */
+
+.band {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  max-width: 1180px;
   margin: 0 auto;
-  padding: var(--space-8) var(--space-5) var(--space-7);
+  padding: clamp(var(--space-7), 7vw, 104px) clamp(var(--space-4), 5vw, var(--space-8));
+  border-top: 1px solid var(--border);
 }
 
-.land-hero {
-  margin-bottom: var(--space-8);
+/* The hidden state is applied only once the script is driving the reveal, so
+   content is never invisible without something to bring it back. */
+.land.is-animating .band {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 620ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 620ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-.land-kicker {
-  font-size: var(--size-small);
-  font-weight: 600;
-  letter-spacing: 0.06em;
+.land.is-animating .band.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.band-hero {
+  border-top: 0;
+  padding-top: clamp(var(--space-6), 6vw, 80px);
+}
+
+.band-rail {
+  display: none;
+}
+
+.mark-num {
+  font-family: var(--font-num);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.mark-num::before {
+  content: "§ ";
+}
+
+@media (min-width: 900px) {
+  .band {
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: var(--space-6);
+  }
+
+  .band-rail {
+    display: block;
+    padding-top: 6px;
+  }
+}
+
+/* --- shared type --- */
+
+.eyebrow {
+  font-family: var(--font-num);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--teal-600);
-  margin: 0 0 var(--space-3);
+  margin: 0 0 var(--space-4);
 }
 
-.land-hero h1 {
+.display {
   font-family: var(--font-prose);
-  font-size: clamp(2rem, 5vw, 3rem);
-  line-height: 1.1;
+  font-size: clamp(2.375rem, 5.6vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.022em;
+  font-weight: 600;
+  margin: 0 0 var(--space-5);
+  text-wrap: balance;
+}
+
+.lede {
+  font-family: var(--font-prose);
+  font-size: clamp(1.125rem, 1.6vw, 1.3125rem);
+  line-height: 1.62;
+  color: var(--ink-secondary);
+  max-width: 54ch;
+  margin: 0 0 var(--space-6);
+}
+
+.head {
+  font-family: var(--font-prose);
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  line-height: 1.18;
+  letter-spacing: -0.012em;
   font-weight: 600;
   margin: 0 0 var(--space-4);
-  letter-spacing: -0.01em;
 }
 
-.land-lede {
-  font-family: var(--font-prose);
-  font-size: var(--size-prose);
-  line-height: var(--leading-prose);
+.note {
+  font-size: var(--size-ui);
+  line-height: 1.65;
   color: var(--ink-secondary);
-  max-width: 62ch;
-  margin: 0 0 var(--space-5);
+  max-width: 58ch;
+  margin: 0 0 var(--space-6);
 }
 
-.land-cta {
+.cta-row {
   display: flex;
   gap: var(--space-3);
   flex-wrap: wrap;
 }
 
-/* The loss statistic, given the weight it deserves: before the first decision,
-   not in a footnote after it. */
-.land-risk {
-  display: flex;
-  gap: var(--space-5);
-  align-items: flex-start;
-  padding: var(--space-5) var(--space-6);
-  background: var(--risk-bg);
-  border: 1px solid color-mix(in srgb, var(--risk) 28%, transparent);
+.btn-lg {
+  height: 52px;
+  padding-inline: var(--space-6);
+  font-size: 1rem;
+}
+
+.btn-ghost {
+  background: transparent;
+}
+
+.btn-ghost:hover {
+  background: var(--surface);
+}
+
+/* --- hero --- */
+
+.hero-grid {
+  display: grid;
+  gap: clamp(var(--space-6), 5vw, var(--space-8));
+}
+
+@media (min-width: 1040px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+    align-items: start;
+    gap: var(--space-8);
+  }
+}
+
+/* --- figure plates --- */
+
+.plate {
+  margin: 0;
+  border: 1px solid var(--border);
   border-radius: var(--radius-card);
-  margin-bottom: var(--space-8);
+  background: var(--surface);
+  overflow: hidden;
 }
 
-.land-risk-fig {
-  flex: none;
+.plate-stat {
+  padding: clamp(var(--space-5), 3vw, var(--space-6));
+  border-color: color-mix(in srgb, var(--risk) 26%, transparent);
+  background: var(--risk-bg);
 }
 
-.land-risk-fig .gate-stat-num {
+.stat-huge {
   display: block;
-  white-space: nowrap;
-  font-size: clamp(2rem, 6vw, 2.75rem);
   font-family: var(--font-num);
+  font-size: clamp(2.75rem, 6.5vw, 3.75rem);
   font-weight: 500;
-  color: var(--risk);
   line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--risk);
   direction: ltr;
   unicode-bidi: isolate;
+  white-space: nowrap;
+  margin-bottom: var(--space-4);
 }
 
-.land-risk-body p {
-  margin: var(--space-2) 0 0;
+.stat-read {
+  margin: 0;
   font-size: var(--size-ui);
-  line-height: 1.65;
+  line-height: 1.62;
+  color: var(--ink);
 }
 
-.land-risk-note {
+/* Captions are prose, so they are set in the UI face. The brand keeps the
+   mono for figures a reader might act on. */
+.plate-cap {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  margin-top: var(--space-5);
+  font-size: var(--size-small);
+  line-height: 1.62;
   color: var(--ink-secondary);
 }
 
-.land-section {
-  margin-bottom: var(--space-8);
+.cap-rule {
+  flex: none;
+  width: 26px;
+  height: 1px;
+  margin-top: 8px;
+  background: var(--border-strong);
 }
 
-.land-note {
-  font-size: var(--size-ui);
-  color: var(--ink-secondary);
-  line-height: 1.6;
-  margin: 0 0 var(--space-4);
-  max-width: 62ch;
+.plate-chart {
+  padding: clamp(var(--space-5), 3vw, var(--space-7));
 }
 
-.land-outcomes {
+.plate-head {
+  margin-bottom: var(--space-5);
+}
+
+.plate-label {
+  display: block;
+  font-family: var(--font-num);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: var(--space-2);
+}
+
+.plate-title {
+  font-family: var(--font-prose);
+  font-size: clamp(1.25rem, 2.2vw, 1.625rem);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.plate-chart .plate-cap {
+  max-width: 66ch;
+}
+
+/* --- the recovery curve --- */
+
+.chart-wrap {
+  margin: 0 calc(-1 * var(--space-2));
+}
+
+.chart {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.chart .grid {
+  stroke: var(--border);
+  stroke-width: 1;
+}
+
+.chart .axis {
+  stroke: var(--border-strong);
+  stroke-width: 1;
+}
+
+.chart .tick {
+  fill: var(--ink-muted);
+  font-family: var(--font-num);
+  font-size: 11px;
+}
+
+.chart .curve {
+  fill: none;
+  stroke: var(--ochre-500);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chart .marker-line {
+  stroke: var(--ink-muted);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+.chart .marker-dot {
+  fill: var(--ink);
+  stroke: var(--surface);
+  stroke-width: 2;
+}
+
+.chart .marker-text {
+  fill: var(--ink);
+  font-family: var(--font-num);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.chart-axes {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+  padding-inline: var(--space-2);
+  font-family: var(--font-num);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* --- outcomes: a list, not a card grid --- */
+
+.outcomes {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-4);
+  gap: 0;
+  border-top: 1px solid var(--border);
 }
 
-.land-outcomes li {
-  display: flex;
+@media (min-width: 860px) {
+  .outcomes {
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(var(--space-6), 4vw, var(--space-8));
+  }
+}
+
+.outcomes li {
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr);
   gap: var(--space-3);
-  align-items: flex-start;
-  padding: var(--space-4) var(--space-5);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-card);
+  align-items: baseline;
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid var(--border);
   font-size: var(--size-ui);
-  line-height: 1.6;
+  line-height: 1.62;
 }
 
-.land-outcomes svg {
-  flex: none;
-  margin-top: 3px;
+.outcome-num {
   color: var(--teal-600);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
 }
 
-.land-modules {
+/* --- table of contents --- */
+
+.land-toc {
   list-style: none;
   margin: 0;
   padding: 0;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-card);
-  overflow: hidden;
-  background: var(--surface);
+  border-top: 1px solid var(--border);
 }
 
-.land-modules li {
+.land-toc li {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: var(--space-4);
-  padding: var(--space-3) var(--space-5);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.land-toc-num {
+  flex: none;
+  width: 2.75rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+}
+
+.land-toc-title {
+  flex: 0 1 auto;
+  font-family: var(--font-prose);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.land-toc-dots {
+  flex: 1 1 var(--space-5);
+  height: 1px;
+  min-width: var(--space-5);
+  background-image: radial-gradient(circle, var(--border-strong) 1px, transparent 1px);
+  background-size: 6px 1px;
+  background-repeat: repeat-x;
+  align-self: center;
+  opacity: 0.8;
+}
+
+.land-toc-time {
+  flex: none;
+  font-size: var(--size-small);
+  color: var(--ink-muted);
+}
+
+/* --- colophon --- */
+
+.colophon-grid {
+  display: grid;
+  gap: clamp(var(--space-5), 4vw, var(--space-8));
+}
+
+@media (min-width: 860px) {
+  .colophon-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
+    align-items: start;
+  }
+}
+
+.spec {
+  margin: 0;
+  border-top: 1px solid var(--border);
+}
+
+.spec > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.spec dt {
+  font-size: var(--size-ui);
+  color: var(--ink-secondary);
+}
+
+.spec dd {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* --- what it is not --- */
+
+.nots {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: 62ch;
+  border-top: 1px solid var(--border);
+}
+
+.nots li {
+  padding: var(--space-4) 0 var(--space-4) 0;
   border-bottom: 1px solid var(--border);
   font-size: var(--size-ui);
-}
-
-.land-modules li:last-child {
-  border-bottom: 0;
-}
-
-.land-mod-num {
-  flex: none;
-  width: 2.25em;
-  color: var(--ink-muted);
-  font-size: var(--size-small);
-}
-
-.land-mod-title {
-  flex: 1;
-  font-weight: 500;
-}
-
-.land-mod-time {
-  flex: none;
-  color: var(--ink-muted);
-  font-size: var(--size-small);
-}
-
-.land-nots {
-  margin: 0;
-  padding-inline-start: var(--space-5);
-  list-style-type: disc;
-  font-size: var(--size-ui);
-  line-height: 1.7;
+  line-height: 1.62;
   color: var(--ink-secondary);
-  max-width: 62ch;
 }
 
-.land-close {
-  padding: var(--space-6);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-card);
+/* --- closing --- */
+
+.band-close {
+  padding-bottom: clamp(var(--space-8), 8vw, 120px);
+}
+
+.closing {
+  font-family: var(--font-prose);
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+  line-height: 1.42;
+  letter-spacing: -0.01em;
+  max-width: 34ch;
+  margin: 0 0 var(--space-6);
+}
+
+/* --- footer --- */
+
+.land-foot {
+  border-top: 1px solid var(--border);
   background: var(--surface-sunken);
 }
 
-.land-close p {
-  margin: 0 0 var(--space-4);
-  font-family: var(--font-prose);
-  font-size: var(--size-prose);
-  line-height: 1.6;
-  max-width: 62ch;
-}
-
-.land-foot {
+.land-foot-inner {
   display: flex;
   gap: var(--space-4);
   align-items: flex-start;
-  max-width: 880px;
+  max-width: 1180px;
   margin: 0 auto;
-  padding: var(--space-6) var(--space-5) var(--space-8);
-  border-top: 1px solid var(--border);
-  width: 100%;
-}
-
-.land-foot p {
-  margin: 0;
-  font-size: var(--size-small);
-  line-height: 1.6;
-  color: var(--ink-muted);
+  padding: var(--space-6) clamp(var(--space-4), 5vw, var(--space-8));
 }
 
 .land-foot svg {
   flex: none;
 }
+
+.land-foot p {
+  margin: 0;
+  max-width: 78ch;
+  font-size: var(--size-small);
+  line-height: 1.65;
+  color: var(--ink-muted);
+}
+
+/* --- right to left --- */
+
+[dir="rtl"] .mark-num::before {
+  content: "";
+}
+
+[dir="rtl"] .mark-num::after {
+  content: " §";
+}
+
+[dir="rtl"] .cta-row svg,
+[dir="rtl"] .land-bar-actions svg {
+  transform: scaleX(-1);
+}
+
+/* --- sign-in prompt (shared with the account screen) --- */
 
 .signin-prompt {
   margin: 0 0 var(--space-4);
@@ -2537,24 +2842,91 @@ button {
   color: var(--ink);
 }
 
-[dir="rtl"] .land-outcomes svg,
-[dir="rtl"] .land-cta svg,
-[dir="rtl"] .land-bar-actions svg {
-  transform: scaleX(-1);
+.btn:disabled,
+.signin-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
-@media (max-width: 640px) {
+.btn:disabled:hover {
+  border-color: var(--border);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .land.is-animating .band {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* The masthead has to hold a 120px minimum lockup plus two controls at 375px,
+   so below that the language control drops to its glyph and keeps its label
+   for screen readers. Tap targets stay at 44px. */
+@media (max-width: 560px) {
   .land-bar {
     padding: var(--space-3) var(--space-4);
+    gap: var(--space-2);
   }
 
-  .land-main {
-    padding: var(--space-6) var(--space-4);
+  .land-brand svg {
+    max-width: 122px;
+    height: auto;
   }
 
-  .land-risk {
-    flex-direction: column;
+  .land-bar .btn {
+    min-height: 44px;
+    padding-inline: var(--space-3);
+  }
+
+  .lang-toggle .lang-label {
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
+  /* The leader dots need slack the row no longer has, so they retire and the
+     time is pushed to the end instead. */
+  .land-toc-dots {
+    display: none;
+  }
+
+  .land-toc li {
     gap: var(--space-3);
-    padding: var(--space-4);
   }
+
+  .land-toc-time {
+    margin-inline-start: auto;
+  }
+}
+
+/* The figure scales with the column, so below this width its own labels would
+   render smaller than the body text. The ticks grow in user units to hold
+   their size, and the marker annotation gives way to the caption, which
+   carries the same two numbers in prose. */
+@media (max-width: 680px) {
+  .chart .marker-text {
+    display: none;
+  }
+
+  .chart .tick {
+    font-size: 15px;
+  }
+
+  .chart-wrap {
+    margin: 0;
+  }
+
+  .chart-axes {
+    font-size: 0.625rem;
+    letter-spacing: 0.06em;
+  }
+}
+
+/* The figure is forced left-to-right because the maths reads that way in both
+   editions, which breaks bidirectional shaping for an Arabic annotation set
+   inside it. The caption carries the same two numbers in prose, so the
+   annotation gives way rather than render badly. */
+:root[lang="ar"] .chart .marker-text {
+  display: none;
 }

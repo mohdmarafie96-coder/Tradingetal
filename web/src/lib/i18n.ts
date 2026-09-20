@@ -180,6 +180,15 @@ interface Strings {
   landClosing: string;
   landSignInPrompt: string;
   landBackHome: string;
+  landFigLabel: string;
+  landFigTitle: string;
+  landFigCaption: string;
+  landSourceNote: string;
+  landColophon: string;
+  landAxisDrawdown: string;
+  landAxisRecovery: string;
+  landMarker: string;
+  landContentsNote: string;
 
   calcIntro: string;
   tabSize: string;
@@ -443,6 +452,17 @@ const en: Strings = {
     'Every exercise runs on a demo account. You need no money to take this course, and deciding not to trade is a successful outcome of it.',
   landSignInPrompt: 'Sign in to read that page.',
   landBackHome: 'Back to the home page',
+  landFigLabel: 'Fig. 1',
+  landFigTitle: 'A loss, and the gain that undoes it',
+  landFigCaption:
+    'A 30% drawdown is not undone by a 30% gain — it takes 42.9%, and the curve steepens from there. This is why position size is decided before the trade rather than after it, and it is the arithmetic Module 06 is built on.',
+  landSourceNote: 'Regulator-mandated broker disclosures. UK, EU and Australia.',
+  landColophon: 'Contents',
+  landAxisDrawdown: 'Drawdown',
+  landAxisRecovery: 'Gain needed to recover',
+  landMarker: '30% down needs 42.9% up',
+  landContentsNote:
+    'Written as a manual: every module is read in order, and every figure in it can be checked against the calculator.',
 
   calcIntro:
     'The arithmetic from Modules 3, 4 and 6. Work it by hand first — this is for checking, not for replacing.',
@@ -710,6 +730,17 @@ const ar: Strings = {
     'كل تمرين هنا يُنفَّذ على حساب تجريبي. لا تحتاج إلى أي مال لدراسة هذه الدورة، وقرارك بعدم التداول نتيجة ناجحة لها.',
   landSignInPrompt: 'سجّل الدخول لقراءة تلك الصفحة.',
   landBackHome: 'العودة إلى الصفحة الرئيسية',
+  landFigLabel: 'شكل 1',
+  landFigTitle: 'خسارةٌ والربح الذي يمحوها',
+  landFigCaption:
+    'تراجعٌ بنسبة 30% لا يمحوه ربح بنسبة 30% — بل يتطلّب 42.9%، ثم يزداد المنحنى انحدارًا. ولهذا يُحدَّد حجم المركز قبل الصفقة لا بعدها، وعلى هذه الحسابات بُنيت الوحدة 06.',
+  landSourceNote: 'إفصاحات الوسطاء التي تفرضها الجهات التنظيمية في المملكة المتحدة والاتحاد الأوروبي وأستراليا.',
+  landColophon: 'المحتويات',
+  landAxisDrawdown: 'التراجع',
+  landAxisRecovery: 'الربح اللازم للتعافي',
+  landMarker: 'تراجع 30% يتطلّب صعود 42.9%',
+  landContentsNote:
+    'مكتوبة ككتيّب إرشادي: تُقرأ كل وحدة بترتيبها، وكل رقم فيها يمكن التحقّق منه بالحاسبة.',
 
   calcIntro:
     'حسابات الوحدات الثالثة والرابعة والسادسة. احسبها بيدك أولًا — هذه الأداة للتحقّق لا للاستعاضة.',
