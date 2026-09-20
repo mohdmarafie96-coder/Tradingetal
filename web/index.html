@@ -8,8 +8,14 @@
     <link rel="icon" href="./logo/favicon-32.svg" sizes="32x32" type="image/svg+xml">
     <link rel="icon" href="./logo/favicon-16.svg" sizes="16x16" type="image/svg+xml">
     <link rel="apple-touch-icon" href="./logo/mark.svg">
+    <meta name="theme-color" content="#FBF8F1" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#14110D" media="(prefers-color-scheme: dark)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Linked here rather than @import-ed from index.css: an @import cannot be
+         discovered until the stylesheet has downloaded, so the faces arrived a
+         round trip late and the first paint was in the fallbacks. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Inter+Tight:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600&amp;family=Noto+Naskh+Arabic:wght@400;500;700&amp;display=swap">
     <title>Trading et al.</title>
 </head>
 <body>

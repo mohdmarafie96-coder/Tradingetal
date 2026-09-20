@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Noto+Naskh+Arabic:wght@400;500;700&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,37 +9,55 @@
    ========================================================================== */
 
 :root {
-  /* Brand */
-  --teal-900: #04342c;
-  --teal-700: #0a5a52;
-  --teal-600: #0f766e;
-  --teal-100: #e1f0ed;
-  --ochre-500: #e0a458;
-  --paper: #f7f5ef;
-
-  /* Neutrals */
-  --ink: #14201e;
-  --ink-secondary: #5a6663;
-  --ink-muted: #8a9491;
+  /* Ledger palette.
+     Ink is the brand. Controls and navigation are near-black on warm paper,
+     the way an almanac or a set of printed tables is, which leaves the whole
+     colour budget for meaning: oxblood for emphasis, brass for data, and the
+     semantic three for gain, loss and risk. The accent is deliberately not
+     the same red as a loss — a warning must never be mistakable for chrome. */
+  --ink: #17130e;
+  --ink-secondary: #5b5145;
+  --ink-muted: #7a6f60;
+  --paper: #fbf8f1;
   --surface: #ffffff;
-  --surface-sunken: #f6f7f6;
-  --border: rgba(20, 32, 30, 0.12);
-  --border-strong: rgba(20, 32, 30, 0.22);
+  --surface-sunken: #f4f0e6;
+  --border: rgba(23, 19, 14, 0.14);
+  --border-strong: rgba(23, 19, 14, 0.26);
+
+  /* Accent — 7.7:1 on paper, so it can carry text as well as rules. */
+  --accent: #8c2f13;
+  --accent-strong: #73250e;
+  --accent-deep: #5e1e0c;
+
+  /* The tint behind accented chrome — an active nav row, a result header — is
+     washed with ink, not with the accent. An oxblood plate is a shade away from
+     --loss-bg, and a calculator result must never be mistakable for a failure. */
+  --accent-tint: #eae4d8;
+
+  --on-accent: #fbf8f1;
+
+  /* The logo plate and its knockout. Read by Logo.tsx, which keeps the literals
+     as fallbacks for contexts that have no stylesheet. */
+  --logo-plate: #17130e;
+  --logo-knockout: #fbf8f1;
+
+  /* Brass is 2.9:1 on paper: chart lines and rules only, never text. */
+  --brass: #b98b3c;
 
   /* Semantic — data and warnings only. Never chrome. */
-  --gain: #14803c;
-  --gain-bg: #e7f5ec;
-  --loss: #b42318;
-  --loss-bg: #fdecea;
-  --risk: #b54708;
-  --risk-bg: #fef3e2;
+  --gain: #2f6b3f;
+  --gain-bg: #e8f0e6;
+  --loss: #a81e3a;
+  --loss-bg: #fbe9ec;
+  --risk: #b45309;
+  --risk-bg: #fdf0e0;
 
-  /* Type */
-  /* The Latin faces carry no Arabic glyphs. The Arabic faces stay in the
-     fallback chain in both editions so an Arabic label inside an English page
-     — the language switch — still renders. */
-  --font-prose: "Source Serif 4", "Source Serif Pro", "Noto Naskh Arabic", Georgia, serif;
-  --font-ui: "IBM Plex Sans", "IBM Plex Sans Arabic", system-ui, -apple-system, sans-serif;
+  /* Type. Newsreader carries the voice, Inter Tight does the work, and every
+     figure a reader might act on stays in the mono so digits cannot jitter.
+     The Arabic faces stay in both chains so an Arabic label inside an English
+     page — the language switch — still renders. */
+  --font-prose: "Newsreader", "Noto Naskh Arabic", Georgia, serif;
+  --font-ui: "Inter Tight", "IBM Plex Sans Arabic", system-ui, -apple-system, sans-serif;
   --font-num: "IBM Plex Mono", ui-monospace, monospace;
 
   --size-display: 2.25rem;
@@ -65,46 +81,69 @@
   --space-6: 32px;
   --space-7: 48px;
   --space-8: 64px;
-  --radius-control: 8px;
-  --radius-tile: 10px;
-  --radius-card: 12px;
+  --radius-control: 6px;
+  --radius-tile: 8px;
+  --radius-card: 10px;
   --radius-mark: 14px;
 
   --page-bg: var(--paper);
-  --shadow: 0 1px 2px rgba(20, 32, 30, 0.06), 0 8px 24px rgba(20, 32, 30, 0.07);
+  --shadow: 0 1px 2px rgba(23, 19, 14, 0.05), 0 10px 28px rgba(23, 19, 14, 0.07);
   color-scheme: light;
 }
 
 [data-theme="dark"] {
-  --teal-600: #4fbfa6;
-  --teal-700: #3aa892;
-  --teal-100: rgba(79, 191, 166, 0.16);
-  --ink: #e8edeb;
-  --ink-secondary: #9faca9;
-  --ink-muted: #71807c;
-  --surface: #14201e;
-  --surface-sunken: #0e1817;
-  --border: rgba(232, 237, 235, 0.14);
-  --border-strong: rgba(232, 237, 235, 0.26);
-  --gain: #4ade80;
-  --gain-bg: rgba(74, 222, 128, 0.14);
-  --loss: #f87171;
-  --loss-bg: rgba(248, 113, 113, 0.14);
-  --risk: #fbbf24;
-  --risk-bg: rgba(251, 191, 36, 0.14);
-  --page-bg: #0e1817;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.32);
+  /* Lamplight rather than a terminal: the paper goes to a warm near-black and
+     the ink to an unbleached cream, so the edition still reads as the same
+     printed object at night. */
+  --ink: #f0ebe1;
+  --ink-secondary: #b3a896;
+  --ink-muted: #8a7f6e;
+  --surface: #1c1813;
+  --surface-sunken: #14110d;
+  --border: rgba(240, 235, 225, 0.14);
+  --border-strong: rgba(240, 235, 225, 0.28);
+
+  --accent: #e08262;
+  --accent-strong: #ee9a7d;
+  --accent-deep: #f4b49d;
+  --accent-tint: rgba(240, 235, 225, 0.09);
+  --on-accent: #14110d;
+  --logo-plate: #f0ebe1;
+  --logo-knockout: #14110d;
+
+  --brass: #d9a94e;
+
+  --gain: #7cbf86;
+  --gain-bg: rgba(124, 191, 134, 0.14);
+  --loss: #ef8f9d;
+  --loss-bg: rgba(239, 143, 157, 0.14);
+  --risk: #e8a33d;
+  --risk-bg: rgba(232, 163, 61, 0.14);
+
+  --page-bg: #14110d;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.45), 0 10px 28px rgba(0, 0, 0, 0.35);
   color-scheme: dark;
 }
 
 /* Arabic swaps the families only. Every other token is shared, so the two
    language editions cannot drift apart visually. */
 :root[lang="ar"] {
-  --font-prose: "Noto Naskh Arabic", "Amiri", "Source Serif 4", Georgia, serif;
-  --font-ui: "IBM Plex Sans Arabic", "IBM Plex Sans", system-ui, sans-serif;
+  --font-prose: "Noto Naskh Arabic", "Amiri", "Newsreader", Georgia, serif;
+  --font-ui: "IBM Plex Sans Arabic", "Inter Tight", system-ui, sans-serif;
   --size-prose: 1.25rem;
   --leading-prose: 1.95;
   --measure: 62ch;
+}
+
+/* Tracking belongs to latin capitals, not to a cursive script: the eyebrows and
+   section heads carry it for the small-caps effect, and text-transform gives
+   Arabic none of that in return — only looser joins. Reset it for the whole
+   document rather than rule by rule, so a tracked label added later cannot
+   reintroduce it. The logo is exempt (its own SVG geometry), and so are the
+   few labels that stay latin in both editions. */
+:root[lang="ar"]
+  *:not(svg):not(svg *):not(.lang-btn):not(.mark-num):not(.outcome-num):not(.land-toc-num) {
+  letter-spacing: normal;
 }
 
 /* Numbers a user might act on must not jitter as they update. */
@@ -142,7 +181,7 @@ body {
 }
 
 a {
-  color: var(--teal-600);
+  color: var(--accent);
   text-decoration: none;
 }
 
@@ -157,7 +196,7 @@ button {
 }
 
 :focus-visible {
-  outline: 2px solid var(--teal-600);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
   border-radius: var(--radius-control);
 }
@@ -188,8 +227,7 @@ button {
   gap: var(--space-3);
   height: 58px;
   padding-inline: var(--space-4);
-  background: color-mix(in srgb, var(--page-bg) 88%, transparent);
-  backdrop-filter: blur(10px);
+  background: var(--page-bg);
   border-bottom: 1px solid var(--border);
 }
 
@@ -323,7 +361,7 @@ button {
 
 .progress-fill {
   height: 100%;
-  background: var(--teal-600);
+  background: var(--accent);
   border-radius: 99px;
   transition: width 0.3s ease;
 }
@@ -392,7 +430,7 @@ button {
 }
 
 .mod-count.is-done {
-  color: var(--teal-600);
+  color: var(--accent);
 }
 
 .chev {
@@ -438,13 +476,13 @@ button {
 }
 
 .nav-link.is-active {
-  background: var(--teal-100);
-  color: var(--teal-600);
+  background: var(--accent-tint);
+  color: var(--accent);
   font-weight: 500;
 }
 
 [data-theme="dark"] .nav-link.is-active {
-  color: var(--teal-600);
+  color: var(--accent);
 }
 
 .nav-link .dot {
@@ -456,8 +494,8 @@ button {
 }
 
 .nav-link .dot.is-done {
-  background: var(--teal-600);
-  border-color: var(--teal-600);
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 .nav-link-text {
@@ -535,8 +573,8 @@ button {
 }
 
 .toc a:hover {
-  color: var(--teal-600);
-  border-inline-start-color: var(--teal-600);
+  color: var(--accent);
+  border-inline-start-color: var(--accent);
   text-decoration: none;
 }
 
@@ -562,7 +600,7 @@ button {
 }
 
 .eyebrow a:hover {
-  color: var(--teal-600);
+  color: var(--accent);
 }
 
 .page-title {
@@ -604,9 +642,9 @@ button {
 }
 
 .complete-btn.is-done {
-  background: var(--teal-100);
+  background: var(--accent-tint);
   border-color: transparent;
-  color: var(--teal-600);
+  color: var(--accent);
   font-weight: 500;
 }
 
@@ -806,8 +844,8 @@ button {
 }
 
 .md-check.is-checked {
-  background: var(--teal-600);
-  border-color: var(--teal-600);
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 .prose li:has(> .md-check) {
@@ -835,7 +873,7 @@ button {
 }
 
 .pagenav-link:hover {
-  border-color: var(--teal-600);
+  border-color: var(--accent);
   text-decoration: none;
 }
 
@@ -942,18 +980,14 @@ button {
 }
 
 .btn-primary {
-  background: var(--teal-600);
-  border-color: var(--teal-600);
-  color: var(--paper);
-}
-
-[data-theme="dark"] .btn-primary {
-  color: #05221d;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
 }
 
 .btn-primary:hover {
-  background: var(--teal-700);
-  border-color: var(--teal-700);
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
 }
 
 [dir="rtl"] .btn svg,
@@ -1016,7 +1050,7 @@ button {
 }
 
 .modcard:hover {
-  border-color: var(--teal-600);
+  border-color: var(--accent);
   text-decoration: none;
 }
 
@@ -1037,19 +1071,15 @@ button {
 }
 
 .modbadge.is-progress {
-  background: var(--teal-600);
-  border-color: var(--teal-600);
-  color: var(--paper);
-}
-
-[data-theme="dark"] .modbadge.is-progress {
-  color: #05221d;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
 }
 
 .modbadge.is-done {
-  background: var(--teal-100);
+  background: var(--accent-tint);
   border-color: transparent;
-  color: var(--teal-600);
+  color: var(--accent);
 }
 
 .modcard-body {
@@ -1097,7 +1127,7 @@ button {
 .modcard-bar span {
   display: block;
   height: 100%;
-  background: var(--teal-600);
+  background: var(--accent);
   border-radius: 99px;
 }
 
@@ -1127,19 +1157,19 @@ button {
 }
 
 .linkcard:hover {
-  border-color: var(--teal-600);
-  color: var(--teal-600);
+  border-color: var(--accent);
+  color: var(--accent);
   text-decoration: none;
 }
 
-/* Icon tiles: teal-100 tile, teal-600 glyph, 20px glyph in a 40px tile. */
+/* Icon tiles: washed plate, accent glyph, 20px glyph in a 40px tile. */
 .icon-tile {
   flex: none;
   width: 40px;
   height: 40px;
   border-radius: var(--radius-tile);
-  background: var(--teal-100);
-  color: var(--teal-600);
+  background: var(--accent-tint);
+  color: var(--accent);
   display: grid;
   place-items: center;
 }
@@ -1150,8 +1180,7 @@ button {
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: rgba(4, 52, 44, 0.42);
-  backdrop-filter: blur(3px);
+  background: rgba(23, 19, 14, 0.46);
   display: flex;
   justify-content: center;
   padding: 72px var(--space-4) var(--space-4);
@@ -1242,8 +1271,8 @@ button {
 }
 
 .search-result-snip mark {
-  background: var(--teal-100);
-  color: var(--teal-600);
+  background: var(--accent-tint);
+  color: var(--accent);
   border-radius: 2px;
   padding: 0 1px;
 }
@@ -1425,7 +1454,7 @@ button {
     position: fixed;
     inset: 0;
     z-index: 50;
-    background: rgba(4, 52, 44, 0.4);
+    background: rgba(23, 19, 14, 0.44);
   }
 
   .content {
@@ -1454,7 +1483,7 @@ button {
 
   .search-trigger {
     min-width: 0;
-    width: 34px;
+    width: 44px;
     padding: 0;
     justify-content: center;
   }
@@ -1478,6 +1507,25 @@ button {
 
   .gate-card {
     padding: var(--space-5) var(--space-4);
+  }
+}
+
+/* Below the drawer breakpoint, or on any coarse pointer, every control has to
+   be reachable with a thumb: 44px is the floor, and the padded ones keep their
+   visual weight because only the box grows. */
+@media (max-width: 880px), (pointer: coarse) {
+  .icon-btn,
+  .search-trigger {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .nav-link,
+  .mod-btn,
+  .complete-btn,
+  .quiz-option,
+  .search-input {
+    min-height: 44px;
   }
 }
 
@@ -1519,7 +1567,7 @@ button {
 .calc-tab.is-active {
   background: var(--surface);
   color: var(--ink);
-  box-shadow: 0 1px 2px rgba(20, 32, 30, 0.1);
+  box-shadow: 0 1px 2px rgba(23, 19, 14, 0.1);
 }
 
 .field-grid {
@@ -1554,7 +1602,7 @@ button {
 }
 
 .field input:focus {
-  border-color: var(--teal-600);
+  border-color: var(--accent);
 }
 
 .field-hint {
@@ -1573,7 +1621,7 @@ button {
 
 .result-head {
   padding: var(--space-3) var(--space-5);
-  background: var(--teal-100);
+  background: var(--accent-tint);
   border-bottom: 1px solid var(--border);
 }
 
@@ -1582,7 +1630,7 @@ button {
   font-size: 11.5px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--teal-600);
+  color: var(--accent);
   font-weight: 600;
 }
 
@@ -1878,7 +1926,7 @@ button {
   font-weight: 600;
   margin: 0 0 var(--space-5);
   padding-bottom: var(--space-2);
-  border-bottom: 2px solid var(--teal-600);
+  border-bottom: 2px solid var(--accent);
 }
 
 .quiz-prompt {
@@ -1947,8 +1995,8 @@ button {
 }
 
 .quiz-option.is-picked {
-  border-color: var(--teal-600);
-  background: color-mix(in srgb, var(--teal-600) 7%, var(--surface));
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 7%, var(--surface));
 }
 
 .quiz-option.is-answer {
@@ -1963,7 +2011,7 @@ button {
 
 .quiz-option input {
   margin: 3px 0 0;
-  accent-color: var(--teal-600);
+  accent-color: var(--accent);
   flex: none;
 }
 
@@ -1987,7 +2035,7 @@ button {
   padding: var(--space-4);
   padding-inline-start: var(--space-4);
   margin-inline-start: calc(2.25em + var(--space-3));
-  border-inline-start: 3px solid var(--teal-600);
+  border-inline-start: 3px solid var(--accent);
   background: var(--surface-sunken);
   border-radius: 0 var(--radius-control) var(--radius-control) 0;
 }
@@ -2161,7 +2209,7 @@ button {
 .signin-tabs button.is-active {
   background: var(--surface);
   color: var(--ink);
-  box-shadow: 0 1px 2px rgba(20, 32, 30, 0.08);
+  box-shadow: 0 1px 2px rgba(23, 19, 14, 0.08);
 }
 
 .signin-form {
@@ -2202,9 +2250,9 @@ button {
 }
 
 .signin-form input:focus {
-  outline: 2px solid var(--teal-600);
+  outline: 2px solid var(--accent);
   outline-offset: -1px;
-  border-color: var(--teal-600);
+  border-color: var(--accent);
 }
 
 .btn-wide {
@@ -2220,7 +2268,7 @@ button {
   border: 0;
   padding: 0;
   font-size: var(--size-small);
-  color: var(--teal-600);
+  color: var(--accent);
   text-align: center;
 }
 
@@ -2249,16 +2297,12 @@ button {
   display: flex;
   gap: var(--space-3);
   padding: var(--space-4) var(--space-5);
-  border: 1px solid color-mix(in srgb, var(--teal-600) 30%, transparent);
-  background: var(--teal-100);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  background: var(--accent-tint);
   border-radius: var(--radius-card);
-  color: var(--teal-900);
+  color: var(--accent-deep);
 }
 
-[data-theme="dark"] .signin-confirm {
-  background: color-mix(in srgb, var(--teal-600) 16%, transparent);
-  color: var(--ink);
-}
 
 .signin-confirm p {
   margin: 4px 0 0;
@@ -2304,8 +2348,7 @@ button {
   justify-content: space-between;
   gap: var(--space-4);
   padding: var(--space-4) clamp(var(--space-4), 4vw, var(--space-8));
-  background: color-mix(in srgb, var(--page-bg) 88%, transparent);
-  backdrop-filter: saturate(1.4) blur(10px);
+  background: var(--page-bg);
   border-bottom: 1px solid var(--border);
 }
 
@@ -2394,7 +2437,7 @@ button {
   font-size: 0.6875rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--teal-600);
+  color: var(--accent);
   margin: 0 0 var(--space-4);
 }
 
@@ -2587,7 +2630,7 @@ button {
 
 .chart .curve {
   fill: none;
-  stroke: var(--ochre-500);
+  stroke: var(--brass);
   stroke-width: 2.5;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -2655,7 +2698,7 @@ button {
 }
 
 .outcome-num {
-  color: var(--teal-600);
+  color: var(--accent);
   font-size: 0.75rem;
   letter-spacing: 0.08em;
 }
@@ -2832,15 +2875,11 @@ button {
   margin: 0 0 var(--space-4);
   padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-control);
-  background: var(--teal-100);
-  color: var(--teal-900);
+  background: var(--accent-tint);
+  color: var(--accent-deep);
   font-size: var(--size-ui);
 }
 
-[data-theme="dark"] .signin-prompt {
-  background: color-mix(in srgb, var(--teal-600) 16%, transparent);
-  color: var(--ink);
-}
 
 .btn:disabled,
 .signin-form button:disabled {
@@ -2863,6 +2902,19 @@ button {
 /* The masthead has to hold a 120px minimum lockup plus two controls at 375px,
    so below that the language control drops to its glyph and keeps its label
    for screen readers. Tap targets stay at 44px. */
+/* Four 44px controls and a search box leave a phone no room for the top bar's
+   title, and it only repeats the breadcrumb and the h1 an inch below it. Drop
+   it rather than truncate a lesson name to two letters. */
+@media (max-width: 520px) {
+  .topbar-title {
+    display: none;
+  }
+
+  .topbar .lang-btn {
+    padding-inline: var(--space-2);
+  }
+}
+
 @media (max-width: 560px) {
   .land-bar {
     padding: var(--space-3) var(--space-4);
