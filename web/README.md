@@ -73,8 +73,10 @@ match the worked examples in the course:
 ## Accounts, progress and marking
 
 Readers sign in with an email address and password, or with Google once that
-provider has been given credentials in the Supabase dashboard (flip
-`GOOGLE_ENABLED` in `src/lib/supabase.ts` when it is on). Everything past the
+provider has been given credentials in the Supabase dashboard. Google is a
+deploy setting rather than a code change: set `VITE_GOOGLE_ENABLED=true` in the
+Vercel project and redeploy. Until then the button is shown disabled, with a
+line saying so, rather than failing when it is pressed. Everything past the
 sign-in screen needs an account, so the loss statistic regulators require
 brokers to publish is stated on the sign-in screen itself, where a visitor
 reads it before deciding to sign up.

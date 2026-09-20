@@ -10,12 +10,15 @@ const SUPABASE_URL = 'https://xlwmtkavrpcqwffyuwzv.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_p2IbYG3wAO5fFRSFmOuskg_IV-1ePS_';
 
 /**
- * Whether "Continue with Google" is live. Turn this on once the Google
- * provider has been given a client ID and secret in the Supabase dashboard
- * (Authentication → Providers → Google); until then the button is shown
- * disabled rather than failing when it is pressed.
+ * Whether "Continue with Google" is live.
+ *
+ * Driven by an environment variable rather than a constant, so switching it on
+ * is a deploy setting rather than a code change: once the Google provider has
+ * a client ID and secret in the Supabase dashboard (Authentication → Providers
+ * → Google), set VITE_GOOGLE_ENABLED=true in the Vercel project and redeploy.
+ * Until then the button is shown disabled rather than failing when pressed.
  */
-export const GOOGLE_ENABLED = false;
+export const GOOGLE_ENABLED = import.meta.env.VITE_GOOGLE_ENABLED === 'true';
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
   auth: {
