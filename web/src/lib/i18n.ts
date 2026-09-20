@@ -189,6 +189,14 @@ interface Strings {
   landAxisRecovery: string;
   landMarker: string;
   landContentsNote: string;
+  landTryLabel: string;
+  landTryTitle: string;
+  landTryLede: string;
+  landTryCaption: string;
+  landTryStopPips: string;
+  landTryStopPipsHint: string;
+  landTryHeavy: string;
+  landTryTooWide: string;
 
   calcIntro: string;
   tabSize: string;
@@ -463,6 +471,18 @@ const en: Strings = {
   landMarker: '30% down needs 42.9% up',
   landContentsNote:
     'Written as a manual: every module is read in order, and every figure in it can be checked against the calculator.',
+  landTryLabel: 'Fig. 2 · Working',
+  landTryTitle: 'What this trade is allowed to cost you',
+  landTryLede:
+    'The calculation the course is built on, running here so you can use it before you decide about an account. Change any figure and the position resizes.',
+  landTryCaption:
+    'Rounded down to the broker\u2019s 0.01 lot step, never up: rounding up would put the trade past the budget you just set.',
+  landTryStopPips: 'Stop distance, in pips',
+  landTryStopPipsHint: 'Entry to stop',
+  landTryHeavy:
+    'Above 2% a run of ten losses \u2014 an ordinary run \u2014 takes about a fifth of the account. Module 06 argues for 0.5 to 1%.',
+  landTryTooWide:
+    'The stop is too wide for this equity: the position rounds to nothing. Either the stop is wrong or the account is too small for this instrument.',
 
   calcIntro:
     'The arithmetic from Modules 3, 4 and 6. Work it by hand first — this is for checking, not for replacing.',
@@ -741,6 +761,18 @@ const ar: Strings = {
   landMarker: 'تراجع 30% يتطلّب صعود 42.9%',
   landContentsNote:
     'مكتوبة ككتيّب إرشادي: تُقرأ كل وحدة بترتيبها، وكل رقم فيها يمكن التحقّق منه بالحاسبة.',
+  landTryLabel: 'شكل 2 · تطبيق',
+  landTryTitle: 'ما الذي يُسمح لهذه الصفقة أن يكلّفك',
+  landTryLede:
+    'الحساب الذي بُنيت عليه الدورة، يعمل هنا لتستخدمه قبل أن تقرّر بشأن الحساب. غيّر أي رقم فيتغيّر حجم المركز.',
+  landTryCaption:
+    'يُقرَّب إلى الأسفل إلى خطوة 0.01 لوت لدى الوسيط، لا إلى الأعلى أبدًا: فالتقريب إلى الأعلى يدفع الصفقة خارج الميزانية التي حدّدتها للتو.',
+  landTryStopPips: 'مسافة وقف الخسارة بالنقاط',
+  landTryStopPipsHint: 'من الدخول إلى الوقف',
+  landTryHeavy:
+    'فوق 2% تأخذ سلسلةٌ من عشر خسائر — وهي سلسلة عادية — نحو خُمس الحساب. وتدعو الوحدة 06 إلى ما بين 0.5% و1%.',
+  landTryTooWide:
+    'وقف الخسارة أوسع من أن تحتمله هذه الحقوق: يُقرَّب المركز إلى الصفر. فإمّا أن الوقف خاطئ أو أن الحساب أصغر من أن يناسب هذه الأداة.',
 
   calcIntro:
     'حسابات الوحدات الثالثة والرابعة والسادسة. احسبها بيدك أولًا — هذه الأداة للتحقّق لا للاستعاضة.',

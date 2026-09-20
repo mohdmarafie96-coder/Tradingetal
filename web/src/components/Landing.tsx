@@ -1,9 +1,10 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowRight, Languages, LogIn } from 'lucide-react';
 import Logo from './Logo';
 import { courseFor } from '../content/manifest';
 import { QUIZZES } from '../content/quiz';
 import { useStrings, type Lang } from '../lib/i18n';
+import { sizePosition } from '../lib/sizing';
 
 interface Props {
   lang: Lang;
@@ -158,10 +159,21 @@ function Landing({ lang, onSignIn, onCreate, onSwitchLang }: Props) {
           </div>
         </section>
 
+        {/* The course's own arithmetic, working, before the account wall. A
+            visitor can check the claim instead of being asked to trust it. */}
+        <section className="band band-fig" data-reveal>
+          <div className="band-rail" aria-hidden="true">
+            <span className="mark-num">03</span>
+          </div>
+          <div className="band-body">
+            <TrySizing t={t} />
+          </div>
+        </section>
+
         {/* The curriculum is genuinely a sequence, so it is numbered. */}
         <section className="band" data-reveal>
           <div className="band-rail" aria-hidden="true">
-            <span className="mark-num">03</span>
+            <span className="mark-num">04</span>
           </div>
           <div className="band-body">
             <h2 className="head">{t.curriculum}</h2>
@@ -182,7 +194,7 @@ function Landing({ lang, onSignIn, onCreate, onSwitchLang }: Props) {
         {/* The colophon: what the thing physically contains. */}
         <section className="band" data-reveal>
           <div className="band-rail" aria-hidden="true">
-            <span className="mark-num">04</span>
+            <span className="mark-num">05</span>
           </div>
           <div className="band-body colophon-grid">
             <div>
@@ -214,7 +226,7 @@ function Landing({ lang, onSignIn, onCreate, onSwitchLang }: Props) {
             market is the opposite. */}
         <section className="band" data-reveal>
           <div className="band-rail" aria-hidden="true">
-            <span className="mark-num">05</span>
+            <span className="mark-num">06</span>
           </div>
           <div className="band-body">
             <h2 className="head">{t.landNotTitle}</h2>
@@ -250,12 +262,130 @@ function Landing({ lang, onSignIn, onCreate, onSwitchLang }: Props) {
   );
 }
 
+type T = ReturnType<typeof useStrings>['t'];
+
+function fig(value: number, places = 2): string {
+  return value.toLocaleString('en-US', {
+    minimumFractionDigits: places,
+    maximumFractionDigits: places,
+  });
+}
+
+/**
+ * The position-size calculation, live on the public page.
+ *
+ * The rest of the site asks to be believed; this asks to be used. It runs the
+ * same sizePosition() the course's calculator runs, so a visitor who checks the
+ * number here and again after signing up gets the same answer.
+ *
+ * Four fields rather than the calculator's seven: the stop is taken straight in
+ * pips instead of being derived from an entry, a stop price and a pip size. A
+ * front door is not the place to explain what a pip size is.
+ */
+function TrySizing({ t }: { t: T }) {
+  const [balance, setBalance] = useState('5000');
+  const [riskPct, setRiskPct] = useState('1');
+  const [stopPips, setStopPips] = useState('35');
+  const [pipValue, setPipValue] = useState('10');
+
+  const n = (v: string) => {
+    const parsed = Number.parseFloat(v);
+    return Number.isFinite(parsed) ? parsed : 0;
+  };
+
+  const r = useMemo(
+    () =>
+      sizePosition({
+        balance: n(balance),
+        riskPct: n(riskPct),
+        stopPips: n(stopPips),
+        pipValue: n(pipValue),
+      }),
+    [balance, riskPct, stopPips, pipValue],
+  );
+
+  // Anything over 2% is where an ordinary losing run stops being survivable, so
+  // the page says so at the moment the reader types it rather than in a lesson
+  // they have not reached.
+  const heavy = n(riskPct) > 2;
+
+  const fields: Array<[string, string, (v: string) => void, string?]> = [
+    [t.fAccountEquity, balance, setBalance],
+    [t.fRiskPct, riskPct, setRiskPct, t.fRiskPctHint],
+    [t.landTryStopPips, stopPips, setStopPips, t.landTryStopPipsHint],
+    [t.fPipValue, pipValue, setPipValue, t.fPipValueHint],
+  ];
+
+  return (
+    <figure className="plate plate-try">
+      <div className="plate-head">
+        <span className="plate-label">{t.landTryLabel}</span>
+        <h2 className="plate-title">{t.landTryTitle}</h2>
+        <p className="plate-lede">{t.landTryLede}</p>
+      </div>
+
+      <div className="try-grid">
+        {fields.map(([label, value, set, hint]) => {
+          const id = `try-${label.replace(/[^a-zA-Z]+/g, '-')}`;
+          return (
+            <div className="try-field" key={label}>
+              <label htmlFor={id}>{label}</label>
+              <input
+                id={id}
+                type="number"
+                inputMode="decimal"
+                step="any"
+                value={value}
+                onChange={(e) => set(e.target.value)}
+              />
+              {hint && <span className="try-hint">{hint}</span>}
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="try-out" aria-live="polite">
+        <div className="try-answer">
+          {/* Keyed on the value so the highlight replays whenever it changes:
+              the reader should see that their edit moved the number. */}
+          <span className="try-lots num" key={r.lots}>
+            {fig(r.lots, 2)}
+          </span>
+          <span className="try-lots-unit">{t.rLots}</span>
+        </div>
+        <dl className="try-rows">
+          <div>
+            <dt>{t.rRiskBudget}</dt>
+            <dd className="num">{fig(r.risk)}</dd>
+          </div>
+          <div>
+            <dt>{t.rActualRisk}</dt>
+            <dd className="num">{fig(r.actualRisk)}</dd>
+          </div>
+          <div>
+            <dt>{t.rPipValueOnPosition}</dt>
+            <dd className="num">{fig(r.pipValueOnPosition)}</dd>
+          </div>
+        </dl>
+      </div>
+
+      {r.belowMinimum && <p className="try-warn">{t.landTryTooWide}</p>}
+      {heavy && !r.belowMinimum && <p className="try-warn">{t.landTryHeavy}</p>}
+
+      <figcaption className="plate-cap">
+        <span className="cap-rule" aria-hidden="true" />
+        {t.landTryCaption}
+      </figcaption>
+    </figure>
+  );
+}
+
 /**
  * Recovery required against drawdown taken: r = d / (1 − d). Plotted because
  * the shape is the argument — it is flat where people expect it to be flat and
  * vertical where they assume they can still trade their way back.
  */
-function RecoveryCurve({ t }: { t: ReturnType<typeof useStrings>['t'] }) {
+function RecoveryCurve({ t }: { t: T }) {
   const pad = { l: 58, r: 26, t: 26, b: 42 };
   const w = 640;
   const h = 300;
@@ -300,7 +430,7 @@ function RecoveryCurve({ t }: { t: ReturnType<typeof useStrings>['t'] }) {
         <line className="axis" x1={pad.l} x2={w - pad.r} y1={y(0)} y2={y(0)} />
         <line className="axis" x1={pad.l} x2={pad.l} y1={pad.t} y2={y(0)} />
 
-        <path className="curve" d={path} />
+        <path className="curve" d={path} pathLength={1} />
 
         <line className="marker-line" x1={mx} x2={mx} y1={my} y2={y(0)} />
         <circle className="marker-dot" cx={mx} cy={my} r={4.5} />

@@ -2599,6 +2599,166 @@ button {
   max-width: 66ch;
 }
 
+/* ------------------------------------------------- the working plate (fig 2)
+
+   An instrument set into the page rather than a picture of one. It runs the
+   same arithmetic as the course's calculator, so the layout deliberately
+   echoes that screen: fields above, the answer on its own plate below. */
+
+.plate-try {
+  padding: clamp(var(--space-5), 3vw, var(--space-7));
+}
+
+.plate-lede {
+  margin: var(--space-3) 0 0;
+  max-width: 62ch;
+  font-size: var(--size-ui);
+  line-height: 1.62;
+  color: var(--ink-secondary);
+}
+
+.try-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.try-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.try-field label {
+  font-size: var(--size-small);
+  font-weight: 500;
+  color: var(--ink-secondary);
+}
+
+.try-field input {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-control);
+  background: var(--page-bg);
+  color: var(--ink);
+  font-family: var(--font-num);
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+  direction: ltr;
+}
+
+.try-field input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: var(--accent);
+}
+
+.try-hint {
+  font-size: var(--size-small);
+  color: var(--ink-muted);
+}
+
+.try-out {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+/* The row follows the page's reading order — forcing it to LTR put the unit
+   before the figure in Arabic, so it read "lots 0.42". Only the numeral itself
+   is isolated, which is all that needs to be. */
+.try-answer {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+  background: var(--accent-tint);
+  border-bottom: 1px solid var(--border);
+}
+
+.try-lots {
+  font-family: var(--font-num);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* Replayed on every change of the value, because the point of putting this on
+   the page is that the reader sees their own edit move the number. */
+.try-lots {
+  animation: try-tick 480ms ease-out;
+}
+
+@keyframes try-tick {
+  0% {
+    color: var(--accent);
+  }
+  100% {
+    color: var(--ink);
+  }
+}
+
+.try-lots-unit {
+  font-size: var(--size-ui);
+  color: var(--ink-secondary);
+}
+
+.try-rows {
+  margin: 0;
+}
+
+.try-rows > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-5);
+}
+
+.try-rows > div + div {
+  border-top: 1px solid var(--border);
+}
+
+.try-rows dt {
+  font-size: var(--size-ui);
+  color: var(--ink-secondary);
+}
+
+.try-rows dd {
+  margin: 0;
+  font-family: var(--font-num);
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.try-warn {
+  display: flex;
+  gap: var(--space-3);
+  margin: var(--space-4) 0 0;
+  padding: var(--space-3) var(--space-4);
+  border-inline-start: 3px solid var(--risk);
+  background: var(--risk-bg);
+  border-radius: 0 var(--radius-control) var(--radius-control) 0;
+  font-size: var(--size-ui);
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+[dir="rtl"] .try-warn {
+  border-radius: var(--radius-control) 0 0 var(--radius-control);
+}
+
 /* --- the recovery curve --- */
 
 .chart-wrap {
@@ -2634,6 +2794,35 @@ button {
   stroke-width: 2.5;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+/* The curve draws itself as the figure is reached. The shape IS the argument —
+   flat where people expect flat, vertical where they assume they can still
+   trade their way back — so tracing it left to right is the one piece of motion
+   on this page that carries meaning rather than decorating. pathLength="1"
+   normalises the dash units, so nothing has to be measured in script. */
+.land.is-animating .band-fig .chart .curve {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.land.is-animating .band-fig.is-in .chart .curve {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1500ms cubic-bezier(0.33, 0.1, 0.25, 1) 220ms;
+}
+
+/* The marker only means anything once the curve has reached it. */
+.land.is-animating .band-fig .chart .marker-line,
+.land.is-animating .band-fig .chart .marker-dot,
+.land.is-animating .band-fig .chart .marker-text {
+  opacity: 0;
+}
+
+.land.is-animating .band-fig.is-in .chart .marker-line,
+.land.is-animating .band-fig.is-in .chart .marker-dot,
+.land.is-animating .band-fig.is-in .chart .marker-text {
+  opacity: 1;
+  transition: opacity 420ms ease 1100ms;
 }
 
 .chart .marker-line {
@@ -2896,6 +3085,21 @@ button {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .land.is-animating .band-fig .chart .curve {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+  }
+
+  .land.is-animating .band-fig .chart .marker-line,
+  .land.is-animating .band-fig .chart .marker-dot,
+  .land.is-animating .band-fig .chart .marker-text {
+    opacity: 1;
+  }
+
+  .try-lots {
+    animation: none;
   }
 }
 

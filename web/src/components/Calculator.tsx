@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { AlertTriangle, Info } from './icons';
 import { hrefFor } from '../lib/router';
 import { useStrings, type Lang } from '../lib/i18n';
+import { sizePosition, stopDistance } from '../lib/sizing';
 
 type Tab = 'size' | 'margin' | 'expectancy' | 'drawdown';
 
@@ -78,28 +79,17 @@ function PositionSize({ lang }: { lang: Lang }) {
   const [pipValue, setPipValue] = useState('10');
   const [cost, setCost] = useState('2.5');
 
-  const r = useMemo(() => {
-    const bal = num(balance);
-    const risk = bal * (num(riskPct) / 100);
-    const ps = num(pipSize, 0.0001);
-    const pv = num(pipValue, 10);
-    const stopPips = ps > 0 ? Math.abs(num(entry) - num(stop)) / ps : 0;
-    const valid = stopPips > 0 && pv > 0 && risk > 0;
-    const exactLots = valid ? risk / (stopPips * pv) : 0;
-    const rounded = valid ? Math.round(Math.floor(exactLots / 0.01) * 0.01 * 100) / 100 : 0;
-    const actualRisk = rounded * stopPips * pv;
-    return {
-      risk,
-      stopPips,
-      lots: rounded,
-      units: rounded * 100000,
-      pipValueOnPosition: rounded * pv,
-      actualRisk,
-      actualPct: bal > 0 ? (actualRisk / bal) * 100 : 0,
-      costRatio: actualRisk > 0 ? (num(cost) / actualRisk) * 100 : 0,
-      belowMinimum: valid && rounded < 0.01,
-    };
-  }, [balance, riskPct, entry, stop, pipSize, pipValue, cost]);
+  const r = useMemo(
+    () =>
+      sizePosition({
+        balance: num(balance),
+        riskPct: num(riskPct),
+        stopPips: stopDistance(num(entry), num(stop), num(pipSize, 0.0001)),
+        pipValue: num(pipValue, 10),
+        cost: num(cost),
+      }),
+    [balance, riskPct, entry, stop, pipSize, pipValue, cost],
+  );
 
   const costTone = r.costRatio >= 25 ? 'danger' : r.costRatio >= 10 ? 'warn' : 'ok';
 
