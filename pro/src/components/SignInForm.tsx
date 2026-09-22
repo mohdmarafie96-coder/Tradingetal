@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabaseBrowser } from '@/lib/supabase/client';
 import { stringsFor, type Lang } from '@/lib/i18n';
+import { classifyAuthError } from '@course/lib/auth-errors';
 
 export default function SignInForm({ lang }: { lang: Lang }) {
   const t = stringsFor(lang);
@@ -29,14 +30,27 @@ export default function SignInForm({ lang }: { lang: Lang }) {
 
     setBusy(true);
     const supabase = supabaseBrowser();
+    // Trimmed: a pasted or autofilled address often carries a trailing space,
+    // which Supabase rejects as an invalid email.
+    const address = email.trim();
     const result =
       mode === 'in'
-        ? await supabase.auth.signInWithPassword({ email, password })
-        : await supabase.auth.signUp({ email, password });
+        ? await supabase.auth.signInWithPassword({ email: address, password })
+        : await supabase.auth.signUp({
+            email: address,
+            password,
+            // Without this the confirmation link goes to the project's default
+            // site URL, which is the course — a new Pro user would confirm
+            // their address and land somewhere else. Supabase only honours it
+            // if this origin is on the project's redirect allow-list.
+            options: { emailRedirectTo: `${window.location.origin}/${lang}/signin` },
+          });
     setBusy(false);
 
     if (result.error) {
-      setError(result.error.message);
+      // Supabase answers in English prose; the course's classifier turns that
+      // into a cause, which is then said in the reader's language.
+      setError(t.authErrors[classifyAuthError(result.error.message, result.error.status)]);
       return;
     }
     if (mode === 'up' && !result.data.session) {

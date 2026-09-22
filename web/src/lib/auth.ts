@@ -1,20 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import type { Session, User } from '@supabase/supabase-js';
 import { supabase } from './supabase';
+import { classifyAuthError as classify, type AuthError } from './auth-errors';
 
 export type AuthStatus = 'checking' | 'signed-out' | 'signed-in';
 
-/** Distinguishable causes, so the screen can say what to do about each. */
-export type AuthError =
-  | 'bad-credentials'
-  | 'already-registered'
-  | 'weak-password'
-  | 'invalid-email'
-  | 'rate-limited'
-  | 'provider-disabled'
-  | 'network'
-  | 'failed'
-  | null;
+export type { AuthError } from './auth-errors';
 
 export interface Auth {
   status: AuthStatus;
@@ -31,20 +22,6 @@ export interface Auth {
 }
 
 /** Supabase reports failures as prose; this maps them to something actionable. */
-function classify(message: string, status?: number): AuthError {
-  const m = message.toLowerCase();
-  if (m.includes('invalid login credentials')) return 'bad-credentials';
-  if (m.includes('already registered') || m.includes('already been registered')) {
-    return 'already-registered';
-  }
-  if (m.includes('password should be') || m.includes('weak password')) return 'weak-password';
-  if (m.includes('invalid email') || m.includes('unable to validate email')) return 'invalid-email';
-  if (m.includes('rate limit') || status === 429) return 'rate-limited';
-  if (m.includes('provider is not enabled') || m.includes('not enabled')) return 'provider-disabled';
-  if (m.includes('failed to fetch') || m.includes('network')) return 'network';
-  return 'failed';
-}
-
 export function useAuth(): Auth {
   const [status, setStatus] = useState<AuthStatus>('checking');
   const [user, setUser] = useState<User | null>(null);
