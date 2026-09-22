@@ -1,0 +1,139 @@
+/* ==========================================================================
+   Trading et al. — design tokens
+   ==========================================================================
+
+   The single source of truth for the palette and the type scale. Both apps
+   import this file: the course (web/) and Pro (pro/). Do not fork these
+   values — a second copy is how two halves of one product stop looking like
+   one product.
+
+   Only custom properties belong here. Rules naming component classes stay in
+   the app that owns those classes.
+   ========================================================================== */
+
+:root {
+  /* Ledger palette.
+     Ink is the brand. Controls and navigation are near-black on warm paper,
+     the way an almanac or a set of printed tables is, which leaves the whole
+     colour budget for meaning: oxblood for emphasis, brass for data, and the
+     semantic three for gain, loss and risk. The accent is deliberately not
+     the same red as a loss — a warning must never be mistakable for chrome. */
+  --ink: #17130e;
+  --ink-secondary: #5b5145;
+  --ink-muted: #7a6f60;
+  --paper: #fbf8f1;
+  --surface: #ffffff;
+  --surface-sunken: #f4f0e6;
+  --border: rgba(23, 19, 14, 0.14);
+  --border-strong: rgba(23, 19, 14, 0.26);
+
+  /* Accent — 7.7:1 on paper, so it can carry text as well as rules. */
+  --accent: #8c2f13;
+  --accent-strong: #73250e;
+  --accent-deep: #5e1e0c;
+
+  /* The tint behind accented chrome — an active nav row, a result header — is
+     washed with ink, not with the accent. An oxblood plate is a shade away from
+     --loss-bg, and a calculator result must never be mistakable for a failure. */
+  --accent-tint: #eae4d8;
+
+  --on-accent: #fbf8f1;
+
+  /* The logo plate and its knockout. Read by Logo.tsx, which keeps the literals
+     as fallbacks for contexts that have no stylesheet. */
+  --logo-plate: #17130e;
+  --logo-knockout: #fbf8f1;
+
+  /* Brass is 2.9:1 on paper: chart lines and rules only, never text. */
+  --brass: #b98b3c;
+
+  /* Semantic — data and warnings only. Never chrome. */
+  --gain: #2f6b3f;
+  --gain-bg: #e8f0e6;
+  --loss: #a81e3a;
+  --loss-bg: #fbe9ec;
+  --risk: #b45309;
+  --risk-bg: #fdf0e0;
+
+  /* Type. Newsreader carries the voice, Inter Tight does the work, and every
+     figure a reader might act on stays in the mono so digits cannot jitter.
+     The Arabic faces stay in both chains so an Arabic label inside an English
+     page — the language switch — still renders. */
+  --font-prose: "Newsreader", "Noto Naskh Arabic", Georgia, serif;
+  --font-ui: "Inter Tight", "IBM Plex Sans Arabic", system-ui, -apple-system, sans-serif;
+  --font-num: "IBM Plex Mono", ui-monospace, monospace;
+
+  --size-display: 2.25rem;
+  --size-h2: 1.625rem;
+  --size-h3: 1.25rem;
+  --size-prose: 1.1875rem;
+  --size-ui: 0.9375rem;
+  --size-small: 0.8125rem;
+
+  --leading-prose: 1.7;
+  --leading-ui: 1.5;
+  --leading-tight: 1.15;
+  --measure: 68ch;
+
+  /* Space + shape */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --radius-control: 6px;
+  --radius-tile: 8px;
+  --radius-card: 10px;
+  --radius-mark: 14px;
+
+  --page-bg: var(--paper);
+  --shadow: 0 1px 2px rgba(23, 19, 14, 0.05), 0 10px 28px rgba(23, 19, 14, 0.07);
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  /* Lamplight rather than a terminal: the paper goes to a warm near-black and
+     the ink to an unbleached cream, so the edition still reads as the same
+     printed object at night. */
+  --ink: #f0ebe1;
+  --ink-secondary: #b3a896;
+  --ink-muted: #8a7f6e;
+  --surface: #1c1813;
+  --surface-sunken: #14110d;
+  --border: rgba(240, 235, 225, 0.14);
+  --border-strong: rgba(240, 235, 225, 0.28);
+
+  --accent: #e08262;
+  --accent-strong: #ee9a7d;
+  --accent-deep: #f4b49d;
+  --accent-tint: rgba(240, 235, 225, 0.09);
+  --on-accent: #14110d;
+  --logo-plate: #f0ebe1;
+  --logo-knockout: #14110d;
+
+  --brass: #d9a94e;
+
+  --gain: #7cbf86;
+  --gain-bg: rgba(124, 191, 134, 0.14);
+  --loss: #ef8f9d;
+  --loss-bg: rgba(239, 143, 157, 0.14);
+  --risk: #e8a33d;
+  --risk-bg: rgba(232, 163, 61, 0.14);
+
+  --page-bg: #14110d;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.45), 0 10px 28px rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
+}
+
+/* Arabic swaps the families only. Every other token is shared, so the two
+   language editions cannot drift apart visually. */
+:root[lang="ar"] {
+  --font-prose: "Noto Naskh Arabic", "Amiri", "Newsreader", Georgia, serif;
+  --font-ui: "IBM Plex Sans Arabic", "Inter Tight", system-ui, sans-serif;
+  --size-prose: 1.25rem;
+  --leading-prose: 1.95;
+  --measure: 62ch;
+}
