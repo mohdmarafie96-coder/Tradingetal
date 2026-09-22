@@ -13,7 +13,7 @@ Two products, one repository, one Supabase project, one brand.
 | What it is | Self-paced CFD trading course, EN + AR | Coaching and risk-analysis tool |
 | Stack | Vite + React 19 + TypeScript, static | Next.js App Router + TypeScript |
 | Server code | None — static files only | Route handlers (AI, webhooks, cron) |
-| URL | https://tradingetal.vercel.app | TBD (`*.vercel.app` for now) |
+| URL | https://tradingetal.vercel.app | https://tradingetal-pro.vercel.app |
 | Status | Shipped | Phase 1 |
 
 **The hard constraint: never break or remove the free course.** It stays fully
@@ -76,9 +76,27 @@ Pro imports from the course rather than copying. Copies drift.
 
 - `web/src/lib/sizing.ts` — `sizePosition()`, the position-size calculation the
   course teaches. Rounds **down** to the 0.01 lot step, never up: rounding up
-  puts the trade past the risk budget the trader just set. Both the course
-  calculator and the public home page already call it.
-- Design tokens, fonts, logo, and the EN/AR strings in `web/src/lib/i18n.ts`.
+  puts the trade past the risk budget the trader just set. The course
+  calculator, the public home page and Pro all call it.
+- `web/src/tokens.css` — the palette and type scale. Both apps `@import` it.
+  Pro repoints the family names at the variables `next/font` generates, because
+  it self-hosts the faces rather than linking them from Google.
+
+Cross-app imports need `experimental.externalDir` in `pro/next.config.ts`; the
+`@course/*` path alias maps to `web/src/*`.
+
+### Vercel
+
+Two projects in team `team_RxoEKaU4lAMgQ44tWZ8UBiuR`, both on the same repo and
+both deploying production from `main`:
+
+- `tradingetal` — root directory is the repo root, builds `web/`.
+- `tradingetal-pro` (`prj_MZEdpntLxSKbpkTNLDNBQNF55FoF`) — root directory `pro/`.
+  "Skip deployments when the root directory has not changed" is deliberately
+  **off**: Pro imports from `web/`, and Vercel's change detection would skip a
+  build that was actually needed. A wasted build is cheaper than a stale deploy.
+  Vercel Authentication is **on**, so the `*.vercel.app` URL asks for a Vercel
+  login — fine while Pro is unfinished, must be turned off before launch.
 
 ## Pro (`pro/`) — what it is and is not
 
@@ -123,11 +141,19 @@ Append-only. Newest last.
 - Market data provider (needs to cover forex **and** CFDs — indices, gold, oil).
   Built behind an interface so the source can be swapped. Options presented in Phase 2.
 - A real MT4/MT5 history export to test the CSV importer against.
+- Supabase's advisor flags leaked-password protection as disabled. Turning it on
+  checks new passwords against HaveIBeenPwned. It would also apply to course
+  sign-ups, so it is the user's call.
 
 ## Phases
 
 0. ✅ Inspect and plan — done, decisions 1–3 above.
 1. ⏳ Auth, bilingual foundation, trade journal.
+   - ✅ Pro scaffolded, shared tokens and sizing, self-hosted fonts.
+   - ✅ Schema: profiles, trading_accounts, instruments (40 seeded), trades. RLS
+     verified against the live database with two real user ids.
+   - ✅ Auth, bilingual routing with RTL, sign-in screen.
+   - ⏳ Account settings, instruments screen, trade entry, CSV import, trade list.
 2. Calculations: position size, volatility, risk rules, pre-trade check. Full unit tests.
 3. Analytics and dashboard.
 4. AI coach.
