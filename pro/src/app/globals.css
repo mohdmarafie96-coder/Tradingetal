@@ -1,0 +1,67 @@
+/* The same tokens the course uses. Imported, never copied — see
+   web/src/tokens.css. */
+@import "../../../web/src/tokens.css";
+@import "tailwindcss";
+
+/* The shared tokens name the families as strings, which assumes a stylesheet
+   has loaded them. Pro self-hosts instead, so the token values are repointed at
+   the variables next/font generates. The fallbacks stay in the same order. */
+:root {
+  --font-prose: var(--font-prose-latin), Georgia, serif;
+  --font-ui: var(--font-ui-latin), system-ui, -apple-system, sans-serif;
+  --font-num: var(--font-num-face), ui-monospace, monospace;
+}
+
+:root[lang="ar"] {
+  --font-prose: var(--font-prose-arabic), var(--font-prose-latin), Georgia, serif;
+  --font-ui: var(--font-ui-arabic), var(--font-ui-latin), system-ui, sans-serif;
+}
+
+/* Pro is an instrument panel rather than a reading surface: denser than the
+   course, same materials. Prose is still set in the course's serif so a lesson
+   quoted here looks like it came from the same publication. */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-prose);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* Figures the user might act on must not jitter as they update, and the mono
+   face carries no Arabic glyphs — so .num wraps digits only, never a label. */
+.num {
+  font-family: var(--font-num);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+  font-style: normal;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* Arabic is cursive: tracking prises the joins apart and buys nothing in
+   return, since text-transform gives the script no small caps. */
+:root[lang="ar"] *:not(svg):not(svg *) {
+  letter-spacing: normal;
+}
