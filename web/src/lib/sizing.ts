@@ -57,7 +57,16 @@ export function sizePosition({
 
   // Rounded down, always. Rounding up would quietly push the trade past the
   // risk budget the trader just set, which is the whole point of the exercise.
-  const lots = valid ? Math.round(Math.floor(exactLots / LOT_STEP) * LOT_STEP * 100) / 100 : 0;
+  //
+  // The epsilon is not optional. In binary floating point 0.29 / 0.01 is
+  // 28.999999999999996, so a bare floor turns an exact 0.29 lots into 0.28 —
+  // one step in eight of the clean answers between 0.01 and 5.00 came out a
+  // step short of the figure the course teaches students to work by hand.
+  // 1e-9 of a step is far below anything a broker can deal in, so it rescues
+  // exact multiples without ever rounding a genuine fraction up.
+  const lots = valid
+    ? Math.round(Math.floor(exactLots / LOT_STEP + 1e-9) * LOT_STEP * 100) / 100
+    : 0;
 
   const actualRisk = lots * stopPips * pipValue;
 

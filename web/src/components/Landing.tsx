@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { ArrowRight, Languages, LogIn } from 'lucide-react';
 import Logo from './Logo';
 import { courseFor } from '../content/manifest';
@@ -309,6 +309,12 @@ function TrySizing({ t }: { t: T }) {
   // they have not reached.
   const heavy = n(riskPct) > 2;
 
+  // Ids come from useId, not from the label. Deriving them from the label by
+  // stripping non-Latin characters gave all four Arabic fields the same id, so
+  // every Arabic label focused the first input and screen readers attached all
+  // four labels to it.
+  const idBase = useId();
+
   const fields: Array<[string, string, (v: string) => void, string?]> = [
     [t.fAccountEquity, balance, setBalance],
     [t.fRiskPct, riskPct, setRiskPct, t.fRiskPctHint],
@@ -325,8 +331,8 @@ function TrySizing({ t }: { t: T }) {
       </div>
 
       <div className="try-grid">
-        {fields.map(([label, value, set, hint]) => {
-          const id = `try-${label.replace(/[^a-zA-Z]+/g, '-')}`;
+        {fields.map(([label, value, set, hint], i) => {
+          const id = `${idBase}-${i}`;
           return (
             <div className="try-field" key={label}>
               <label htmlFor={id}>{label}</label>
@@ -344,8 +350,10 @@ function TrySizing({ t }: { t: T }) {
         })}
       </div>
 
-      <div className="try-out" aria-live="polite">
-        <div className="try-answer">
+      <div className="try-out">
+        {/* Only the answer is announced. Making the whole panel live read out
+            three table rows to a screen-reader user on every keystroke. */}
+        <div className="try-answer" aria-live="polite" aria-atomic="true">
           {/* Keyed on the value so the highlight replays whenever it changes:
               the reader should see that their edit moved the number. */}
           <span className="try-lots num" key={r.lots}>
