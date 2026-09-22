@@ -144,10 +144,12 @@ Append-only. Newest last.
 - Market data provider (needs to cover forex **and** CFDs — indices, gold, oil).
   Built behind an interface so the source can be swapped. Options presented in Phase 2.
 - A real MT4/MT5 history export to test the CSV importer against.
-- **User action:** add `https://tradingetal-pro.vercel.app/**` to Supabase →
-  Authentication → URL Configuration → Redirect URLs. Pro's sign-up sends
-  `emailRedirectTo` back to Pro, but Supabase ignores it unless the origin is on
-  that list, and the confirmation link goes to the course instead.
+- **Deferred to launch (user's choice, 2026-09-22):** add
+  `https://tradingetal-pro.vercel.app/**` (or the custom domain) to Supabase →
+  Authentication → URL Configuration → Redirect URLs. Until then Supabase ignores
+  Pro's `emailRedirectTo` and confirmation links go to the course, same as a
+  course sign-up; a Pro user then returns to Pro to sign in. Harmless while Pro
+  is not public; must be done in Phase 6.
 - Supabase's advisor flags leaked-password protection as disabled. Turning it on
   checks new passwords against HaveIBeenPwned. It would also apply to course
   sign-ups, so it is the user's call.
@@ -170,7 +172,8 @@ Append-only. Newest last.
 3. Analytics and dashboard.
 4. AI coach.
 5. Payments and upgrade funnel.
-6. Launch.
+6. Launch. Checklist so far: turn off Vercel Authentication on `tradingetal-pro`;
+   add Pro's address to Supabase's redirect allow-list.
 
 ## Conventions
 
