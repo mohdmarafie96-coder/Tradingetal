@@ -1,10 +1,4 @@
-import {
-  IBM_Plex_Mono,
-  IBM_Plex_Sans_Arabic,
-  Inter_Tight,
-  Newsreader,
-  Noto_Naskh_Arabic,
-} from 'next/font/google';
+import { IBM_Plex_Mono, IBM_Plex_Sans, IBM_Plex_Sans_Arabic, Space_Grotesk } from 'next/font/google';
 
 /**
  * The course loads these from Google at runtime. Pro self-hosts them: Next
@@ -15,42 +9,33 @@ import {
  * Each exposes a CSS variable that globals.css feeds into the shared tokens.
  */
 
-export const prose = Newsreader({
+export const display = Space_Grotesk({
   subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  style: ['normal', 'italic'],
-  variable: '--font-prose-latin',
+  weight: ['500', '600', '700'],
+  variable: '--font-display-face',
   display: 'swap',
 });
 
-export const ui = Inter_Tight({
+export const body = IBM_Plex_Sans({
   subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  variable: '--font-ui-latin',
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-body-face',
   display: 'swap',
 });
 
 export const mono = IBM_Plex_Mono({
   subsets: ['latin'],
-  weight: ['400', '500'],
+  weight: ['400', '500', '600'],
   variable: '--font-num-face',
   display: 'swap',
 });
 
-export const proseArabic = Noto_Naskh_Arabic({
+export const arabic = IBM_Plex_Sans_Arabic({
   subsets: ['arabic'],
-  weight: ['400', '500', '700'],
-  variable: '--font-prose-arabic',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-arabic-face',
   display: 'swap',
 });
 
-export const uiArabic = IBM_Plex_Sans_Arabic({
-  subsets: ['arabic'],
-  weight: ['400', '500', '600'],
-  variable: '--font-ui-arabic',
-  display: 'swap',
-});
-
-export const fontVariables = [prose, ui, mono, proseArabic, uiArabic]
-  .map((f) => f.variable)
-  .join(' ');
+export const fontVariables = [display, body, mono, arabic].map((f) => f.variable).join(' ');

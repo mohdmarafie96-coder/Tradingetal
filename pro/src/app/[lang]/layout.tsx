@@ -32,7 +32,7 @@ export default async function RootLayout({
   if (!isLang(lang)) notFound();
 
   return (
-    <html lang={lang} dir={DIR[lang]} data-theme="light" className={fontVariables}>
+    <html lang={lang} dir={DIR[lang]} data-theme="dark" className={fontVariables}>
       <body>{children}</body>
     </html>
   );

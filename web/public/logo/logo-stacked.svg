@@ -1,19 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 168" width="340" height="168" role="img" aria-label="Trading et al. — manuals, calculators, risk management">
   <g transform="translate(142 8) scale(0.875)">
-    <rect width="64" height="64" rx="14" fill="#17130E"/>
-    <g stroke="#FBF8F1" stroke-width="3" stroke-linecap="round">
+    <rect width="64" height="64" rx="14" fill="#4D8DFF"/>
+    <g stroke="#0A0F1C" stroke-width="3" stroke-linecap="round">
       <line x1="16" y1="16" x2="48" y2="16"/>
       <line x1="16" y1="23" x2="43" y2="23"/>
       <line x1="16" y1="30" x2="36" y2="30"/>
     </g>
     <polyline points="16,50 24,45 32,47 40,40 48,36"
-              fill="none" stroke="#B98B3C" stroke-width="3"
+              fill="none" stroke="#0A0F1C" stroke-width="3"
               stroke-linecap="round" stroke-linejoin="round"/>
   </g>
-  <text x="170" y="112" text-anchor="middle" font-family="'Newsreader',Georgia,serif" font-size="34" fill="#17130E">
+  <text x="170" y="112" text-anchor="middle" font-family="'Space Grotesk',system-ui,sans-serif" font-size="34" fill="#0C1A2E">
     <tspan font-weight="600">Trading</tspan><tspan font-weight="400" font-style="italic" dx="9">et al.</tspan>
   </text>
-  <text x="170" y="140" text-anchor="middle" font-family="'Inter Tight',system-ui,sans-serif" font-size="13" font-weight="500" letter-spacing="1.6" fill="#5B5145">
+  <text x="170" y="140" text-anchor="middle" font-family="'IBM Plex Mono',ui-monospace,monospace" font-size="13" font-weight="500" letter-spacing="1.6" fill="#33445C">
     MANUALS · CALCULATORS · RISK
   </text>
 </svg>

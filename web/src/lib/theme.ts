@@ -3,18 +3,16 @@ import { useCallback, useEffect, useState } from 'react';
 const KEY = 'cfd-course:theme';
 export type Theme = 'light' | 'dark';
 
-function systemTheme(): Theme {
-  return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-}
-
 function read(): Theme {
   try {
     const stored = window.localStorage.getItem(KEY);
     if (stored === 'light' || stored === 'dark') return stored;
   } catch {
-    /* storage unavailable: fall back to the system preference */
+    /* storage unavailable: use the default */
   }
-  return systemTheme();
+  // Dark is the brand, so it is the default rather than the system setting.
+  // Light is the reading mode, one tap away, and a stored choice always wins.
+  return 'dark';
 }
 
 export function useTheme() {

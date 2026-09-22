@@ -7,14 +7,16 @@
    has loaded them. Pro self-hosts instead, so the token values are repointed at
    the variables next/font generates. The fallbacks stay in the same order. */
 :root {
-  --font-prose: var(--font-prose-latin), Georgia, serif;
-  --font-ui: var(--font-ui-latin), system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-display-face), var(--font-arabic-face), system-ui, sans-serif;
+  --font-prose: var(--font-body-face), var(--font-arabic-face), system-ui, sans-serif;
+  --font-ui: var(--font-body-face), var(--font-arabic-face), system-ui, -apple-system, sans-serif;
   --font-num: var(--font-num-face), ui-monospace, monospace;
 }
 
 :root[lang="ar"] {
-  --font-prose: var(--font-prose-arabic), var(--font-prose-latin), Georgia, serif;
-  --font-ui: var(--font-ui-arabic), var(--font-ui-latin), system-ui, sans-serif;
+  --font-display: var(--font-arabic-face), var(--font-display-face), system-ui, sans-serif;
+  --font-prose: var(--font-arabic-face), var(--font-body-face), system-ui, sans-serif;
+  --font-ui: var(--font-arabic-face), var(--font-body-face), system-ui, sans-serif;
 }
 
 /* Pro is an instrument panel rather than a reading surface: denser than the
@@ -43,9 +45,10 @@ body {
 h1,
 h2,
 h3 {
-  font-family: var(--font-prose);
+  font-family: var(--font-display);
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   margin: 0;
 }
 
@@ -85,9 +88,10 @@ h3 {
 }
 
 .brand {
-  font-family: var(--font-prose);
+  font-family: var(--font-display);
   font-size: 1.125rem;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--ink);
   text-decoration: none;
   /* The home link is a control like any other: reachable with a thumb. */
@@ -101,8 +105,11 @@ h3 {
   unicode-bidi: isolate;
 }
 
+/* Space Grotesk has no italic; the citation reads in Plex Sans italic. */
 .brand em {
+  font-family: var(--font-ui);
   font-weight: 400;
+  letter-spacing: 0;
 }
 
 .brand-pro {

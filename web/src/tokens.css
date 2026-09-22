@@ -11,71 +11,115 @@
    the app that owns those classes.
    ========================================================================== */
 
-:root {
-  /* Ledger palette.
-     Ink is the brand. Controls and navigation are near-black on warm paper,
-     the way an almanac or a set of printed tables is, which leaves the whole
-     colour budget for meaning: oxblood for emphasis, brass for data, and the
-     semantic three for gain, loss and risk. The accent is deliberately not
-     the same red as a loss — a warning must never be mistakable for chrome. */
-  --ink: #17130e;
-  --ink-secondary: #5b5145;
-  --ink-muted: #7a6f60;
-  --paper: #fbf8f1;
-  --surface: #ffffff;
-  --surface-sunken: #f4f0e6;
-  --border: rgba(23, 19, 14, 0.14);
-  --border-strong: rgba(23, 19, 14, 0.26);
+/* Trading floor. Dark is the default in both apps: the brand is the lit
+   instrument on a night desk, and a trader's eye is already adjusted to it.
+   One accent, electric blue, carries every control and every figure the
+   reader acts on. Green, red and amber are reserved for gain, loss and risk,
+   so a blue control can never be mistaken for a result and a warning can
+   never be mistaken for decoration. Every text pairing below is 4.5:1 or
+   better; the lowest is --ink-muted on --surface at 6.7:1. */
+:root,
+[data-theme="dark"] {
+  --ink: #eaf0fa;
+  --ink-secondary: #c3cedf;
+  --ink-muted: #93a3bd;
+  --paper: #0a0f1c;
+  --surface: #131c2e;
+  --surface-sunken: #0f1727;
+  --border: #22304a;
+  --border-strong: #33456a;
 
-  /* Accent — 7.7:1 on paper, so it can carry text as well as rules. */
-  --accent: #8c2f13;
-  --accent-strong: #73250e;
-  --accent-deep: #5e1e0c;
+  /* 6.0:1 on the page, 5.3:1 on a card: strong enough to carry text. */
+  --accent: #4d8dff;
+  --accent-strong: #6fa3ff;
+  --accent-deep: #a9c6ff;
+  /* The tint behind an active nav row or a result header. Blue, and nowhere
+     near --loss-bg, so an answer cannot read as a failure. */
+  --accent-tint: rgba(77, 141, 255, 0.13);
+  --on-accent: #0a0f1c;
 
-  /* The tint behind accented chrome — an active nav row, a result header — is
-     washed with ink, not with the accent. An oxblood plate is a shade away from
-     --loss-bg, and a calculator result must never be mistakable for a failure. */
-  --accent-tint: #eae4d8;
+  /* The mark: a blue plate with the lines knocked out of it. Logo.tsx keeps
+     the literals as fallbacks for contexts with no stylesheet. */
+  --logo-plate: #4d8dff;
+  --logo-knockout: #0a0f1c;
 
-  --on-accent: #fbf8f1;
-
-  /* The logo plate and its knockout. Read by Logo.tsx, which keeps the literals
-     as fallbacks for contexts that have no stylesheet. */
-  --logo-plate: #17130e;
-  --logo-knockout: #fbf8f1;
-
-  /* Brass is 2.9:1 on paper: chart lines and rules only, never text. */
-  --brass: #b98b3c;
+  /* Chart lines and rules. The same blue: data is what the brand is about. */
+  --chart: #4d8dff;
 
   /* Semantic — data and warnings only. Never chrome. */
-  --gain: #2f6b3f;
-  --gain-bg: #e8f0e6;
-  --loss: #a81e3a;
-  --loss-bg: #fbe9ec;
-  --risk: #b45309;
-  --risk-bg: #fdf0e0;
+  --gain: #3ccb8a;
+  --gain-bg: rgba(60, 203, 138, 0.12);
+  --loss: #ff6b78;
+  --loss-bg: rgba(255, 107, 120, 0.12);
+  --risk: #f5b544;
+  --risk-bg: rgba(245, 181, 68, 0.1);
 
-  /* Type. Newsreader carries the voice, Inter Tight does the work, and every
-     figure a reader might act on stays in the mono so digits cannot jitter.
-     The Arabic faces stay in both chains so an Arabic label inside an English
+  --page-bg: var(--paper);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 32px rgba(0, 0, 0, 0.35);
+  --scrim: rgba(3, 6, 12, 0.62);
+  color-scheme: dark;
+}
+
+/* Light is the reading mode: the same brand on white for long lessons or a
+   bright room. Blue is deepened to hold 6:1 on white. */
+[data-theme="light"] {
+  --ink: #0c1a2e;
+  --ink-secondary: #33445c;
+  --ink-muted: #4b5b72;
+  --paper: #f5f7fb;
+  --surface: #ffffff;
+  --surface-sunken: #edf1f7;
+  --border: #dce3ee;
+  --border-strong: #c3cedf;
+
+  --accent: #1d55e0;
+  --accent-strong: #1745bd;
+  --accent-deep: #11367f;
+  --accent-tint: rgba(29, 85, 224, 0.09);
+  --on-accent: #ffffff;
+
+  --logo-plate: #1d55e0;
+  --logo-knockout: #ffffff;
+
+  --chart: #1d55e0;
+
+  --gain: #0a7a44;
+  --gain-bg: #e7f5ee;
+  --loss: #c62839;
+  --loss-bg: #fdecee;
+  --risk: #b45309;
+  --risk-bg: #fdf1e3;
+
+  --page-bg: var(--paper);
+  --shadow: 0 1px 2px rgba(12, 26, 46, 0.06), 0 10px 28px rgba(12, 26, 46, 0.08);
+  --scrim: rgba(12, 26, 46, 0.45);
+  color-scheme: light;
+}
+
+/* Type and space are theme-independent. */
+:root {
+  /* Space Grotesk for headings — engineered, a little mechanical, the face of
+     an instrument panel. IBM Plex Sans for reading and interface, IBM Plex
+     Mono for every figure a reader might act on, so digits cannot jitter.
+     The Arabic face stays in each chain so an Arabic label inside an English
      page — the language switch — still renders. */
-  --font-prose: "Newsreader", "Noto Naskh Arabic", Georgia, serif;
-  --font-ui: "Inter Tight", "IBM Plex Sans Arabic", system-ui, -apple-system, sans-serif;
+  --font-display: "Space Grotesk", "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --font-prose: "IBM Plex Sans", "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --font-ui: "IBM Plex Sans", "IBM Plex Sans Arabic", system-ui, -apple-system, sans-serif;
   --font-num: "IBM Plex Mono", ui-monospace, monospace;
 
   --size-display: 2.25rem;
   --size-h2: 1.625rem;
   --size-h3: 1.25rem;
-  --size-prose: 1.1875rem;
+  --size-prose: 1.0625rem;
   --size-ui: 0.9375rem;
   --size-small: 0.8125rem;
 
-  --leading-prose: 1.7;
+  --leading-prose: 1.72;
   --leading-ui: 1.5;
-  --leading-tight: 1.15;
-  --measure: 68ch;
+  --leading-tight: 1.1;
+  --measure: 70ch;
 
-  /* Space + shape */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -84,56 +128,19 @@
   --space-6: 32px;
   --space-7: 48px;
   --space-8: 64px;
-  --radius-control: 6px;
-  --radius-tile: 8px;
-  --radius-card: 10px;
+  --radius-control: 8px;
+  --radius-tile: 10px;
+  --radius-card: 12px;
   --radius-mark: 14px;
-
-  --page-bg: var(--paper);
-  --shadow: 0 1px 2px rgba(23, 19, 14, 0.05), 0 10px 28px rgba(23, 19, 14, 0.07);
-  color-scheme: light;
-}
-
-[data-theme="dark"] {
-  /* Lamplight rather than a terminal: the paper goes to a warm near-black and
-     the ink to an unbleached cream, so the edition still reads as the same
-     printed object at night. */
-  --ink: #f0ebe1;
-  --ink-secondary: #b3a896;
-  --ink-muted: #8a7f6e;
-  --surface: #1c1813;
-  --surface-sunken: #14110d;
-  --border: rgba(240, 235, 225, 0.14);
-  --border-strong: rgba(240, 235, 225, 0.28);
-
-  --accent: #e08262;
-  --accent-strong: #ee9a7d;
-  --accent-deep: #f4b49d;
-  --accent-tint: rgba(240, 235, 225, 0.09);
-  --on-accent: #14110d;
-  --logo-plate: #f0ebe1;
-  --logo-knockout: #14110d;
-
-  --brass: #d9a94e;
-
-  --gain: #7cbf86;
-  --gain-bg: rgba(124, 191, 134, 0.14);
-  --loss: #ef8f9d;
-  --loss-bg: rgba(239, 143, 157, 0.14);
-  --risk: #e8a33d;
-  --risk-bg: rgba(232, 163, 61, 0.14);
-
-  --page-bg: #14110d;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.45), 0 10px 28px rgba(0, 0, 0, 0.35);
-  color-scheme: dark;
 }
 
 /* Arabic swaps the families only. Every other token is shared, so the two
    language editions cannot drift apart visually. */
 :root[lang="ar"] {
-  --font-prose: "Noto Naskh Arabic", "Amiri", "Newsreader", Georgia, serif;
-  --font-ui: "IBM Plex Sans Arabic", "Inter Tight", system-ui, sans-serif;
-  --size-prose: 1.25rem;
-  --leading-prose: 1.95;
-  --measure: 62ch;
+  --font-display: "IBM Plex Sans Arabic", "Space Grotesk", system-ui, sans-serif;
+  --font-prose: "IBM Plex Sans Arabic", "IBM Plex Sans", system-ui, sans-serif;
+  --font-ui: "IBM Plex Sans Arabic", "IBM Plex Sans", system-ui, sans-serif;
+  --size-prose: 1.125rem;
+  --leading-prose: 1.9;
+  --measure: 64ch;
 }

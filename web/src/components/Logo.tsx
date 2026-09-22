@@ -6,8 +6,9 @@
  * are the exportable masters; these are the same geometry.
  *
  * Locked: the mark's corner radius is 14 at 64px (--radius-mark) and scales
- * proportionally. Do not set the wordmark in sans, and recolour the mark only
- * through --logo-plate / --logo-knockout, which the themes own.
+ * proportionally. The wordmark is Space Grotesk with "et al." in Plex Sans
+ * italic. Recolour the mark only through --logo-plate / --logo-knockout, which
+ * the themes own.
  */
 
 type Variant = 'primary' | 'stacked' | 'mark' | 'mono';
@@ -20,19 +21,16 @@ interface Props {
   className?: string;
 }
 
-// The mark is printed matter: an ink plate, a paper knockout, brass for the
-// chart line. The plate and knockout swap in dark mode — the card is still
-// paper at night, and an ink block on a near-black page is no block at all.
-// Each is a token with the literal as its fallback, so the lockup still comes
-// out right when it is exported, embedded in an email, or dropped on a
-// background we do not own.
-const PLATE = 'var(--logo-plate, #17130E)';
-const KNOCKOUT = 'var(--logo-knockout, #FBF8F1)';
-const BRASS = 'var(--brass, #B98B3C)';
+// The mark is a lit key: a blue plate with the ledger lines and the chart line
+// cut out of it in the page colour. Each colour is a token with the literal as
+// its fallback, so the lockup still comes out right when it is exported,
+// embedded in an email, or dropped on a background we do not own.
+const PLATE = 'var(--logo-plate, #4D8DFF)';
+const KNOCKOUT = 'var(--logo-knockout, #0A0F1C)';
 
 function MarkShapes({ mono = false }: { mono?: boolean }) {
   const lineColor = mono ? 'currentColor' : KNOCKOUT;
-  const chartColor = mono ? 'currentColor' : BRASS;
+  const chartColor = mono ? 'currentColor' : KNOCKOUT;
   return (
     <>
       {!mono && <rect width="64" height="64" rx="14" fill={PLATE} />}
@@ -80,12 +78,21 @@ function Wordmark({ x, y, size, anchor }: WordmarkProps) {
       y={y}
       textAnchor={anchor}
       direction="ltr"
-      fontFamily="'Newsreader',Georgia,serif"
+      fontFamily="'Space Grotesk',system-ui,sans-serif"
       fontSize={size}
       fill="var(--ink)"
+      letterSpacing={size * -0.02}
     >
-      <tspan fontWeight="600">Trading</tspan>
-      <tspan fontWeight="400" fontStyle="italic" dx={size * 0.28}>
+      <tspan fontWeight="700">Trading</tspan>
+      {/* Space Grotesk has no italic; a synthesised slant looks like a fault.
+          The citation reads in Plex Sans italic instead. */}
+      <tspan
+        fontFamily="'IBM Plex Sans',system-ui,sans-serif"
+        fontWeight="400"
+        fontStyle="italic"
+        letterSpacing="0"
+        dx={size * 0.26}
+      >
         et al.
       </tspan>
     </text>
@@ -122,7 +129,7 @@ function Logo({ variant = 'primary', size, title = 'Trading et al.', className }
           y={140}
           textAnchor="middle"
           direction="ltr"
-          fontFamily="'Inter Tight',system-ui,sans-serif"
+          fontFamily="'IBM Plex Mono',ui-monospace,monospace"
           fontSize={13}
           fontWeight="500"
           letterSpacing="1.6"

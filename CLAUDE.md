@@ -38,21 +38,27 @@ Static single-page app. Nothing runs on a server when a reader visits.
 
 ### Design system
 
-Set in `web/src/index.css` under `:root`. The "Ledger" direction: warm archival.
+Tokens live in `web/src/tokens.css`, imported by both apps. The "Trading floor"
+direction (chosen 2026-09-22, replacing "Ledger").
 
-- Ink `#17130E` on warm paper `#FBF8F1`. **Ink is the brand** — the near-black
-  carries the chrome so the oxblood accent `#8C2F13` stays an accent.
-- Chrome tints are washed with **ink, not the accent**. An oxblood plate is a
-  shade from `--loss-bg`, and a result panel must never read as a failure.
-- Brass `#B98B3C` is 2.9:1 on paper — chart lines and rules only, never text.
-- Semantic colour (`--gain`, `--loss`, `--risk`) means data and warnings. Never chrome.
-- Newsreader (display + prose), Inter Tight (interface), IBM Plex Mono (figures).
-  Noto Naskh Arabic + IBM Plex Sans Arabic for the Arabic edition.
-- Tracking is off for Arabic: it buys latin capitals a small-caps effect and buys
-  a cursive script nothing.
-- Dark mode is lamplight, not a terminal. Driven by `data-theme` on `<html>`,
-  resolved in JS (`web/src/lib/theme.ts`) — there is no `prefers-color-scheme`
-  media query in the stylesheet.
+- **Dark is the default** in both apps: night `#0A0F1C`, cards `#131C2E`, text
+  `#EAF0FA`. Pro is dark only. The course keeps a sun/moon toggle that switches
+  to a light **reading mode** (`[data-theme="light"]`); a stored choice wins.
+  `web/src/lib/theme.ts` defaults to dark, and an inline script in
+  `web/index.html` applies a stored light choice before first paint.
+- **One accent:** electric blue `#4D8DFF` (dark) / `#1D55E0` (light) for every
+  control, link, chart line and the live answer figure.
+- Semantic colour means data and warnings only, never chrome: gain `#3CCB8A`,
+  loss `#FF6B78`, risk amber `#F5B544` (darker equivalents in light mode).
+- Every text pairing is 4.5:1 or better in both themes; lowest is `--ink-muted`
+  on `--surface` at 6.7:1. Check new colours before adding them.
+- Space Grotesk (`--font-display`, headings), IBM Plex Sans (`--font-prose` and
+  `--font-ui`, reading and interface), IBM Plex Mono (`--font-num`, figures).
+  IBM Plex Sans Arabic for all Arabic text. Space Grotesk has no italic, so the
+  wordmark sets "et al." in Plex Sans italic.
+- The mark is a blue plate with the lines knocked out in the page colour.
+- Tracking is off for Arabic, and mono-set labels switch to the Arabic UI face
+  in Arabic, since the mono has no Arabic glyphs.
 
 ## Supabase (shared by both apps)
 
@@ -135,6 +141,12 @@ Append-only. Newest last.
    the FCA, MiFID II and ASIC. Coaching on the user's own behaviour is a
    materially safer design. Flagged for legal review before Phase 5; not legal
    advice.
+4. **2026-09-22 — Rebrand to "Trading floor"**, replacing "Ledger" (warm paper,
+   oxblood, Newsreader). The user asked for a livelier look with better colours
+   and chose this from three rendered directions (the others: bright cobalt,
+   navy and gold). Dark became the default rather than following the system
+   setting, since the system setting would have shown most visitors the light
+   theme and hidden the look they chose.
 
 ## Open questions
 

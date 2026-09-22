@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Trading et al.">
-  <rect width="64" height="64" rx="14" fill="#17130E"/>
-  <g stroke="#FBF8F1" stroke-width="3" stroke-linecap="round">
+  <rect width="64" height="64" rx="14" fill="#4D8DFF"/>
+  <g stroke="#0A0F1C" stroke-width="3" stroke-linecap="round">
     <line x1="16" y1="16" x2="48" y2="16"/>
     <line x1="16" y1="23" x2="43" y2="23"/>
     <line x1="16" y1="30" x2="36" y2="30"/>
   </g>
   <polyline points="16,50 24,45 32,47 40,40 48,36"
-            fill="none" stroke="#B98B3C" stroke-width="3"
+            fill="none" stroke="#0A0F1C" stroke-width="3"
             stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
