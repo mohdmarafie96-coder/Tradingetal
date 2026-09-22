@@ -65,3 +65,217 @@ h3 {
 :root[lang="ar"] *:not(svg):not(svg *) {
   letter-spacing: normal;
 }
+
+/* ------------------------------------------------------------------ shell */
+
+.shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px clamp(16px, 4vw, 32px);
+  border-bottom: 1px solid var(--border);
+  background: var(--page-bg);
+}
+
+.brand {
+  font-family: var(--font-prose);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  /* The home link is a control like any other: reachable with a thumb. */
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28em;
+  /* The wordmark is latin and reads left to right in both editions. Without
+     this the Arabic page renders it "et al Trading", back to front. */
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.brand em {
+  font-weight: 400;
+}
+
+.brand-pro {
+  font-family: var(--font-ui);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  vertical-align: 0.35em;
+  margin-inline-start: 2px;
+}
+
+.bar-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 3vw, 24px);
+  font-size: 0.875rem;
+}
+
+.bar-nav a,
+.linklike {
+  color: var(--ink-secondary);
+  text-decoration: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  /* A 44px box on a phone without changing how the link looks. */
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.bar-nav a:hover,
+.linklike:hover {
+  color: var(--ink);
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: clamp(24px, 5vw, 48px) clamp(16px, 4vw, 32px);
+}
+
+.foot {
+  border-top: 1px solid var(--border);
+  padding: 20px clamp(16px, 4vw, 32px);
+  font-size: 0.8125rem;
+  color: var(--ink-muted);
+}
+
+.foot p {
+  margin: 0;
+  max-width: 76ch;
+}
+
+/* ------------------------------------------------------------- containers */
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: clamp(20px, 4vw, 32px);
+}
+
+.panel-narrow {
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+.panel h1 {
+  font-size: clamp(1.375rem, 3vw, 1.75rem);
+  margin-bottom: 12px;
+}
+
+.lede {
+  color: var(--ink-secondary);
+  margin: 0 0 16px;
+}
+
+.note {
+  font-size: 0.875rem;
+  color: var(--ink-muted);
+  background: var(--surface-sunken);
+  border-radius: var(--radius-control);
+  padding: 12px 14px;
+  margin: 0 0 20px;
+}
+
+/* ------------------------------------------------------------------ forms */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--ink-secondary);
+  margin-top: 10px;
+}
+
+.form input {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-control);
+  background: var(--page-bg);
+  color: var(--ink);
+  font: inherit;
+}
+
+.form input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: var(--accent);
+}
+
+.btn {
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: var(--radius-control);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+  margin-top: 18px;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.form .linklike {
+  margin-top: 6px;
+  align-self: flex-start;
+  color: var(--accent);
+}
+
+.error {
+  color: var(--loss);
+  background: var(--loss-bg);
+  border-radius: var(--radius-control);
+  padding: 10px 12px;
+  margin: 12px 0 0;
+  font-size: 0.875rem;
+}
+
+.notice {
+  color: var(--ink);
+  background: var(--gain-bg);
+  border-radius: var(--radius-control);
+  padding: 10px 12px;
+  margin: 0 0 12px;
+  font-size: 0.875rem;
+}
