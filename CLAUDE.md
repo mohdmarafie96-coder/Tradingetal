@@ -78,6 +78,9 @@ Pro imports from the course rather than copying. Copies drift.
   course teaches. Rounds **down** to the 0.01 lot step, never up: rounding up
   puts the trade past the risk budget the trader just set. The course
   calculator, the public home page and Pro all call it.
+- `web/src/lib/auth-errors.ts` — `classifyAuthError()`, which sorts Supabase's
+  English error prose into causes. Both apps translate the cause. No imports,
+  so Pro can pull it in without the course's Vite-only code.
 - `web/src/tokens.css` — the palette and type scale. Both apps `@import` it.
   Pro repoints the family names at the variables `next/font` generates, because
   it self-hosts the faces rather than linking them from Google.
@@ -141,6 +144,10 @@ Append-only. Newest last.
 - Market data provider (needs to cover forex **and** CFDs — indices, gold, oil).
   Built behind an interface so the source can be swapped. Options presented in Phase 2.
 - A real MT4/MT5 history export to test the CSV importer against.
+- **User action:** add `https://tradingetal-pro.vercel.app/**` to Supabase →
+  Authentication → URL Configuration → Redirect URLs. Pro's sign-up sends
+  `emailRedirectTo` back to Pro, but Supabase ignores it unless the origin is on
+  that list, and the confirmation link goes to the course instead.
 - Supabase's advisor flags leaked-password protection as disabled. Turning it on
   checks new passwords against HaveIBeenPwned. It would also apply to course
   sign-ups, so it is the user's call.
@@ -153,6 +160,11 @@ Append-only. Newest last.
    - ✅ Schema: profiles, trading_accounts, instruments (40 seeded), trades. RLS
      verified against the live database with two real user ids.
    - ✅ Auth, bilingual routing with RTL, sign-in screen.
+   - ✅ Review pass (2026-09-22): fixed sizing losing a lot step to float error
+     (live in the course too), duplicate Arabic field ids on the home-page plate,
+     trades able to reference another user's account, per-row RLS evaluation,
+     untranslated auth errors, missing email redirect, unstyled 404. Sizing now
+     has 11 unit tests.
    - ⏳ Account settings, instruments screen, trade entry, CSV import, trade list.
 2. Calculations: position size, volatility, risk rules, pre-trade check. Full unit tests.
 3. Analytics and dashboard.
