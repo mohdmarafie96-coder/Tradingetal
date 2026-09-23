@@ -1,0 +1,22 @@
+/* The course's stylesheet, with the reset it was written against.
+   Tailwind 3's base layer used to provide that reset; the course uses no
+   utility classes, so the reset is all it needs. Unlayered and first, as it was
+   under Vite, so every course rule overrides it. */
+@import "tailwindcss/preflight.css";
+@import "../../course/index.css";
+
+/* The tokens name the families as strings, which assumes a stylesheet loaded
+   them. The site self-hosts through next/font instead, so the token values are
+   repointed at the variables it generates. Fallback order is unchanged. */
+:root {
+  --font-display: var(--font-display-face), var(--font-arabic-face), system-ui, sans-serif;
+  --font-prose: var(--font-body-face), var(--font-arabic-face), system-ui, sans-serif;
+  --font-ui: var(--font-body-face), var(--font-arabic-face), system-ui, -apple-system, sans-serif;
+  --font-num: var(--font-num-face), ui-monospace, monospace;
+}
+
+:root[lang="ar"] {
+  --font-display: var(--font-arabic-face), var(--font-display-face), system-ui, sans-serif;
+  --font-prose: var(--font-arabic-face), var(--font-body-face), system-ui, sans-serif;
+  --font-ui: var(--font-arabic-face), var(--font-body-face), system-ui, sans-serif;
+}

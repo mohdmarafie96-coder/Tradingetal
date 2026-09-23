@@ -1,7 +1,0 @@
-node_modules/
-dist/
-package-lock.json
-
-# Regenerated from the course markdown on every build by
-# scripts/generate-content.mjs. The committed versions are placeholders that
-# exist so imports resolve during linting and type-checking.
