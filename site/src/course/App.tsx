@@ -195,6 +195,11 @@ function App() {
             <kbd className="kbd">&#8984;K</kbd>
           </button>
 
+          {/* One site: Pro is a section of it, a full page load away. */}
+          <a className="icon-btn pro-link" href={`/pro/${lang}`} aria-label={t.proLinkLabel}>
+            {t.proLink}
+          </a>
+
           <button className="icon-btn lang-btn" onClick={switchLang} aria-label={t.switchLang}>
             <Languages size={15} />
             <span>{other === 'ar' ? 'العربية' : 'EN'}</span>

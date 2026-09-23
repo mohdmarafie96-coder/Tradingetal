@@ -135,6 +135,22 @@ button {
   color: var(--ink);
 }
 
+/* Pro sits in the course's top bar as a word, set in the accent so it reads
+   as the way into the paid half of the site rather than as another icon. */
+.pro-link {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  text-decoration: none;
+  padding-inline: 12px;
+  width: auto;
+}
+
+.pro-link:hover {
+  color: var(--accent-strong);
+  text-decoration: none;
+}
+
 .lang-btn {
   font-size: var(--size-small);
   font-weight: 500;

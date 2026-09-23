@@ -49,6 +49,24 @@ export interface Strings {
   notFoundBody: string;
   notFoundHome: string;
 
+  upgradeTitle: string;
+  upgradeLede: string;
+  priceLabel: string;
+  pricePer: Record<'month' | 'year' | 'once', string>;
+  priceUnset: string;
+  howToPay: string;
+  noInstructions: string;
+  referenceLabel: string;
+  referenceHint: string;
+  requestAction: string;
+  pendingTitle: string;
+  pendingBody: string;
+  yourReference: string;
+  updateReference: string;
+  rejectedNote: string;
+  revokedNote: string;
+  requestFailed: string;
+
   dashboardTitle: string;
   noAccountYet: string;
   createTradingAccount: string;
@@ -97,6 +115,26 @@ const en: Strings = {
   notFoundBody: 'There is no page at this address.',
   notFoundHome: 'Go to the dashboard',
 
+  upgradeTitle: 'Upgrade to Pro',
+  upgradeLede:
+    'Pro checks your own trades against the risk rules the course teaches, and coaches you on your process. Pay by the method below, tell us your payment reference, and an admin switches Pro on once the payment is confirmed.',
+  priceLabel: 'Price',
+  pricePer: { month: 'a month', year: 'a year', once: 'once' },
+  priceUnset: 'The price has not been published yet.',
+  howToPay: 'How to pay',
+  noInstructions: 'Payment instructions have not been published yet. Please check back soon.',
+  referenceLabel: 'Payment reference',
+  referenceHint: 'The reference or transaction number from your payment, so it can be matched to you.',
+  requestAction: 'I have paid — request access',
+  pendingTitle: 'Awaiting approval',
+  pendingBody:
+    'Your request is in. An admin checks the payment and switches Pro on. You will see Pro here as soon as that happens.',
+  yourReference: 'Your reference',
+  updateReference: 'Update reference',
+  rejectedNote: 'Your last request was not approved. If you think that is a mistake, send a new request with your payment reference.',
+  revokedNote: 'Your Pro access has ended. You can request it again below.',
+  requestFailed: 'That did not go through. Please try again.',
+
   dashboardTitle: 'Dashboard',
   noAccountYet: 'No trading account set up yet.',
   createTradingAccount: 'Set up a trading account',
@@ -144,6 +182,25 @@ const ar: Strings = {
   notFoundTitle: 'الصفحة غير موجودة',
   notFoundBody: 'لا توجد صفحة على هذا العنوان.',
   notFoundHome: 'إلى لوحة المتابعة',
+
+  upgradeTitle: 'الترقية إلى Pro',
+  upgradeLede:
+    'يفحص Pro صفقاتك أنت وفق قواعد المخاطرة التي تعلّمها الدورة، ويدرّبك على طريقتك في التداول. ادفع بالطريقة الموضّحة أدناه، وأرسل لنا مرجع الدفع، وسيُفعِّل المشرف Pro بعد تأكيد الدفع.',
+  priceLabel: 'السعر',
+  pricePer: { month: 'شهريًا', year: 'سنويًا', once: 'مرة واحدة' },
+  priceUnset: 'لم يُعلَن السعر بعد.',
+  howToPay: 'طريقة الدفع',
+  noInstructions: 'لم تُنشر تعليمات الدفع بعد. يُرجى العودة قريبًا.',
+  referenceLabel: 'مرجع الدفع',
+  referenceHint: 'المرجع أو رقم العملية من دفعتك، لنتمكّن من مطابقتها معك.',
+  requestAction: 'دفعتُ — أطلب التفعيل',
+  pendingTitle: 'بانتظار الموافقة',
+  pendingBody: 'وصلنا طلبك. يتحقّق المشرف من الدفع ثم يفعّل Pro، وستجده هنا فور ذلك.',
+  yourReference: 'مرجعك',
+  updateReference: 'تحديث المرجع',
+  rejectedNote: 'لم تتم الموافقة على طلبك الأخير. إن كنت ترى أن ذلك خطأ، فأرسل طلبًا جديدًا مع مرجع الدفع.',
+  revokedNote: 'انتهى اشتراكك في Pro. يمكنك طلبه مجددًا أدناه.',
+  requestFailed: 'لم يتم ذلك. أعد المحاولة من فضلك.',
 
   dashboardTitle: 'لوحة المتابعة',
   noAccountYet: 'لم تُنشئ حساب تداول بعد.',

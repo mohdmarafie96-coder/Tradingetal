@@ -3,6 +3,8 @@ import { currentUser, supabaseServer } from '@/lib/supabase/server';
 import { stringsFor, type Lang } from '@/lib/i18n';
 import Shell from '@/components/Shell';
 import { proHref } from '@/lib/paths';
+import { readAccess } from '@/lib/membership';
+import Upgrade from '@/components/Upgrade';
 
 export default async function Dashboard({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params;
@@ -15,6 +17,17 @@ export default async function Dashboard({ params }: { params: Promise<{ lang: La
   // The profile row is created here rather than by a trigger on auth.users, so
   // that a fault in Pro can never stop someone signing up for the free course.
   await supabase.from('profiles').upsert({ id: user.id, lang }, { onConflict: 'id' });
+
+  // Pro is for approved members and admins. Everyone else signed in gets the
+  // upgrade page; the database, not this page, decides which they are.
+  const access = await readAccess(supabase, lang);
+  if (!access.hasPro) {
+    return (
+      <Shell lang={lang} email={user.email}>
+        <Upgrade lang={lang} access={access} />
+      </Shell>
+    );
+  }
 
   const { data: accounts } = await supabase
     .from('trading_accounts')

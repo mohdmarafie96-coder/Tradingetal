@@ -73,6 +73,9 @@ function Landing({ lang, onSignIn, onCreate, onSwitchLang }: Props) {
           <Logo variant="primary" size={158} />
         </a>
         <nav className="land-bar-actions">
+          <a className="btn btn-ghost btn-sm pro-link" href={`/pro/${lang}`} aria-label={t.proLinkLabel}>
+            {t.proLink}
+          </a>
           <button
             className="btn btn-ghost btn-sm lang-toggle"
             onClick={onSwitchLang}

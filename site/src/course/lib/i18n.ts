@@ -45,6 +45,8 @@ interface Strings {
   toDark: string;
   toLight: string;
   switchLang: string;
+  proLink: string;
+  proLinkLabel: string;
   pageLoadFailed: string;
   pendingTitle: string;
   pendingBody: string;
@@ -307,6 +309,8 @@ const en: Strings = {
   toDark: 'Switch to dark theme',
   toLight: 'Switch to light theme',
   switchLang: 'Switch to Arabic',
+  proLink: 'Pro',
+  proLinkLabel: 'Trading et al. Pro: coaching and risk checks on your own trades',
   pageLoadFailed: 'This page could not be loaded.',
   pendingTitle: 'Translation in progress',
   pendingBody: 'This page has not been translated yet. The English original is complete.',
@@ -600,6 +604,8 @@ const ar: Strings = {
   toDark: 'التبديل إلى المظهر الداكن',
   toLight: 'التبديل إلى المظهر الفاتح',
   switchLang: 'Switch to English',
+  proLink: 'Pro',
+  proLinkLabel: 'Trading et al. Pro: تدريب وفحص للمخاطر على صفقاتك أنت',
   pageLoadFailed: 'تعذّر تحميل هذه الصفحة.',
   pendingTitle: 'الترجمة قيد الإنجاز',
   pendingBody: 'لم تُترجَم هذه الصفحة بعد. والنسخة الإنجليزية منها كاملة.',
