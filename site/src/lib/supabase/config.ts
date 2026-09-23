@@ -1,10 +1,8 @@
 /**
  * Every piece of Supabase configuration lives here, and nowhere else.
  *
- * Pro and the course sit on different origins until a custom domain is bought,
- * so a signed-in course reader signs in again here. When the domain arrives,
- * making the session shared is a change to this one file (a cookie scoped to
- * the parent domain) plus a redeploy — not a rewrite.
+ * The course, Pro and the admin console share one origin, so one session
+ * cookie covers all three.
  *
  * The publishable key is designed to be public and is already in the course's
  * JavaScript bundle. Row Level Security, not this key, is what protects the
@@ -20,7 +18,8 @@ export const SUPABASE_PUBLISHABLE_KEY =
 
 
 /**
- * Set once the two apps share a parent domain, e.g. '.tradingetal.com'. Until
- * then the session cookie stays on Pro's own origin.
+ * Optional. Set to a parent domain, e.g. '.tradingetal.com', only if the site
+ * is ever split across subdomains. Unset, the cookie stays on the site's own
+ * origin, which is all one origin needs.
  */
 export const SESSION_COOKIE_DOMAIN = process.env.NEXT_PUBLIC_SESSION_COOKIE_DOMAIN || undefined;
