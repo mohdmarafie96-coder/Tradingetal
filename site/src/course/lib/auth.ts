@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import type { Session, User } from '@supabase/supabase-js';
-import { supabase } from './supabase';
+import { ARRIVED_FROM_LINK, landedFromResetLink, supabase } from './supabase';
 import { classifyAuthError as classify, type AuthError } from './auth-errors';
 
 export type AuthStatus = 'checking' | 'signed-out' | 'signed-in';
@@ -14,10 +14,24 @@ export interface Auth {
   busy: boolean;
   /** True after a signup that still needs the address confirming by email. */
   awaitingConfirmation: boolean;
+  /** True from a reset link's landing until the reader has set a new password. */
+  recovering: boolean;
+  /**
+   * True when the page was opened from an email link that did not sign the
+   * reader in: expired, already used, or opened in another browser.
+   */
+  linkFailed: boolean;
+  /** True once a reset link has been requested. */
+  resetSent: boolean;
+  /** True once the new password has been saved. */
+  passwordUpdated: boolean;
   signIn: (email: string, password: string) => Promise<void>;
   signUp: (email: string, password: string) => Promise<void>;
   signInWithGoogle: () => Promise<void>;
   signOut: () => Promise<void>;
+  sendReset: (email: string) => Promise<void>;
+  setNewPassword: (password: string) => Promise<void>;
+  finishRecovery: () => void;
   clearError: () => void;
 }
 
@@ -28,18 +42,29 @@ export function useAuth(): Auth {
   const [error, setError] = useState<AuthError>(null);
   const [busy, setBusy] = useState(false);
   const [awaitingConfirmation, setAwaitingConfirmation] = useState(false);
+  const [recovering, setRecovering] = useState(false);
+  const [linkFailed, setLinkFailed] = useState(false);
+  const [resetSent, setResetSent] = useState(false);
+  const [passwordUpdated, setPasswordUpdated] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
 
+    // getSession waits for the client to finish starting up, which includes
+    // swapping a link's code for a session.
     supabase.auth.getSession().then(({ data }) => {
       if (cancelled) return;
+      if (landedFromResetLink()) setRecovering(true);
+      if (ARRIVED_FROM_LINK && !data.session) setLinkFailed(true);
       apply(data.session);
     });
 
     // Covers sign-in, sign-out, token refresh and the OAuth redirect landing.
-    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (!cancelled) apply(session);
+    // A reset link also signs the reader in, and says so with PASSWORD_RECOVERY.
+    const { data: sub } = supabase.auth.onAuthStateChange((event, session) => {
+      if (cancelled) return;
+      if (event === 'PASSWORD_RECOVERY') setRecovering(true);
+      apply(session);
     });
 
     function apply(session: Session | null) {
@@ -103,9 +128,39 @@ export function useAuth(): Auth {
     setStatus('signed-out');
   }, []);
 
+  const sendReset = useCallback(async (email: string) => {
+    setBusy(true);
+    setError(null);
+    // The link signs the reader in on the course and opens the new-password
+    // screen. The origin is already on Supabase's redirect allow-list, since the
+    // Google sign-in returns to it too. Supabase answers the same way whether or
+    // not the address has an account, so this cannot be used to probe for one.
+    const { error: err } = await supabase.auth.resetPasswordForEmail(email.trim(), {
+      redirectTo: window.location.origin,
+    });
+    if (err) setError(classify(err.message, err.status));
+    else setResetSent(true);
+    setBusy(false);
+  }, []);
+
+  const setNewPassword = useCallback(async (password: string) => {
+    setBusy(true);
+    setError(null);
+    const { error: err } = await supabase.auth.updateUser({ password });
+    if (err) setError(classify(err.message, err.status));
+    else setPasswordUpdated(true);
+    setBusy(false);
+  }, []);
+
+  const finishRecovery = useCallback(() => {
+    setRecovering(false);
+    setPasswordUpdated(false);
+  }, []);
+
   const clearError = useCallback(() => {
     setError(null);
     setAwaitingConfirmation(false);
+    setResetSent(false);
   }, []);
 
   return {
@@ -114,10 +169,17 @@ export function useAuth(): Auth {
     error,
     busy,
     awaitingConfirmation,
+    recovering,
+    linkFailed,
+    resetSent,
+    passwordUpdated,
     signIn,
     signUp,
     signInWithGoogle,
     signOut,
+    sendReset,
+    setNewPassword,
+    finishRecovery,
     clearError,
   };
 }

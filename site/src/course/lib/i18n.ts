@@ -117,6 +117,24 @@ interface Strings {
   errProviderDisabled: string;
   errNetwork: string;
   errFailed: string;
+  authForgot: string;
+  resetTitle: string;
+  resetLede: string;
+  resetSubmit: string;
+  resetSentTitle: string;
+  resetSentBody: string;
+  resetBack: string;
+  resetLinkExpired: string;
+  newPasswordTitle: string;
+  newPasswordLede: string;
+  newPassword: string;
+  newPasswordConfirm: string;
+  newPasswordMismatch: string;
+  newPasswordSubmit: string;
+  newPasswordDoneTitle: string;
+  newPasswordDoneBody: string;
+  newPasswordContinue: string;
+  errSamePassword: string;
 
   quizClosedBook: string;
   quizCalculatorNote: string;
@@ -392,6 +410,24 @@ const en: Strings = {
   errProviderDisabled: 'That sign-in method is not switched on yet.',
   errNetwork: 'Could not reach the server. Check your connection and try again.',
   errFailed: 'That did not work. Please try again.',
+  authForgot: 'Forgot password?',
+  resetTitle: 'Reset your password',
+  resetLede: 'Enter the email you signed up with. We will send you a link to choose a new password.',
+  resetSubmit: 'Send reset link',
+  resetSentTitle: 'Check your email',
+  resetSentBody: 'If there is an account for that address, a link to choose a new password is on its way. Open it on this device, in this browser. It works once, and only for a limited time.',
+  resetBack: 'Back to sign in',
+  resetLinkExpired: 'That link did not work. It may have expired or been used already, or it was opened in a different browser from the one it was requested in. Ask for a new one below.',
+  newPasswordTitle: 'Choose a new password',
+  newPasswordLede: 'The reset link has signed you in. Choose the password you will use from now on.',
+  newPassword: 'New password',
+  newPasswordConfirm: 'Type it again',
+  newPasswordMismatch: 'The two passwords do not match.',
+  newPasswordSubmit: 'Save new password',
+  newPasswordDoneTitle: 'Password changed',
+  newPasswordDoneBody: 'Use your new password the next time you sign in.',
+  newPasswordContinue: 'Continue',
+  errSamePassword: 'That is your current password. Choose a different one.',
 
   quizClosedBook: 'Closed book. Your answers are marked when you submit, not before.',
   quizCalculatorNote: 'Calculator permitted.',
@@ -684,6 +720,24 @@ const ar: Strings = {
   errProviderDisabled: 'طريقة الدخول هذه غير مفعَّلة بعد.',
   errNetwork: 'تعذّر الوصول إلى الخادم. تحقّق من اتصالك ثم أعد المحاولة.',
   errFailed: 'لم ينجح ذلك. أعد المحاولة من فضلك.',
+  authForgot: 'نسيت كلمة المرور؟',
+  resetTitle: 'إعادة تعيين كلمة المرور',
+  resetLede: 'أدخل البريد الإلكتروني الذي سجّلت به، وسنرسل إليك رابطًا لاختيار كلمة مرور جديدة.',
+  resetSubmit: 'أرسل رابط إعادة التعيين',
+  resetSentTitle: 'تحقّق من بريدك الإلكتروني',
+  resetSentBody: 'إن كان هناك حساب بهذا العنوان، فرابط اختيار كلمة مرور جديدة في طريقه إليك. افتحه على هذا الجهاز وفي هذا المتصفح. يعمل الرابط مرة واحدة ولمدة محدودة.',
+  resetBack: 'العودة إلى تسجيل الدخول',
+  resetLinkExpired: 'لم ينجح هذا الرابط. ربما انتهت صلاحيته أو سبق استخدامه، أو فُتح في متصفح غير الذي طُلب منه. اطلب رابطًا جديدًا أدناه.',
+  newPasswordTitle: 'اختر كلمة مرور جديدة',
+  newPasswordLede: 'سجّلت الدخول عبر رابط إعادة التعيين. اختر كلمة المرور التي ستستخدمها من الآن فصاعدًا.',
+  newPassword: 'كلمة المرور الجديدة',
+  newPasswordConfirm: 'أعد كتابتها',
+  newPasswordMismatch: 'كلمتا المرور غير متطابقتين.',
+  newPasswordSubmit: 'احفظ كلمة المرور الجديدة',
+  newPasswordDoneTitle: 'تم تغيير كلمة المرور',
+  newPasswordDoneBody: 'استخدم كلمة المرور الجديدة في المرة القادمة التي تسجّل فيها الدخول.',
+  newPasswordContinue: 'متابعة',
+  errSamePassword: 'هذه كلمة مرورك الحالية. اختر كلمة مختلفة.',
 
   quizClosedBook: 'كتاب مغلق. تُصحَّح إجاباتك عند التسليم لا قبله.',
   quizCalculatorNote: 'والآلة الحاسبة مسموحة.',

@@ -12,6 +12,7 @@ export type AuthError =
   | 'bad-credentials'
   | 'already-registered'
   | 'weak-password'
+  | 'same-password'
   | 'invalid-email'
   | 'rate-limited'
   | 'provider-disabled'
@@ -25,6 +26,9 @@ export function classifyAuthError(message: string, status?: number): Exclude<Aut
   if (m.includes('already registered') || m.includes('already been registered')) {
     return 'already-registered';
   }
+  // Checked before the weak-password case: Supabase words this one
+  // "New password should be different from the old password".
+  if (m.includes('different from the old password')) return 'same-password';
   if (m.includes('password should be') || m.includes('weak password')) return 'weak-password';
   if (m.includes('invalid email') || m.includes('unable to validate email')) return 'invalid-email';
   if (m.includes('rate limit') || status === 429) return 'rate-limited';

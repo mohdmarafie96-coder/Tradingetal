@@ -39,6 +39,7 @@ export interface Strings {
   signUpAction: string;
   signInSwitchToUp: string;
   signInSwitchToIn: string;
+  forgotPassword: string;
   courseAccountNote: string;
   checkEmail: string;
   passwordTooShort: string;
@@ -96,6 +97,7 @@ const en: Strings = {
   signUpAction: 'Create account',
   signInSwitchToUp: 'New here? Create an account.',
   signInSwitchToIn: 'Already have an account? Sign in.',
+  forgotPassword: 'Forgot password?',
   courseAccountNote:
     'Your course account works here — the same email and password. You are asked to sign in again because the two sites sit on different addresses for now.',
   checkEmail: 'Check your email to confirm the address, then sign in.',
@@ -104,6 +106,7 @@ const en: Strings = {
     'bad-credentials': 'That email and password do not match an account.',
     'already-registered': 'There is already an account with that email. Sign in instead.',
     'weak-password': 'That password is too short. Use at least 8 characters.',
+    'same-password': 'That is your current password. Choose a different one.',
     'invalid-email': 'That does not look like an email address.',
     'rate-limited': 'Too many attempts. Wait a minute and try again.',
     'provider-disabled': 'That sign-in method is not switched on yet.',
@@ -164,6 +167,7 @@ const ar: Strings = {
   signUpAction: 'إنشاء حساب',
   signInSwitchToUp: 'أول مرة هنا؟ أنشئ حسابًا.',
   signInSwitchToIn: 'لديك حساب بالفعل؟ سجّل الدخول.',
+  forgotPassword: 'نسيت كلمة المرور؟',
   courseAccountNote:
     'حسابك في الدورة يعمل هنا — البريد وكلمة المرور نفسهما. نطلب منك تسجيل الدخول مرة أخرى لأن الموقعين على عنوانين مختلفين في الوقت الحالي.',
   checkEmail: 'تحقّق من بريدك لتأكيد العنوان، ثم سجّل الدخول.',
@@ -172,6 +176,7 @@ const ar: Strings = {
     'bad-credentials': 'لا يطابق هذا البريد وكلمة المرور أي حساب.',
     'already-registered': 'يوجد حساب بهذا البريد بالفعل. سجّل الدخول بدلًا من ذلك.',
     'weak-password': 'كلمة المرور قصيرة جدًّا. استخدم ثمانية أحرف على الأقل.',
+    'same-password': 'هذه كلمة مرورك الحالية. اختر كلمة مختلفة.',
     'invalid-email': 'هذا لا يبدو عنوان بريد إلكتروني.',
     'rate-limited': 'محاولات كثيرة جدًّا. انتظر دقيقة ثم أعد المحاولة.',
     'provider-disabled': 'طريقة الدخول هذه غير مفعَّلة بعد.',

@@ -82,6 +82,10 @@ export default function AdminLoginForm() {
       <button className="btn btn-primary" type="submit" disabled={busy}>
         Sign in
       </button>
+      {/* The admin password is the account's own, so it resets the same way. */}
+      <a className="linklike" href="/#/en/reset">
+        Forgot password?
+      </a>
     </form>
   );
 }

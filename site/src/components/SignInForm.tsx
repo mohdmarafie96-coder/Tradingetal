@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { supabaseBrowser } from '@/lib/supabase/client';
 import { stringsFor, type Lang } from '@/lib/i18n';
 import { classifyAuthError } from '@course/lib/auth-errors';
-import { proHref } from '@/lib/paths';
+import { courseHref, proHref } from '@/lib/paths';
 
 export default function SignInForm({ lang }: { lang: Lang }) {
   const t = stringsFor(lang);
@@ -109,6 +109,13 @@ export default function SignInForm({ lang }: { lang: Lang }) {
       >
         {mode === 'in' ? t.signInSwitchToUp : t.signInSwitchToIn}
       </button>
+
+      {/* One account for the whole site, so the course's reset form serves Pro too. */}
+      {mode === 'in' && (
+        <a className="linklike" href={courseHref(lang, 'reset')}>
+          {t.forgotPassword}
+        </a>
+      )}
     </form>
   );
 }

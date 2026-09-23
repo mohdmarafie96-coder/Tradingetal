@@ -10,17 +10,24 @@ interface Props {
   busy: boolean;
   error: AuthError;
   awaitingConfirmation: boolean;
-  /** Which tab opens first: the sign-up link on the home page opens "up". */
-  initialMode: 'in' | 'up';
+  /** True once a reset link has been sent. */
+  resetSent: boolean;
+  /** Which form opens first: the sign-up link on the home page opens "up". */
+  initialMode: Mode;
   /** Why the reader is here, when they arrived by following a course link. */
   prompt: string | null;
+  /** A problem with the link the reader arrived by, such as an expired reset link. */
+  notice: string | null;
   onSignIn: (email: string, password: string) => void;
   onSignUp: (email: string, password: string) => void;
   onGoogle: () => void;
+  onSendReset: (email: string) => void;
   onSwitchLang: () => void;
   onClearError: () => void;
   onHome: () => void;
 }
+
+type Mode = 'in' | 'up' | 'reset';
 
 /**
  * The public face of the course. Everything past this point needs an account,
@@ -33,17 +40,20 @@ function SignIn({
   busy,
   error,
   awaitingConfirmation,
+  resetSent,
   initialMode,
   prompt,
+  notice,
   onSignIn,
   onSignUp,
   onGoogle,
+  onSendReset,
   onSwitchLang,
   onClearError,
   onHome,
 }: Props) {
   const { t } = useStrings(lang);
-  const [mode, setMode] = useState<'in' | 'up'>(initialMode);
+  const [mode, setMode] = useState<Mode>(initialMode);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -51,6 +61,7 @@ function SignIn({
     'bad-credentials': t.errBadCredentials,
     'already-registered': t.errAlreadyRegistered,
     'weak-password': t.errWeakPassword,
+    'same-password': t.errSamePassword,
     'invalid-email': t.errInvalidEmail,
     'rate-limited': t.errRateLimited,
     'provider-disabled': t.errProviderDisabled,
@@ -58,13 +69,17 @@ function SignIn({
     failed: t.errFailed,
   };
 
-  const switchMode = (next: 'in' | 'up') => {
+  const switchMode = (next: Mode) => {
     setMode(next);
     onClearError();
   };
 
   const submit = (event: FormEvent) => {
     event.preventDefault();
+    if (mode === 'reset') {
+      if (email) onSendReset(email);
+      return;
+    }
     if (!email || !password) return;
     if (mode === 'in') onSignIn(email, password);
     else onSignUp(email, password);
@@ -85,6 +100,11 @@ function SignIn({
         <h1>{t.heroTitle}</h1>
 
         {prompt && <p className="signin-prompt">{prompt}</p>}
+        {notice && (
+          <p className="signin-error" role="alert">
+            {notice}
+          </p>
+        )}
 
         <div className="gate-stat">
           <div className="gate-stat-num">{t.gateStatNum}</div>
@@ -102,7 +122,47 @@ function SignIn({
           </ul>
         </div>
 
-        {awaitingConfirmation ? (
+        {mode === 'reset' ? (
+          <div className="signin-reset">
+            <h2 className="signin-reset-title">{t.resetTitle}</h2>
+            {resetSent ? (
+              <div className="signin-confirm" role="status">
+                <Mail size={18} />
+                <div>
+                  <strong>{t.resetSentTitle}</strong>
+                  <p>{t.resetSentBody}</p>
+                </div>
+              </div>
+            ) : (
+              <form className="signin-form" onSubmit={submit}>
+                <p className="signin-reset-lede">{t.resetLede}</p>
+                <label className="field">
+                  <span className="field-label">{t.authEmail}</span>
+                  <input
+                    type="email"
+                    autoComplete="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </label>
+
+                {error && (
+                  <p className="signin-error" role="alert">
+                    {messages[error]}
+                  </p>
+                )}
+
+                <button className="btn btn-primary btn-wide" type="submit" disabled={busy}>
+                  {busy ? t.signInBusy : t.resetSubmit}
+                </button>
+              </form>
+            )}
+            <button className="signin-switch" onClick={() => switchMode('in')}>
+              {t.resetBack}
+            </button>
+          </div>
+        ) : awaitingConfirmation ? (
           <div className="signin-confirm" role="status">
             <Mail size={18} />
             <div>
@@ -155,6 +215,16 @@ function SignIn({
                 />
                 {mode === 'up' && <span className="field-hint">{t.authPasswordHint}</span>}
               </label>
+
+              {mode === 'in' && (
+                <button
+                  type="button"
+                  className="signin-forgot"
+                  onClick={() => switchMode('reset')}
+                >
+                  {t.authForgot}
+                </button>
+              )}
 
               {error && (
                 <p className="signin-error" role="alert">

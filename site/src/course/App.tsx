@@ -7,9 +7,11 @@ import Calculator from './components/Calculator';
 import SearchPanel from './components/SearchPanel';
 import RiskGate from './components/RiskGate';
 import SignIn from './components/SignIn';
+import SetPassword from './components/SetPassword';
 import Landing from './components/Landing';
 import { hrefFor, navigate, replaceRoute, useRoute } from './lib/router';
 import { useAuth } from './lib/auth';
+import { ARRIVED_FROM_LINK } from './lib/supabase';
 import { useStore } from './lib/store';
 import { useTheme } from './lib/theme';
 import { useRiskGate } from './lib/gate';
@@ -26,10 +28,17 @@ function App() {
     error: authError,
     busy,
     awaitingConfirmation,
+    recovering,
+    linkFailed,
+    resetSent,
+    passwordUpdated,
     signIn,
     signUp,
     signInWithGoogle,
     signOut,
+    sendReset,
+    setNewPassword,
+    finishRecovery,
     clearError,
   } = useAuth();
   const signedIn = status === 'signed-in';
@@ -41,8 +50,8 @@ function App() {
 
   const course = courseFor(lang);
   const isHome = pageId === '';
-  // The two public routes. Everything else is the course, which needs an account.
-  const isSignIn = pageId === 'signin' || pageId === 'signup';
+  // The public routes. Everything else is the course, which needs an account.
+  const isSignIn = pageId === 'signin' || pageId === 'signup' || pageId === 'reset';
   const isCalculator = pageId === 'calculator';
   const meta = course.pageById.get(pageId);
   // A quiz page is titled by its paper ("Module 00 Quiz"), not by the generic
@@ -51,9 +60,25 @@ function App() {
 
   // A URL with no language segment is rewritten to the canonical one, so every
   // page can be shared in the language it was read in.
+  // An email link's landing waits until the client has started up: until then
+  // the URL is Supabase's to read.
+  const readingLink = ARRIVED_FROM_LINK && status === 'checking';
   useEffect(() => {
-    if (inferred) replaceRoute(lang, pageId);
-  }, [inferred, lang, pageId]);
+    if (inferred && !readingLink) replaceRoute(lang, pageId);
+  }, [inferred, readingLink, lang, pageId]);
+
+  // An email link that did not sign the reader in goes to the reset form,
+  // which explains why and offers a fresh link. The spent code or error comes
+  // out of the address bar, so a reload does not try it again.
+  useEffect(() => {
+    if (!linkFailed) return;
+    window.history.replaceState(
+      window.history.state,
+      '',
+      `${window.location.pathname}${hrefFor(lang, 'reset')}`,
+    );
+    window.dispatchEvent(new HashChangeEvent('hashchange'));
+  }, [linkFailed, lang]);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -118,6 +143,24 @@ function App() {
     return <div className="boot" aria-busy="true" />;
   }
 
+  // A reset link signs the reader in. Choosing the new password comes before
+  // anything else.
+  if (recovering && signedIn) {
+    return (
+      <SetPassword
+        lang={lang}
+        busy={busy}
+        error={authError}
+        done={passwordUpdated}
+        onSave={setNewPassword}
+        onContinue={() => {
+          finishRecovery();
+          navigate(lang, '');
+        }}
+      />
+    );
+  }
+
   if (!signedIn) {
     // The home page is public; the course is not. A deep link into the course
     // shows the sign-in screen without changing the route, so signing in lands
@@ -133,17 +176,25 @@ function App() {
       );
     }
 
+    const initialMode = pageId === 'signup' ? 'up' : pageId === 'reset' ? 'reset' : 'in';
+
     return (
       <SignIn
+        // Remounted when the route changes the form, e.g. a "reset" link
+        // followed while the sign-in form is open.
+        key={initialMode}
         lang={lang}
         busy={busy}
         error={authError}
         awaitingConfirmation={awaitingConfirmation}
-        initialMode={pageId === 'signup' ? 'up' : 'in'}
+        resetSent={resetSent}
+        initialMode={initialMode}
         prompt={isSignIn ? null : t.landSignInPrompt}
+        notice={linkFailed && pageId === 'reset' && !resetSent ? t.resetLinkExpired : null}
         onSignIn={signIn}
         onSignUp={signUp}
         onGoogle={signInWithGoogle}
+        onSendReset={sendReset}
         onSwitchLang={switchLang}
         onClearError={clearError}
         onHome={() => navigate(lang, '')}

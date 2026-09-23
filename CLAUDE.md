@@ -49,9 +49,21 @@ Every part of the site uses `@supabase/ssr`, which keeps the session in a
 cookie. That means one sign-in covers the course, Pro and the admin console,
 and server code can see who is signed in.
 
-- The course client (`site/src/course/lib/supabase.ts`) keeps
-  `flowType: 'implicit'`. A confirmation link then works even when it is
-  opened on a different device from the one that signed up.
+- `@supabase/ssr` always uses the PKCE flow and ignores a `flowType` option.
+  An email link (sign-up confirmation, password reset) returns with a one-time
+  `?code=`, which only the browser that asked for the link can exchange for a
+  session.
+  - Opened anywhere else, a confirmation link still confirms the address, and
+    the reader signs in by hand.
+  - A reset link opened anywhere else cannot be used. The site sends the reader
+    to the reset form with an explanation.
+- **Password reset** happens in the course: `#/{lang}/reset`, or "Forgot
+  password?" on the sign-in form. The Pro and admin sign-in pages link to it.
+  - The link lands on `/?code=...`. `landedFromResetLink()` in
+    `site/src/course/lib/supabase.ts` records the client's PASSWORD_RECOVERY
+    event, and the app then shows the new-password screen before anything else.
+  - A failed link (`error_code`, or a code that did not sign anyone in) opens
+    the reset form with an explanation.
 - Readers who were signed in under the old static course kept their session
   in localStorage, so they sign in once more after the merge.
 - `site/src/proxy.ts` is Next 16's name for middleware. It does four things:
