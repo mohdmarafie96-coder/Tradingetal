@@ -151,6 +151,15 @@ button {
   text-decoration: none;
 }
 
+/* Seven 44px controls do not fit a phone's top bar. These two move to the
+   side menu, which carries them at every width. */
+@media (max-width: 560px) {
+  .topbar .pro-link,
+  .topbar .password-btn {
+    display: none;
+  }
+}
+
 .lang-btn {
   font-size: var(--size-small);
   font-weight: 500;

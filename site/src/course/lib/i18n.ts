@@ -135,6 +135,10 @@ interface Strings {
   newPasswordDoneBody: string;
   newPasswordContinue: string;
   errSamePassword: string;
+  changePassword: string;
+  changePasswordTitle: string;
+  changePasswordLede: string;
+  changePasswordCancel: string;
 
   quizClosedBook: string;
   quizCalculatorNote: string;
@@ -428,6 +432,10 @@ const en: Strings = {
   newPasswordDoneBody: 'Use your new password the next time you sign in.',
   newPasswordContinue: 'Continue',
   errSamePassword: 'That is your current password. Choose a different one.',
+  changePassword: 'Change password',
+  changePasswordTitle: 'Change your password',
+  changePasswordLede: 'Choose a new password for this account. Use it with your email the next time you sign in.',
+  changePasswordCancel: 'Cancel',
 
   quizClosedBook: 'Closed book. Your answers are marked when you submit, not before.',
   quizCalculatorNote: 'Calculator permitted.',
@@ -738,6 +746,10 @@ const ar: Strings = {
   newPasswordDoneBody: 'استخدم كلمة المرور الجديدة في المرة القادمة التي تسجّل فيها الدخول.',
   newPasswordContinue: 'متابعة',
   errSamePassword: 'هذه كلمة مرورك الحالية. اختر كلمة مختلفة.',
+  changePassword: 'تغيير كلمة المرور',
+  changePasswordTitle: 'غيّر كلمة المرور',
+  changePasswordLede: 'اختر كلمة مرور جديدة لهذا الحساب، واستخدمها مع بريدك الإلكتروني في المرة القادمة التي تسجّل فيها الدخول.',
+  changePasswordCancel: 'إلغاء',
 
   quizClosedBook: 'كتاب مغلق. تُصحَّح إجاباتك عند التسليم لا قبله.',
   quizCalculatorNote: 'والآلة الحاسبة مسموحة.',

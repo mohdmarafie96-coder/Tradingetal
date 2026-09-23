@@ -1,5 +1,13 @@
 import { useEffect, useState } from 'react';
-import { BookOpen, Calculator, ChevronRight, FileText, ShieldAlert } from 'lucide-react';
+import {
+  BookOpen,
+  Calculator,
+  ChevronRight,
+  FileText,
+  KeyRound,
+  ShieldAlert,
+  Sparkles,
+} from 'lucide-react';
 import Logo from './Logo';
 import { hrefFor } from '../lib/router';
 import { useStrings, type Lang } from '../lib/i18n';
@@ -151,6 +159,21 @@ function Sidebar({ lang, activeId, completed, open, onNavigate }: Props) {
             <span className="nav-link-text">{page.title}</span>
           </a>
         ))}
+
+        {/* Also in the top bar, which has no room for them on a phone. */}
+        <div className="nav-section">{t.account}</div>
+        <a href={`/pro/${lang}`} className="nav-link" aria-label={t.proLinkLabel}>
+          <Sparkles size={14} />
+          <span className="nav-link-text">{t.proLink}</span>
+        </a>
+        <a
+          href={hrefFor(lang, 'password')}
+          className={`nav-link${activeId === 'password' ? ' is-active' : ''}`}
+          onClick={onNavigate}
+        >
+          <KeyRound size={14} />
+          <span className="nav-link-text">{t.changePassword}</span>
+        </a>
       </nav>
     </aside>
   );

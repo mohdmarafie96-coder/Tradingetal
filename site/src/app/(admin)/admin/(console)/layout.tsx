@@ -29,6 +29,8 @@ export default async function ConsoleLayout({ children }: { children: React.Reac
         <div className="console-foot">
           <a href="/">View the site</a>
           <span className="console-who">{user.email}</span>
+          {/* One account for the whole site, so the course's screen serves here too. */}
+          <a href="/#/en/password">Change password</a>
           <AdminSignOut />
         </div>
       </aside>

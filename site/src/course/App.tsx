@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Languages, LogOut, Menu, Moon, Search as SearchIcon, Sun } from 'lucide-react';
+import { KeyRound, Languages, LogOut, Menu, Moon, Search as SearchIcon, Sun } from 'lucide-react';
 import Sidebar from './components/Sidebar';
 import Home from './components/Home';
 import PageView from './components/PageView';
@@ -152,11 +152,34 @@ function App() {
         busy={busy}
         error={authError}
         done={passwordUpdated}
+        mode="reset"
         onSave={setNewPassword}
         onContinue={() => {
           finishRecovery();
           navigate(lang, '');
         }}
+      />
+    );
+  }
+
+  // "Change password", for a reader who is signed in. Signed out, the route
+  // falls through to the sign-in screen and returns here afterwards.
+  if (signedIn && pageId === 'password') {
+    const back = () => {
+      finishRecovery();
+      clearError();
+      navigate(lang, '');
+    };
+    return (
+      <SetPassword
+        lang={lang}
+        busy={busy}
+        error={authError}
+        done={passwordUpdated}
+        mode="change"
+        onSave={setNewPassword}
+        onContinue={back}
+        onCancel={back}
       />
     );
   }
@@ -263,6 +286,15 @@ function App() {
           >
             {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
           </button>
+
+          <a
+            className="icon-btn password-btn"
+            href={hrefFor(lang, 'password')}
+            aria-label={t.changePassword}
+            title={t.changePassword}
+          >
+            <KeyRound size={16} />
+          </a>
 
           <button className="icon-btn" onClick={leave} aria-label={t.signOut}>
             <LogOut size={16} />

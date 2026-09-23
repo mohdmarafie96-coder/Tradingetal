@@ -73,6 +73,19 @@ and server code can see who is signed in.
     link up. The reader would then see "That link did not work" and ask for
     another. The full fix is a custom email template that links to the site
     with `{{ .TokenHash }}`, verified with `verifyOtp`.
+- **Change password**, for a reader who is signed in, is `#/{lang}/password`.
+  It uses the same screen as a reset (`SetPassword.tsx`), with no email
+  involved. It is also how an account that has only used Google gets a
+  password. It is reached from:
+  - a key button in the course top bar;
+  - the "Account" section of the side menu;
+  - the admin console's sidebar.
+  On phones (560px and below) the top bar hides its Pro and key buttons, since
+  seven 44px controls do not fit, and the side menu carries both.
+- **Supabase's built-in email sends about 2 emails an hour for the whole
+  project.** A third reset or sign-up email inside the hour fails with "Too
+  many attempts". Connect a real SMTP provider (Supabase → Authentication →
+  SMTP) before students rely on email.
 - Readers who were signed in under the old static course kept their session
   in localStorage, so they sign in once more after the merge.
 - `site/src/proxy.ts` is Next 16's name for middleware. It does four things:

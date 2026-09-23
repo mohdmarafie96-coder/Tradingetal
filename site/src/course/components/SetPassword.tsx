@@ -9,15 +9,21 @@ interface Props {
   busy: boolean;
   error: AuthError;
   done: boolean;
+  /** 'reset' after a reset link; 'change' when a signed-in reader chose to. */
+  mode: 'reset' | 'change';
   onSave: (password: string) => void;
   onContinue: () => void;
+  /** Change mode only: leave without changing anything. */
+  onCancel?: () => void;
 }
 
 /**
- * Where a password-reset link lands. The link has already signed the reader
- * in; this screen asks for the password they will use from now on.
+ * Sets a new password for the signed-in reader. It serves two routes in:
+ * - a reset link, which has already signed the reader in;
+ * - "Change password", for a reader who is signed in and wants a password,
+ *   for instance one who has only ever used Google.
  */
-function SetPassword({ lang, busy, error, done, onSave, onContinue }: Props) {
+function SetPassword({ lang, busy, error, done, mode, onSave, onContinue, onCancel }: Props) {
   const { t } = useStrings(lang);
   const [password, setPassword] = useState('');
   const [again, setAgain] = useState('');
@@ -52,7 +58,13 @@ function SetPassword({ lang, busy, error, done, onSave, onContinue }: Props) {
           <Logo variant="primary" size={180} />
         </div>
 
-        <h1>{done ? t.newPasswordDoneTitle : t.newPasswordTitle}</h1>
+        <h1>
+          {done
+            ? t.newPasswordDoneTitle
+            : mode === 'change'
+              ? t.changePasswordTitle
+              : t.newPasswordTitle}
+        </h1>
 
         {done ? (
           <>
@@ -68,7 +80,9 @@ function SetPassword({ lang, busy, error, done, onSave, onContinue }: Props) {
           </>
         ) : (
           <form className="signin-form" onSubmit={submit}>
-            <p className="signin-reset-lede">{t.newPasswordLede}</p>
+            <p className="signin-reset-lede">
+              {mode === 'change' ? t.changePasswordLede : t.newPasswordLede}
+            </p>
 
             <label className="field">
               <span className="field-label">{t.newPassword}</span>
@@ -104,6 +118,12 @@ function SetPassword({ lang, busy, error, done, onSave, onContinue }: Props) {
             <button className="btn btn-primary btn-wide" type="submit" disabled={busy}>
               {busy ? t.signInBusy : t.newPasswordSubmit}
             </button>
+
+            {onCancel && (
+              <button type="button" className="signin-switch" onClick={onCancel}>
+                {t.changePasswordCancel}
+              </button>
+            )}
           </form>
         )}
       </div>
