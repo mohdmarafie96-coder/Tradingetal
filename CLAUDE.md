@@ -55,15 +55,24 @@ and server code can see who is signed in.
   session.
   - Opened anywhere else, a confirmation link still confirms the address, and
     the reader signs in by hand.
-  - A reset link opened anywhere else cannot be used. The site sends the reader
-    to the reset form with an explanation.
 - **Password reset** happens in the course: `#/{lang}/reset`, or "Forgot
   password?" on the sign-in form. The Pro and admin sign-in pages link to it.
-  - The link lands on `/?code=...`. `landedFromResetLink()` in
-    `site/src/course/lib/supabase.ts` records the client's PASSWORD_RECOVERY
-    event, and the app then shows the new-password screen before anything else.
+  - Reset links must work on any device, because people ask on a computer and
+    open the email on their phone. The first version used PKCE and failed
+    exactly that way in production. So `requestPasswordReset()` in
+    `site/src/course/lib/supabase.ts` calls `/auth/v1/recover` directly,
+    without a PKCE challenge, and Supabase sends an implicit-flow link.
+  - That link lands on `/#access_token=...&type=recovery`. The tokens are read
+    and the fragment is cleared before the client is created, because the
+    PKCE-only client would reject them. `setSession` then installs them, and
+    the app shows the new-password screen before anything else.
   - A failed link (`error_code`, or a code that did not sign anyone in) opens
     the reset form with an explanation.
+  - Known limit: Gmail's link scanner requests the link a few seconds after
+    the reader does. If it ever got there first, it would use the one-time
+    link up. The reader would then see "That link did not work" and ask for
+    another. The full fix is a custom email template that links to the site
+    with `{{ .TokenHash }}`, verified with `verifyOtp`.
 - Readers who were signed in under the old static course kept their session
   in localStorage, so they sign in once more after the merge.
 - `site/src/proxy.ts` is Next 16's name for middleware. It does four things:

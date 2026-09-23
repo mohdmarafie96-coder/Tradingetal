@@ -1,6 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
 import type { Session, User } from '@supabase/supabase-js';
-import { ARRIVED_FROM_LINK, landedFromResetLink, supabase } from './supabase';
+import {
+  ARRIVED_FROM_LINK,
+  landedFromResetLink,
+  linkSettled,
+  requestPasswordReset,
+  supabase,
+} from './supabase';
 import { classifyAuthError as classify, type AuthError } from './auth-errors';
 
 export type AuthStatus = 'checking' | 'signed-out' | 'signed-in';
@@ -49,22 +55,31 @@ export function useAuth(): Auth {
 
   useEffect(() => {
     let cancelled = false;
+    let unsubscribe = () => {};
 
-    // getSession waits for the client to finish starting up, which includes
-    // swapping a link's code for a session.
-    supabase.auth.getSession().then(({ data }) => {
+    // Nothing is read until a reset link's session is in place. Otherwise the
+    // page would flash as signed out and then as signed in.
+    linkSettled.then(() => {
       if (cancelled) return;
-      if (landedFromResetLink()) setRecovering(true);
-      if (ARRIVED_FROM_LINK && !data.session) setLinkFailed(true);
-      apply(data.session);
-    });
 
-    // Covers sign-in, sign-out, token refresh and the OAuth redirect landing.
-    // A reset link also signs the reader in, and says so with PASSWORD_RECOVERY.
-    const { data: sub } = supabase.auth.onAuthStateChange((event, session) => {
-      if (cancelled) return;
-      if (event === 'PASSWORD_RECOVERY') setRecovering(true);
-      apply(session);
+      // getSession waits for the client to finish starting up, which includes
+      // swapping a link's code for a session.
+      supabase.auth.getSession().then(({ data }) => {
+        if (cancelled) return;
+        if (landedFromResetLink()) setRecovering(true);
+        if (ARRIVED_FROM_LINK && !data.session) setLinkFailed(true);
+        apply(data.session);
+      });
+
+      // Covers sign-in, sign-out, token refresh and the OAuth redirect landing.
+      // A PKCE reset link also signs the reader in, and says so with
+      // PASSWORD_RECOVERY.
+      const { data: sub } = supabase.auth.onAuthStateChange((event, session) => {
+        if (cancelled) return;
+        if (event === 'PASSWORD_RECOVERY') setRecovering(true);
+        apply(session);
+      });
+      unsubscribe = () => sub.subscription.unsubscribe();
     });
 
     function apply(session: Session | null) {
@@ -74,7 +89,7 @@ export function useAuth(): Auth {
 
     return () => {
       cancelled = true;
-      sub.subscription.unsubscribe();
+      unsubscribe();
     };
   }, []);
 
@@ -132,12 +147,11 @@ export function useAuth(): Auth {
     setBusy(true);
     setError(null);
     // The link signs the reader in on the course and opens the new-password
-    // screen. The origin is already on Supabase's redirect allow-list, since the
-    // Google sign-in returns to it too. Supabase answers the same way whether or
-    // not the address has an account, so this cannot be used to probe for one.
-    const { error: err } = await supabase.auth.resetPasswordForEmail(email.trim(), {
-      redirectTo: window.location.origin,
-    });
+    // screen, on whichever device it is opened (see requestPasswordReset). The
+    // origin is already on Supabase's redirect allow-list, since the Google
+    // sign-in returns to it too. Supabase answers the same way whether or not
+    // the address has an account, so this cannot be used to probe for one.
+    const err = await requestPasswordReset(email.trim(), window.location.origin);
     if (err) setError(classify(err.message, err.status));
     else setResetSent(true);
     setBusy(false);
