@@ -48,6 +48,12 @@ export interface Strings {
 
   notFoundTitle: string;
   notFoundBody: string;
+
+  soonKicker: string;
+  soonTitle: string;
+  soonLede: string;
+  soonNote: string;
+  soonAction: string;
   notFoundHome: string;
 
   upgradeTitle: string;
@@ -116,6 +122,13 @@ const en: Strings = {
 
   notFoundTitle: 'Page not found',
   notFoundBody: 'There is no page at this address.',
+
+  soonKicker: 'Coming soon',
+  soonTitle: 'Pro is on its way',
+  soonLede:
+    'Coaching and risk checks on your own trades: a trade journal, position sizing and risk rules worked out for you, and a coach that reviews your habits.',
+  soonNote: 'Pro is not open yet. The course stays free, so keep learning while it is finished.',
+  soonAction: 'Back to the course',
   notFoundHome: 'Go to the dashboard',
 
   upgradeTitle: 'Upgrade to Pro',
@@ -186,6 +199,13 @@ const ar: Strings = {
 
   notFoundTitle: 'الصفحة غير موجودة',
   notFoundBody: 'لا توجد صفحة على هذا العنوان.',
+
+  soonKicker: 'قريبًا',
+  soonTitle: 'Pro في الطريق',
+  soonLede:
+    'تدريب وفحص للمخاطر على صفقاتك أنت: سجلّ للصفقات، وحجم المركز وقواعد المخاطر محسوبة لك، ومدرّب يراجع عاداتك في التداول.',
+  soonNote: 'لم يُفتح Pro بعد. تبقى الدورة مجانية، فتابع التعلّم ريثما يكتمل.',
+  soonAction: 'العودة إلى الدورة',
   notFoundHome: 'إلى لوحة المتابعة',
 
   upgradeTitle: 'الترقية إلى Pro',

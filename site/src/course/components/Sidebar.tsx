@@ -12,6 +12,7 @@ import Logo from './Logo';
 import { hrefFor } from '../lib/router';
 import { useStrings, type Lang } from '../lib/i18n';
 import { courseFor } from '../content/manifest';
+import { PRO_OPEN } from '@/lib/launch';
 
 interface Props {
   lang: Lang;
@@ -165,6 +166,7 @@ function Sidebar({ lang, activeId, completed, open, onNavigate }: Props) {
         <a href={`/pro/${lang}`} className="nav-link" aria-label={t.proLinkLabel}>
           <Sparkles size={14} />
           <span className="nav-link-text">{t.proLink}</span>
+          {!PRO_OPEN && <span className="soon-badge">{t.proSoon}</span>}
         </a>
         <a
           href={hrefFor(lang, 'password')}

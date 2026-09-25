@@ -36,8 +36,17 @@ free and readable without an account. Pro is additive, always.
 - The generated files are committed as placeholders. **Always run
   `git checkout -- site/src/course/content` before committing**, or the
   placeholders get overwritten with build output.
-- The course has a "Pro" link in its header and on its home page. It points
-  at `/pro/{lang}`.
+- The course has a "Pro" link in its header, its side menu and on its home
+  page. It points at `/pro/{lang}`.
+- **Pro is "coming soon"** while `PRO_OPEN` in `site/src/lib/launch.ts` is
+  false:
+  - `site/src/proxy.ts` rewrites every `/pro/...` address to
+    `/pro/{lang}/soon` for anyone who is not an admin. The address bar keeps
+    the address that was asked for. Admins still see the real Pro.
+  - The course's Pro links carry a "Soon" badge.
+  - While Pro is closed, no student can reach the upgrade form, so no payment
+    requests arrive.
+  - Opening Pro means setting `PRO_OPEN = true` and deploying.
 - **Tests:**
   - Vitest covers the financial maths (`npm test` in `site/`).
   - The browser checks for the course run with Playwright against a local
@@ -318,6 +327,7 @@ Append-only. Newest last.
 5. Payments and upgrade funnel. The manual flow is live; card payments are
    still to do.
 6. Launch. Checklist so far:
+   - Set `PRO_OPEN = true` in `site/src/lib/launch.ts`.
    - Delete the retired `tradingetal-pro` Vercel project once nobody uses the
      old address.
 

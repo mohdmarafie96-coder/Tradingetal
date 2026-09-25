@@ -12,6 +12,7 @@ import Landing from './components/Landing';
 import { hrefFor, navigate, replaceRoute, useRoute } from './lib/router';
 import { useAuth } from './lib/auth';
 import { ARRIVED_FROM_LINK } from './lib/supabase';
+import { PRO_OPEN } from '@/lib/launch';
 import { useStore } from './lib/store';
 import { useTheme } from './lib/theme';
 import { useRiskGate } from './lib/gate';
@@ -272,6 +273,7 @@ function App() {
           {/* One site: Pro is a section of it, a full page load away. */}
           <a className="icon-btn pro-link" href={`/pro/${lang}`} aria-label={t.proLinkLabel}>
             {t.proLink}
+            {!PRO_OPEN && <span className="soon-badge">{t.proSoon}</span>}
           </a>
 
           <button className="icon-btn lang-btn" onClick={switchLang} aria-label={t.switchLang}>

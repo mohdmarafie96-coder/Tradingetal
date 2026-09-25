@@ -5,6 +5,7 @@ import { courseFor } from '../content/manifest';
 import { QUIZZES } from '../content/quiz';
 import { useStrings, type Lang } from '../lib/i18n';
 import { sizePosition } from '../lib/sizing';
+import { PRO_OPEN } from '@/lib/launch';
 
 interface Props {
   lang: Lang;
@@ -70,11 +71,18 @@ function Landing({ lang, onSignIn, onCreate, onSwitchLang }: Props) {
     <div className="land" ref={root}>
       <header className="land-bar">
         <a className="land-brand" href={`#/${lang}`} aria-label="Trading et al.">
-          <Logo variant="primary" size={158} />
+          {/* The lockup cannot go below 120px, so the smallest phones get the mark. */}
+          <span className="land-logo-full">
+            <Logo variant="primary" size={158} />
+          </span>
+          <span className="land-logo-mark">
+            <Logo variant="mark" size={32} />
+          </span>
         </a>
         <nav className="land-bar-actions">
           <a className="btn btn-ghost btn-sm pro-link" href={`/pro/${lang}`} aria-label={t.proLinkLabel}>
             {t.proLink}
+            {!PRO_OPEN && <span className="soon-badge">{t.proSoon}</span>}
           </a>
           <button
             className="btn btn-ghost btn-sm lang-toggle"

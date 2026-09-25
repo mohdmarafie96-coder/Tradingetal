@@ -2,6 +2,7 @@ import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 import { SUPABASE_PUBLISHABLE_KEY, SUPABASE_URL } from '@/lib/supabase/config';
 import { LANGS, isLang, type Lang } from '@/lib/i18n';
+import { PRO_OPEN } from '@/lib/launch';
 
 /** First language the browser asks for that we actually publish in. */
 function preferredLang(request: NextRequest): Lang {
@@ -85,7 +86,23 @@ export async function proxy(request: NextRequest) {
   });
 
   // getUser, not getSession: this call is what actually refreshes the token.
-  await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  // Until Pro opens, every Pro address shows the coming-soon page, except to
+  // an admin. It is a rewrite, not a redirect, so the address stays as asked
+  // and opening Pro changes nothing a visitor has bookmarked.
+  if (!PRO_OPEN && first === 'pro' && segments[3] !== 'soon') {
+    const admin = user ? (await supabase.rpc('is_admin')).data === true : false;
+    if (!admin) {
+      const url = request.nextUrl.clone();
+      url.pathname = `/pro/${segments[2]}/soon`;
+      const rewrite = NextResponse.rewrite(url, { request });
+      for (const cookie of response.cookies.getAll()) rewrite.cookies.set(cookie);
+      return rewrite;
+    }
+  }
 
   return response;
 }
