@@ -267,6 +267,9 @@ function Landing({ lang, onSignIn, onCreate, onSwitchLang }: Props) {
         <div className="land-foot-inner">
           <Logo variant="mark" size={32} />
           <p>{t.gateFoot}</p>
+          <a className="land-foot-link" href={`/privacy/${lang}`}>
+            {t.privacyLink}
+          </a>
         </div>
       </footer>
     </div>

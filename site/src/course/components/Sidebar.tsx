@@ -5,6 +5,7 @@ import {
   ChevronRight,
   FileText,
   KeyRound,
+  Shield,
   ShieldAlert,
   Sparkles,
 } from 'lucide-react';
@@ -175,6 +176,10 @@ function Sidebar({ lang, activeId, completed, open, onNavigate }: Props) {
         >
           <KeyRound size={14} />
           <span className="nav-link-text">{t.changePassword}</span>
+        </a>
+        <a href={`/privacy/${lang}`} className="nav-link">
+          <Shield size={14} />
+          <span className="nav-link-text">{t.privacyLink}</span>
         </a>
       </nav>
     </aside>

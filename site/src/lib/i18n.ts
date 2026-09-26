@@ -30,6 +30,7 @@ export interface Strings {
   createAccount: string;
   switchLang: string;
   backToCourse: string;
+  privacyLink: string;
 
   signInTitle: string;
   signInLede: string;
@@ -93,6 +94,7 @@ const en: Strings = {
   createAccount: 'Create an account',
   switchLang: 'Switch language',
   backToCourse: 'The course',
+  privacyLink: 'Privacy policy',
 
   signInTitle: 'Sign in to Pro',
   signInLede:
@@ -170,6 +172,7 @@ const ar: Strings = {
   createAccount: 'أنشئ حسابًا',
   switchLang: 'تغيير اللغة',
   backToCourse: 'الدورة',
+  privacyLink: 'سياسة الخصوصية',
 
   signInTitle: 'تسجيل الدخول إلى Pro',
   signInLede:

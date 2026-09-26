@@ -15,6 +15,9 @@ has three parts, each a route group with its own root layout:
 | Who | Anyone, no account needed | Members approved by an admin | Rows in `public.admins` |
 | Language | EN + AR | EN + AR | English only |
 
+The privacy policy is a fourth, static route group, `site/src/app/(legal)`,
+at `/privacy/{en,ar}`; see "Privacy policy" below.
+
 URL: https://tradingetal.vercel.app. The old Pro address,
 `tradingetal-pro.*`, is retired: `site/src/proxy.ts` answers it with a 308 to
 the main site.
@@ -102,6 +105,35 @@ and server code can see who is signed in.
   - sends `/pro` to `/pro/{lang}`;
   - sends the old bare `/en` and `/ar` paths to `/pro/...`;
   - redirects the retired host.
+
+## Privacy policy
+
+- `/privacy/en` and `/privacy/ar`, pre-rendered at build time. The proxy sends
+  `/privacy` to the reader's language.
+- The text lives in `site/src/lib/privacy.ts`. It names Mohammed Marafie as
+  the controller and mohdmarafie96@gmail.com as the contact; the user chose
+  both, knowing the address becomes public.
+- **Every statement in it must stay true of the code and the providers.** When
+  a change affects any of these, update `privacy.ts` in the same commit and
+  move `UPDATED` forward:
+  - a new table or field holding personal data;
+  - a new provider (the AI coach's model provider is the next one);
+  - analytics, or a new cookie.
+- Facts it relies on:
+  - Supabase stores data in eu-central-1 (Frankfurt).
+  - Vercel functions run in iad1 (US).
+  - There are no analytics or trackers, and fonts are self-hosted.
+  - The only cookies are the session cookies.
+  - localStorage holds theme, language, the risk-notice acknowledgement, and
+    legacy signed-out progress.
+- In the Arabic text, Latin runs (the brand, names, the email address) are
+  wrapped in left-to-right isolates by `LTR()`, so their punctuation stays put.
+- Linked from:
+  - the course home page footer;
+  - the sign-in screen;
+  - the side menu's Account section;
+  - Pro's footer (the Shell, which the coming-soon page uses too).
+- Not legal advice. Have it reviewed before Pro opens and takes payments.
 
 ## Membership, payments and the admin
 
@@ -327,6 +359,8 @@ Append-only. Newest last.
 5. Payments and upgrade funnel. The manual flow is live; card payments are
    still to do.
 6. Launch. Checklist so far:
+   - Update the privacy policy for the AI coach's provider, and have it
+     reviewed.
    - Set `PRO_OPEN = true` in `site/src/lib/launch.ts`.
    - Delete the retired `tradingetal-pro` Vercel project once nobody uses the
      old address.

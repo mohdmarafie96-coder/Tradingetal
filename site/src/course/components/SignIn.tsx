@@ -270,6 +270,9 @@ function SignIn({
         </div>
 
         <p className="gate-foot">{t.gateFoot}</p>
+        <p className="gate-foot">
+          <a href={`/privacy/${lang}`}>{t.privacyLink}</a>
+        </p>
       </div>
     </div>
   );

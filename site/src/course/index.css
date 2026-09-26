@@ -3033,6 +3033,24 @@ button {
   color: var(--ink-muted);
 }
 
+.land-foot-link {
+  flex: none;
+  margin-inline-start: auto;
+  font-size: var(--size-small);
+  line-height: 1.65;
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .land-foot-inner {
+    flex-wrap: wrap;
+  }
+
+  .land-foot-link {
+    margin-inline-start: 0;
+  }
+}
+
 /* --- right to left --- */
 
 [dir="rtl"] .mark-num::before {

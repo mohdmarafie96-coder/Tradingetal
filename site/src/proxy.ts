@@ -59,13 +59,14 @@ export async function proxy(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
-  // Pro pages sit under a language segment: that is what lets the Pro root
-  // layout put lang and dir on the document element, which the shared tokens
-  // need for the Arabic type. /pro and /pro/signin get one.
-  if (first === 'pro' && !isLang(segments[2] ?? '')) {
+  // Pro and the privacy policy sit under a language segment: that is what lets
+  // their root layouts put lang and dir on the document element, which the
+  // shared tokens need for the Arabic type. /pro, /pro/signin and /privacy get
+  // one.
+  if ((first === 'pro' || first === 'privacy') && !isLang(segments[2] ?? '')) {
     const rest = segments.slice(2).filter(Boolean).join('/');
     const url = request.nextUrl.clone();
-    url.pathname = `/pro/${preferredLang(request)}${rest ? `/${rest}` : ''}`;
+    url.pathname = `/${first}/${preferredLang(request)}${rest ? `/${rest}` : ''}`;
     return NextResponse.redirect(url);
   }
 

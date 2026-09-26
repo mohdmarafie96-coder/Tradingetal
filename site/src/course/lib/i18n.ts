@@ -48,6 +48,7 @@ interface Strings {
   proLink: string;
   proLinkLabel: string;
   proSoon: string;
+  privacyLink: string;
   pageLoadFailed: string;
   pendingTitle: string;
   pendingBody: string;
@@ -335,6 +336,7 @@ const en: Strings = {
   proLink: 'Pro',
   proLinkLabel: 'Trading et al. Pro, coming soon: coaching and risk checks on your own trades',
   proSoon: 'Soon',
+  privacyLink: 'Privacy policy',
   pageLoadFailed: 'This page could not be loaded.',
   pendingTitle: 'Translation in progress',
   pendingBody: 'This page has not been translated yet. The English original is complete.',
@@ -653,6 +655,7 @@ const ar: Strings = {
   proLink: 'Pro',
   proLinkLabel: 'Trading et al. Pro، قريبًا: تدريب وفحص للمخاطر على صفقاتك أنت',
   proSoon: 'قريبًا',
+  privacyLink: 'سياسة الخصوصية',
   pageLoadFailed: 'تعذّر تحميل هذه الصفحة.',
   pendingTitle: 'الترجمة قيد الإنجاز',
   pendingBody: 'لم تُترجَم هذه الصفحة بعد. والنسخة الإنجليزية منها كاملة.',

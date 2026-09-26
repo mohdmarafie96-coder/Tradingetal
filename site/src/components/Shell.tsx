@@ -41,6 +41,9 @@ export default function Shell({
 
       <footer className="foot">
         <p>{t.notAdvice}</p>
+        <p>
+          <a href={`/privacy/${lang}`}>{t.privacyLink}</a>
+        </p>
       </footer>
     </div>
   );
