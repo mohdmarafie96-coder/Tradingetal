@@ -49,6 +49,16 @@ interface Strings {
   proLinkLabel: string;
   proSoon: string;
   privacyLink: string;
+  deleteAccount: string;
+  deleteTitle: string;
+  deleteLede: string;
+  deleteKept: string;
+  deleteConfirmLabel: string;
+  deleteSubmit: string;
+  deleteMismatch: string;
+  deleteAdmin: string;
+  deleteDoneTitle: string;
+  deleteDoneBody: string;
   pageLoadFailed: string;
   pendingTitle: string;
   pendingBody: string;
@@ -337,6 +347,16 @@ const en: Strings = {
   proLinkLabel: 'Trading et al. Pro, coming soon: coaching and risk checks on your own trades',
   proSoon: 'Soon',
   privacyLink: 'Privacy policy',
+  deleteAccount: 'Delete account',
+  deleteTitle: 'Delete your account',
+  deleteLede: 'This permanently deletes your account and everything in it: your progress through the course, your quiz results and, if you used Pro, your trading accounts and trades. It cannot be undone.',
+  deleteKept: 'Records of any payments are kept for as long as the law requires, as the privacy policy explains. You can create a new account at any time.',
+  deleteConfirmLabel: 'To confirm, type the email address of this account',
+  deleteSubmit: 'Delete my account',
+  deleteMismatch: 'That is not the email address of this account.',
+  deleteAdmin: 'An admin account cannot be deleted here. Remove it from the admin list first.',
+  deleteDoneTitle: 'Your account has been deleted',
+  deleteDoneBody: 'Everything in it has been removed, and you have been signed out. Thank you for learning with us.',
   pageLoadFailed: 'This page could not be loaded.',
   pendingTitle: 'Translation in progress',
   pendingBody: 'This page has not been translated yet. The English original is complete.',
@@ -656,6 +676,16 @@ const ar: Strings = {
   proLinkLabel: 'Trading et al. Pro، قريبًا: تدريب وفحص للمخاطر على صفقاتك أنت',
   proSoon: 'قريبًا',
   privacyLink: 'سياسة الخصوصية',
+  deleteAccount: 'حذف الحساب',
+  deleteTitle: 'احذف حسابك',
+  deleteLede: 'يحذف هذا حسابك نهائيًا مع كل ما فيه: تقدّمك في الدورة، ونتائج اختباراتك، وحسابات التداول وصفقاتك إن كنت استخدمت Pro. ولا يمكن التراجع عنه.',
+  deleteKept: 'تُحفظ سجلات أي دفعات طوال المدة التي يفرضها القانون، كما توضّح سياسة الخصوصية. ويمكنك إنشاء حساب جديد في أي وقت.',
+  deleteConfirmLabel: 'للتأكيد، اكتب عنوان البريد الإلكتروني لهذا الحساب',
+  deleteSubmit: 'احذف حسابي',
+  deleteMismatch: 'هذا ليس عنوان البريد الإلكتروني لهذا الحساب.',
+  deleteAdmin: 'لا يمكن حذف حساب مشرف من هنا. أزِله من قائمة المشرفين أولًا.',
+  deleteDoneTitle: 'حُذف حسابك',
+  deleteDoneBody: 'أُزيل كل ما فيه، وسُجّل خروجك. شكرًا لتعلّمك معنا.',
   pageLoadFailed: 'تعذّر تحميل هذه الصفحة.',
   pendingTitle: 'الترجمة قيد الإنجاز',
   pendingBody: 'لم تُترجَم هذه الصفحة بعد. والنسخة الإنجليزية منها كاملة.',

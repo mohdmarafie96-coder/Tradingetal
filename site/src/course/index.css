@@ -2232,6 +2232,45 @@ button {
   text-decoration: underline;
 }
 
+/* Delete account: a destructive action, so it is outlined in the loss colour
+   (a warning, which is what semantic colour is for), never filled with it. */
+.btn-danger {
+  background: transparent;
+  border: 1px solid var(--loss);
+  color: var(--loss);
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: var(--loss-bg);
+}
+
+.btn-danger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.delete-warning {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid color-mix(in srgb, var(--loss) 35%, transparent);
+  background: var(--loss-bg);
+  border-radius: var(--radius-card);
+  color: var(--ink);
+}
+
+.delete-warning svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--loss);
+}
+
+.delete-warning p {
+  margin: 0;
+  font-size: var(--size-ui);
+  line-height: 1.55;
+}
+
 /* "Forgot password?" sits under the password field, at its trailing edge. */
 .signin-forgot {
   align-self: flex-end;

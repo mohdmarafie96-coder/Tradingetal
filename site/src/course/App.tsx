@@ -8,6 +8,7 @@ import SearchPanel from './components/SearchPanel';
 import RiskGate from './components/RiskGate';
 import SignIn from './components/SignIn';
 import SetPassword from './components/SetPassword';
+import DeleteAccount, { AccountDeleted } from './components/DeleteAccount';
 import Landing from './components/Landing';
 import { hrefFor, navigate, replaceRoute, useRoute } from './lib/router';
 import { useAuth } from './lib/auth';
@@ -26,6 +27,7 @@ function App() {
   const { t } = useStrings(lang);
   const {
     status,
+    user,
     error: authError,
     busy,
     awaitingConfirmation,
@@ -33,6 +35,8 @@ function App() {
     linkFailed,
     resetSent,
     passwordUpdated,
+    deleteError,
+    accountDeleted,
     signIn,
     signUp,
     signInWithGoogle,
@@ -40,6 +44,8 @@ function App() {
     sendReset,
     setNewPassword,
     finishRecovery,
+    deleteAccount,
+    leaveDeleted,
     clearError,
   } = useAuth();
   const signedIn = status === 'signed-in';
@@ -144,6 +150,20 @@ function App() {
     return <div className="boot" aria-busy="true" />;
   }
 
+  // Straight after a deletion the reader is signed out; this says so before
+  // the home page comes back.
+  if (accountDeleted) {
+    return (
+      <AccountDeleted
+        lang={lang}
+        onHome={() => {
+          leaveDeleted();
+          navigate(lang, '');
+        }}
+      />
+    );
+  }
+
   // A reset link signs the reader in. Choosing the new password comes before
   // anything else.
   if (recovering && signedIn) {
@@ -181,6 +201,22 @@ function App() {
         onSave={setNewPassword}
         onContinue={back}
         onCancel={back}
+      />
+    );
+  }
+
+  if (signedIn && pageId === 'delete-account') {
+    return (
+      <DeleteAccount
+        lang={lang}
+        busy={busy}
+        error={deleteError}
+        email={user?.email ?? ''}
+        onDelete={deleteAccount}
+        onCancel={() => {
+          clearError();
+          navigate(lang, '');
+        }}
       />
     );
   }

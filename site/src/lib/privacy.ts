@@ -115,7 +115,7 @@ export const POLICY: Record<Lang, Policy> = {
         heading: 'Your choices and rights',
         paragraphs: [
           `You can ask us for a copy of your data, to correct it, to delete it or your whole account, or to stop using it for a particular purpose. Email ${CONTACT_EMAIL} from the address on your account, and we will reply within 30 days.`,
-          'You can change your password at any time from the course, and sign out on any device.',
+          'You can delete your account yourself at any time: in the course, open the menu and choose Account, then Delete account. You can also change your password there, and sign out on any device.',
           'If you think we have handled your data wrongly, please tell us first. You can also complain to the data protection authority where you live.',
         ],
       },
@@ -222,7 +222,7 @@ export const POLICY: Record<Lang, Policy> = {
         heading: 'خياراتك وحقوقك',
         paragraphs: [
           `يمكنك أن تطلب منا نسخة من بياناتك، أو تصحيحها، أو حذفها أو حذف حسابك كاملًا، أو التوقّف عن استخدامها لغرض معيّن. راسل ${LTR(CONTACT_EMAIL)} من العنوان المسجّل في حسابك، وسنردّ خلال 30 يومًا.`,
-          'يمكنك تغيير كلمة المرور في أي وقت من داخل الدورة، وتسجيل الخروج على أي جهاز.',
+          'يمكنك حذف حسابك بنفسك في أي وقت: افتح القائمة داخل الدورة واختر الحساب، ثم حذف الحساب. ويمكنك من هناك أيضًا تغيير كلمة المرور، وتسجيل الخروج على أي جهاز.',
           'إن رأيت أننا تعاملنا مع بياناتك بشكل خاطئ، فأخبرنا أولًا من فضلك. ويمكنك أيضًا تقديم شكوى إلى هيئة حماية البيانات في بلدك.',
         ],
       },

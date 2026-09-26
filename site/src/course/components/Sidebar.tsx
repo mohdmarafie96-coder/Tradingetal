@@ -8,6 +8,7 @@ import {
   Shield,
   ShieldAlert,
   Sparkles,
+  Trash2,
 } from 'lucide-react';
 import Logo from './Logo';
 import { hrefFor } from '../lib/router';
@@ -176,6 +177,14 @@ function Sidebar({ lang, activeId, completed, open, onNavigate }: Props) {
         >
           <KeyRound size={14} />
           <span className="nav-link-text">{t.changePassword}</span>
+        </a>
+        <a
+          href={hrefFor(lang, 'delete-account')}
+          className={`nav-link${activeId === 'delete-account' ? ' is-active' : ''}`}
+          onClick={onNavigate}
+        >
+          <Trash2 size={14} />
+          <span className="nav-link-text">{t.deleteAccount}</span>
         </a>
         <a href={`/privacy/${lang}`} className="nav-link">
           <Shield size={14} />

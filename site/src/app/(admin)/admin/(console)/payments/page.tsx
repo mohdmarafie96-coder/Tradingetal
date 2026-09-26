@@ -4,7 +4,8 @@ import { DeletePayment } from '@/admin/actions';
 
 interface Row {
   id: string;
-  user_id: string;
+  /** Null once the payer has deleted their account; the record is kept. */
+  user_id: string | null;
   email: string;
   amount: number;
   currency: string;
@@ -40,7 +41,13 @@ export default async function Payments() {
             {rows.map((p) => (
               <tr key={p.id}>
                 <td>{when(p.paid_at)}</td>
-                <td><Link href={`/admin/users/${p.user_id}`}>{p.email}</Link></td>
+                <td>
+                  {p.user_id ? (
+                    <Link href={`/admin/users/${p.user_id}`}>{p.email}</Link>
+                  ) : (
+                    <>{p.email ?? '—'} <span className="muted">(account deleted)</span></>
+                  )}
+                </td>
                 <td className="num">{money(p.amount, p.currency)}</td>
                 <td>{p.method}</td>
                 <td className="num">{p.reference ?? '—'}</td>

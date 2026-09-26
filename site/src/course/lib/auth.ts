@@ -31,6 +31,10 @@ export interface Auth {
   resetSent: boolean;
   /** True once the new password has been saved. */
   passwordUpdated: boolean;
+  /** Why the last attempt to delete the account failed, if it did. */
+  deleteError: DeleteError;
+  /** True from a successful deletion until the reader leaves the goodbye screen. */
+  accountDeleted: boolean;
   signIn: (email: string, password: string) => Promise<void>;
   signUp: (email: string, password: string) => Promise<void>;
   signInWithGoogle: () => Promise<void>;
@@ -38,8 +42,13 @@ export interface Auth {
   sendReset: (email: string) => Promise<void>;
   setNewPassword: (password: string) => Promise<void>;
   finishRecovery: () => void;
+  deleteAccount: (confirmEmail: string) => Promise<void>;
+  leaveDeleted: () => void;
   clearError: () => void;
 }
+
+/** 'mismatch': the typed address is not the account's; 'admin': admins cannot. */
+export type DeleteError = 'mismatch' | 'admin' | 'network' | 'failed' | null;
 
 /** Supabase reports failures as prose; this maps them to something actionable. */
 export function useAuth(): Auth {
@@ -52,6 +61,8 @@ export function useAuth(): Auth {
   const [linkFailed, setLinkFailed] = useState(false);
   const [resetSent, setResetSent] = useState(false);
   const [passwordUpdated, setPasswordUpdated] = useState(false);
+  const [deleteError, setDeleteError] = useState<DeleteError>(null);
+  const [accountDeleted, setAccountDeleted] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -166,6 +177,37 @@ export function useAuth(): Auth {
     setBusy(false);
   }, []);
 
+  // The database deletes the account and everything in it
+  // (delete_own_account); here the reader is then signed out of this browser.
+  // The server session no longer exists, so the sign-out is local only.
+  const deleteAccount = useCallback(async (confirmEmail: string) => {
+    setBusy(true);
+    setDeleteError(null);
+    const { error: err } = await supabase.rpc('delete_own_account', {
+      p_confirm_email: confirmEmail,
+    });
+    if (err) {
+      setDeleteError(
+        err.code === '22023'
+          ? 'mismatch'
+          : err.code === '42501'
+            ? 'admin'
+            : classify(err.message) === 'network'
+              ? 'network'
+              : 'failed',
+      );
+      setBusy(false);
+      return;
+    }
+    setAccountDeleted(true);
+    await supabase.auth.signOut({ scope: 'local' });
+    setUser(null);
+    setStatus('signed-out');
+    setBusy(false);
+  }, []);
+
+  const leaveDeleted = useCallback(() => setAccountDeleted(false), []);
+
   const finishRecovery = useCallback(() => {
     setRecovering(false);
     setPasswordUpdated(false);
@@ -175,6 +217,7 @@ export function useAuth(): Auth {
     setError(null);
     setAwaitingConfirmation(false);
     setResetSent(false);
+    setDeleteError(null);
   }, []);
 
   return {
@@ -187,6 +230,8 @@ export function useAuth(): Auth {
     linkFailed,
     resetSent,
     passwordUpdated,
+    deleteError,
+    accountDeleted,
     signIn,
     signUp,
     signInWithGoogle,
@@ -194,6 +239,8 @@ export function useAuth(): Auth {
     sendReset,
     setNewPassword,
     finishRecovery,
+    deleteAccount,
+    leaveDeleted,
     clearError,
   };
 }

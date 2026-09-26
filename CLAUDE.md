@@ -94,6 +94,21 @@ and server code can see who is signed in.
   - the admin console's sidebar.
   On phones (560px and below) the top bar hides its Pro and key buttons, since
   seven 44px controls do not fit, and the side menu carries both.
+- **Delete account**, for a reader who is signed in, is
+  `#/{lang}/delete-account`, reached from the side menu's Account section.
+  - The reader types the account's email address to confirm.
+  - `delete_own_account(p_confirm_email)` checks the address again inside the
+    database, then deletes the `auth.users` row. Everything else follows it
+    through `ON DELETE CASCADE`: progress, attempts, profile, trading accounts,
+    instruments, trades and membership.
+  - Payments are the exception, because the privacy policy says they are kept.
+    Before the delete, the payer's email is copied to `payments.payer_email`;
+    `payments.user_id` then becomes null (migration
+    `20260926120000_delete_own_account.sql`).
+  - An admin cannot delete their own account this way; remove them from
+    `public.admins` first.
+  - Afterwards the browser signs out locally, and a "Your account has been
+    deleted" screen shows.
 - **Supabase's built-in email sends about 2 emails an hour for the whole
   project.** A third reset or sign-up email inside the hour fails with "Too
   many attempts". Connect a real SMTP provider (Supabase → Authentication →
